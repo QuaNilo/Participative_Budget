@@ -1,0 +1,57 @@
+<?php
+
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\ProposalsController;
+use App\Http\Controllers\UserController;
+use App\Livewire\ShowMap;
+use App\Livewire\ShowProposals;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('home');
+
+/* NÂO meti isto porque usei um middleware para fazer a validação do recaptcha ver se faz sentido usar em todo o lado isto
+Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'), [\App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
+    ->middleware(['guest:'.config('fortify.guard')])
+    ->name('password.email');*/
+
+Route::get('/profile', [UserController::class,'meEdit'])->name('users.me_edit');
+Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
+Route::get('/propostas', [ProposalsController::class, 'index'])->name('propostas');
+Route::get('/contact-us', [\App\Http\Controllers\ContactController::class,'create'])->name('contacts.create');
+Route::get('/cookies-policy', [\App\Http\Controllers\HomeController::class,'cookies'])->name('home.cookies');
+Route::get('/privacy-policy', [\App\Http\Controllers\HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
+Route::get('/privacy-policy-1', [\App\Http\Controllers\HomeController::class,'privacyPolicy'])->name('policy.show');
+Route::get('/terms-of-service', [\App\Http\Controllers\HomeController::class,'termsOfService'])->name('home.terms_of_service');
+Route::get('dark-mode-switcher', [\App\Http\Controllers\DarkModeController::class, 'switch'])->name('dark-mode-switcher');
+Route::get('color-scheme-switcher/{color_scheme}', [\App\Http\Controllers\ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->prefix('admin')->group(function () {
+    Route::get('/', [\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
+
+
+    Route::patch('/user/profile', [App\Http\Controllers\UserController::class, 'updateMe'])->name('users.update_me');
+    Route::resource('users', App\Http\Controllers\UserController::class);
+
+    Route::impersonate();
+
+    Route::resource('settings', App\Http\Controllers\SettingController::class); //TODO este controller e crud não está ainda feito
+    Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
+
+    Route::resource('demos', App\Http\Controllers\DemoController::class);
+});
