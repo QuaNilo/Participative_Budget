@@ -2,27 +2,40 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Citizen;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
- */
+use App\Models\User;
+
 class CitizenFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Citizen::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
-    public function definition(): array
+    public function definition()
     {
+     // Create or retrieve a random user
+    $user = User::inRandomOrder()->first() ?? User::factory()->create();
+
+
         return [
-            'user_id' => User::factory(),
-            'CC' => $this->faker->unique()->numberBetween([100000000, 999999999]),
-            'CC_verified_at' => now(),
-            'CC_verified' => True,
-            'address' => $this->faker->unique()->address
+            'user_id' => $user->id,
+            'CC' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'CC_verified_at' => $this->faker->date('Y-m-d H:i:s'),
+            'CC_verified' => $this->faker->boolean,
+            'address' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'remember_token' => $this->faker->text($this->faker->numberBetween(5, 100)),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

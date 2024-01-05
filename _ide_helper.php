@@ -21855,6 +21855,41 @@
         }
          
     }
+            /**
+     * 
+     *
+     */ 
+        class MorphMany {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class MorphOneOrMany {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class HasOneOrMany {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class BelongsTo {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class HasMany {
+         
+    }
      
 }
 

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\chat;
 use App\Models\Permission;
+use App\Models\Proposal;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\vote;
@@ -75,5 +76,6 @@ class DatabaseSeeder extends Seeder
         }
         Vote::factory(10)->create();
         Chat::factory(5)->create();
+        Proposal::factory(5)->create();
     }
 }

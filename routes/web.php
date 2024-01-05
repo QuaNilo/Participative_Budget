@@ -36,13 +36,17 @@ Route::get('/terms-of-service', [\App\Http\Controllers\HomeController::class,'te
 Route::get('dark-mode-switcher', [\App\Http\Controllers\DarkModeController::class, 'switch'])->name('dark-mode-switcher');
 Route::get('color-scheme-switcher/{color_scheme}', [\App\Http\Controllers\ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
-
+Route::get('/testview', [ProposalsController::class, 'test'])->name('propostas-test');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->prefix('admin')->group(function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
+    Route::resource('citizens', App\Http\Controllers\CitizenController::class);
+    Route::resource('chats', App\Http\Controllers\ChatController::class);
+    Route::resource('votes', App\Http\Controllers\VoteController::class);
+    Route::resource('proposals', App\Http\Controllers\ProposalController::class);
 
 
     Route::patch('/user/profile', [App\Http\Controllers\UserController::class, 'updateMe'])->name('users.update_me');
@@ -55,3 +59,4 @@ Route::middleware([
 
     Route::resource('demos', App\Http\Controllers\DemoController::class);
 });
+

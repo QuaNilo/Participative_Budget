@@ -7,15 +7,11 @@ use Livewire\Component;
 
 class ShowProposals extends Component
 {
-    public $proposals = [];
 
     public function render()
     {
-        return view('livewire.show-proposals');
-    }
+        $proposals = Proposal::with('user')->paginate(6);
 
-        public function mount()
-    {
-        $this->proposals = Proposal::with('user')->get();
+        return view('livewire.propostas.show-proposals', ['proposals' => $proposals]);
     }
 }

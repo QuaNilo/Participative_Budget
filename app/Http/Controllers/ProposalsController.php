@@ -14,5 +14,9 @@ class ProposalsController extends Controller
         return view('site.propostas.index');
     }
 
+    public function test() : View
+    {
+        return view('pages.slider')->layout('layouts.app');
+    }
 
 }

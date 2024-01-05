@@ -89,103 +89,103 @@
                     </x-base.table.tr>
                 </x-base.table.thead>
                 <x-base.table.tbody>
-                    @foreach (array_slice($fakers, 0, 9) as $faker)
-                        <x-base.table.tr class="intro-x">
-                            <x-base.table.td
-                                class="w-40 border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
-                            >
-                                <div class="flex">
-                                    <div class="image-fit zoom-in h-10 w-10">
-                                        <x-base.tippy
-                                            class="rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]"
-                                            src="{{ Vite::asset($faker['images'][0]) }}"
-                                            alt="Midone Tailwind HTML Admin Template"
-                                            as="img"
-                                            content="{{ 'Uploaded at' . $faker['dates'][0] }}"
-                                        />
-                                    </div>
-                                    <div class="image-fit zoom-in -ml-5 h-10 w-10">
-                                        <x-base.tippy
-                                            class="rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]"
-                                            src="{{ Vite::asset($faker['images'][1]) }}"
-                                            alt="Midone Tailwind HTML Admin Template"
-                                            as="img"
-                                            content="{{ 'Uploaded at' . $faker['dates'][1] }}"
-                                        />
-                                    </div>
-                                    <div class="image-fit zoom-in -ml-5 h-10 w-10">
-                                        <x-base.tippy
-                                            class="rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]"
-                                            src="{{ Vite::asset($faker['images'][2]) }}"
-                                            alt="Midone Tailwind HTML Admin Template"
-                                            as="img"
-                                            content="{{ 'Uploaded at' . $faker['dates'][2] }}"
-                                        />
-                                    </div>
-                                </div>
-                            </x-base.table.td>
-                            <x-base.table.td
-                                class="border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
-                            >
-                                <a
-                                    class="whitespace-nowrap font-medium"
-                                    href=""
-                                >
-                                    {{ $faker['products'][0]['name'] }}
-                                </a>
-                                <div class="mt-0.5 whitespace-nowrap text-xs text-slate-500">
-                                    {{ $faker['products'][0]['category'] }}
-                                </div>
-                            </x-base.table.td>
-                            <x-base.table.td
-                                class="border-b-0 bg-white text-center shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
-                            >
-                                {{ $faker['stocks'][0] }}
-                            </x-base.table.td>
-                            <x-base.table.td
-                                class="w-40 border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
-                            >
-                                <div @class([
-                                    'flex items-center justify-center',
-                                    'text-success' => $faker['true_false'][0],
-                                    'text-danger' => !$faker['true_false'][0],
-                                ])>
-                                    <x-base.lucide
-                                        class="mr-2 h-4 w-4"
-                                        icon="CheckSquare"
-                                    />
-                                    {{ $faker['true_false'][0] ? 'Active' : 'Inactive' }}
-                                </div>
-                            </x-base.table.td>
-                            <x-base.table.td
-                                class="relative w-56 border-b-0 bg-white py-0 shadow-[20px_3px_20px_#0000000b] before:absolute before:inset-y-0 before:left-0 before:my-auto before:block before:h-8 before:w-px before:bg-slate-200 first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600 before:dark:bg-darkmode-400"
-                            >
-                                <div class="flex items-center justify-center">
-                                    <a
-                                        class="mr-3 flex items-center"
-                                        href="#"
-                                    >
-                                        <x-base.lucide
-                                            class="mr-1 h-4 w-4"
-                                            icon="CheckSquare"
-                                        />
-                                        Edit
-                                    </a>
-                                    <a
-                                        class="flex items-center text-danger"
-                                        data-tw-toggle="modal"
-                                        data-tw-target="#delete-confirmation-modal"
-                                        href="#"
-                                    >
-                                        <x-base.lucide
-                                            class="mr-1 h-4 w-4"
-                                            icon="Trash"
-                                        /> Delete
-                                    </a>
-                                </div>
-                            </x-base.table.td>
-                        </x-base.table.tr>
-                    @endforeach
+{{--                    @foreach (array_slice($fakers, 0, 9) as $faker)--}}
+{{--                        <x-base.table.tr class="intro-x">--}}
+{{--                            <x-base.table.td--}}
+{{--                                class="w-40 border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"--}}
+{{--                            >--}}
+{{--                                <div class="flex">--}}
+{{--                                    <div class="image-fit zoom-in h-10 w-10">--}}
+{{--                                        <x-base.tippy--}}
+{{--                                            class="rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]"--}}
+{{--                                            src="{{ Vite::asset($faker['images'][0]) }}"--}}
+{{--                                            alt="Midone Tailwind HTML Admin Template"--}}
+{{--                                            as="img"--}}
+{{--                                            content="{{ 'Uploaded at' . $faker['dates'][0] }}"--}}
+{{--                                        />--}}
+{{--                                    </div>--}}
+{{--                                    <div class="image-fit zoom-in -ml-5 h-10 w-10">--}}
+{{--                                        <x-base.tippy--}}
+{{--                                            class="rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]"--}}
+{{--                                            src="{{ Vite::asset($faker['images'][1]) }}"--}}
+{{--                                            alt="Midone Tailwind HTML Admin Template"--}}
+{{--                                            as="img"--}}
+{{--                                            content="{{ 'Uploaded at' . $faker['dates'][1] }}"--}}
+{{--                                        />--}}
+{{--                                    </div>--}}
+{{--                                    <div class="image-fit zoom-in -ml-5 h-10 w-10">--}}
+{{--                                        <x-base.tippy--}}
+{{--                                            class="rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]"--}}
+{{--                                            src="{{ Vite::asset($faker['images'][2]) }}"--}}
+{{--                                            alt="Midone Tailwind HTML Admin Template"--}}
+{{--                                            as="img"--}}
+{{--                                            content="{{ 'Uploaded at' . $faker['dates'][2] }}"--}}
+{{--                                        />--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </x-base.table.td>--}}
+{{--                            <x-base.table.td--}}
+{{--                                class="border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"--}}
+{{--                            >--}}
+{{--                                <a--}}
+{{--                                    class="whitespace-nowrap font-medium"--}}
+{{--                                    href=""--}}
+{{--                                >--}}
+{{--                                    {{ $faker['products'][0]['name'] }}--}}
+{{--                                </a>--}}
+{{--                                <div class="mt-0.5 whitespace-nowrap text-xs text-slate-500">--}}
+{{--                                    {{ $faker['products'][0]['category'] }}--}}
+{{--                                </div>--}}
+{{--                            </x-base.table.td>--}}
+{{--                            <x-base.table.td--}}
+{{--                                class="border-b-0 bg-white text-center shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"--}}
+{{--                            >--}}
+{{--                                {{ $faker['stocks'][0] }}--}}
+{{--                            </x-base.table.td>--}}
+{{--                            <x-base.table.td--}}
+{{--                                class="w-40 border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"--}}
+{{--                            >--}}
+{{--                                <div @class([--}}
+{{--                                    'flex items-center justify-center',--}}
+{{--                                    'text-success' => $faker['true_false'][0],--}}
+{{--                                    'text-danger' => !$faker['true_false'][0],--}}
+{{--                                ])>--}}
+{{--                                    <x-base.lucide--}}
+{{--                                        class="mr-2 h-4 w-4"--}}
+{{--                                        icon="CheckSquare"--}}
+{{--                                    />--}}
+{{--                                    {{ $faker['true_false'][0] ? 'Active' : 'Inactive' }}--}}
+{{--                                </div>--}}
+{{--                            </x-base.table.td>--}}
+{{--                            <x-base.table.td--}}
+{{--                                class="relative w-56 border-b-0 bg-white py-0 shadow-[20px_3px_20px_#0000000b] before:absolute before:inset-y-0 before:left-0 before:my-auto before:block before:h-8 before:w-px before:bg-slate-200 first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600 before:dark:bg-darkmode-400"--}}
+{{--                            >--}}
+{{--                                <div class="flex items-center justify-center">--}}
+{{--                                    <a--}}
+{{--                                        class="mr-3 flex items-center"--}}
+{{--                                        href="#"--}}
+{{--                                    >--}}
+{{--                                        <x-base.lucide--}}
+{{--                                            class="mr-1 h-4 w-4"--}}
+{{--                                            icon="CheckSquare"--}}
+{{--                                        />--}}
+{{--                                        Edit--}}
+{{--                                    </a>--}}
+{{--                                    <a--}}
+{{--                                        class="flex items-center text-danger"--}}
+{{--                                        data-tw-toggle="modal"--}}
+{{--                                        data-tw-target="#delete-confirmation-modal"--}}
+{{--                                        href="#"--}}
+{{--                                    >--}}
+{{--                                        <x-base.lucide--}}
+{{--                                            class="mr-1 h-4 w-4"--}}
+{{--                                            icon="Trash"--}}
+{{--                                        /> Delete--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                            </x-base.table.td>--}}
+{{--                        </x-base.table.tr>--}}
+{{--                    @endforeach--}}
                 </x-base.table.tbody>
             </x-base.table>
         </div>

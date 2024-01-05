@@ -120,6 +120,25 @@ Breadcrumbs::for('demos.edit', function (BreadcrumbTrail $trail, $model) {
     $trail->push(__('Update'), route('demos.edit', $model));
 });
 
+// Home > Proposals
+Breadcrumbs::for('proposals.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Proposals'), route('proposals.index'));
+});
+Breadcrumbs::for('proposals.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('proposals.index');
+    $trail->push(__('Create'), route('proposals.create'));
+});
+Breadcrumbs::for('proposals.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('proposals.index');
+    $trail->push($model->name, route('proposals.show', $model));
+});
+Breadcrumbs::for('proposals.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('proposals.show', $model);
+    $trail->push(__('Update'), route('proposals.edit', $model));
+});
+
+
 
 /*
 // Home > Blog

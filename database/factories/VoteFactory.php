@@ -2,25 +2,40 @@
 
 namespace Database\Factories;
 
-use App\Models\proposal;
-use App\Models\User;
+use App\Models\Vote;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Vote>
- */
+use App\Models\Proposal;
+use App\Models\User;
+
 class VoteFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Vote::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
-    public function definition(): array
+    public function definition()
     {
+
+        // Create or retrieve a random user
+        $user = User::inRandomOrder()->first() ?? User::factory()->create();
+
+        // Create or retrieve a random proposal
+        $proposal = Proposal::inRandomOrder()->first() ?? Proposal::factory()->create();
+
         return [
-            'user_id' => User::factory(),
-            'proposal_id' => Proposal::factory()
+            'user_id' => $user->id,
+            'proposal_id' => $proposal->id,
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

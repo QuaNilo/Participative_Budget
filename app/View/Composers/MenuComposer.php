@@ -54,6 +54,24 @@ class   MenuComposer
                         ],
                     ]
                 ],
+                'Proposals' => [
+                    'icon' => 'list',
+                    'title' => __('Proposals'),
+                    'sub_menu' => [
+                        'users.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'proposals.index',
+                            'params' => [],
+                            'title' => __('List proposals')
+                        ],
+                        'users.create' => [
+                            'icon' => 'plus-circle',
+                            'route_name' => 'proposals.create',
+                            'params' => [],
+                            'title' => __('Create Proposal')
+                        ],
+                    ]
+                ],
                 'translations' => [
                     'icon' => 'globe',
                     'route_name' => 'translations.index',

@@ -2,25 +2,37 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Proposal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Proposal>
- */
+use App\Models\User;
+
 class ProposalFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Proposal::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
-    public function definition(): array
+    public function definition()
     {
+    // Create or retrieve a random user
+    $user = User::inRandomOrder()->first() ?? User::factory()->create();
+
+
         return [
-            'user_id' => User::factory(),
-            'content' => $this->faker->text,
-            'title' => $this->faker->sentence
+            'user_id' => $user->id,
+            'content' => $this->faker->text($this->faker->numberBetween(5, 65535)),
+            'title' => $this->faker->text($this->faker->numberBetween(5, 65535)),
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

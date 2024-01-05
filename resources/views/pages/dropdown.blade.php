@@ -1,5 +1,4 @@
-@extends('../layouts/' . $layout)
-
+@extends('layouts.app')
 @section('subhead')
     <title>Dropdown - Midone - Tailwind HTML Admin Template</title>
 @endsection
