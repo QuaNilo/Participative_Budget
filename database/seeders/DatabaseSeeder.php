@@ -73,9 +73,11 @@ class DatabaseSeeder extends Seeder
         }
         if ($this->command->confirm('Do you want to apply other seeds? [y|N]', true)) {
             $this->call(SettingSeeder::class);
+            $this->call(CategoriesTableSeeder::class);
+            $this->call(ChatsTableSeeder::class);
+            $this->call(CitizensTableSeeder::class);
+            $this->call(ProposalsTableSeeder::class);
+            $this->call(VotesTableSeeder::class);
         }
-        Vote::factory(10)->create();
-        Chat::factory(5)->create();
-        Proposal::factory(5)->create();
     }
 }

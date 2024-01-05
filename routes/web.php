@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\MapController;
-use App\Http\Controllers\ProposalsController;
+use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\UserController;
 use App\Livewire\ShowMap;
 use App\Livewire\ShowProposals;
@@ -27,7 +27,7 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
 
 Route::get('/profile', [UserController::class,'meEdit'])->name('users.me_edit');
 Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
-Route::get('/propostas', [ProposalsController::class, 'index'])->name('propostas');
+Route::get('/propostas', [ProposalController::class, 'show_frontend'])->name('propostas');
 Route::get('/contact-us', [\App\Http\Controllers\ContactController::class,'create'])->name('contacts.create');
 Route::get('/cookies-policy', [\App\Http\Controllers\HomeController::class,'cookies'])->name('home.cookies');
 Route::get('/privacy-policy', [\App\Http\Controllers\HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
@@ -36,7 +36,6 @@ Route::get('/terms-of-service', [\App\Http\Controllers\HomeController::class,'te
 Route::get('dark-mode-switcher', [\App\Http\Controllers\DarkModeController::class, 'switch'])->name('dark-mode-switcher');
 Route::get('color-scheme-switcher/{color_scheme}', [\App\Http\Controllers\ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
-Route::get('/testview', [ProposalsController::class, 'test'])->name('propostas-test');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -60,3 +59,5 @@ Route::middleware([
     Route::resource('demos', App\Http\Controllers\DemoController::class);
 });
 
+
+Route::resource('categories', App\Http\Controllers\CategoryController::class);

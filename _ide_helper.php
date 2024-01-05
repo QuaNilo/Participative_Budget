@@ -21880,13 +21880,6 @@
      * 
      *
      */ 
-        class BelongsTo {
-         
-    }
-            /**
-     * 
-     *
-     */ 
         class HasMany {
          
     }

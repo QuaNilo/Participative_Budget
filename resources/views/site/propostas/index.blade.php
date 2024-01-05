@@ -6,7 +6,7 @@
             </h1>
         </div>
         <div class="ml-36">
-            <livewire:show-proposals/>
+            <x-frontend.propostas.show-proposals/>
         </div>
     </div>
 </x-landing-layout>

@@ -19,9 +19,7 @@
             </div><!--end grid-->
             <div class="container relative">
                 <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-                    @foreach($proposals as $proposal)
-                        <x-frontend.propostas.proposal :proposal="$proposal"/>
-                    @endforeach
+                    <livewire:show-proposal-grid/>
                 </div>
             </div>
             <div class="grid md:grid-cols-12 grid-cols-1 mt-8">

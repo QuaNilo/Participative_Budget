@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Proposal;
 use Illuminate\Database\Seeder;
 
 class ProposalsTableSeeder extends Seeder
@@ -13,6 +14,6 @@ class ProposalsTableSeeder extends Seeder
      */
     public function run()
     {
-
+        Proposal::factory(5)->create();
     }
 }

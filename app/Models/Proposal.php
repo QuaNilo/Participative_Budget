@@ -18,8 +18,8 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
- * @property-read \App\Models\User $user
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
+ * @property-read User $user
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Vote> $votes
  * @property-read int|null $votes_count
  * @method static \Database\Factories\ProposalFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal newModelQuery()
@@ -44,22 +44,29 @@ class Proposal extends Model implements Auditable
     public $fillable = [
         'user_id',
         'content',
-        'title'
+        'title',
+        'summary',
+        'category'
     ];
 
     protected $casts = [
         'content' => 'string',
-        'title' => 'string'
+        'title' => 'string',
+        'summary' => 'string',
+        'category' => 'string',
+        'status' => 'integer'
     ];
 
     public static function rules(): array
     {
         return [
             'user_id' => 'required',
-        'content' => 'required|string|max:65535',
-        'title' => 'required|string|max:65535',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+            'content' => 'required|string|max:65535',
+            'title' => 'required|string|min:10|max:65535',
+            'summary' => 'required|string|min:10|max:255',
+//            'category' => 'required|string|min:'
+            'created_at' => 'nullable',
+            'updated_at' => 'nullable'
         ];
     }
 
@@ -93,13 +100,17 @@ class Proposal extends Model implements Auditable
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(\App\Models\User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function votes(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(\App\Models\Vote::class, 'proposal_id');
+        return $this->hasMany(Vote::class, 'proposal_id');
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
