@@ -45,6 +45,7 @@ Route::middleware([
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
     Route::resource('chats', App\Http\Controllers\ChatController::class);
     Route::resource('votes', App\Http\Controllers\VoteController::class);
+    Route::resource('categories', App\Http\Controllers\CategoryController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
 
 
@@ -60,4 +61,3 @@ Route::middleware([
 });
 
 
-Route::resource('categories', App\Http\Controllers\CategoryController::class);

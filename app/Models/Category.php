@@ -18,6 +18,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property-read int|null $audits_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Proposal> $proposals
  * @property-read int|null $proposals_count
+ * @method static \Database\Factories\CategoryFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category query()
@@ -47,8 +48,8 @@ class Category extends Model implements Auditable
     {
         return [
             'created_at' => 'nullable',
-            'updated_at' => 'nullable',
-            'name' => 'required|string|max:255'
+        'updated_at' => 'nullable',
+        'name' => 'required|string|max:255'
         ];
     }
 
@@ -61,9 +62,9 @@ class Category extends Model implements Auditable
     {
         return [
             'id' => __('Id'),
-            'created_at' => __('Created At'),
-            'updated_at' => __('Updated At'),
-            'name' => __('Name')
+        'created_at' => __('Created At'),
+        'updated_at' => __('Updated At'),
+        'name' => __('Name')
         ];
     }
 

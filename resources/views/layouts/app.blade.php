@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <link rel="shortcut icon" href="/favicon/favicon.ico"/>
         <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">

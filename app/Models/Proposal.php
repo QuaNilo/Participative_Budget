@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use OwenIt\Auditing\Contracts\Auditable;
  use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -43,6 +45,7 @@ class Proposal extends Model implements Auditable
 
     public $fillable = [
         'user_id',
+        'category_id',
         'content',
         'title',
         'summary',
@@ -50,6 +53,8 @@ class Proposal extends Model implements Auditable
     ];
 
     protected $casts = [
+        'user_id' => 'integer',
+        'category_id' => 'integer',
         'content' => 'string',
         'title' => 'string',
         'summary' => 'string',
@@ -61,10 +66,10 @@ class Proposal extends Model implements Auditable
     {
         return [
             'user_id' => 'required',
+            'category_id' => 'required',
             'content' => 'required|string|max:65535',
             'title' => 'required|string|min:10|max:65535',
             'summary' => 'required|string|min:10|max:255',
-//            'category' => 'required|string|min:'
             'created_at' => 'nullable',
             'updated_at' => 'nullable'
         ];
@@ -98,19 +103,19 @@ class Proposal extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
+    }
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Category::class)->withDefault();
     }
 
-    public function votes(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function votes(): HasMany
     {
-        return $this->hasMany(Vote::class, 'proposal_id');
+        return $this->hasMany(Vote::class);
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 
 }

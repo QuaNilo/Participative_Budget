@@ -278,5 +278,5 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
         public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
         return $this->hasMany(Proposal::class);
-    }
+        }
 }

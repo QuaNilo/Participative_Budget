@@ -46,5 +46,7 @@ class UserSeeder extends Seeder
         foreach($users as $user){
             $user->assignRole(Role::ROLE_SUPER_ADMIN);
         }
+
+        User::factory(10);
     }
 }

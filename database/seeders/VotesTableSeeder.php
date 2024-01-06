@@ -14,6 +14,6 @@ class VotesTableSeeder extends Seeder
      */
     public function run()
     {
-        Vote::factory(10)->create();
+        Vote::factory(50)->create();
     }
 }

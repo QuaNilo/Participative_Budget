@@ -14,6 +14,6 @@ class ProposalsTableSeeder extends Seeder
      */
     public function run()
     {
-        Proposal::factory(5)->create();
+        Proposal::factory(25)->create();
     }
 }
