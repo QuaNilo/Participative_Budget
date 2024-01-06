@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -189,4 +189,5 @@ return [
         'Setting' => App\Facades\Setting::class,
     ])->toArray(),
 
+    'GOOGLE_API_KEY' => env('GOOGLE_API_KEY', null)
 ];

@@ -5,9 +5,8 @@
         </div>
 
         <div class="lg:col-span-3 md:col-span-4 md:text-end">
-            <label class="font-semibold ">Sort By</label>
-            <button wire:click="sortVotes" class="border-2">Votes</button>
-            <button wire:click="sortLatest" class="border-2">Latest</button>
+            <x-button wire:click="sortVotes">Votes</x-button>
+            <x-button wire:click="sortLatest">Latest</x-button>
         </div>
     </div><!--end grid-->
     <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[50px] mt-8">

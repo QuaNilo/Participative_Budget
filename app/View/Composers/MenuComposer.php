@@ -72,6 +72,42 @@ class   MenuComposer
                         ],
                     ]
                 ],
+                'Categories' => [
+                    'icon' => 'Bookmark',
+                    'title' => __('Categories'),
+                    'sub_menu' => [
+                        'categories.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'categories.index',
+                            'params' => [],
+                            'title' => __('List Categories')
+                        ],
+                        'categories.create' => [
+                            'icon' => 'plus-circle',
+                            'route_name' => 'categories.create',
+                            'params' => [],
+                            'title' => __('Create Categories')
+                        ],
+                    ]
+                ],
+                'Votes' => [
+                    'icon' => 'Heart',
+                    'title' => __('Votes'),
+                    'sub_menu' => [
+                        'votes.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'votes.index',
+                            'params' => [],
+                            'title' => __('List Votes')
+                        ],
+                        'votes.create' => [
+                            'icon' => 'plus-circle',
+                            'route_name' => 'votes.create',
+                            'params' => [],
+                            'title' => __('Create Votes')
+                        ],
+                    ]
+                ],
                 'translations' => [
                     'icon' => 'globe',
                     'route_name' => 'translations.index',

@@ -139,6 +139,42 @@ Breadcrumbs::for('proposals.edit', function (BreadcrumbTrail $trail, $model) {
 });
 
 
+// Home > Categories
+Breadcrumbs::for('categories.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Categories'), route('categories.index'));
+});
+Breadcrumbs::for('categories.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('categories.index');
+    $trail->push(__('Create'), route('categories.create'));
+});
+Breadcrumbs::for('categories.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('categories.index');
+    $trail->push($model->name, route('categories.show', $model));
+});
+Breadcrumbs::for('categories.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('categories.show', $model);
+    $trail->push(__('Update'), route('categories.edit', $model));
+});
+
+
+// Home > Votes
+Breadcrumbs::for('votes.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Votes'), route('votes.index'));
+});
+Breadcrumbs::for('votes.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('votes.index');
+    $trail->push(__('Create'), route('votes.create'));
+});
+Breadcrumbs::for('votes.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('votes.index');
+    $trail->push($model->id, route('votes.show', $model));
+});
+Breadcrumbs::for('votes.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('votes.show', $model);
+    $trail->push(__('Update'), route('votes.edit', $model));
+});
 
 /*
 // Home > Blog
