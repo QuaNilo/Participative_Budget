@@ -35,13 +35,39 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("category_id")
+                ->label($newModel->getAttributeLabel("category_id"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
             TextColumn::make("content")
                 ->label($newModel->getAttributeLabel("content"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("coordinateX")
+                ->label($newModel->getAttributeLabel("coordinateX"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("coordinateY")
+                ->label($newModel->getAttributeLabel("coordinateY"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("summary")
+                ->label($newModel->getAttributeLabel("summary"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
             TextColumn::make("title")
                 ->label($newModel->getAttributeLabel("title"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("status")
+                ->label($newModel->getAttributeLabel("status"))
+                ->formatStateUsing(fn (Proposal $record): string => $record->statusLabel)
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

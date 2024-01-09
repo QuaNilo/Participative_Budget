@@ -54,6 +54,7 @@
             'resources/tailwind-assets/scss/icons.scss',
             'resources/tailwind-assets/scss/app.scss'
         ])
+        @livewire('wire-elements-modal')
         <!-- Styles -->
         @livewireStyles
         @stack('styles')

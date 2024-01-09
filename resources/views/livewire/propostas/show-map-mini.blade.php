@@ -2,7 +2,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <style type="text/css">
         #map {
-          height: 800px;
+          height: 100px;
+            width: 500px;
         }
     </style>
     <div class="h-screen w-screen bg-gray-100" id="map"></div>

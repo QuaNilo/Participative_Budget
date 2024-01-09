@@ -128,7 +128,8 @@ class ProposalController extends Controller
 
         return redirect(route('proposals.index'));
     }
-    public function show_frontend()
+
+        public function show_frontend()
     {
         return view('site.propostas.index');
     }
