@@ -133,4 +133,9 @@ class ProposalController extends Controller
     {
         return view('site.propostas.index');
     }
+
+    public function show_frontend_create()
+    {
+        return view('site.propostas.create.index');
+    }
 }

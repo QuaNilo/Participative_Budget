@@ -7,7 +7,10 @@
         <div class="lg:col-span-3 md:col-span-4 md:text-end">
             <x-button wire:click="sortVotes">Votes</x-button>
             <x-button wire:click="sortLatest">Latest</x-button>
-            <x-button class="bg-indigo-600 mt-2 hover:bg-indigo-800 active:bg-indigo-800" wire:click="$dispatch('openModal', { component: 'create-proposal' })">Create Proposal</x-button>
+            @auth
+                <x-button class="bg-indigo-600 mt-2 hover:bg-indigo-800 active:bg-indigo-800" ><a href="{{ route('proposal-create') }}">Create Proposal</a></x-button>
+            @endauth
+
         </div>
     </div><!--end grid-->
     <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[50px] mt-8">

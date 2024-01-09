@@ -1,3 +1,3 @@
 <x-landing-layout>
-    <livewire:show-map />
+    <x-frontend.show-map/>
 </x-landing-layout>

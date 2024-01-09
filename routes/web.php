@@ -1,8 +1,16 @@
 <?php
 
+use App\Http\Controllers\ColorSchemeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DarkModeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Livewire\ProposalCreate;
+use App\Livewire\ProposalCreateForm;
 use App\Livewire\ShowMap;
 use App\Livewire\ShowProposals;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('home');
+Route::get('/', [SiteController::class, 'index'])->name('home');
 
 /* NÂO meti isto porque usei um middleware para fazer a validação do recaptcha ver se faz sentido usar em todo o lado isto
 Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'), [\App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])
@@ -27,21 +35,27 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
 
 Route::get('/profile', [UserController::class,'meEdit'])->name('users.me_edit');
 Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
+
+
 Route::get('/propostas', [ProposalController::class, 'show_frontend'])->name('propostas');
-Route::get('/contact-us', [\App\Http\Controllers\ContactController::class,'create'])->name('contacts.create');
-Route::get('/cookies-policy', [\App\Http\Controllers\HomeController::class,'cookies'])->name('home.cookies');
-Route::get('/privacy-policy', [\App\Http\Controllers\HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
-Route::get('/privacy-policy-1', [\App\Http\Controllers\HomeController::class,'privacyPolicy'])->name('policy.show');
-Route::get('/terms-of-service', [\App\Http\Controllers\HomeController::class,'termsOfService'])->name('home.terms_of_service');
-Route::get('dark-mode-switcher', [\App\Http\Controllers\DarkModeController::class, 'switch'])->name('dark-mode-switcher');
-Route::get('color-scheme-switcher/{color_scheme}', [\App\Http\Controllers\ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
+Route::get('/propostas-create', [ProposalController::class, 'show_frontend_create'])->name('proposal-create');
+Route::post('/update-marker-position', [ProposalCreateForm::class, 'updateMarkerPosition']);
+
+
+Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
+Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.cookies');
+Route::get('/privacy-policy', [HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
+Route::get('/privacy-policy-1', [HomeController::class,'privacyPolicy'])->name('policy.show');
+Route::get('/terms-of-service', [HomeController::class,'termsOfService'])->name('home.terms_of_service');
+Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
+Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->prefix('admin')->group(function () {
-    Route::get('/', [\App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
     Route::resource('chats', App\Http\Controllers\ChatController::class);
     Route::resource('votes', App\Http\Controllers\VoteController::class);
