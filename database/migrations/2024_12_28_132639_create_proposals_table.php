@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double('coordinateY');
             $table->text('summary');
             $table->text('title');
+            $table->binary('image')->nullable();
             $table->smallInteger('status')->default(1)->comment("1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado");
             $table->timestamps();
         });

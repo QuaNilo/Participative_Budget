@@ -4,7 +4,7 @@
         <div class="lg:flex justify-center">
             <div class="lg:w-full">
                 <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                    <form class="text-start">
+                    <form wire:submit="submit" class="text-start">
                         <div class="grid grid-cols-1">
                             <h5 class="text-lg font-semibold">Crie uma proposta :</h5>
                         </div>
@@ -12,12 +12,12 @@
                         <div class="grid grid-cols-12 gap-4 mt-4">
                             <div class="col-span-12 text-start">
                                 <label class="font-semibold" for="RegisterName">Proposal Title:</label>
-                                <input id="RegisterName" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Titulo da proposta">
+                                <input wire:model="title" id="RegisterName" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Titulo da proposta">
                             </div>
 
                             <div class="col-span-12 text-start">
                                 <label for="comments" class="font-semibold">Proposal Content: </label>
-                                <textarea name="comments" id="comments" class="form-input mt-2 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Descrição da proposta :"></textarea>
+                                <textarea wire:model="content" name="comments" id="comments" class="form-input mt-2 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Descrição da proposta :"></textarea>
                             </div>
 
                             <div class="md:col-span-6 col-span-12 text-start">
@@ -52,7 +52,26 @@
                         </div>
 
                         <div class="grid grid-cols-1 mt-8">
-                            <h5 class="text-lg font-semibold">Mapa :</h5>
+                            <h5 class="text-lg font-semibold">Imagem :</h5>
+                            <div class="mb-3">
+{{--                                <livewire:files-upload--}}
+{{--                                    inputName="cover"--}}
+{{--                                    :isMultiple="false"--}}
+{{--                                    maxFiles="1"--}}
+{{--                                    maxFileSize="10240"--}}
+{{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
+{{--                                    :label="__('Upload Cover')"--}}
+{{--                                    acceptedFileTypes="image/*"--}}
+{{--                                    :uploadFieldMainLabel="__('Upload an image')"--}}
+{{--                                />--}}
+                                <input
+                                    type="file"
+                                    wire:model="files"
+                                    accept="image/*"
+
+                                >
+                            </div>
+                            @error('files.*') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
 

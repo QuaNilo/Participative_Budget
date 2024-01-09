@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
 use OwenIt\Auditing\Contracts\Auditable;
  use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * App\Models\Proposal
@@ -45,15 +48,17 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUserId($value)
  * @mixin \Eloquent
  */
-class Proposal extends Model implements Auditable
+class Proposal extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
     use HasFactory;
+    use InteractsWithMedia;
     const STATUS_DISABLE = 0;
     const STATUS_ACTIVE = 1;
 
     public $table = 'proposals';
+
 
     public $fillable = [
         'user_id',
@@ -158,6 +163,43 @@ class Proposal extends Model implements Auditable
     {
         $array = static::getStatusArray();
         return $array[$this->status] ?? "";
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('images');
+        $this->addMediaCollection('cover')
+            ->singleFile()
+            ->useFallbackUrl(asset('images/placeholders/800x800.jpg'))
+            ->useFallbackPath(public_path('/images/placeholders/800x800.jpg'))
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('original')
+                    ->fit('max', 1024, 1024)
+                    ->keepOriginalImageFormat();
+                $this
+                    ->addMediaConversion('square')
+                    ->crop('crop-center', 512, 512);
+                $this
+                    ->addMediaConversion('retangular')
+                    ->crop('crop-center', 512, 384);
+            });
+        //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
+        //->useFallbackUrl('/images/anonymous-user.jpg')
+        //->useFallbackPath(public_path('/images/anonymous-user.jpg'));
+        /*->useFallbackPath(public_path('/default_avatar.jpg'))
+        ->useFallbackPath(public_path('/default_avatar_thumb.jpg'), 'thumb')
+        ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(50)
+                ->height(50);
+
+            $this
+                ->addMediaConversion('thumb_2')
+                ->width(100)
+                ->height(100);
+        });*/
     }
 
 }
