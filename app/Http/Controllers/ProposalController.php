@@ -126,7 +126,7 @@ class ProposalController extends Controller
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('proposals.index'));
+        return redirect(route('propostas'));
     }
 
         public function show_frontend()

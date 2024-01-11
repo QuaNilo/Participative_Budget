@@ -70,7 +70,6 @@ class Proposal extends Model implements Auditable, HasMedia
         'content',
         'coordinateX',
         'coordinateY',
-        'summary',
         'title',
         'status'
     ];
@@ -83,19 +82,33 @@ class Proposal extends Model implements Auditable, HasMedia
         'title' => 'string'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($proposal) {
+            // Truncate the content to 255 characters and assign it to the summary field
+            $proposal->summary = substr($proposal->content, 0, 255);
+            $proposal->created_at = now();
+            $proposal->updated_at = now();
+        });
+
+        static::creating(function($proposal) {
+            $proposal->status = 0;
+        });
+    }
+
     public static function rules(): array
     {
         return [
             'user_id' => 'required',
-        'category_id' => 'required',
-        'content' => 'required|string|max:65535',
-        'coordinateX' => 'required|numeric',
-        'coordinateY' => 'required|numeric',
-        'summary' => 'required|string|max:65535',
-        'title' => 'required|string|max:65535',
-        'status' => 'required',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+            'category_id' => 'required',
+            'content' => 'required|string|max:65535',
+            'coordinateX' => 'required|numeric',
+            'coordinateY' => 'required|numeric',
+            'title' => 'required|string|max:65535',
+//            'created_at' => 'nullable',
+//            'updated_at' => 'nullable'
         ];
     }
 
@@ -108,16 +121,16 @@ class Proposal extends Model implements Auditable, HasMedia
     {
         return [
             'id' => __('Id'),
-        'user_id' => __('User Id'),
-        'category_id' => __('Category Id'),
-        'content' => __('Content'),
-        'coordinateX' => __('Coordinatex'),
-        'coordinateY' => __('Coordinatey'),
-        'summary' => __('Summary'),
-        'title' => __('Title'),
-        'status' => __('Status'),
-        'created_at' => __('Created At'),
-        'updated_at' => __('Updated At')
+            'user_id' => __('User Id'),
+            'category_id' => __('Category Id'),
+            'content' => __('Content'),
+            'coordinateX' => __('Coordinatex'),
+            'coordinateY' => __('Coordinatey'),
+            'summary' => __('Summary'),
+            'title' => __('Title'),
+            'status' => __('Status'),
+            'created_at' => __('Created At'),
+            'updated_at' => __('Updated At')
         ];
     }
 

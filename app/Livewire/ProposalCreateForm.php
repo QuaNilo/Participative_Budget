@@ -2,35 +2,32 @@
 
 namespace App\Livewire;
 
+use App\Http\Requests\CreateProposalRequest;
+use App\Livewire\Forms\ProposalForm;
 use App\Models\Category;
+use App\Models\Proposal;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Request;
 
 class ProposalCreateForm extends Component
 {
-    public $coordinateX;
-    public $coordinateY;
+    public ProposalForm $form;
 
     public function mount()
     {
-        $this->coordinateY = null;
-        $this->coordinateX = null;
     }
+
+    public function save(){
+        $this->form->save();
+    }
+
     public function render()
     {
         $categories = Category::get();
         return view('livewire.propostas.create.proposal-create-form', ['categories' => $categories]);
-    }
-
-    public function updateMarkerPosition(Request $request)
-    {
-        // Get the clickedLatLng from the AJAX request
-        $clickedLatLng = $request->input('clickedLatLng');
-
-        $this->coordinateX = $clickedLatLng['lat'];
-        $this->coordinateY = $clickedLatLng['lng'];
-        dd($this->coordinateX);
-
-        return response()->json(['message' => 'Marker position updated successfully']);
     }
 }
