@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('title');
             $table->binary('image')->nullable();
             $table->smallInteger('status')->default(1)->comment("1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado");
+            $table->float('budget_estimate')->nullable();
             $table->timestamps();
         });
     }

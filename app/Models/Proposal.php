@@ -54,11 +54,15 @@ class Proposal extends Model implements Auditable, HasMedia
     use \OwenIt\Auditing\Auditable;
     use HasFactory;
     use InteractsWithMedia;
-    const STATUS_DISABLE = 0;
-    const STATUS_ACTIVE = 1;
+
+
+    const STATUS_PENDING = 0;
+    const STATUS_REVIEW = 1;
+    const STATUS_ACCEPTED = 2;
+    const STATUS_REJECTED = 3;
+    const STATUS_CLOSED = 4;
 
     public $table = 'proposals';
-
 
     public $fillable = [
         'user_id',
@@ -150,8 +154,11 @@ class Proposal extends Model implements Auditable, HasMedia
     public static function getStatusArray() : array
     {
         return [
-            self::STATUS_ACTIVE =>  __('Active'),
-            self::STATUS_DISABLE =>  __('Disable'),
+            self::STATUS_PENDING =>  __('Pendente'),
+            self::STATUS_REVIEW =>  __('Em Revisão'),
+            self::STATUS_ACCEPTED =>  __('Aceite'),
+            self::STATUS_REJECTED =>  __('Rejeitado'),
+            self::STATUS_CLOSED =>  __('Fechado')
         ];
     }
 
