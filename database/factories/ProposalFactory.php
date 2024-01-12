@@ -24,15 +24,13 @@ class ProposalFactory extends Factory
      */
     public function definition()
     {
+        $user = User::inRandomOrder()->first() ?? User::factory()->create();
+        $category = Category::inRandomOrder()->first() ?? Category::factory()->create();
 
-        $user = User::first();
-        if (!$user) {
-            $user = User::factory()->create();
-        }
 
         return [
-            'user_id' => $this->faker->word,
-            'category_id' => $this->faker->word,
+            'user_id' => $user->id,
+            'category_id' => $category->id,
             'content' => $this->faker->text($this->faker->numberBetween(5, 65535)),
             'coordinateX' => $this->faker->randomFloat(15, -180, 180),
             'coordinateY' => $this->faker->randomFloat(15, -90, 90),

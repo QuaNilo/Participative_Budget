@@ -2,11 +2,13 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 
 class UsersProfile extends Component
 {
     public $tab;
+    public $proposals;
 
     public function render()
     {

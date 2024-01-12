@@ -1,5 +1,6 @@
 <section class="relative md:py-24 py-16">
     <div class="container">
+{{--        @dd($proposals)--}}
         <div class="grid lg:grid-cols-12 md:grid-cols-2 grid-cols-1 gap-[30px]">
             <div class="lg:col-span-3 md:col-span-5">
                 <div class="flex items-center">
@@ -38,7 +39,7 @@
                 @if($tab === 'dashboard')
                     <x-frontend.profile.dashboard-component/>
                 @elseif($tab === 'proposals')
-                    <x-frontend.profile.proposals-component/>
+                    <livewire:proposals-profile-component/>
                 @elseif($tab === 'details')
                     <x-frontend.profile.details-component/>
 
