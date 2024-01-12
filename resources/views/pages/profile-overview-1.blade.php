@@ -9,7 +9,7 @@
         <h2 class="mr-auto text-lg font-medium">Profile Layout</h2>
     </div>
     <x-base.tab.group>
-        <!-- BEGIN: Profile Info -->
+        <!-- BEGIN: profile Info -->
         <div class="intro-y box mt-5 px-5 pt-5">
             <div class="-mx-5 flex flex-col border-b border-slate-200/60 pb-5 dark:border-darkmode-400 lg:flex-row">
                 <div class="flex flex-1 items-center justify-center px-5 lg:justify-start">
@@ -128,7 +128,7 @@
                 </x-base.tab>
             </x-base.tab.list>
         </div>
-        <!-- END: Profile Info -->
+        <!-- END: profile Info -->
         <x-base.tab.panels class="intro-y mt-5">
             <x-base.tab.panel
                 id="dashboard"

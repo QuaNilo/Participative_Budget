@@ -9,7 +9,7 @@
         <h2 class="mr-auto text-lg font-medium">Update Profile</h2>
     </div>
     <div class="grid grid-cols-12 gap-6">
-        <!-- BEGIN: Profile Menu -->
+        <!-- BEGIN: profile Menu -->
         <div class="flex flex-col-reverse col-span-12 lg:col-span-4 lg:block 2xl:col-span-3">
             <div class="mt-5 intro-y box">
                 <div class="relative flex items-center p-5">
@@ -190,7 +190,7 @@
                 </div>
             </div>
         </div>
-        <!-- END: Profile Menu -->
+        <!-- END: profile Menu -->
         <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
             <!-- BEGIN: Display Information -->
             <div class="intro-y box lg:mt-5">

@@ -9,7 +9,7 @@
         <h2 class="mr-auto text-lg font-medium">Profile Layout</h2>
     </div>
     <div class="mt-5 grid grid-cols-12 gap-6">
-        <!-- BEGIN: Profile Menu -->
+        <!-- BEGIN: profile Menu -->
         <div class="col-span-12 flex flex-col-reverse lg:col-span-4 lg:block 2xl:col-span-3">
             <div class="intro-y box mt-5 lg:mt-0">
                 <div class="relative flex items-center p-5">
@@ -217,7 +217,7 @@
                 </div>
             </div>
         </div>
-        <!-- END: Profile Menu -->
+        <!-- END: profile Menu -->
         <div class="col-span-12 lg:col-span-8 2xl:col-span-9">
             <div class="grid grid-cols-12 gap-6">
                 <!-- BEGIN: Daily Sales -->

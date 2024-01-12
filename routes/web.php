@@ -9,10 +9,12 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserFEController;
 use App\Livewire\ProposalCreate;
 use App\Livewire\ProposalCreateForm;
 use App\Livewire\ShowMap;
 use App\Livewire\ShowProposals;
+use App\Livewire\UsersProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +35,7 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
     ->middleware(['guest:'.config('fortify.guard')])
     ->name('password.email');*/
 
-Route::get('/profile', [UserController::class,'meEdit'])->name('users.me_edit');
+Route::get('/profile', [UserFEController::class, 'index'])->name('users_dashboard');
 Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
 
 

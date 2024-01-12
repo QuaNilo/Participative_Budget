@@ -171,7 +171,7 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
             'two_factor_confirmed_at' => __('Two factor confirmed at'),
             'remember_token' => __('Remember token'),
             'current_team_id' => __('Current team id'),
-            'profile_photo_path' => __('Profile photo path'), // acho que vai saltar fora
+            'profile_photo_path' => __('profile photo path'), // acho que vai saltar fora
             'created_at' => __('Created at'),
             'updated_at' => __('Updated at'),
             'toc' => __('Terms of service'),

@@ -1,6 +1,6 @@
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('profile Information') }}
     </x-slot>
 
     <x-slot name="description">
@@ -8,10 +8,10 @@
     </x-slot>
 
     <x-slot name="form">
-        <!-- Profile Photo -->
+        <!-- profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
-                <!-- Profile Photo File Input -->
+                <!-- profile Photo File Input -->
                 <input type="file" class="hidden"
                             wire:model.live="photo"
                             x-ref="photo"
@@ -26,12 +26,12 @@
 
                 <x-label for="photo" value="{{ __('Photo') }}" />
 
-                <!-- Current Profile Photo -->
+                <!-- Current profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
                     <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
-                <!-- New Profile Photo Preview -->
+                <!-- New profile Photo Preview -->
                 <div class="mt-2" x-show="photoPreview" style="display: none;">
                     <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                           x-bind:style="'background-image: url(\'' + photoPreview + '\');'">

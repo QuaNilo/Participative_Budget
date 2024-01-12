@@ -32,7 +32,7 @@
  *          2. Modal             *
  *          3. Carousel          *
  *          4. Accordions        *
- *     18. Upload Profile        *
+ *     18. Upload profile        *
  *     19. Custom Dropdown       * (For Dropdown)
  *     20. Connect wallet        * (Only For MetaMask)
  ================================*/
@@ -1654,7 +1654,7 @@ try {
     }
 
     //=========================================//
-    /*            18) Upload Profile           */
+    /*            18) Upload profile           */
     //=========================================//
     try {
         var loadFile = function (event) {

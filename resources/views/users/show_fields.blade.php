@@ -79,7 +79,7 @@
 
 
 
-<!-- Profile Photo Path Field -->
+<!-- profile Photo Path Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $user->getAttributeLabel('profile_photo_path') }}</dt>
     <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $user->profile_photo_path }}</dd>

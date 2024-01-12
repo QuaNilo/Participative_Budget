@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
                 'name' => 'João',
                 'email' => 'joao.velez@noop.pt',
                 'email_verified_at' => date("Y-m-d H:i:s"),
-                'password' => Hash::make('laravelstarter_joao_0'),
+                'password' => Hash::make('mudame123*'),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],

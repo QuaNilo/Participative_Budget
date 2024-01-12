@@ -1,7 +1,7 @@
 <div class="rounded-md border border-slate-200/60 p-5 dark:border-darkmode-400">
     <div
         class="flex items-center border-b border-slate-200/60 pb-5 font-medium dark:border-darkmode-400">
-        {{ __('Profile') }}
+        {{ __('profile') }}
     </div>
 
     <!-- Name Field -->

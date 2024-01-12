@@ -61,7 +61,7 @@
                                         as="a"
                                         href="{{ route('profile.show') }}"
                                     >
-                                        {{ __('Edit Profile') }}
+                                        {{ __('Edit profile') }}
                                     </x-base.button>
                                     <form method="POST" action="{{ route('logout') }}" class="w-full xl:ms-2 mt-3 xl:mt-0 xl:w-1/2">
                                         @csrf
@@ -115,7 +115,7 @@
                         href="{{ route('profile.show') }}"
                         class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                     >
-                        {{ __('Edit Profile') }}</a>
+                        {{ __('Edit profile') }}</a>
 
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf

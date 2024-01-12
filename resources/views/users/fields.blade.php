@@ -36,7 +36,7 @@
                             class="mr-2 h-4 w-4"
                             icon="FileText"
                         />
-                        {{ __('Profile') }}
+                        {{ __('profile') }}
                     </x-base.tippy>
                 </x-base.tab.button>
             </x-base.tab>

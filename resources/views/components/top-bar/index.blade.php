@@ -213,7 +213,7 @@
                 <x-base.lucide
                     class="mr-2 h-4 w-4"
                     icon="User"
-                /> {{ __('Profile') }}
+                /> {{ __('profile') }}
             </x-base.menu.item>
             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                 <x-base.menu.divider class="bg-white/[0.08]" />
