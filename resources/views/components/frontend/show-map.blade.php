@@ -1,3 +1,5 @@
+@props(['proposals'])
+
 <div class="">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <style type="text/css">
@@ -8,31 +10,38 @@
     <div class="h-screen w-screen bg-gray-100" id="map"></div>
     <script type="text/javascript">
         function initMap() {
-          const myLatLng = { lat: 39.45881646622997, lng: -8.43029715113065 };
           const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 5,
-            center: myLatLng,
+            center: { lat: 39.92126926355065, lng: -8.43029715113065 },
           });
 
-          const marker = new google.maps.Marker({
-            position: myLatLng,
-            map,
-            title: "Localização Proposta",
-          });
+          @foreach ($proposals as $proposal)
+              addMarker(map, {{ $proposal->coordinateX }}, {{ $proposal->coordinateY }}, "{{ $proposal->title }}", "{{ $proposal->summary }}");
+          @endforeach
+        }
 
-            // Add click event listener to capture coordinates
-          map.addListener('click', function(event) {
-            const clickedLatLng = {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng()
-            };
+        function addMarker(map, lat, lng, title, description) {
+            const marker = new google.maps.Marker({
+                position: { lat, lng },
+                map,
+                title: title,
+            });
 
-            // Store or use the clicked coordinates as needed
-            console.log("Clicked Coordinates:", clickedLatLng);
+            const contentString = `
+                <div>
+                    <h2>Title : ${title}</h2>
+                    <p> Descrição : ${description}</p>
+                    <button onclick="window.location.href='propostas/{{$proposal->id}}'">View Proposal</button>
+                </div>
+            `;
 
-            // Update marker position
-            marker.setPosition(clickedLatLng);
-          });
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+
+            marker.addListener('click', function() {
+                infoWindow.open(map, marker);
+            });
         }
 
         window.initMap = initMap;

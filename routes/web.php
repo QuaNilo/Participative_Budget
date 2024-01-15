@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
+use App\Http\Controllers\ProposalFEController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFEController;
@@ -39,8 +40,10 @@ Route::get('/profile', [UserFEController::class, 'index'])->name('users_dashboar
 Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
 
 
-Route::get('/propostas', [ProposalController::class, 'show_frontend'])->name('propostas');
-Route::get('/propostas-create', [ProposalController::class, 'show_frontend_create'])->name('proposal-create');
+Route::get('/propostas', [ProposalFEController::class, 'show_frontend'])->name('propostas');
+Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
+Route::get('/propostas/{id}', [ProposalFEController::class, 'show_proposal']);
+
 Route::post('/update-marker-position', [ProposalCreateForm::class, 'updateMarkerPosition']);
 
 
