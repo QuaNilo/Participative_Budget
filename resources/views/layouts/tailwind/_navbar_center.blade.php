@@ -50,9 +50,12 @@
             <ul class="navigation-menu">
                 <li><a href="{{ route('home') }}" class="sub-menu-item {{ request()->routeIs('home') ? "active" : "" }}">{{ __('Home') }}</a></li>
 
+                <li><a href="{{ route('calendar-page') }}" class="sub-menu-item">{{ __('Calendario') }}</a></li>
+
                 <li><a href="{{ route('propostas') }}" class="sub-menu-item ">{{ __('Propostas') }}</a></li>
 
                 <li><a href="{{ route('mapa') }}" class="sub-menu-item">{{ __('Mapa') }}</a></li>
+
 
             </ul><!--end navigation menu-->
         </div><!--end navigation-->
