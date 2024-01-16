@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Proposal;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,56 +14,44 @@ class ShowProposalGrid extends Component
     public $status_selected;
     public $categories;
     private $proposals;
-    public $sortField = 'votes_count';
+    public $keywordsInput;
 
-    public function sortVotes()
-    {
-        $this->sortField = 'votes_count';
-    }
-
-    public function sortLatest()
-    {
-        $this->sortField = 'created_at';
-    }
 
     public function mount()
     {
         $this->categories = Category::get();
-        $this->refreshProposals();
+        $this->proposals = Proposal::with('user', 'category')
+            ->withCount('votes')
+            ->paginate(9);
         $this->status_selected = '*';
     }
 
 
-        public function paginationView()
+    public function filter()
     {
-        return view('components.frontend.propostas.pagination');
-    }
-
-    private function refreshProposals()
-    {
-        if(is_numeric($this->category_selected))
-        {
-            $category = Category::find($this->category_selected);
-            $this->proposals = $category->proposals()
-            ->with('user', 'category')
-            ->where('status', $this->status_selected)
+        $query = Proposal::with('user', 'category')
             ->withCount('votes')
-            ->orderByDesc($this->sortField)
-            ->paginate(9);
+            ->where('status', $this->status_selected);
+
+        if (is_numeric($this->category_selected)) {
+            $query->whereHas('category', function ($categoryQuery) {
+                $categoryQuery->where('id', $this->category_selected);
+            });
         }
-        else
-        {
-            $this->proposals = Proposal::with('user', 'category')
-                ->withCount('votes')
-                ->where('status', $this->status_selected)
-                ->orderByDesc($this->sortField)
-                ->paginate(9);
+
+        if (!empty($this->keywordsInput)) {
+            $query->where(function ($keywordQuery) {
+                $keywordQuery->where('title', 'like', '%' . $this->keywordsInput . '%');
+//                    ->orWhere('summary', 'like', '%' . $this->keywordsInput . '%');
+//                    ->orWhere('content', 'like', '%' . $this->keywordsInput . '%');
+            });
         }
+
+        $this->proposals = $query->paginate(9);
     }
 
     public function render()
     {
-        $this->refreshProposals();
         $proposals = $this->proposals;
         return view('livewire.propostas.show-proposal-grid', ['proposals' => $proposals]);
     }
