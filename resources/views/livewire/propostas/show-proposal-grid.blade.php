@@ -26,7 +26,7 @@
                                 <div class="">
                                     <i class="uil uil-search absolute top-[48%] -translate-y-1/2 start-3 z-1 text-indigo-600 text-[20px]"></i>
                                     <input wire:model="keywordsInput" name="name" type="text" id="job-keyword" class="form-input lg:rounded-t-sm lg:rounded-e-none lg:rounded-b-none lg:rounded-s-sm lg:outline-0 w-full filter-input-box bg-gray-50 dark:bg-slate-800 border-0 focus:ring-0" placeholder="Search your keywords">
-                                    @error('keywordsInput') <span class="error">{{ $message }}</span> @enderror
+                                    <div>@error('keywordsInput') {{ $message }} @enderror</div>
                                 </div>
 
                                 <div class="relative">
@@ -67,17 +67,10 @@
         </div>
     </div><!--end grid-->
     <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[50px] mt-8">
-        @if(is_numeric($category_selected))
-                @foreach($proposals as $proposal)
-                        <x-frontend.propostas.proposal-card :proposal="$proposal"/>
-                @endforeach
-            @else
                 @foreach($proposals as $proposal)
                     <x-frontend.propostas.proposal-card :proposal="$proposal"/>
                 @endforeach
 
-        @endif
     </div>
-{{--    {{$proposals->links()}}--}}
         <x-frontend.propostas.pagination :proposals="$proposals"/>
 </div>

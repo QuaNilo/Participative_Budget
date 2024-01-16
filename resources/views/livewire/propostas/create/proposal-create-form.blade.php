@@ -38,24 +38,32 @@
                             <h5 class="text-lg font-semibold">Localização :</h5>
                         </div>
 
-{{--                        <div class="grid grid-cols-12 gap-4 mt-4">--}}
-{{--                            <div class="col-span-12 text-start">--}}
-{{--                                <label class="font-semibold" for="Skillname">Rua :</label>--}}
-{{--                                <input  id="Skillname" wire:model="street" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Rua ">--}}
-{{--                            </div>--}}
+                        <div class="grid grid-cols-12 gap-4 mt-4">
+                            <div class="col-span-12 text-start">
+                                <label class="font-semibold" for="street">Rua :</label>
+                                <input  id="street" wire:model="street" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Rua ">
+                            </div>
 
-{{--                            <div class="md:col-span-6 col-span-12 text-start">--}}
-{{--                                <label class="font-semibold" for="Qualificationname">Codigo Postal :</label>--}}
-{{--                                <input id="Qualificationname" wire:model="postal_code" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Codigo Postal">--}}
-{{--                            </div>--}}
+                            <div class="md:col-span-2 col-span-12 text-start">
+                                <label class="font-semibold" for="postal_code">Codigo Postal :</label>
+                                <input id="postal_code" wire:model="postal_code" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Codigo Postal">
+                            </div>
 
-{{--                            <div class="md:col-span-6 col-span-12 text-start">--}}
-{{--                                <label class="font-semibold" for="Experiencename">Cidade :</label>--}}
-{{--                                <input id="Experiencename" wire:model="city" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Cidade">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                            <div class="md:col-span-6 col-span-12 text-start">
+                                <label class="font-semibold" for="city">Cidade :</label>
+                                <input id="city" wire:model="city" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Cidade">
+                            </div>
 
-                        <div class="col-span-12 text-start">
+                            <div class="md:col-span-6 col-span-12 text-start">
+                                <label class="font-semibold" for="freguesia">Freguesia :</label>
+                                <input id="freguesia" wire:model="freguesia" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Freguesia">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 mt-8">
+                            <h5 class="text-lg font-semibold">Ou deixe um pin no mapa :</h5>
+                        </div>
+                        <div class="col-span-12 text-start mt-8">
                             <div class="">
                                 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
                                 <style type="text/css">

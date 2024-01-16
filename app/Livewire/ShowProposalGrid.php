@@ -16,6 +16,9 @@ class ShowProposalGrid extends Component
     private $proposals;
     public $keywordsInput;
 
+    protected $rules = [
+
+    ];
 
     public function mount()
     {
@@ -29,9 +32,13 @@ class ShowProposalGrid extends Component
 
     public function filter()
     {
+//        $this->validate($this->rules);
         $query = Proposal::with('user', 'category')
-            ->withCount('votes')
-            ->where('status', $this->status_selected);
+            ->withCount('votes');
+
+        if(is_numeric($this->status_selected)){
+            $query->where('status', $this->status_selected);
+        }
 
         if (is_numeric($this->category_selected)) {
             $query->whereHas('category', function ($categoryQuery) {

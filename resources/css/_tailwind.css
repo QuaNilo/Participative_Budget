@@ -5,3 +5,7 @@
 [x-cloak] {
     display: none;
 }
+
+[card] {
+  @apply bg-amber-400 text-yellow-700 flex border-2 border-amber-950;
+}
