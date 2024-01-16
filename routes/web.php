@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarPage;
 use App\Http\Controllers\ColorSchemeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DarkModeController;
@@ -44,8 +45,7 @@ Route::get('/propostas', [ProposalFEController::class, 'show_frontend'])->name('
 Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/propostas/{id}', [ProposalFEController::class, 'show_proposal']);
 
-Route::post('/update-marker-position', [ProposalCreateForm::class, 'updateMarkerPosition']);
-
+Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 
 Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
 Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.cookies');
