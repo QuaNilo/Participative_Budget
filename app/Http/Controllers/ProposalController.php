@@ -35,15 +35,20 @@ class ProposalController extends Controller
     {
         $input = $request->all();
 
+
         /** @var Proposal $proposal */
         $proposal = Proposal::create($input);
         if($proposal){
+
+            $this->fileUploadHandle($request, 'cover', 'cover', $proposal, false);
+            //handle the file upload and delete
+            $this->fileUploadHandle($request, 'file', 'files', $proposal, true);
             flash(__('Saved successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('proposals.index'));
+        return redirect(route('home'));
     }
 
     /**
@@ -126,16 +131,34 @@ class ProposalController extends Controller
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('propostas'));
+        return redirect(route('proposals.index'));
     }
 
-        public function show_frontend()
+    protected function fileUploadHandle($request, $fileName, $collection, $model, $isMultiple = false): void
     {
-        return view('site.propostas.index');
-    }
+        if($isMultiple == false) {
+            if (!empty($file_id = $request->input($fileName . '_delete'))) {
+                if (!empty($model->getMedia($collection)->where('id', $file_id)->first())) {
+                    $model->getMedia($collection)->where('id', $file_id)->first()->delete();
+                }
+            }
+            if (!empty($file = $request->input($fileName))) {
+                $model->addMedia(storage_path("app/livewire-tmp/" . $file))
+                    ->usingName($request->input($fileName . '_original_name'))//get the media original name at the same index as the media item
+                    ->toMediaCollection($collection);
+            }
+        }else{ // is multiple
+            foreach ($request->input($fileName . '_delete', []) as $file_id) {
+                if(!empty($model->getMedia($collection)->where('id', $file_id)->first())){
+                    $model->getMedia($collection)->where('id', $file_id)->first()->delete();
+                }
+            }
+            foreach ($request->input($fileName, []) as $index => $file) {
+                $model->addMedia(storage_path( "app/livewire-tmp/" . $file))
+                    ->usingName($request->input($fileName . '_original_name',[])[$index])//get the media original name at the same index as the media item
+                    ->toMediaCollection($collection);
+            }
 
-    public function show_frontend_create()
-    {
-        return view('site.propostas.create.index');
+        }
     }
 }

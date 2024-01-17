@@ -17,72 +17,26 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
-use App\Models\Proposal;
+use App\Models\EditionWinner;
 
-class ProposalsTable extends Component implements HasForms, HasTable
+class EditionWinnersTable extends Component implements HasForms, HasTable
 {
     use InteractsWithTable;
     use InteractsWithForms;
 
     public function table(Table $table): Table
     {
-        $newModel = new Proposal();
+        $newModel = new EditionWinner();
         return $table
-            ->query(Proposal::query())
+            ->query(EditionWinner::query())
             ->columns([
-                TextColumn::make("user_id")
-                ->label($newModel->getAttributeLabel("user_id"))
+                TextColumn::make("year")
+                ->label($newModel->getAttributeLabel("year"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("category_id")
-                ->label($newModel->getAttributeLabel("category_id"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("edition_winners_id")
-                ->label($newModel->getAttributeLabel("edition_winners_id"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("content")
-                ->label($newModel->getAttributeLabel("content"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("coordinateX")
-                ->label($newModel->getAttributeLabel("coordinateX"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("coordinateY")
-                ->label($newModel->getAttributeLabel("coordinateY"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("summary")
-                ->label($newModel->getAttributeLabel("summary"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("title")
-                ->label($newModel->getAttributeLabel("title"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("image")
-                ->label($newModel->getAttributeLabel("image"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("status")
-                ->label($newModel->getAttributeLabel("status"))
-                ->formatStateUsing(fn (Proposal $record): string => $record->statusLabel)
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("budget_estimate")
-                ->label($newModel->getAttributeLabel("budget_estimate"))
+            TextColumn::make("rank")
+                ->label($newModel->getAttributeLabel("rank"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -121,7 +75,7 @@ class ProposalsTable extends Component implements HasForms, HasTable
             ->actions([
                 Action::make('edit')
                 ->label(__('Update'))
-                ->url(fn (Proposal $record): string => route('proposals.edit', ['proposal' => $record]))
+                ->url(fn (EditionWinner $record): string => route('edition-winners.edit', ['edition_winner' => $record]))
                 ->icon('heroicon-o-pencil')
                 //->color('danger')
             ])
@@ -134,7 +88,7 @@ class ProposalsTable extends Component implements HasForms, HasTable
             ])
             ->defaultSort('id', 'desc')
             ->recordUrl(
-                fn (Model $record): string => route('proposals.show', ['proposal' => $record]),
+                fn (Model $record): string => route('edition-winners.show', ['edition_winner' => $record]),
             )
             //->striped()
             ->persistFiltersInSession()
@@ -144,6 +98,6 @@ class ProposalsTable extends Component implements HasForms, HasTable
 
     public function render() : View
     {
-        return view('proposals.table');
+        return view('edition_winners.table');
     }
 }

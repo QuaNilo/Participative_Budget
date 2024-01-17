@@ -16,12 +16,16 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property int $id
  * @property int $user_id
  * @property int $category_id
+ * @property int|null $edition_winners_id
+ * @property int $edition_id
  * @property string $content
  * @property float $coordinateX
  * @property float $coordinateY
  * @property string $summary
  * @property string $title
+ * @property string|null $image
  * @property int $status 1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado
+ * @property float|null $budget_estimate
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
@@ -35,12 +39,15 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereBudgetEstimate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCoordinateX($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCoordinateY($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereProposalWinnersId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereSummary($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereTitle($value)
@@ -67,11 +74,16 @@ class Proposal extends Model implements Auditable, HasMedia
     public $fillable = [
         'user_id',
         'category_id',
+        'edition_id',
+        'edition_winners_id',
         'content',
         'coordinateX',
         'coordinateY',
+        'summary',
         'title',
-        'status'
+        'image',
+        'status',
+        'budget_estimate'
     ];
 
     protected $casts = [
@@ -79,7 +91,9 @@ class Proposal extends Model implements Auditable, HasMedia
         'coordinateX' => 'float',
         'coordinateY' => 'float',
         'summary' => 'string',
-        'title' => 'string'
+        'title' => 'string',
+        'image' => 'string',
+        'budget_estimate' => 'float'
     ];
 
     protected static function boot()
@@ -102,13 +116,19 @@ class Proposal extends Model implements Auditable, HasMedia
     {
         return [
             'user_id' => 'required',
-            'category_id' => 'required',
-            'content' => 'required|string|max:65535',
-            'coordinateX' => 'required|numeric',
-            'coordinateY' => 'required|numeric',
-            'title' => 'required|string|max:65535',
-//            'created_at' => 'nullable',
-//            'updated_at' => 'nullable'
+        'category_id' => 'required',
+        'edition_id' => 'required',
+        'edition_winners_id' => 'nullable',
+        'content' => 'required|string|max:65535',
+        'coordinateX' => 'required|numeric',
+        'coordinateY' => 'required|numeric',
+        'summary' => 'required|string|max:65535',
+        'title' => 'required|string|max:65535',
+        'image' => 'nullable|string|max:65535',
+        'status' => 'required',
+        'budget_estimate' => 'nullable|numeric',
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable'
         ];
     }
 
@@ -121,16 +141,20 @@ class Proposal extends Model implements Auditable, HasMedia
     {
         return [
             'id' => __('Id'),
-            'user_id' => __('User Id'),
-            'category_id' => __('Category Id'),
-            'content' => __('Content'),
-            'coordinateX' => __('Coordinatex'),
-            'coordinateY' => __('Coordinatey'),
-            'summary' => __('Summary'),
-            'title' => __('Title'),
-            'status' => __('Status'),
-            'created_at' => __('Created At'),
-            'updated_at' => __('Updated At')
+        'user_id' => __('User Id'),
+        'category_id' => __('Category Id'),
+        'edition_id' => __('Edition Id'),
+        'edition_winners_id' => __('Edition Winners ID'),
+        'content' => __('Content'),
+        'coordinateX' => __('Coordinatex'),
+        'coordinateY' => __('Coordinatey'),
+        'summary' => __('Summary'),
+        'title' => __('Title'),
+        'image' => __('Image'),
+        'status' => __('Status'),
+        'budget_estimate' => __('Budget Estimate'),
+        'created_at' => __('Created At'),
+        'updated_at' => __('Updated At')
         ];
     }
 
@@ -148,6 +172,11 @@ class Proposal extends Model implements Auditable, HasMedia
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(\App\Models\Category::class, 'category_id');
+    }
+
+    public function edition_winners(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(\App\Models\EditionWinner::class, 'edition_winners_id');
     }
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -204,6 +233,7 @@ class Proposal extends Model implements Auditable, HasMedia
                     ->addMediaConversion('retangular')
                     ->crop('crop-center', 512, 384);
             });
+
         //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
         //->useFallbackUrl('/images/anonymous-user.jpg')
         //->useFallbackPath(public_path('/images/anonymous-user.jpg'));

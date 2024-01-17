@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('edition_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('edition_winner_id')->nullable()->constrained()->cascadeOnDelete();
             $table->text('content');
             $table->double('coordinateX');
             $table->double('coordinateY');

@@ -32,7 +32,6 @@
                             <x-profile-dashboard-tab :class="$tab === 'update-password' ? 'bg-indigo-600 text-white' : ''" wire:click="setActiveTab('update-password')"><i class="uil uil-padlock text-[20px] me-2 align-middle"></i>Update Password</x-profile-dashboard-tab>
                         </li>
                     </ul>
-
                 </div>
             </div><!--end col-->
             <div class="lg:col-span-9 md:col-span-7">

@@ -16,6 +16,15 @@
 
 
 
+<!-- edition_winners_id Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('edition_winners_id') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->edition_winners_id }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
 <!-- Content Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('content') }}</dt>
@@ -61,10 +70,28 @@
 
 
 
+<!-- Image Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('image') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->image }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
 <!-- Status Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('status') }}</dt>
     <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->status }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Budget Estimate Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('budget_estimate') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->budget_estimate }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 

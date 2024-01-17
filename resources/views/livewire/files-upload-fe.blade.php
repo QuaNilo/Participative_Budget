@@ -10,38 +10,38 @@
         @dragover.prevent
         class="rounded-md border-2 border-dashed pt-4 dark:border-darkmode-400">
         <div class="flex flex-wrap px-4">
-            <div class="flex flex-wrap">
-                <!-- Previous files -->
-                @foreach ($previousFiles as $media)
-                    <div class="image-fit zoom-in relative mb-5 mr-5 h-32 w-32 cursor-pointer">
-                        @if(\App\Facades\HelperMethods::isImage($media))
-                            <img class="rounded-md shadow" src="{{ $media->getUrl() }}" alt="Uploaded Image">
-                        @else
-                            <!-- Default div with a generic file icon -->
-                            <div class="bg-gray-100 w-full h-full flex items-center justify-center shadow ">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="file-check" data-lucide="file-check" class="lucide lucide-file-check stroke-1.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="m9 15 2 2 4-4"></path></svg>
-                            </div>
-                        @endif
-                        <div class="absolute bottom-0 left-0 right-0 flex flex-col p-2 text-xs bg-white bg-opacity-50">
-                            <span class="w-full font-bold text-gray-900 truncate">{{ $media->name }}</span>
-                            <span class="text-xs text-gray-900" x-text="humanFileSize({{ $media->size }})"></span>
-                        </div>
-                        <x-base.tippy
-                            class="absolute top-0 right-0 -mt-2 -mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-danger text-white"
-                            as="div"
-                            content="{{ __('Remove') }}"
+{{--            <div class="flex flex-wrap">--}}
+{{--                <!-- Previous files -->--}}
+{{--                @foreach ($previousFiles as $media)--}}
+{{--                    <div class="image-fit zoom-in relative mb-5 mr-5 h-32 w-32 cursor-pointer">--}}
+{{--                        @if(\App\Facades\HelperMethods::isImage($media))--}}
+{{--                            <img class="rounded-md shadow" src="{{ $media->getUrl() }}" alt="Uploaded Image">--}}
+{{--                        @else--}}
+{{--                            <!-- Default div with a generic file icon -->--}}
+{{--                            <div class="bg-gray-100 w-full h-full flex items-center justify-center shadow ">--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="file-check" data-lucide="file-check" class="lucide lucide-file-check stroke-1.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="m9 15 2 2 4-4"></path></svg>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+{{--                        <div class="absolute bottom-0 left-0 right-0 flex flex-col p-2 text-xs bg-white bg-opacity-50">--}}
+{{--                            <span class="w-full font-bold text-gray-900 truncate">{{ $media->name }}</span>--}}
+{{--                            <span class="text-xs text-gray-900" x-text="humanFileSize({{ $media->size }})"></span>--}}
+{{--                        </div>--}}
+{{--                        <x-base.tippy--}}
+{{--                            class="absolute top-0 right-0 -mt-2 -mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-danger text-white"--}}
+{{--                            as="div"--}}
+{{--                            content="{{ __('Remove') }}"--}}
 
-                        >
-                            <svg wire:click="removePreviousFile({{ $media->id }})"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="x" data-lucide="x" class="lucide lucide-x stroke-1.5 h-4 w-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        </x-base.tippy>
-                    </div>
-                @endforeach
-                <div >
-                    @foreach ($removedPreviousFiles as $media)
-                        <input type="hidden" name="{{ $inputName.'_delete'.($isMultiple ? '[]': '') }}" value="{{ $media->id }}">
-                    @endforeach
-                </div>
-            </div>
+{{--                        >--}}
+{{--                            <svg wire:click="removePreviousFile({{ $media->id }})"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="x" data-lucide="x" class="lucide lucide-x stroke-1.5 h-4 w-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>--}}
+{{--                        </x-base.tippy>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--                <div >--}}
+{{--                    @foreach ($removedPreviousFiles as $media)--}}
+{{--                        <input type="hidden" name="{{ $inputName.'_delete'.($isMultiple ? '[]': '') }}" value="{{ $media->id }}">--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <!-- Uploaded Files Preview -->
             @if ($files)
                 @foreach ($files as $file)

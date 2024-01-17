@@ -30,6 +30,22 @@
     @enderror
 </div>
 
+<!-- edition_winners_id Field -->
+<div class="mb-3">
+    <x-base.form-label for="edition_winners_id">{{ $proposal->getAttributeLabel('edition_winners_id') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('edition_winners_id') ? 'border-danger' : '') }}"
+        id="edition_winners_id"
+        name="edition_winners_id"
+        :value="old('edition_winners_id', $proposal->edition_winners_id ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('edition_winners_id')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 <!-- Content Field -->
 <div class="mb-3">
     <x-base.form-label for="content">{{ $proposal->getAttributeLabel('content') }}</x-base.form-label>
@@ -104,6 +120,21 @@
     @enderror
 </div>
 
+<!-- Image Field -->
+<div class="mb-3">
+    <x-base.form-label for="image">{{ $proposal->getAttributeLabel('image') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('image') ? 'border-danger' : '') }}"
+        id="image"
+        name="image"
+        :value="old('image', $proposal->image ?? '')"
+        type="text"
+    />
+    @error('image')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 <!-- Status Field -->
 <div class="mb-3">
     <x-base.form-label for="status">{{ $proposal->getAttributeLabel('status') }}</x-base.form-label>
@@ -120,6 +151,22 @@
         @endforeach
     </x-base.form-select>
     @error('status')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Budget Estimate Field -->
+<div class="mb-3">
+    <x-base.form-label for="budget_estimate">{{ $proposal->getAttributeLabel('budget_estimate') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('budget_estimate') ? 'border-danger' : '') }}"
+        id="budget_estimate"
+        name="budget_estimate"
+        :value="old('budget_estimate', $proposal->budget_estimate ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('budget_estimate')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

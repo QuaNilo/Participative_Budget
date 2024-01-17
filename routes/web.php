@@ -42,6 +42,7 @@ Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
 
 
 Route::get('/propostas', [ProposalFEController::class, 'show_frontend'])->name('propostas');
+Route::resource('propostas-FE', ProposalFEController::class);
 Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/propostas/{id}', [ProposalFEController::class, 'show_proposal']);
 
@@ -77,6 +78,10 @@ Route::middleware([
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
 
     Route::resource('demos', App\Http\Controllers\DemoController::class);
+    Route::resource('edition-winners', App\Http\Controllers\EditionWinnerController::class);
+    Route::resource('editions', App\Http\Controllers\EditionController::class);
 });
+
+
 
 
