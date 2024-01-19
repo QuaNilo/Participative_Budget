@@ -119,20 +119,20 @@
 
 
                         <div class="grid grid-cols-1 mt-8">
-                            <div class="mb-3">
-                                <label>Image:</label>
-                                <input type="file" name="files" class="form-control">
-                            </div>
-{{--                           <livewire:files-upload-f-e--}}
-{{--                                inputName="cover"--}}
-{{--                                :isMultiple="false"--}}
-{{--                                maxFiles="1"--}}
-{{--                                maxFileSize="10240"--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label>Image:</label>--}}
+{{--                                <input type="file" name="files[]" class="form-control" multiple>--}}
+{{--                            </div>--}}
+                           <livewire:files-upload-f-e
+                                inputName="files"
+                                :isMultiple="true"
+                                maxFiles="3"
+                                maxFileSize="10240"
 {{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
-{{--                                :label="__('Upload Cover')"--}}
-{{--                                acceptedFileTypes="image/*"--}}
-{{--                                :uploadFieldMainLabel="__('Upload an image')"--}}
-{{--                            />--}}
+                                :label="__('Upload Cover')"
+                                acceptedFileTypes="image/*"
+                                :uploadFieldMainLabel="__('Upload an image')"
+                            />
 
                             @error('file') <span class="error">{{ $message }}</span> @enderror
                         </div>
