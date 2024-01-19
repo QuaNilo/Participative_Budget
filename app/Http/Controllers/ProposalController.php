@@ -33,6 +33,7 @@ class ProposalController extends Controller
      */
     public function store(CreateProposalRequest $request)
     {
+        dd("olá");
         $input = $request->all();
 
 

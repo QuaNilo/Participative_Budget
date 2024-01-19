@@ -26,7 +26,7 @@ class EditionFactory extends Factory
         return [
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-            'year' => $this->faker->year()
+            'identifier' => $this->faker->year()
         ];
     }
 }

@@ -2,6 +2,7 @@
 <div class="group relative rounded-md shadow hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden">
     <div class="content p-6 relative flex flex-col h-full">
         <a href="propostas/{{$proposal->id}}">
+                        <img src="{{$proposal->getFirstMediaUrl('cover')}}">
             <div class="flex-grow">
                 <span class="font-extrabold block text-indigo-600">{{$proposal->title}}</span>
                 <span class="font-medium block text-indigo-600">{{$proposal->category()->first()->name}}</span>

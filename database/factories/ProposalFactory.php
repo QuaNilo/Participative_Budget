@@ -49,7 +49,7 @@ class ProposalFactory extends Factory
             'user_id' => $user->id,
             'category_id' => $category->id,
             'edition_id' => $edition->id,
-            'edition_winners_id' => $editionWinner->id ?? null,
+            'edition_winner_id' => $editionWinner->id ?? null,
             'content' => $this->faker->text($this->faker->numberBetween(5, 6465)),
             'coordinateX' => $this->faker->randomFloat(15, -180, 180),
             'coordinateY' => $this->faker->randomFloat(15, -90, 90),

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProposalRequest;
 use App\Models\Proposal;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class ProposalFEController extends Controller
 {
@@ -24,26 +26,32 @@ class ProposalFEController extends Controller
         return view('site.propostas.proposta.index', ['proposal' => $proposal]);
     }
 
-        public function store(CreateProposalRequest $request)
+    /**
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
+    public function store(Request $request)
     {
-        $input = $request->all();
+        $input = request()->all();
+        $input['user_id'] = auth()->user()->id;
+        $input['edition_id'] = 2;
 
         /** @var Proposal $proposal */
         $proposal = Proposal::create($input);
         if($proposal){
-            $this->fileUploadHandle($request, 'cover', 'cover', $proposal, false);
-            //handle the file upload and delete
-            $this->fileUploadHandle($request, 'file', 'files', $proposal, true);
+            $proposal->addMediaFromRequest('files')
+                ->toMediaCollection('cover'); // Replace 'your_media_collection' with your desired collection name
             flash(__('Saved successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('home'));
+        return redirect(route('propostas'));
     }
 
     protected function fileUploadHandle($request, $fileName, $collection, $model, $isMultiple = false): void
     {
+        dd($fileName);
         if($isMultiple == false) {
             if (!empty($file_id = $request->input($fileName . '_delete'))) {
                 if (!empty($model->getMedia($collection)->where('id', $file_id)->first())) {
