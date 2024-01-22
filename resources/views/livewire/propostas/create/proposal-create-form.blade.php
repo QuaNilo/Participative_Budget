@@ -1,10 +1,9 @@
-<!-- Start Section-->
 <section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
     <div class="container relative">
         <div class="lg:flex justify-center">
             <div class="lg:w-full">
                 <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                    <form action="{{ route('propostas-FE.store') }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <form action="{{ route('propostasFE-store') }}" wire:submit.prevent="store" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-1">
                             <h5 class="text-lg font-semibold">Crie uma proposta :</h5>
@@ -13,26 +12,32 @@
                         <div class="grid grid-cols-12 gap-4 mt-4">
                             <div class="col-span-12 text-start">
                                 <label class="font-semibold" for="title">Proposal Title:</label>
-                                <input id="title" name="title" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Titulo da proposta">
+                                <input id="title" wire:model="title" name="title" type="text" value="{{ old('title') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Titulo da proposta" >
+                                @error('title')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('title') <span class="text-danger">{{ $message }}</span> @enderror
 
                             <div class="col-span-12 text-start">
                                 <label for="content" class="font-semibold">Proposal Content: </label>
-                                <textarea id="content" name="content" class="form-input mt-2 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Descrição da proposta :"></textarea>
+                                <textarea id="content" wire:model="content" name="content" class="form-input mt-2 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Descrição da proposta :">{{ old('content') }}</textarea>
+                                @error('content')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('content') <span class="text-danger">{{ $message }}</span> @enderror
 
                             <div class="md:col-span-6 col-span-12 text-start">
                                 <label for="category_id" class="font-semibold">Proposal Categories:</label>
-                                <select id="category_id" name="category_id" class="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0">
+                                <select id="category_id" wire:model="category_id" name="category_id" value="{{ old('category_id') }}" class="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0">
                                     <option >Selecione uma categoria</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="grid grid-cols-1 mt-8">
@@ -42,22 +47,34 @@
                         <div class="grid grid-cols-12 gap-4 mt-4">
                             <div class="col-span-12 text-start">
                                 <label class="font-semibold" for="street">Rua :</label>
-                                <input  id="street" type="text" name="street" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Rua ">
+                                <input  id="street" type="text" wire:model="street" name="street" value="{{ old('street') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Rua ">
+                                @error('street')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="md:col-span-2 col-span-12 text-start">
                                 <label class="font-semibold" for="postal_code">Codigo Postal :</label>
-                                <input id="postal_code" type="text" name="postal_code" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Codigo Postal">
+                                <input id="postal_code" wire:model="postal_code" type="text" name="postal_code" value="{{ old('postal_code') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Codigo Postal">
+                                @error('postal_code')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="md:col-span-6 col-span-12 text-start">
                                 <label class="font-semibold" for="city">Cidade :</label>
-                                <input id="city" type="text" name="city" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Cidade">
+                                <input id="city" type="text" wire:model="city" name="city"  value="{{ old('city') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Cidade">
+                                @error('city')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="md:col-span-6 col-span-12 text-start">
                                 <label class="font-semibold" for="freguesia">Freguesia :</label>
-                                <input id="freguesia" type="text" name="freguesia" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Freguesia">
+                                <input id="freguesia" type="text" wire:model="freguesia" name="freguesia" value="{{ old('freguesia') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Freguesia">
+                                @error('freguesia')
+                                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
@@ -102,8 +119,8 @@
                                         document.getElementById('coordinateY').value = clickedLatLng['lng']
                                         // Update marker position
                                         marker.setPosition(clickedLatLng);
-                                            @this.set('form.coordinateX', clickedLatLng.lat);
-                                            @this.set('form.coordinateY', clickedLatLng.lng);
+                                            @this.set('coordinateX', clickedLatLng.lat);
+                                            @this.set('coordinateY', clickedLatLng.lng);
                                       });
                                     }
 
@@ -111,30 +128,31 @@
                                 </script>
                                 <script type="text/javascript"
                                     src="https://maps.google.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&callback=initMap" ></script>
-                                <input id="coordinateX"  name="coordinateX" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
-                                <input id="coordinateY" name="coordinateY" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
+                                <input id="coordinateX"  wire:model="coordinateX" name="coordinateX" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
+                                <input id="coordinateY" wire:model="coordinateY" name="coordinateY" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
 
                             </div>
                         </div>
 
 
                         <div class="grid grid-cols-1 mt-8">
-{{--                            <div class="mb-3">--}}
-{{--                                <label>Image:</label>--}}
-{{--                                <input type="file" name="files[]" class="form-control" multiple>--}}
-{{--                            </div>--}}
-                           <livewire:files-upload-f-e
-                                inputName="files"
-                                :isMultiple="true"
-                                maxFiles="3"
-                                maxFileSize="10240"
-{{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
-                                :label="__('Upload Cover')"
-                                acceptedFileTypes="image/*"
-                                :uploadFieldMainLabel="__('Upload an image')"
-                            />
+                            <div class="mb-3">
+                                <input type="file" wire:model="photo">
 
-                            @error('file') <span class="error">{{ $message }}</span> @enderror
+                                @error('photo') <span class="error">{{ $message }}</span> @enderror
+                            </div>
+{{--                           <livewire:files-upload-f-e--}}
+{{--                                inputName="files"--}}
+{{--                                :isMultiple="true"--}}
+{{--                                maxFiles="3"--}}
+{{--                                maxFileSize="10240"--}}
+{{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
+{{--                                :label="__('Upload Cover')"--}}
+{{--                                acceptedFileTypes="image/*"--}}
+{{--                                :uploadFieldMainLabel="__('Upload an image')"--}}
+{{--                            />--}}
+
+                            @error('files') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
 

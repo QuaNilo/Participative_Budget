@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProposalRequest;
 use App\Models\Proposal;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
@@ -49,8 +50,10 @@ class ProposalFEController extends Controller
 //        return redirect(route('propostas'));
 //    }
 
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
+        $request->validate(Proposal::rules());
+
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
         $input['edition_id'] = 2;

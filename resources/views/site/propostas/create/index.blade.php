@@ -1,4 +1,15 @@
 <x-landing-layout>
+        <div>
+{{--            @if($errors->any())--}}
+{{--                <div class="alert alert-danger">--}}
+{{--                    <ul>--}}
+{{--                        @foreach ($errors->all() as $error)--}}
+{{--                            <li>{{ $error }}</li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--           @endif--}}
+        </div>
         <div class="my-24">
             <livewire:proposal-create-form></livewire:proposal-create-form>
         </div>

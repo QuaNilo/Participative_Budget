@@ -75,14 +75,10 @@ class Proposal extends Model implements Auditable, HasMedia
         'user_id',
         'category_id',
         'edition_id',
-        'edition_winners_id',
         'content',
         'coordinateX',
         'coordinateY',
-        'summary',
         'title',
-        'image',
-        'status',
         'budget_estimate'
     ];
 
@@ -118,17 +114,10 @@ class Proposal extends Model implements Auditable, HasMedia
             'user_id' => 'required',
         'category_id' => 'required',
         'edition_id' => 'required',
-        'edition_winners_id' => 'nullable',
         'content' => 'required|string|max:65535',
         'coordinateX' => 'required|numeric',
         'coordinateY' => 'required|numeric',
-        'summary' => 'required|string|max:65535',
         'title' => 'required|string|max:65535',
-        'image' => 'nullable|string|max:65535',
-        'status' => 'required',
-        'budget_estimate' => 'nullable|numeric',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
         ];
     }
 

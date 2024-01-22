@@ -11,21 +11,24 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        @endforeach--}}
-                        <div>
-                            <div class="m-2">
-                                <img src="{{asset('images/no-image.svg')}}" class="rounded-md shadow dark:shadow-gray-800" alt="">
+                        @foreach($proposal->getMedia('cover') as $media)
+                            <div>
+                                <div class="m-2">
+                                    <img src="{{ $media->getUrl() }}" class="rounded-md shadow dark:shadow-gray-800" alt="{{ $media->name }}">
+                                </div>
                             </div>
-                        </div>
-                        <div >
-                            <div class="m-2">
-                                <img src="{{asset('images/no-image.svg')}}" class="rounded-md shadow dark:shadow-gray-800" alt="">
-                            </div>
-                        </div>
-                        <div >
-                            <div class="m-2">
-                                <img src="{{asset('images/no-image.svg')}}" class="rounded-md shadow dark:shadow-gray-800" alt="">
-                            </div>
-                        </div>
+                        @endforeach
+
+{{--                        <div >--}}
+{{--                            <div class="m-2">--}}
+{{--                                <img src="{{asset('images/no-image.svg')}}" class="rounded-md shadow dark:shadow-gray-800" alt="">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div >--}}
+{{--                            <div class="m-2">--}}
+{{--                                <img src="{{asset('images/no-image.svg')}}" class="rounded-md shadow dark:shadow-gray-800" alt="">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

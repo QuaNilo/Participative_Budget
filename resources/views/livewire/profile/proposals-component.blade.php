@@ -16,7 +16,7 @@
                 <td class="px-2 py-3 text-start">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</td>
                 <td class="px-2 py-3 text-start text-green-600">{{$proposal->status_label}}</td>
                 <td class="px-2 py-3 text-start">{{$proposal->votes_count}}</td>
-                <td class="px-2 py-3 text-start"><a href="javascript:void(0)" class="text-indigo-600">View <i class="uil uil-arrow-right"></i></a></td>
+                <td class="px-2 py-3 text-start"><a href="propostas/{{$proposal->id}}" class="text-indigo-600">View <i class="uil uil-arrow-right"></i></a></td>
             </tr>
         @endforeach
         </tbody>

@@ -12,10 +12,8 @@ use App\Http\Controllers\ProposalFEController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFEController;
-use App\Livewire\ProposalCreate;
 use App\Livewire\ProposalCreateForm;
 use App\Livewire\ShowMap;
-use App\Livewire\ShowProposals;
 use App\Livewire\UsersProfile;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +40,7 @@ Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
 
 
 Route::get('/propostas', [ProposalFEController::class, 'show_frontend'])->name('propostas');
-Route::resource('propostas-FE', ProposalFEController::class);
+Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/propostas/{id}', [ProposalFEController::class, 'show_proposal']);
 
