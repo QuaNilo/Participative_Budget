@@ -64,7 +64,6 @@ Route::middleware([
     Route::resource('chats', App\Http\Controllers\ChatController::class);
     Route::resource('votes', App\Http\Controllers\VoteController::class);
     Route::resource('categories', App\Http\Controllers\CategoryController::class);
-    Route::resource('proposals', App\Http\Controllers\ProposalController::class);
 
 
     Route::patch('/user/profile', [App\Http\Controllers\UserController::class, 'updateMe'])->name('users.update_me');
@@ -78,7 +77,9 @@ Route::middleware([
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('edition-winners', App\Http\Controllers\EditionWinnerController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
+    Route::resource('proposals', App\Http\Controllers\ProposalController::class);
 });
+
 
 
 

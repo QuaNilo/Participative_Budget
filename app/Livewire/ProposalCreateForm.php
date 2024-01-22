@@ -29,8 +29,8 @@ class ProposalCreateForm extends Component
     public $postal_code;
     public $city;
     public $freguesia;
-    public $coordinateY;
-    public $coordinateX;
+    public $lng;
+    public $lat;
 
 
     public function mount()
@@ -59,14 +59,13 @@ class ProposalCreateForm extends Component
                     'category_id' => $this->category_id,
                     'street' => $this->street,
                     'postal_code' => $this->postal_code,
-                    'coordinateX' => $this->coordinateX,
-                    'coordinateY' => $this->coordinateY,
+                    'lat' => $this->lat,
+                    'lng' => $this->lng,
                     'city' => $this->city,
                     'freguesia' => $this->freguesia,
                 ]);
         if($proposal) {
             $file = $this->photo;
-
 //            if (count($file_names) > 1) {
 //                // Multiple files
 //                $this->fileUploadHandle($request, $file_names, 'cover', $proposal, true );

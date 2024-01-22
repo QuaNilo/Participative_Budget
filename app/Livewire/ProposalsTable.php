@@ -40,28 +40,8 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("edition_winners_id")
-                ->label($newModel->getAttributeLabel("edition_winners_id"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("content")
-                ->label($newModel->getAttributeLabel("content"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("coordinateX")
-                ->label($newModel->getAttributeLabel("coordinateX"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("coordinateY")
-                ->label($newModel->getAttributeLabel("coordinateY"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("summary")
-                ->label($newModel->getAttributeLabel("summary"))
+            TextColumn::make("edition_id")
+                ->label($newModel->getAttributeLabel("edition_id"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -70,8 +50,53 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("image")
-                ->label($newModel->getAttributeLabel("image"))
+            TextColumn::make("content")
+                ->label($newModel->getAttributeLabel("content"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("summary")
+                ->label($newModel->getAttributeLabel("summary"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("lat")
+                ->label($newModel->getAttributeLabel("lat"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("lng")
+                ->label($newModel->getAttributeLabel("lng"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("street")
+                ->label($newModel->getAttributeLabel("street"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("postal_code")
+                ->label($newModel->getAttributeLabel("postal_code"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("city")
+                ->label($newModel->getAttributeLabel("city"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("freguesia")
+                ->label($newModel->getAttributeLabel("freguesia"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("winner")
+                ->label($newModel->getAttributeLabel("winner"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("rank")
+                ->label($newModel->getAttributeLabel("rank"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

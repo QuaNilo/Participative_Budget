@@ -30,78 +30,18 @@
     @enderror
 </div>
 
-<!-- edition_winners_id Field -->
+<!-- Edition Id Field -->
 <div class="mb-3">
-    <x-base.form-label for="edition_winners_id">{{ $proposal->getAttributeLabel('edition_winners_id') }}</x-base.form-label>
+    <x-base.form-label for="edition_id">{{ $proposal->getAttributeLabel('edition_id') }}</x-base.form-label>
     <x-base.form-input
-        class="w-full {{ ($errors->has('edition_winners_id') ? 'border-danger' : '') }}"
-        id="edition_winners_id"
-        name="edition_winners_id"
-        :value="old('edition_winners_id', $proposal->edition_winners_id ?? '')"
+        class="w-full {{ ($errors->has('edition_id') ? 'border-danger' : '') }}"
+        id="edition_id"
+        name="edition_id"
+        :value="old('edition_id', $proposal->edition_id ?? '')"
         type="number"
         step="1"
     />
-    @error('edition_winners_id')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
-<!-- Content Field -->
-<div class="mb-3">
-    <x-base.form-label for="content">{{ $proposal->getAttributeLabel('content') }}</x-base.form-label>
-    <x-base.form-textarea
-        class="w-full {{ ($errors->has('content') ? 'border-danger' : '') }}"
-        id="content"
-        name="content"
-        rows="5"
-    >{{ old('content', $proposal->content ?? '') }}</x-base.form-textarea>
-    @error('content')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
-<!-- Coordinatex Field -->
-<div class="mb-3">
-    <x-base.form-label for="coordinateX">{{ $proposal->getAttributeLabel('coordinateX') }}</x-base.form-label>
-    <x-base.form-input
-        class="w-full {{ ($errors->has('coordinateX') ? 'border-danger' : '') }}"
-        id="coordinateX"
-        name="coordinateX"
-        :value="old('coordinateX', $proposal->coordinateX ?? '')"
-        type="number"
-        step="1"
-    />
-    @error('coordinateX')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
-<!-- Coordinatey Field -->
-<div class="mb-3">
-    <x-base.form-label for="coordinateY">{{ $proposal->getAttributeLabel('coordinateY') }}</x-base.form-label>
-    <x-base.form-input
-        class="w-full {{ ($errors->has('coordinateY') ? 'border-danger' : '') }}"
-        id="coordinateY"
-        name="coordinateY"
-        :value="old('coordinateY', $proposal->coordinateY ?? '')"
-        type="number"
-        step="1"
-    />
-    @error('coordinateY')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
-<!-- Summary Field -->
-<div class="mb-3">
-    <x-base.form-label for="summary">{{ $proposal->getAttributeLabel('summary') }}</x-base.form-label>
-    <x-base.form-textarea
-        class="w-full {{ ($errors->has('summary') ? 'border-danger' : '') }}"
-        id="summary"
-        name="summary"
-        rows="5"
-    >{{ old('summary', $proposal->summary ?? '') }}</x-base.form-textarea>
-    @error('summary')
+    @error('edition_id')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
@@ -120,17 +60,158 @@
     @enderror
 </div>
 
-<!-- Image Field -->
+<!-- Content Field -->
 <div class="mb-3">
-    <x-base.form-label for="image">{{ $proposal->getAttributeLabel('image') }}</x-base.form-label>
+    <x-base.form-label for="content">{{ $proposal->getAttributeLabel('content') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('content') ? 'border-danger' : '') }}"
+        id="content"
+        name="content"
+        rows="5"
+    >{{ old('content', $proposal->content ?? '') }}</x-base.form-textarea>
+    @error('content')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Summary Field -->
+<div class="mb-3">
+    <x-base.form-label for="summary">{{ $proposal->getAttributeLabel('summary') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('summary') ? 'border-danger' : '') }}"
+        id="summary"
+        name="summary"
+        rows="5"
+    >{{ old('summary', $proposal->summary ?? '') }}</x-base.form-textarea>
+    @error('summary')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Lat Field -->
+<div class="mb-3">
+    <x-base.form-label for="lat">{{ $proposal->getAttributeLabel('lat') }}</x-base.form-label>
     <x-base.form-input
-        class="w-full {{ ($errors->has('image') ? 'border-danger' : '') }}"
-        id="image"
-        name="image"
-        :value="old('image', $proposal->image ?? '')"
-        type="text"
+        class="w-full {{ ($errors->has('lat') ? 'border-danger' : '') }}"
+        id="lat"
+        name="lat"
+        :value="old('lat', $proposal->lat ?? '')"
+        type="number"
+        step="1"
     />
-    @error('image')
+    @error('lat')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Lng Field -->
+<div class="mb-3">
+    <x-base.form-label for="lng">{{ $proposal->getAttributeLabel('lng') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('lng') ? 'border-danger' : '') }}"
+        id="lng"
+        name="lng"
+        :value="old('lng', $proposal->lng ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('lng')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Street Field -->
+<div class="mb-3">
+    <x-base.form-label for="street">{{ $proposal->getAttributeLabel('street') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('street') ? 'border-danger' : '') }}"
+        id="street"
+        name="street"
+        rows="5"
+    >{{ old('street', $proposal->street ?? '') }}</x-base.form-textarea>
+    @error('street')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Postal Code Field -->
+<div class="mb-3">
+    <x-base.form-label for="postal_code">{{ $proposal->getAttributeLabel('postal_code') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('postal_code') ? 'border-danger' : '') }}"
+        id="postal_code"
+        name="postal_code"
+        rows="5"
+    >{{ old('postal_code', $proposal->postal_code ?? '') }}</x-base.form-textarea>
+    @error('postal_code')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- City Field -->
+<div class="mb-3">
+    <x-base.form-label for="city">{{ $proposal->getAttributeLabel('city') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('city') ? 'border-danger' : '') }}"
+        id="city"
+        name="city"
+        rows="5"
+    >{{ old('city', $proposal->city ?? '') }}</x-base.form-textarea>
+    @error('city')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Freguesia Field -->
+<div class="mb-3">
+    <x-base.form-label for="freguesia">{{ $proposal->getAttributeLabel('freguesia') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('freguesia') ? 'border-danger' : '') }}"
+        id="freguesia"
+        name="freguesia"
+        rows="5"
+    >{{ old('freguesia', $proposal->freguesia ?? '') }}</x-base.form-textarea>
+    @error('freguesia')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Winner Field -->
+<div class="mb-3">
+    <x-base.form-input
+        id="winner_hidden"
+        name="winner"
+        :value="0"
+        type="hidden"
+    />
+    <x-base.form-check>
+        <x-base.form-check.input
+            class="{{ ($errors->has('winner') ? 'border-danger' : '') }}"
+            id="winner"
+            name="winner"
+            :value="1"
+            :checked="old('winner', $proposal->winner ?? '') == 1"
+            type="checkbox"
+        />
+        <x-base.form-check.label for="winner">{{ $proposal->getAttributeLabel('winner') }}</x-base.form-check.label>
+    </x-base.form-check>
+    @error('winner')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Rank Field -->
+<div class="mb-3">
+    <x-base.form-label for="rank">{{ $proposal->getAttributeLabel('rank') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('rank') ? 'border-danger' : '') }}"
+        id="rank"
+        name="rank"
+        :value="old('rank', $proposal->rank ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('rank')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

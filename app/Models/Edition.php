@@ -76,13 +76,7 @@ class Edition extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
-
-    public function edition_winners(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(\App\Models\EditionWinner::class, 'edition_winners_id');
-    }
-
-        public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\App\Models\Proposal::class, 'proposal_id');
     }

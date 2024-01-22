@@ -115,12 +115,12 @@
                                         // Store or use the clicked coordinates as needed
                                         console.log("Clicked Coordinates:", clickedLatLng);
 
-                                        document.getElementById('coordinateX').value = clickedLatLng['lat']
-                                        document.getElementById('coordinateY').value = clickedLatLng['lng']
+                                        document.getElementById('lat').value = clickedLatLng['lat']
+                                        document.getElementById('lng').value = clickedLatLng['lng']
                                         // Update marker position
                                         marker.setPosition(clickedLatLng);
-                                            @this.set('coordinateX', clickedLatLng.lat);
-                                            @this.set('coordinateY', clickedLatLng.lng);
+                                            @this.set('lat', clickedLatLng.lat);
+                                            @this.set('lng', clickedLatLng.lng);
                                       });
                                     }
 
@@ -128,8 +128,8 @@
                                 </script>
                                 <script type="text/javascript"
                                     src="https://maps.google.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&callback=initMap" ></script>
-                                <input id="coordinateX"  wire:model="coordinateX" name="coordinateX" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
-                                <input id="coordinateY" wire:model="coordinateY" name="coordinateY" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
+                                <input id="lat"  wire:model="lat" name="lat" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
+                                <input id="lng" wire:model="lng" name="lng" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
 
                             </div>
                         </div>

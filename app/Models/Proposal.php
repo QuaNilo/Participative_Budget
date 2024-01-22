@@ -10,51 +10,6 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-/**
- * App\Models\Proposal
- *
- * @property int $id
- * @property int $user_id
- * @property int $category_id
- * @property int|null $edition_winners_id
- * @property int $edition_id
- * @property string $content
- * @property float $coordinateX
- * @property float $coordinateY
- * @property string $summary
- * @property string $title
- * @property string|null $image
- * @property int $status 1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado
- * @property float|null $budget_estimate
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
- * @property-read int|null $audits_count
- * @property-read \App\Models\Category $category
- * @property-read string $status_label
- * @property-read \App\Models\User $user
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
- * @property-read int|null $votes_count
- * @method static \Database\Factories\ProposalFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal query()
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereBudgetEstimate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCategoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCoordinateX($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCoordinateY($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereProposalWinnersId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereSummary($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUserId($value)
- * @mixin \Eloquent
- */
 class Proposal extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
@@ -75,20 +30,31 @@ class Proposal extends Model implements Auditable, HasMedia
         'user_id',
         'category_id',
         'edition_id',
-        'content',
-        'coordinateX',
-        'coordinateY',
         'title',
+        'content',
+        'lat',
+        'lng',
+        'street',
+        'postal_code',
+        'city',
+        'freguesia',
+        'winner',
+        'rank',
+        'status',
         'budget_estimate'
     ];
 
     protected $casts = [
-        'content' => 'string',
-        'coordinateX' => 'float',
-        'coordinateY' => 'float',
-        'summary' => 'string',
         'title' => 'string',
-        'image' => 'string',
+        'content' => 'string',
+        'summary' => 'string',
+        'lat' => 'float',
+        'lng' => 'float',
+        'street' => 'string',
+        'postal_code' => 'string',
+        'city' => 'string',
+        'freguesia' => 'string',
+        'winner' => 'boolean',
         'budget_estimate' => 'float'
     ];
 
@@ -114,10 +80,14 @@ class Proposal extends Model implements Auditable, HasMedia
             'user_id' => 'required',
         'category_id' => 'required',
         'edition_id' => 'required',
-        'content' => 'required|string|max:65535',
-        'coordinateX' => 'required|numeric',
-        'coordinateY' => 'required|numeric',
         'title' => 'required|string|max:65535',
+        'content' => 'required|string|max:65535',
+        'lat' => 'nullable|numeric',
+        'lng' => 'nullable|numeric',
+        'street' => 'nullable|string|max:65535',
+        'postal_code' => 'nullable|numeric|max:65535',
+        'city' => 'nullable|string|max:65535',
+        'freguesia' => 'nullable|string|max:65535',
         ];
     }
 
@@ -133,13 +103,17 @@ class Proposal extends Model implements Auditable, HasMedia
         'user_id' => __('User Id'),
         'category_id' => __('Category Id'),
         'edition_id' => __('Edition Id'),
-        'edition_winners_id' => __('Edition Winners ID'),
-        'content' => __('Content'),
-        'coordinateX' => __('Coordinatex'),
-        'coordinateY' => __('Coordinatey'),
-        'summary' => __('Summary'),
         'title' => __('Title'),
-        'image' => __('Image'),
+        'content' => __('Content'),
+        'summary' => __('Summary'),
+        'lat' => __('Lat'),
+        'lng' => __('Lng'),
+        'street' => __('Street'),
+        'postal_code' => __('Postal Code'),
+        'city' => __('City'),
+        'freguesia' => __('Freguesia'),
+        'winner' => __('Winner'),
+        'rank' => __('Rank'),
         'status' => __('Status'),
         'budget_estimate' => __('Budget Estimate'),
         'created_at' => __('Created At'),
@@ -163,9 +137,9 @@ class Proposal extends Model implements Auditable, HasMedia
         return $this->belongsTo(\App\Models\Category::class, 'category_id');
     }
 
-    public function edition_winners(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function edition(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(\App\Models\EditionWinner::class, 'edition_winners_id');
+        return $this->belongsTo(\App\Models\Edition::class, 'edition_id');
     }
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
