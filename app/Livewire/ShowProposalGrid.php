@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Category;
+use App\Models\Edition;
 use App\Models\Proposal;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -15,6 +16,8 @@ class ShowProposalGrid extends Component
     public $categories;
     private $proposals;
     public $keywordsInput;
+    public $edition_id;
+    public $edition;
 
     protected $rules = [
 
@@ -24,9 +27,13 @@ class ShowProposalGrid extends Component
     {
         $this->categories = Category::get();
         $this->proposals = Proposal::with('user', 'category')
+            ->where('edition_id', $this->edition_id)
             ->withCount('votes')
             ->paginate(9);
         $this->status_selected = '*';
+
+        $this->edition = Edition::find($this->edition_id);
+
     }
 
 

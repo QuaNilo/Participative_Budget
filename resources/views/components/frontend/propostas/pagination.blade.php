@@ -1,4 +1,4 @@
-@props(['proposals'])
+@props(['proposals', 'edition'])
 <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
     <div class="md:col-span-12 text-center">
         <nav aria-label="Page navigation example">

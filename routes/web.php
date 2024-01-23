@@ -5,6 +5,7 @@ use App\Http\Controllers\ColorSchemeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EditionsFE;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
@@ -38,11 +39,13 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
 Route::get('/profile', [UserFEController::class, 'index'])->name('users_dashboard');
 Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
 
+Route::get('/editions', [EditionsFE::class, 'index'])->name('editions-fe');
 
-Route::get('/propostas', [ProposalFEController::class, 'show_frontend'])->name('propostas');
+
+Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
-Route::get('/propostas/{id}', [ProposalFEController::class, 'show_proposal']);
+Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 

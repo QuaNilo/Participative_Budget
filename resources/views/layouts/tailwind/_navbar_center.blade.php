@@ -1,6 +1,6 @@
 <!-- Start Navbar -->
 <nav id="topnav" class="defaultscroll is-sticky">
-    <div class="container relative">
+    <div class="container relative border-b-2 border-gray-600/5">
         <!-- Logo container-->
         <a class="logo" href="{{ route('home') }}">
             <img src="/assets-frontend/images/logo-dark.png" class="inline-block dark:hidden" alt="{{ config('app.name', 'Laravel') }}">
@@ -47,12 +47,35 @@
 
         <div id="navigation">
             <!-- Navigation Menu-->
-            <ul class="navigation-menu">
+            <ul class="navigation-menu space-x-8">
                 <li><a href="{{ route('home') }}" class="sub-menu-item {{ request()->routeIs('home') ? "active" : "" }}">{{ __('Home') }}</a></li>
 
-                <li><a href="{{ route('calendar-page') }}" class="sub-menu-item">{{ __('Calendario') }}</a></li>
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="javascript:void(0)">Informações</a><span class="menu-arrow"></span><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <ul>
+                                <li><a href="{{ route('calendar-page') }}" class="sub-menu-item">{{ __('Calendario') }}</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li><a href="{{ route('calendar-page') }}" class="sub-menu-item">Regras</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
-                <li><a href="{{ route('propostas') }}" class="sub-menu-item ">{{ __('Propostas') }}</a></li>
+                <li class="has-submenu parent-parent-menu-item">
+                    <a href="{{ route('editions-fe') }}" class="sub-menu-item ">{{ __('Edições') }}</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li>
+                            <ul>
+                                <li><a href="{{route('editions-fe')}}" class="sub-menu-item">Edições <span class="bg-emerald-600 inline-block text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5 ms-1">Vencedores</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
                 <li><a href="{{ route('mapa') }}" class="sub-menu-item">{{ __('Mapa') }}</a></li>
 

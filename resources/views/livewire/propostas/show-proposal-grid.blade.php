@@ -1,22 +1,8 @@
 @props(['proposals'])
 <div>
+    <h1 class="text-3xl mb-32">Edição {{$edition->identifier}}</h1>
     <div class="flex mt-12 items-center space-x-8">
         <div class="lg:col-span-6 md:col-span-4 md:text-end">
-{{--            <x-button wire:click="sortVotes">Votes <i class="uil uil-arrow-up text-lg leading-none me-2 text-slate-900 dark:text-white"></i></x-button>--}}
-{{--            <x-button wire:click="sortLatest">Latest</x-button>--}}
-{{--            <select class="rounded-full bg-indigo-600 text-white" wire:model.change="category_selected">--}}
-{{--                <option>Escolha uma categoria</option>--}}
-{{--                @foreach($categories as $category)--}}
-{{--                    <option value="{{$category->id}}">{{$category->name}}</option>--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-{{--            <select class="rounded-full bg-indigo-600 text-white" wire:model.change="status_selected">--}}
-{{--                <option>Escolha um estado</option>--}}
-{{--                @foreach(\App\Models\Proposal::getStatusArray() as $statusId => $statusName)--}}
-{{--                    <option value="{{$statusId}}">{{$statusName}}</option>--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-
             <div class="container relative -mt-16 z-1">
             <div class="flex ">
                 <div class="p-6 bg-white border-2 border-indigo-600 dark:bg-slate-900 rounded-md shadow-md dark:shadow-gray-800">

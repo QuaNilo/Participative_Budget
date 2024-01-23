@@ -11,9 +11,9 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class ProposalFEController extends Controller
 {
-    public function show_frontend()
+    public function show_frontend($edition_id)
     {
-        return view('site.propostas.index');
+        return view('site.propostas.index', ['edition_id' => $edition_id]);
     }
 
     public function show_frontend_create()

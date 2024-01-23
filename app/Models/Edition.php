@@ -31,6 +31,15 @@ class Edition extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
     use HasFactory;
 
+
+
+    const STATUS_PENDING = 0;
+    const STATUS_CURRENT = 1;
+    const STATUS_COMPLETED = 2;
+    const STATUS_CLOSED = 3;
+    const STATUS_CANCELED = 4;
+
+
     public $table = 'editions';
 
     public $fillable = [
@@ -76,9 +85,30 @@ class Edition extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
+    public static function getStatusArray() : array
+    {
+        return [
+            self::STATUS_PENDING =>  __('Pendente'),
+            self::STATUS_CURRENT =>  __('Aberta'),
+            self::STATUS_COMPLETED =>  __('Completa'),
+            self::STATUS_CLOSED =>  __('Fechada'),
+            self::STATUS_CANCELED =>  __('Cancelada')
+        ];
+    }
+
+    /**
+    * Return the status label
+    * @return string
+    */
+    public function getStatusLabelAttribute() : string
+    {
+        $array = static::getStatusArray();
+        return $array[$this->status] ?? "";
+    }
+
     public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(\App\Models\Proposal::class, 'proposal_id');
+        return $this->hasMany(\App\Models\Proposal::class, 'edition_id');
     }
 
 }
