@@ -84,6 +84,7 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
     use LoadDefaults;
     use Impersonate;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -278,5 +279,10 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
         public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
         {
         return $this->hasMany(Proposal::class);
+        }
+
+        public function votes(): \Illuminate\Database\Eloquent\Relations\HasMany
+        {
+            return $this->hasMany(Vote::class, 'user_id');
         }
 }

@@ -46,6 +46,7 @@ Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->nam
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
+Route::post('propostas-vote/{proposalId}', [ProposalFEController::class, 'vote'])->name('propostas.vote');
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 
