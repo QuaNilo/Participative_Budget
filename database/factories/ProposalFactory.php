@@ -30,15 +30,23 @@ class ProposalFactory extends Factory
         $category = Category::inRandomOrder()->first() ?? Category::factory()->create();
 
         $random_number = random_int(1,6);
-        if($random_number == 2)
+        if($random_number === 3)
         {
             $edition = Edition::factory()->create();
-            $winner['rank'] = random_int(1,10);
-            $winner['winner'] = true;
+            if(random_int(1,2) == 1)
+            {
+                $winner['rank'] = random_int(1,10);
+                $winner['winner'] = true;
+            }
         }
         else
         {
             $edition = Edition::inRandomOrder()->first() ?? Edition::factory()->create();
+            if($random_number === 4)
+            {
+                $winner['rank'] = random_int(1,10);
+                $winner['winner'] = true;
+            }
         }
 
         return [

@@ -12,10 +12,10 @@
     </div>
 
     <div class="flex items-center p-6 border-t border-gray-100 dark:border-gray-700">
-        <i class="uil uil-smile text-3xl text-indigo-600"></i>
+        <i class="uil @if($winners == 0) uil-annoyed-alt text-red-600 @else uil-smile text-green-600 @endif text-3xl"></i>
 
         <div class="ms-3">
-            <span>{{$winners}}
+            <span><span class="text-indigo-600">{{$winners}}</span>
                 @if($winners == 1)
                     Projecto Vencedor
                 @else

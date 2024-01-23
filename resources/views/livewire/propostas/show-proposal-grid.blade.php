@@ -1,6 +1,7 @@
 @props(['proposals'])
 <div>
-    <h1 class="text-3xl mb-32">Edição {{$edition->identifier}}</h1>
+    <h1 class="text-3xl mb-32"><span class="text-4xl font-medium text-indigo-600">{{__('Edição')}} {{$edition->identifier}}</span></h1>
+
     <div class="flex mt-12 items-center space-x-8">
         <div class="lg:col-span-6 md:col-span-4 md:text-end">
             <div class="container relative -mt-16 z-1">

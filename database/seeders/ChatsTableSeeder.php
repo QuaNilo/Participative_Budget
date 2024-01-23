@@ -14,6 +14,6 @@ class ChatsTableSeeder extends Seeder
      */
     public function run()
     {
-        Chat::factory(13)->create();
+        Chat::factory(20)->create();
     }
 }

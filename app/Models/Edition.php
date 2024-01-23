@@ -34,7 +34,7 @@ class Edition extends Model implements Auditable
 
 
     const STATUS_PENDING = 0;
-    const STATUS_CURRENT = 1;
+    const STATUS_OPEN = 1;
     const STATUS_COMPLETED = 2;
     const STATUS_CLOSED = 3;
     const STATUS_CANCELED = 4;
@@ -89,7 +89,7 @@ class Edition extends Model implements Auditable
     {
         return [
             self::STATUS_PENDING =>  __('Pendente'),
-            self::STATUS_CURRENT =>  __('Aberta'),
+            self::STATUS_OPEN =>  __('Aberta'),
             self::STATUS_COMPLETED =>  __('Completa'),
             self::STATUS_CLOSED =>  __('Fechada'),
             self::STATUS_CANCELED =>  __('Cancelada')

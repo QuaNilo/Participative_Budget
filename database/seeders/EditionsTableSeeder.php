@@ -14,6 +14,6 @@ class EditionsTableSeeder extends Seeder
      */
     public function run()
     {
-        Edition::factory(6)->create();
+        Edition::factory(10)->create();
     }
 }

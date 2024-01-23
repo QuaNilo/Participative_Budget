@@ -65,17 +65,7 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="has-submenu parent-parent-menu-item">
-                    <a href="{{ route('editions-fe') }}" class="sub-menu-item ">{{ __('Edições') }}</a><span class="menu-arrow"></span>
-                    <ul class="submenu">
-                        <li>
-                            <ul>
-                                <li><a href="{{route('editions-fe')}}" class="sub-menu-item">Edições <span class="bg-emerald-600 inline-block text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5 ms-1">Vencedores</span></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="{{route('editions-fe')}}" class="sub-menu-item">{{ __('Edições') }}</a></li>
 
                 <li><a href="{{ route('mapa') }}" class="sub-menu-item">{{ __('Mapa') }}</a></li>
 
