@@ -41,7 +41,6 @@ class Voting extends Component
             $this->has_voted = true;
             flash(__('Vote recorded successfully.'))->overlay()->success();
         }
-
     }
 
     public function render()

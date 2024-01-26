@@ -16,11 +16,11 @@
           });
 
           @foreach ($proposals as $proposal)
-              addMarker(map, {{ $proposal->coordinateX }}, {{ $proposal->coordinateY }}, "{{ $proposal->title }}", "{{ $proposal->summary }}");
+              addMarker(map, {{ $proposal->lat }}, {{ $proposal->lng }}, "{{ $proposal->title }}", "{{ $proposal->summary }}", {{$proposal->id}});
           @endforeach
         }
 
-        function addMarker(map, lat, lng, title, description) {
+        function addMarker(map, lat, lng, title, description, id) {
             const marker = new google.maps.Marker({
                 position: { lat, lng },
                 map,
@@ -31,7 +31,7 @@
                 <div>
                     <h2>Title : ${title}</h2>
                     <p> Descrição : ${description}</p>
-                    <button onclick="window.location.href='propostas/{{$proposal->id}}'">View Proposal</button>
+                    <button onclick="window.location.href='edition/proposta/${id}'">View Proposal</button>
                 </div>
             `;
 
@@ -47,5 +47,6 @@
         window.initMap = initMap;
     </script>
     <script type="text/javascript"
+
         src="https://maps.google.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&callback=initMap" ></script>
 </div>
