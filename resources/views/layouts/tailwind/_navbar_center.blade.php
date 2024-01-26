@@ -60,7 +60,7 @@
                         </li>
                         <li>
                             <ul>
-                                <li><a href="{{ route('calendar-page') }}" class="sub-menu-item">Regras</a></li>
+                                <li><a href="{{ route('rules-page') }}" class="sub-menu-item">Regulamento</a></li>
                             </ul>
                         </li>
                     </ul>

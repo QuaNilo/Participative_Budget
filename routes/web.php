@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\ProposalFEController;
+use App\Http\Controllers\RulesPage;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFEController;
@@ -49,6 +50,8 @@ Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposa
 Route::post('propostas-vote/{proposalId}', [ProposalFEController::class, 'vote'])->name('propostas.vote');
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
+Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');
+
 
 Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
 Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.cookies');
