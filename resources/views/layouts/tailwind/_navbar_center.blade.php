@@ -63,6 +63,11 @@
                                 <li><a href="{{ route('rules-page') }}" class="sub-menu-item">Regulamento</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <ul>
+                                <li><a href="{{ route('faq-page') }}" class="sub-menu-item">FAQ</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="{{route('editions-fe')}}" class="sub-menu-item">{{ __('Edições') }}</a></li>

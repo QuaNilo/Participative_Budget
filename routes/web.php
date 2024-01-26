@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EditionsFE;
+use App\Http\Controllers\FAQ;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
@@ -51,6 +52,7 @@ Route::post('propostas-vote/{proposalId}', [ProposalFEController::class, 'vote']
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');
+Route::get('/FAQ', [FAQ::class, 'show'])->name('faq-page');
 
 
 Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
