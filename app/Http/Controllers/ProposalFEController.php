@@ -24,7 +24,10 @@ class ProposalFEController extends Controller
 
     public function show_proposal($id)
     {
-        $proposal = Proposal::find($id);
+        $proposal = Proposal::with('user', 'category')
+            ->where('id', $id)
+            ->withCount('votes')
+            ->first();
         return view('site.propostas.proposta.index', ['proposal' => $proposal]);
     }
 

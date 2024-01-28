@@ -45,6 +45,7 @@ class ShowProposalGrid extends Component
             $this->proposals = Proposal::with('user', 'category')
                 ->where('winner', 1)
                 ->where('edition_id', $this->edition_id)
+                ->withCount('votes')
                 ->paginate(9);
         }
         else{

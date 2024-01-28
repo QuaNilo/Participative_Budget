@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Proposal;
 use App\Models\Vote;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,9 +13,11 @@ class Voting extends Component
     public $has_voted;
     public $user;
     public $proposal_id;
+    public $proposal;
 
     public function mount()
     {
+
         $this->user = auth()->user();
         $this->has_voted = $this->user->votes->where('proposal_id', $this->proposal_id)->isNotEmpty() ?? false;
     }
@@ -46,7 +49,10 @@ class Voting extends Component
     public function render()
     {
         $this->has_voted = $this->user->votes->where('proposal_id', $this->proposal_id)->isNotEmpty() ?? false;
-
+        $this->proposal = Proposal::with('user', 'category')
+            ->where('id', $this->proposal_id)
+            ->withCount('votes')
+            ->first();
         return view('livewire.propostas.voting');
     }
 }
