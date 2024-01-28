@@ -62,7 +62,7 @@
     </head>
 
     <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900 flex flex-col min-h-screen">
-        <div class="flex-grow">
+        <div class="">
             <!-- Loader Start -->
             <!-- <div id="preloader">
                 <div id="status">

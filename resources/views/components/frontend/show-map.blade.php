@@ -16,11 +16,11 @@
           });
 
           @foreach ($proposals as $proposal)
-              addMarker(map, {{ $proposal->lat }}, {{ $proposal->lng }}, "{{ $proposal->title }}", "{{ $proposal->summary }}", {{$proposal->id}});
+              addMarker(map, {{ $proposal->lat }}, {{ $proposal->lng }}, "{{ $proposal->title }}", "{{ $proposal->summary }}", {{$proposal->id}}, "{{$proposal->user->name}}", "{{$proposal->category->name}}");
           @endforeach
         }
 
-        function addMarker(map, lat, lng, title, description, id) {
+        function addMarker(map, lat, lng, title, description, id, author, category_name,) {
             const marker = new google.maps.Marker({
                 position: { lat, lng },
                 map,
@@ -29,9 +29,17 @@
 
             const contentString = `
                 <div>
-                    <h2>Title : ${title}</h2>
-                    <p> Descrição : ${description}</p>
-                    <button onclick="window.location.href='edition/proposta/${id}'">View Proposal</button>
+                    <div class="">
+                        <dl class="grid grid-cols-12 mb-0">
+                            <dt class="md:col-span-4 col-span-5 mt-2">Autor :</dt>
+                            <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${author}</dd>
+                            <dt class="md:col-span-4 col-span-5 mt-2">Category :</dt>
+                            <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${category_name}</dd>
+                            <dt class="md:col-span-4 col-span-5 mt-2">Titulo :</dt>
+                            <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${title}</dd>
+                        </dl>
+                    </div>
+                    <x-button class="mt-4"  onclick="window.location.href='edition/proposta/${id}'">View Proposal</x-button>
                 </div>
             `;
 
