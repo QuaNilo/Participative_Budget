@@ -23,12 +23,6 @@ class   MenuComposer
                     'route_name' => 'dashboard',
                     'params' => [],
                 ],
-                'demos.*' => [
-                    'icon' => 'files',
-                    'route_name' => 'demos.index',
-                    'params' => [],
-                    'title' => __('Demos')
-                ],
                 'divider',
                 'profile.show' => [
                     'icon' => 'user',

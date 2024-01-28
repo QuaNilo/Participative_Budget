@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Edition;
 use Illuminate\Database\Seeder;
 
 class EditionsTableSeeder extends Seeder
@@ -14,6 +13,6 @@ class EditionsTableSeeder extends Seeder
      */
     public function run()
     {
-        Edition::factory(10)->create();
+
     }
 }

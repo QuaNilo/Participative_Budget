@@ -4,7 +4,7 @@
         <!-- Logo container-->
         <a class="logo" href="{{ route('home') }}">
             <img src="/assets-frontend/images/op.png" class="inline-block dark:hidden w-10" alt="{{ config('app.name', 'Laravel') }}">
-            <img src="/assets-frontend/images/op.png" class="hidden dark:inline-block" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="/assets-frontend/images/op.png" class="hidden dark:inline-block w-10" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <!-- End Logo container-->

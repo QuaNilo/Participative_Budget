@@ -84,10 +84,11 @@ Route::middleware([
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
 
     Route::resource('demos', App\Http\Controllers\DemoController::class);
-    Route::resource('edition-winners', App\Http\Controllers\EditionWinnerController::class);
-    Route::resource('editions', App\Http\Controllers\EditionController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
+    Route::resource('editions', App\Http\Controllers\EditionController::class);
 });
+
+
 
 
 

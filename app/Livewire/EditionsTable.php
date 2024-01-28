@@ -30,8 +30,24 @@ class EditionsTable extends Component implements HasForms, HasTable
         return $table
             ->query(Edition::query())
             ->columns([
-                TextColumn::make("year")
-                ->label($newModel->getAttributeLabel("year"))
+                TextColumn::make("edition_end")
+                ->label($newModel->getAttributeLabel("edition_end"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("edition_publish")
+                ->label($newModel->getAttributeLabel("edition_publish"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("status")
+                ->label($newModel->getAttributeLabel("status"))
+                ->formatStateUsing(fn (Edition $record): string => $record->statusLabel)
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("identifier")
+                ->label($newModel->getAttributeLabel("identifier"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

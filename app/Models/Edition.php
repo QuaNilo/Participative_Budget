@@ -13,16 +13,26 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property int $id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon $year
+ * @property \Illuminate\Support\Carbon|null $edition_end
+ * @property \Illuminate\Support\Carbon|null $edition_publish
+ * @property int $status 0 - Pendente | 1 - Aberta | 2 - Completa | 3 - Fechada | 4 - Cancelada
+ * @property string $identifier
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
+ * @property-read string $status_label
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Proposal> $proposals
+ * @property-read int|null $proposals_count
+ * @method static \Database\Factories\EditionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Edition newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition query()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionEnd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionPublish($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereIdentifier($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Edition whereYear($value)
  * @mixin \Eloquent
  */
 class Edition extends Model implements Auditable
@@ -43,11 +53,16 @@ class Edition extends Model implements Auditable
     public $table = 'editions';
 
     public $fillable = [
-        'year'
+        'edition_end',
+        'edition_publish',
+        'status',
+        'identifier'
     ];
 
     protected $casts = [
-        'year' => 'integer'
+        'edition_end' => 'date',
+        'edition_publish' => 'date',
+        'identifier' => 'string'
     ];
 
     public static function rules(): array
@@ -55,7 +70,10 @@ class Edition extends Model implements Auditable
         return [
             'created_at' => 'nullable',
         'updated_at' => 'nullable',
-        'year' => 'required'
+        'edition_end' => 'nullable',
+        'edition_publish' => 'nullable',
+        'status' => 'required',
+        'identifier' => 'required|string|max:255'
         ];
     }
 
@@ -70,7 +88,10 @@ class Edition extends Model implements Auditable
             'id' => __('Id'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At'),
-        'year' => __('Year')
+        'edition_end' => __('Edition End'),
+        'edition_publish' => __('Edition Publish'),
+        'status' => __('Status'),
+        'identifier' => __('Identifier')
         ];
     }
 
@@ -85,6 +106,20 @@ class Edition extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
+    public function editionWinners(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(\App\Models\EditionWinner::class, 'edition_id');
+    }
+
+    public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(\App\Models\Proposal::class, 'edition_id');
+    }
+
+    /**
+    * Return an array with the values of status field
+    * @return array
+    */
     public static function getStatusArray() : array
     {
         return [
@@ -106,9 +141,5 @@ class Edition extends Model implements Auditable
         return $array[$this->status] ?? "";
     }
 
-    public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(\App\Models\Proposal::class, 'edition_id');
-    }
 
 }
