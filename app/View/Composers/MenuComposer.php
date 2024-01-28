@@ -54,17 +54,35 @@ class   MenuComposer
                         ],
                     ]
                 ],
+                'Edições' => [
+                    'icon' => 'list',
+                    'title' => __('Edições'),
+                    'sub_menu' => [
+                        'editions.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'editions.index',
+                            'params' => [],
+                            'title' => __('List Editions')
+                        ],
+                        'editions.create' => [
+                            'icon' => 'plus-circle',
+                            'route_name' => 'editions.create',
+                            'params' => [],
+                            'title' => __('Create Edition')
+                        ],
+                    ]
+                ],
                 'Proposals' => [
                     'icon' => 'list',
                     'title' => __('Proposals'),
                     'sub_menu' => [
-                        'users.index' => [
+                        'proposal.index' => [
                             'icon' => 'list',
                             'route_name' => 'proposals.index',
                             'params' => [],
                             'title' => __('List proposals')
                         ],
-                        'users.create' => [
+                        'proposal.create' => [
                             'icon' => 'plus-circle',
                             'route_name' => 'proposals.create',
                             'params' => [],

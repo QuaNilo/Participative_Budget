@@ -7,12 +7,11 @@
                     <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                         <div class="lg:col-span-4 md:col-span-12">
                             <a href="{{ route('home') }}" class="text-[22px] focus:outline-none">
-                                <img src="/assets-frontend/images/logo-dark.png" class="block dark:hidden" alt="">
-                                <img src="/assets-frontend/images/logo-light.png" class="hidden dark:block" alt="">
+                                <img src="/assets-frontend/images/op.png" class="block dark:hidden w-10" alt="">
+                                <img src="/assets-frontend/images/op.png" class="hidden dark:block w-10" alt="">
                             </a>
-                            <p class="mt-6">{{ __('Unlock the power of AI with Embedding AI - Your all-in-one solution to interact, summarize, translate, and converse with any document format. From PDFs, images, and audio files to code, URLs, and more. Elevate your data interaction experience') }}</p>
-                            <ul class="list-none mt-6">
-                                @if(false)
+                            <p class="mt-6">{{ __('') }}</p>
+                            <ul class="list mt-6">
                                     <li class="inline"><a href="https://1.envato.market/techwind" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-shopping-cart align-middle" title="Buy Now"></i></a></li>
                                     <li class="inline"><a href="https://dribbble.com/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-dribbble align-middle" title="dribbble"></i></a></li>
                                     <li class="inline"><a href="https://www.behance.net/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-behance" title="Behance"></i></a></li>
@@ -22,7 +21,6 @@
                                     <li class="inline"><a href="https://twitter.com/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
                                     <li class="inline"><a href="mailto:support@shreethemes.in" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-envelope align-middle" title="email"></i></a></li>
                                     <li class="inline"><a href="https://forms.gle/QkTueCikDGqJnbky9" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-file align-middle" title="customization"></i></a></li>
-                                @endif
 
                                 <li class="inline"><a href="https://www.instagram.com/noop.pt/" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
                                 <li class="inline"><a href="https://www.facebook.com/noop.pt" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
@@ -36,13 +34,10 @@
                         </div>
 
                         <div class="lg:col-span-3 md:col-span-4">
-                            <h5 class="tracking-[1px] text-black dark:text-white font-semibold">{{ __('Usefull Links') }}</h5>
+                            <h5 class="tracking-[1px] text-black dark:text-white font-semibold">{{ __('Useful Links') }}</h5>
                             <ul class="list-none footer-list mt-6">
                                 <li><a href="{{ route('login') }}" class="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Login') }}</a></li>
-                                @if(false)
-                                    <li class="mt-[10px]"><a href="#services" class="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Services') }}</a></li>
-                                @endif
-                                <li class="mt-[10px]"><a href="{{ route('home') }}#price" class="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Pricing') }}</a></li>
+                                <li><a href="{{ route('register') }}" class="text-slate-400 hover:text-slate-500 dark:text-slate-300 dark:hover:text-slate-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Register') }}</a></li>
                             </ul>
                         </div><!--end col-->
 
@@ -96,13 +91,13 @@
                     <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> {{ config('app.name', 'Laravel') }}. Design with <i class="mdi mdi-heart text-red-600"></i> by <a href="https://noop.pt/" target="_blank" class="text-reset">Noop</a>.</p>
                 </div>
 
-                <ul class="list-none md:text-end text-center mt-6 md:mt-0">
-                    <li class="inline"><img src="/assets-frontend/images/payments/american-ex.png" class="max-h-6 inline" title="American Express" alt=""></li>
-                    <li class="inline"><img src="/assets-frontend/images/payments/discover.png" class="max-h-6 inline" title="Discover" alt=""></li>
-                    <li class="inline"><img src="/assets-frontend/images/payments/master-card.png" class="max-h-6 inline" title="Master Card" alt=""></li>
-                    <!--<li class="inline"><img src="/assets-frontend/images/payments/paypal.png" class="max-h-6 inline" title="Paypal" alt=""></li>-->
-                    <li class="inline"><img src="/assets-frontend/images/payments/visa.png" class="max-h-6 inline" title="Visa" alt=""></li>
-                </ul>
+{{--                <ul class="list-none md:text-end text-center mt-6 md:mt-0">--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/payments/american-ex.png" class="max-h-6 inline" title="American Express" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/payments/discover.png" class="max-h-6 inline" title="Discover" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/payments/master-card.png" class="max-h-6 inline" title="Master Card" alt=""></li>--}}
+{{--                    <!--<li class="inline"><img src="/assets-frontend/images/payments/paypal.png" class="max-h-6 inline" title="Paypal" alt=""></li>-->--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/payments/visa.png" class="max-h-6 inline" title="Visa" alt=""></li>--}}
+{{--                </ul>--}}
             </div><!--end grid-->
         </div><!--end container-->
     </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lock;
+use App\Models\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -44,7 +46,8 @@ class   DashboardController extends Controller
         /*request()->session()->flash('flash.banner', 'Yay it works1!');
         request()->session()->flash('overlay', [['type' =>'success', 'message' => 'Yay it works!'],['type' =>'danger', 'message' => 'Yay it danger!']]);
         request()->session()->flash('flash.overlay', 'Yay it works232323!');*/
-        return view('home.index');
+        $latestProposals = Proposal::with('edition')->latest()->take(20)->get();
+        return view('home.index', ['proposals' => $latestProposals]);
     }
 
     /**

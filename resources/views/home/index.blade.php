@@ -1,3 +1,4 @@
+@props(['proposals'])
 <x-app-layout>
     @section('breadcrumbs')
         {{ Breadcrumbs::render('home') }}
@@ -266,7 +267,7 @@
                 <div class="col-span-12 mt-6">
                     <div class="intro-y block h-10 items-center sm:flex">
                         <h2 class="mr-5 truncate text-lg font-medium">
-                            Últimas páginas editadas
+                            Últimas propostas adicionadas
                         </h2>
                         <div class="mt-3 flex items-center sm:ml-auto sm:mt-0">
                             @if(false)
@@ -306,7 +307,7 @@
                                 </x-base.table.tr>
                             </x-base.table.thead>
                             <x-base.table.tbody>
-                                @for($i = 1; $i <= 5; $i++)
+                                @foreach($proposals as $proposal)
                                     <x-base.table.tr class="intro-x">
                                         <x-base.table.td
                                             class="border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
@@ -315,30 +316,30 @@
                                                 class="whitespace-nowrap font-medium"
                                                 href=""
                                             >
-                                                Nome da página
+                                                {{$proposal->title}}
                                             </a>
                                             <div class="mt-0.5 whitespace-nowrap text-xs text-slate-500">
-                                                Descrição da pagina
+                                                Edição {{$proposal->edition->identifier}}
                                             </div>
                                         </x-base.table.td>
                                         <x-base.table.td
                                             class="border-b-0 bg-white text-center shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
                                         >
-                                            28/09/2023
+                                            {{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}
                                         </x-base.table.td>
                                         <x-base.table.td
-                                            class="w-40 border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
+                                            class="w-40  border-b-0 bg-white shadow-[20px_3px_20px_#0000000b] first:rounded-l-md last:rounded-r-md dark:bg-darkmode-600"
                                         >
-                                            <div @class([
+                                            <div class="@if($proposal->status !== 2) text-black @else text-red-600 @endif flex flex-row" @class([
                                                 'flex items-center justify-center',
                                                 'text-success' => true,
                                                 'text-danger' => !true,
                                             ])>
-                                                <x-base.lucide
-                                                    class="mr-2 h-4 w-4"
-                                                    icon="CheckSquare"
-                                                />
-                                                {{ true ? 'Active' : 'Inactive' }}
+                                                    <x-base.lucide
+                                                        class="mr-1 h-4 w-5"
+                                                        icon="minus"
+                                                    />
+                                                {{ $proposal->status_label }}
                                             </div>
                                         </x-base.table.td>
                                         <x-base.table.td
@@ -347,7 +348,7 @@
                                             <div class="flex items-center justify-center">
                                                 <a
                                                     class="mr-3 flex items-center"
-                                                    href=""
+                                                    href="{{ route('proposals.edit', $proposal) }}"
                                                 >
                                                     <x-base.lucide
                                                         class="mr-1 h-4 w-4"
@@ -357,7 +358,7 @@
                                                 </a>
                                                 <a
                                                     class="flex items-center text-danger"
-                                                    href=""
+                                                    href="{{ route('proposals.destroy', $proposal) }}"
                                                 >
                                                     <x-base.lucide
                                                         class="mr-1 h-4 w-4"
@@ -368,7 +369,7 @@
                                             </div>
                                         </x-base.table.td>
                                     </x-base.table.tr>
-                                @endfor
+                                @endforeach
                             </x-base.table.tbody>
                         </x-base.table>
                     </div>

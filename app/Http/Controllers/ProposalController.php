@@ -113,10 +113,8 @@ class ProposalController extends Controller
     {
         /** @var Proposal $proposal */
         $proposal = Proposal::find($id);
-
         if (empty($proposal)) {
             flash(__('Not found'))->overlay()->danger();
-
             return redirect(route('proposals.index'));
         }
 

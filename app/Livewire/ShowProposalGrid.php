@@ -14,6 +14,7 @@ class ShowProposalGrid extends Component
     public $category_selected;
     public $status_selected;
     public $categories;
+    public $showWinners;
     private $proposals;
     public $keywordsInput;
     public $edition_id;
@@ -31,13 +32,29 @@ class ShowProposalGrid extends Component
             ->withCount('votes')
             ->paginate(9);
         $this->status_selected = '*';
-
+        $this->showWinners = false;
         $this->edition = Edition::find($this->edition_id);
 
     }
 
-
-    public function filter()
+    public function winners(): void
+    {
+        $this->showWinners = !$this->showWinners;
+        if($this->showWinners)
+        {
+            $this->proposals = Proposal::with('user', 'category')
+                ->where('winner', 1)
+                ->where('edition_id', $this->edition_id)
+                ->paginate(9);
+        }
+        else{
+            $this->proposals = Proposal::with('user', 'category')
+            ->where('edition_id', $this->edition_id)
+            ->withCount('votes')
+            ->paginate(9);
+        }
+    }
+    public function filter(): void
     {
 //        $this->validate($this->rules);
         $query = Proposal::with('user', 'category')

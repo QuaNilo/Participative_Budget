@@ -1,5 +1,5 @@
 @props(['proposal'])
-<div class="group relative rounded-md shadow hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden">
+<div class="group relative rounded-md shadow hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden shadow-md">
     <div class="content p-6 relative flex flex-col h-full">
         <a href="{{ route('proposta-detail', $proposal->id) }}">
             @foreach($proposal->getMedia('cover') as $media)
@@ -7,7 +7,7 @@
             @endforeach
             <div class="flex-grow">
                 <span class="font-extrabold block text-indigo-600">{{$proposal->title}}</span>
-                <span class="font-medium block text-indigo-600">{{$proposal->category()->first()->name}}</span>
+                <span class="font-medium block text-black">{{$proposal->category()->first()->name}}</span>
                 <p class="text-slate-400 mt-3 mb-4">{{$proposal->summary}}</p>
             </div>
             <div>

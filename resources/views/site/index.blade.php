@@ -12,7 +12,6 @@ view()->share('showBgEffect', true);
 
 
     <div class="mt-20">
-
                 <!-- Start Hero -->
             <section class="relative table w-full pt-24 lg:py-44">
                 <div class="container relative">
@@ -35,7 +34,7 @@ view()->share('showBgEffect', true);
                 </div><!--end container-->
             </section><!--end section-->
             <!-- End Hero -->
-            <livewire:show-counter>
+            <livewire:show-counter/>
             <section id="what" class="relative md:py-24 py-24 mt-24 bg-gray-50 dark:bg-slate-800">
                 <div class="container relative">
                     <div class="grid grid-cols-1 pb-8 text-center">

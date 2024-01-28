@@ -41,7 +41,7 @@
                                 @if(false)
                                     <li class="mt-[10px]"><a href="#services" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Services') }}</a></li>
                                 @endif
-                                <li class="mt-[10px]"><a href="{{ route('home') }}#price" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Pricing') }}</a></li>
+{{--                                <li class="mt-[10px]"><a href="{{ route('home') }}#price" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Pricing') }}</a></li>--}}
                             </ul>
                         </div><!--end col-->
 

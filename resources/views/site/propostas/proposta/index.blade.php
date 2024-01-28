@@ -32,7 +32,7 @@
                                 </dl>
                                 <div class="overflow-hidden">
                                     Location :
-                                    <x-frontend.show-map-mini :width="450" :height="300" :lng="$proposal->coordinateX" :lat="$proposal->coordinateY"/>
+                                    <x-frontend.show-map-mini :width="450" :height="300" :lng="$proposal->lng" :lat="$proposal->lat"/>
                                 </div>
                             </div>
                             @auth

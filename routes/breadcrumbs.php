@@ -131,7 +131,7 @@ Breadcrumbs::for('proposals.create', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('proposals.show', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('proposals.index');
-    $trail->push($model->name, route('proposals.show', $model));
+    $trail->push($model->title, route('proposals.show', $model));
 });
 Breadcrumbs::for('proposals.edit', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('proposals.show', $model);
@@ -174,6 +174,25 @@ Breadcrumbs::for('votes.show', function (BreadcrumbTrail $trail, $model) {
 Breadcrumbs::for('votes.edit', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('votes.show', $model);
     $trail->push(__('Update'), route('votes.edit', $model));
+});
+
+
+// Home > Editions
+Breadcrumbs::for('editions.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Editions'), route('editions.index'));
+});
+Breadcrumbs::for('editions.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('editions.index');
+    $trail->push(__('Create'), route('editions.create'));
+});
+Breadcrumbs::for('editions.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('editions.index');
+    $trail->push('Edição' .$model->identifier, route('editions.show', $model));
+});
+Breadcrumbs::for('editions.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('editions.show', $model);
+    $trail->push(__('Update'), route('editions.edit', $model));
 });
 
 /*

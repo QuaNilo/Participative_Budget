@@ -3,8 +3,8 @@
     <div class="container relative border-b-2 border-gray-600/5">
         <!-- Logo container-->
         <a class="logo" href="{{ route('home') }}">
-            <img src="/assets-frontend/images/logo-dark.png" class="inline-block dark:hidden" alt="{{ config('app.name', 'Laravel') }}">
-            <img src="/assets-frontend/images/logo-light.png" class="hidden dark:inline-block" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="/assets-frontend/images/op.png" class="inline-block dark:hidden w-10" alt="{{ config('app.name', 'Laravel') }}">
+            <img src="/assets-frontend/images/op.png" class="hidden dark:inline-block" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <!-- End Logo container-->
