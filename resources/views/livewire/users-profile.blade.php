@@ -26,6 +26,9 @@
                             <x-profile-dashboard-tab :class="$tab === 'proposals' ? 'bg-indigo-600 text-white' : ''" wire:click="setActiveTab('proposals')"><i class="uil uil-list-ul text-[20px] me-2 align-middle"></i>Proposals</x-profile-dashboard-tab>
                         </li>
                         <li role="presentation">
+                            <x-profile-dashboard-tab :class="$tab === 'votos' ? 'bg-indigo-600 text-white' : ''" wire:click="setActiveTab('votos')"><i class="uil uil-heart text-[20px] me-2 align-middle"></i>Votos</x-profile-dashboard-tab>
+                        </li>
+                        <li role="presentation">
                             <x-profile-dashboard-tab :class="$tab === 'details' ? 'bg-indigo-600 text-white' : ''" wire:click="setActiveTab('details')"><i class="uil uil-user text-[20px] me-2 align-middle"></i>Account Details</x-profile-dashboard-tab>
                         </li>
                         <li role="presentation">
@@ -39,6 +42,8 @@
                     <x-frontend.profile.dashboard-component/>
                 @elseif($tab === 'proposals')
                     <livewire:proposals-profile-component/>
+                @elseif($tab === 'votos')
+                    <livewire:votos-profile-component/>
                 @elseif($tab === 'details')
                     <x-frontend.profile.details-component/>
 
