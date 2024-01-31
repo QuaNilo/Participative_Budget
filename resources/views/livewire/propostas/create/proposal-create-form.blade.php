@@ -155,6 +155,14 @@
                             @error('files') <span class="error">{{ $message }}</span> @enderror
                         </div>
 
+                        <div class="md:col-span-6 col-span-12 text-start">
+                            <label class="font-semibold" for="url">URL Video :</label>
+                            <input id="url" type="text" wire:model="url" name="url"  value="{{ old('url') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="url">
+                            @error('url')
+                                <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
 
 
 

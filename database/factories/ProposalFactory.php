@@ -62,6 +62,7 @@ class ProposalFactory extends Factory
             'postal_code' => $this->faker->numberBetween(10, 9999),
             'city' => $this->faker->text($this->faker->numberBetween(5, 30)),
             'freguesia' => $this->faker->text($this->faker->numberBetween(5, 30)),
+            'url' => $this->faker->text($this->faker->numberBetween(5, 60)),
             'winner' => $winner['winner'] ?? false,
             'rank' => $winner['rank'] ?? null,
             'status' => $this->faker->numberBetween(0,4),

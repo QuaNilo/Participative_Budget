@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('postal_code')->nullable();
             $table->text('city')->nullable();
             $table->text('freguesia')->nullable();
+            $table->text('url')->nullable();
             $table->boolean('winner')->nullable();
             $table->integer('rank')->nullable();
             $table->smallInteger('status')->default(1)->comment("1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado");

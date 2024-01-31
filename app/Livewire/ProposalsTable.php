@@ -90,6 +90,11 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("url")
+                ->label($newModel->getAttributeLabel("url"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
             TextColumn::make("winner")
                 ->label($newModel->getAttributeLabel("winner"))
                 ->sortable()

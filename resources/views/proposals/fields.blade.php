@@ -176,6 +176,20 @@
     @enderror
 </div>
 
+<!-- Url Field -->
+<div class="mb-3">
+    <x-base.form-label for="url">{{ $proposal->getAttributeLabel('url') }}</x-base.form-label>
+    <x-base.form-textarea
+        class="w-full {{ ($errors->has('url') ? 'border-danger' : '') }}"
+        id="url"
+        name="url"
+        rows="5"
+    >{{ old('url', $proposal->url ?? '') }}</x-base.form-textarea>
+    @error('url')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 <!-- Winner Field -->
 <div class="mb-3">
     <x-base.form-input

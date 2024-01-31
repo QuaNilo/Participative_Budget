@@ -38,6 +38,7 @@ class Proposal extends Model implements Auditable, HasMedia
         'postal_code',
         'city',
         'freguesia',
+        'url',
         'winner',
         'rank',
         'status',
@@ -47,13 +48,13 @@ class Proposal extends Model implements Auditable, HasMedia
     protected $casts = [
         'title' => 'string',
         'content' => 'string',
-        'summary' => 'string',
         'lat' => 'float',
         'lng' => 'float',
         'street' => 'string',
         'postal_code' => 'string',
         'city' => 'string',
         'freguesia' => 'string',
+        'url' => 'string',
         'winner' => 'boolean',
         'budget_estimate' => 'float'
     ];
@@ -79,15 +80,15 @@ class Proposal extends Model implements Auditable, HasMedia
         return [
             'user_id' => 'required',
         'category_id' => 'required',
-        'edition_id' => 'required',
-        'title' => 'required|string|max:65535',
-        'content' => 'required|string|max:65535',
+        'title' => 'required|string|max:255',
+        'content' => 'required|string|max:32000',
         'lat' => 'nullable|numeric',
         'lng' => 'nullable|numeric',
-        'street' => 'nullable|string|max:65535',
-        'postal_code' => 'nullable|numeric|max:65535',
-        'city' => 'nullable|string|max:65535',
-        'freguesia' => 'nullable|string|max:65535',
+        'street' => 'nullable|string|max:60',
+        'postal_code' => 'nullable|string|max:20',
+        'city' => 'nullable|string|max:60',
+        'freguesia' => 'nullable|string|max:60',
+        'url' => 'nullable|string|max:60',
         ];
     }
 
@@ -112,6 +113,7 @@ class Proposal extends Model implements Auditable, HasMedia
         'postal_code' => __('Postal Code'),
         'city' => __('City'),
         'freguesia' => __('Freguesia'),
+        'url' => __('Url'),
         'winner' => __('Winner'),
         'rank' => __('Rank'),
         'status' => __('Status'),

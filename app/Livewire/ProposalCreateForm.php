@@ -31,6 +31,7 @@ class ProposalCreateForm extends Component
     public $freguesia;
     public $lng;
     public $lat;
+    public $url;
 
 
     public function mount()
@@ -61,6 +62,7 @@ class ProposalCreateForm extends Component
                     'lat' => $this->lat,
                     'lng' => $this->lng,
                     'city' => $this->city,
+                    'url' => $this->url,
                     'freguesia' => $this->freguesia,
                 ]);
         if($proposal) {
