@@ -1,5 +1,5 @@
 @props(['edition', 'winners'])
-<div class="rounded-md shadow dark:shadow-gray-800">
+<div class="rounded-md shadow shadow-xl dark:shadow-gray-800">
     <div class="p-6">
         <a href="{{ route('propostas', $edition->id) }}" class="title h5 text-lg font-semibold hover:text-indigo-600">Edição {{$edition->identifier}}</a>
         <p class="text-slate-400 mt-2"><i class="uil uil-clock text-indigo-600"></i> <span>{{ \Carbon\Carbon::parse($edition->created_at)->diffForHumans() }}</span></p>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="flex items-center p-6 border-t border-gray-100 dark:border-gray-700">
-        <i class="uil @if($winners == 0) uil-annoyed-alt text-red-600 @else uil-smile text-green-600 @endif text-3xl"></i>
+        <i class="uil @if($winners == 0) mdi mdi-gauge-empty text-2xl text-red-600 @else mdi mdi-gauge-full  text-green-600 @endif text-3xl"></i>
 
         <div class="ms-3">
             <span><span class="text-indigo-600">{{$winners}}</span>

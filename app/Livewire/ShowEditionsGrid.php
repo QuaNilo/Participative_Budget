@@ -16,6 +16,7 @@ class ShowEditionsGrid extends Component
     {
         $this->editions = Edition::with('proposals')
             ->withCount('proposals')
+            ->orderByDesc('identifier')
             ->get();
     }
     public function render(): View|\Illuminate\Foundation\Application|Factory|Application

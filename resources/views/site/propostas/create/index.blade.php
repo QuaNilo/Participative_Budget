@@ -1,3 +1,4 @@
+@props(['edition_id'])
 <x-landing-layout>
         <div>
 {{--            @if($errors->any())--}}
@@ -11,6 +12,6 @@
 {{--           @endif--}}
         </div>
         <div class="my-24">
-            <livewire:proposal-create-form></livewire:proposal-create-form>
+            <livewire:proposal-create-form :edition_id="$edition_id"></livewire:proposal-create-form>
         </div>
 </x-landing-layout>

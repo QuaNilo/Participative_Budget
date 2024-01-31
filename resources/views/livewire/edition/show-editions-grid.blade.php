@@ -1,6 +1,6 @@
 <div>
     <div class="container relative">
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+        <div class=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
             @foreach($editions as $edition)
                 <?php
                     $winners = $edition->proposals->where('winner', 1)->count();

@@ -45,7 +45,6 @@ class ProposalCreateForm extends Component
         public function store(\Illuminate\Http\Request $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
         {
         $this->user_id = auth()->user()->id;
-        $this->edition_id = 2;
 //        dd($request, $this);
         $this->validate(Proposal::rules());
 

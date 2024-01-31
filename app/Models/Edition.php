@@ -123,9 +123,10 @@ class Edition extends Model implements Auditable
     public static function getStatusArray() : array
     {
         return [
+// TODO Aberto, ANALISE , votação , COMPLETED/ANALISAR VENCEDORES, CLOSED, CANCELED
             self::STATUS_PENDING =>  __('Pendente'),
             self::STATUS_OPEN =>  __('Aberta'),
-            self::STATUS_COMPLETED =>  __('Completa'),
+            self::STATUS_COMPLETED =>  __('Analise'),
             self::STATUS_CLOSED =>  __('Fechada'),
             self::STATUS_CANCELED =>  __('Cancelada')
         ];

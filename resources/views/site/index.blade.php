@@ -51,10 +51,12 @@ view()->share('showBgEffect', true);
                     </div><!--end col-->
                 </div><!--end grid-->
             </div><!--end container-->
+            <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 mb-6">
+                <livewire:show-counter/>
+            </div>
         </section><!--end section-->
             <!-- End Hero -->
-            <livewire:show-counter/>
-            <section id="what" class="relative md:py-24 py-24 mt-24 bg-gray-50 dark:bg-slate-800">
+            <section id="what" class="relative md:py-24 py-12 pt-0 mt-0 bg-gray-50 dark:bg-slate-800">
                 <div class="container relative">
                     <div class="grid grid-cols-1 pb-8 text-center">
                         <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">O que é o Orçamento Participativo ?</h3>

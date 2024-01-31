@@ -39,16 +39,15 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
     ->name('password.email');*/
 
 Route::get('/profile', [UserFEController::class, 'index'])->name('users_dashboard');
-Route::get('/mapa', [MapController::class, 'index'])->name('mapa');
+Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
 
 Route::get('/editions', [EditionsFE::class, 'index'])->name('editions-fe');
 
 
 Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
-Route::get('/propostas-create', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
+Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
-Route::post('propostas-vote/{proposalId}', [ProposalFEController::class, 'vote'])->name('propostas.vote');
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');

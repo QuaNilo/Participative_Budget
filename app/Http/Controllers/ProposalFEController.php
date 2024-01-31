@@ -17,9 +17,9 @@ class ProposalFEController extends Controller
         return view('site.propostas.index', ['edition_id' => $edition_id]);
     }
 
-    public function show_frontend_create()
+    public function show_frontend_create($id)
     {
-        return view('site.propostas.create.index');
+        return view('site.propostas.create.index', ['edition_id' => $id]);
     }
 
     public function show_proposal($id)

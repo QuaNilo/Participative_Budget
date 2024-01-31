@@ -48,9 +48,9 @@
 
     <section class="relative md:py-24 py-16">
             <div class="container">
-                <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px] items-center">
+                <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px] items-center border border-gray-100">
                     <div class="lg:col-span-5 md:col-span-6">
-                        <div class="tiny-single-item">
+                        <div class="tiny-single-item border border-gray-100">
                         @foreach($proposal->getMedia('cover') as $media)
                             <div class="tiny-slide">
                                 <img src="{{ $media->getUrl() }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
@@ -60,20 +60,27 @@
                     </div><!--end col-->
 
                     <div class="lg:col-span-7 md:col-span-6">
-                        <div class="lg:ms-6">
-                            <h5 class="text-2xl font-semibold">{{$proposal->title}}</h5>
+                        <div class="lg:ms-6 shadow shadow-md bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-700 p-6 ">
+                            @if($proposal->winner)
+                                <h5 class="text-2xl font-bold">{{$proposal->title}}</h5>
+                                <h4 class="text-xl font-semibold text-amber-400">Projecto Vencedor<i class="mdi mdi-crown-outline text-amber-400 ml-2"></i></h4>
+                            @else
+                                <h5 class="text-2xl font-bold">{{$proposal->title}}</h5>
 
-                            <div class="mt-4">
+                            @endif
+
+                            <div class="mt-4 ">
                                 <h5 class="text-lg font-semibold">Autor :</h5>
 
                                 <dl class="grid grid-cols-12 mb-0">
-                                    <dt class="md:col-span-4 col-span-5 mt-2">Autor :</dt>
-                                    <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">{{$proposal->user->name}}</dd>
-                                    <dt class="md:col-span-4 col-span-5 mt-2">Category :</dt>
-                                    <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">{{$proposal->category->name}}</dd>
+                                    <dt class="md:col-span-3 col-span-4 mt-2">Autor :</dt>
+                                    <dd class="md:col-span-7 col-span-6 mt-2 text-slate-400">{{$proposal->user->name}}</dd>
+                                    <dt class="md:col-span-3 col-span-4 mt-2">Category :</dt>
+                                    <dd class="md:col-span-7 col-span-6 mt-2 text-slate-400">{{$proposal->category->name}}</dd>
                                 </dl>
                             </div>
-                            <div class="mt-4">
+                        </div>
+                            <div class="mt-4 ml-6">
                                 @auth
                                 <livewire:voting :proposal_id="$proposal->id"/>
                             @else
@@ -81,13 +88,12 @@
                                 <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
                             @endauth
                             </div>
-                        </div>
                     </div>
                 </div><!--end grid-->
 
-                <div class="grid md:grid-cols-12 grid-cols-1 mt-10 gap-[30px]">
-                    <div class="lg:col-span-3 md:col-span-5">
-                        <div class="sticky top-20">
+                <div class="grid md:grid-cols-12 grid-cols-1 mt-10 gap-[30px] border border-gray-100 shadow shadow-xl">
+                    <div class="lg:col-span-3 md:col-span-5 ">
+                        <div class="sticky top-20 ">
                             <ul class="flex-column p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                                 <li role="presentation">
                                     <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full hover:text-indigo-600 duration-500" id="description-tab" data-tabs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
@@ -102,8 +108,8 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-9 md:col-span-7">
-                        <div id="myTabContent" class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
+                    <div class="lg:col-span-9 md:col-span-7 border border border-gray-100">
+                        <div id="myTabContent" class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md  border border-gray-100 ">
                             <div class="" id="description" role="tabpanel" aria-labelledby="profile-tab">
                                 <p class="text-slate-400">{{$proposal->content}}</p>
                             </div>

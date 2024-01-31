@@ -1,5 +1,5 @@
 @props(['proposal'])
-<div class="group relative rounded-md shadow hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden shadow-md">
+<div class="group relative shadow shadow-xl rounded-md  hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden ">
     <div class="content p-6 relative flex flex-col h-full">
         <a href="{{ route('proposta-detail', $proposal->id) }}">
             @foreach($proposal->getMedia('cover') as $media)

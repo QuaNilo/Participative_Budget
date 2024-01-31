@@ -1,6 +1,7 @@
 @props(['proposals'])
 <div>
-    <h1 class="text-3xl mb-12"><span class="text-4xl font-medium text-black">{{__('Edição')}} {{$edition->identifier}}</span></h1>
+    <h1 class="text-3xl "><span class="text-4xl font-medium text-black">{{__('Edição')}} {{$edition->identifier}}</span></h1>
+    <h1 class="text-xl mb-12 mt-1"><span class="text-xl font-medium text-black">{{$edition->status_label}}</span></h1>
 
     <div class="flex items-center space-x-8">
         <div class="lg:col-span-4 md:col-span-4 md:text-end">
@@ -50,15 +51,25 @@
         </div>
         <div class="flex-grow"></div>
         <div class="flex flex-row space-x-4 items-center justify-center">
+            <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
+                        <a
+                            href="{{ route('mapa', $edition->id) }}">MAPA
+                        </a>
+            </x-button>
             @if($edition->status != 1)
                 <div class="relative">
 
                     <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 hover:bg-slate-950 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else text-amber-400 @endif  font-bold text-base mr-2"></i> Projectos Vencedores</button>
                 </div>
             @endif
-            @auth
-                <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800"><a
-                        href="{{ route('proposal-create') }}">Create Proposal</a></x-button>
+            @auth()
+                @if($edition->status == 1)
+                    <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
+                        <a
+                            href="{{ route('proposal-create', $edition->id) }}">Create Proposal
+                        </a>
+                    </x-button>
+                @endif
             @endauth
         </div>
     </div><!--end grid-->

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('edition_end')->nullable();
             $table->date('edition_publish')->nullable();
             $table->smallInteger('status')->default(0)->comment("0 - Pendente | 1 - Aberta | 2 - Completa | 3 - Fechada | 4 - Cancelada");
-            $table->string('identifier');
+            $table->string('identifier')->unique();
         });
     }
 

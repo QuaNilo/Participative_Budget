@@ -8,9 +8,18 @@ use Illuminate\View\View;
 
 class MapController extends Controller
 {
-    public function index() : View
+    public function index($id = null) : View
     {
-        $proposals = Proposal::get();
+        if($id)
+        {
+            $proposals = Proposal::where('edition_id', $id)
+                ->get();
+        }
+        else
+        {
+            $proposals = Proposal::get();
+        }
+
         return view('site.mapa.index', ['proposals' => $proposals]);
     }
 }
