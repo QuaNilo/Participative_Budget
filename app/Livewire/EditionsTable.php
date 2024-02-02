@@ -51,6 +51,26 @@ class EditionsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("edition_number")
+                ->label($newModel->getAttributeLabel("edition_number"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("title")
+                ->label($newModel->getAttributeLabel("title"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("description")
+                ->label($newModel->getAttributeLabel("description"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("year")
+                ->label($newModel->getAttributeLabel("year"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
                 TextColumn::make('created_at')
                     ->label($newModel->getAttributeLabel('created_at'))
                     ->dateTime()

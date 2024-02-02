@@ -21876,20 +21876,6 @@
         class HasOneOrMany {
          
     }
-            /**
-     * 
-     *
-     */ 
-        class BelongsTo {
-         
-    }
-            /**
-     * 
-     *
-     */ 
-        class HasMany {
-         
-    }
      
 }
 

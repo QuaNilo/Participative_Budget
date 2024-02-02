@@ -111,8 +111,8 @@
                                     <x-base.form-check.input type="checkbox" class="mr-2 border" id="terms" name="terms" required />
                                     <label class="cursor-pointer select-none" for="terms" >
                                         {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="ml-1 text-primary dark:text-slate-200">'.__('Terms of Service').'</a>',
-                                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="ml-1 text-primary dark:text-slate-200">'.__('Privacy Policy').'</a>',
+//                                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="ml-1 text-primary dark:text-slate-200">'.__('Terms of Service').'</a>',
+//                                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="ml-1 text-primary dark:text-slate-200">'.__('Privacy Policy').'</a>',
                                                 ]) !!}
                                     </label>
                                 </div>

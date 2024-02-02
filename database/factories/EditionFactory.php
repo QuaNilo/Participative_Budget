@@ -29,7 +29,11 @@ class EditionFactory extends Factory
             'edition_end' => $this->faker->date('Y-m-d'),
             'edition_publish' => $this->faker->date('Y-m-d'),
             'status' => $this->faker->numberBetween(0,4),
-            'identifier' => $this->faker->unique()->numberBetween(1990, 2024)
+            'identifier' => $this->faker->unique()->numberBetween(1990, 2024),
+            'edition_number' => $this->faker->unique()->numberBetween(1, 50),
+            'title' => $this->faker->unique()->text($this->faker->numberBetween(5, 60)),
+            'description' => $this->faker->unique()->text($this->faker->numberBetween(5, 255)),
+            'year' => $this->faker->unique()->numberBetween(1990, 2024)
         ];
     }
 }

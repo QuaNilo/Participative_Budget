@@ -17,6 +17,10 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property \Illuminate\Support\Carbon|null $edition_publish
  * @property int $status 0 - Pendente | 1 - Aberta | 2 - Completa | 3 - Fechada | 4 - Cancelada
  * @property string $identifier
+ * @property string|null $edition_number
+ * @property string|null $title
+ * @property string|null $description
+ * @property \Illuminate\Support\Carbon|null $year
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
  * @property-read string $status_label
@@ -27,12 +31,16 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Edition newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition query()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionEnd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionPublish($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereIdentifier($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereYear($value)
  * @mixin \Eloquent
  */
 class Edition extends Model implements Auditable
@@ -45,9 +53,11 @@ class Edition extends Model implements Auditable
 
     const STATUS_PENDING = 0;
     const STATUS_OPEN = 1;
-    const STATUS_COMPLETED = 2;
-    const STATUS_CLOSED = 3;
-    const STATUS_CANCELED = 4;
+    const STATUS_ANALYSIS = 2;
+    const STATUS_VOTING = 3;
+    const STATUS_COMPLETED = 4;
+    const STATUS_CLOSED = 5;
+    const STATUS_CANCELED = 6;
 
 
     public $table = 'editions';
@@ -56,13 +66,21 @@ class Edition extends Model implements Auditable
         'edition_end',
         'edition_publish',
         'status',
-        'identifier'
+        'identifier',
+        'edition_number',
+        'title',
+        'description',
+        'year'
     ];
 
     protected $casts = [
         'edition_end' => 'date',
         'edition_publish' => 'date',
-        'identifier' => 'string'
+        'identifier' => 'string',
+        'edition_number' => 'string',
+        'title' => 'string',
+        'description' => 'string',
+        'year' => 'date'
     ];
 
     public static function rules(): array
@@ -73,7 +91,11 @@ class Edition extends Model implements Auditable
         'edition_end' => 'nullable',
         'edition_publish' => 'nullable',
         'status' => 'required',
-        'identifier' => 'required|string|max:255'
+        'identifier' => 'required|string|max:255',
+        'edition_number' => 'nullable|string|max:6',
+        'title' => 'nullable|string|max:60',
+        'description' => 'nullable|string|max:255',
+        'year' => 'nullable'
         ];
     }
 
@@ -91,7 +113,11 @@ class Edition extends Model implements Auditable
         'edition_end' => __('Edition End'),
         'edition_publish' => __('Edition Publish'),
         'status' => __('Status'),
-        'identifier' => __('Identifier')
+        'identifier' => __('Identifier'),
+        'edition_number' => __('Edition Number'),
+        'title' => __('Title'),
+        'description' => __('Description'),
+        'year' => __('Year')
         ];
     }
 
@@ -106,11 +132,6 @@ class Edition extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
-    public function editionWinners(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(\App\Models\EditionWinner::class, 'edition_id');
-    }
-
     public function proposals(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\App\Models\Proposal::class, 'edition_id');
@@ -123,10 +144,11 @@ class Edition extends Model implements Auditable
     public static function getStatusArray() : array
     {
         return [
-// TODO Aberto, ANALISE , votação , COMPLETED/ANALISAR VENCEDORES, CLOSED, CANCELED
             self::STATUS_PENDING =>  __('Pendente'),
             self::STATUS_OPEN =>  __('Aberta'),
-            self::STATUS_COMPLETED =>  __('Analise'),
+            self::STATUS_ANALYSIS =>  __('Analise'),
+            self::STATUS_VOTING =>  __('Votação'),
+            self::STATUS_COMPLETED =>  __('Completado'),
             self::STATUS_CLOSED =>  __('Fechada'),
             self::STATUS_CANCELED =>  __('Cancelada')
         ];
@@ -141,6 +163,5 @@ class Edition extends Model implements Auditable
         $array = static::getStatusArray();
         return $array[$this->status] ?? "";
     }
-
 
 }

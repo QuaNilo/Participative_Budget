@@ -29,7 +29,7 @@
                     <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
                 </li>
             </ul>
-            <!--Login button End-->
+            <!--Register button End-->
         @else
             <!--Login button Start-->
             <ul class="buy-button list-none mb-0">
