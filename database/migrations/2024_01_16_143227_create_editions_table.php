@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('edition_number')->nullable()->unique();
             $table->string('title')->nullable()->unique();
             $table->string('description')->nullable()->unique();
-            $table->string('year')->nullable()->unique();
+            $table->integer('ano')->nullable();
         });
     }
 

@@ -115,7 +115,8 @@
         id="edition_number"
         name="edition_number"
         :value="old('edition_number', $edition->edition_number ?? '')"
-        type="text"
+        type="number"
+        step="1"
     />
     @error('edition_number')
         <div class="mt-2 text-danger">{{ $message }}</div>
@@ -125,12 +126,13 @@
 <!-- Title Field -->
 <div class="mb-3">
     <x-base.form-label for="title">{{ $edition->getAttributeLabel('title') }}</x-base.form-label>
-    <x-base.form-textarea
+    <x-base.form-input
         class="w-full {{ ($errors->has('title') ? 'border-danger' : '') }}"
         id="title"
         name="title"
-        rows="5"
-    >{{ old('title', $edition->title ?? '') }}</x-base.form-textarea>
+        :value="old('title', $edition->title ?? '')"
+        type="text"
+    />
     @error('title')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
@@ -139,20 +141,21 @@
 <!-- Description Field -->
 <div class="mb-3">
     <x-base.form-label for="description">{{ $edition->getAttributeLabel('description') }}</x-base.form-label>
-    <x-base.form-textarea
+    <x-base.form-input
         class="w-full {{ ($errors->has('description') ? 'border-danger' : '') }}"
         id="description"
         name="description"
-        rows="5"
-    >{{ old('description', $edition->description ?? '') }}</x-base.form-textarea>
+        :value="old('description', $edition->description ?? '')"
+        type="text"
+    />
     @error('description')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-<!-- Year Field -->
+<!-- Ano Field -->
 <div class="mb-3">
-    <x-base.form-label for="year">{{ $edition->getAttributeLabel('year') }}</x-base.form-label>
+    <x-base.form-label for="ano">{{ $edition->getAttributeLabel('ano') }}</x-base.form-label>
     <x-base.input-group
         class="flatpickr"
         data-wrap="true"
@@ -169,10 +172,10 @@
             />
         </x-base.input-group.text>
         <x-base.flatpickr
-            class="{{ ($errors->has('year') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
-            id="year"
-            name="year"
-            :value="old('year', $edition->year ?? '')"
+            class="{{ ($errors->has('ano') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
+            id="ano"
+            name="ano"
+            :value="old('ano', $edition->ano ?? '')"
             data-input
         />
         <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
@@ -182,7 +185,7 @@
             />
         </x-base.input-group.text>
     </x-base.input-group>
-    @error('year')
+    @error('ano')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

@@ -15,12 +15,12 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $edition_end
  * @property \Illuminate\Support\Carbon|null $edition_publish
- * @property int $status 0 - Pendente | 1 - Aberta | 2 - Completa | 3 - Fechada | 4 - Cancelada
+ * @property int $status 0 - Pendente | 1 - Aberta | 2 - Analise | 3 - Votação | 4 - Completado | 5 - Fechado | 6 - Cancelado
  * @property string $identifier
- * @property string|null $edition_number
+ * @property int|null $edition_number
  * @property string|null $title
  * @property string|null $description
- * @property \Illuminate\Support\Carbon|null $year
+ * @property \Illuminate\Support\Carbon|null $ano
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
  * @property-read string $status_label
@@ -30,6 +30,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Edition newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Edition query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereAno($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionEnd($value)
@@ -40,7 +41,6 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Edition whereYear($value)
  * @mixin \Eloquent
  */
 class Edition extends Model implements Auditable
@@ -70,17 +70,16 @@ class Edition extends Model implements Auditable
         'edition_number',
         'title',
         'description',
-        'year'
+        'ano'
     ];
 
     protected $casts = [
         'edition_end' => 'date',
         'edition_publish' => 'date',
         'identifier' => 'string',
-        'edition_number' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'year' => 'date'
+        'ano' => 'integer'
     ];
 
     public static function rules(): array
@@ -92,10 +91,10 @@ class Edition extends Model implements Auditable
         'edition_publish' => 'nullable',
         'status' => 'required',
         'identifier' => 'required|string|max:255',
-        'edition_number' => 'nullable|string|max:6',
+        'edition_number' => 'nullable',
         'title' => 'nullable|string|max:60',
         'description' => 'nullable|string|max:255',
-        'year' => 'nullable'
+        'ano' => 'nullable'
         ];
     }
 
@@ -117,7 +116,7 @@ class Edition extends Model implements Auditable
         'edition_number' => __('Edition Number'),
         'title' => __('Title'),
         'description' => __('Description'),
-        'year' => __('Year')
+        'ano' => __('Ano')
         ];
     }
 
