@@ -30,6 +30,24 @@ class   MenuComposer
                     'params' => [],
                     'title' => __('My profile')
                 ],
+                'Calendar' => [
+                    'icon' => 'calendar',
+                    'title' => __('Calendar'),
+                    'sub_menu' => [
+                        'calendar.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'calendar-dynamics.index',
+                            'params' => [],
+                            'title' => __('List calendars')
+                        ],
+                        'calendar.create' => [
+                            'icon' => 'plus-circle',
+                            'route_name' => 'calendar-dynamics.create',
+                            'params' => [],
+                            'title' => __('Create calendar')
+                        ],
+                    ]
+                ],
                 'users' => [
                     'icon' => 'users',
                     'title' => __('Users'),

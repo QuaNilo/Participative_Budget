@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\CalendarDynamic;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
@@ -23,13 +22,14 @@ class CalendarDynamicFactory extends Factory
      */
     public function definition()
     {
+        
         return [
-            'date' => $this->faker->date('Y-m-d'),
-            'text' => $this->faker->sentence(),
-            'description' => $this->faker->text($this->faker->numberBetween(30,90)),
-            'phase' => $this->faker->unique()->numberBetween(1, 10),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'date' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'text' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'description' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'phase' => $this->faker->word
         ];
     }
 }

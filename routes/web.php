@@ -85,7 +85,9 @@ Route::middleware([
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
+    Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
 });
+
 
 
 

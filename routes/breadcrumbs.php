@@ -195,6 +195,25 @@ Breadcrumbs::for('editions.edit', function (BreadcrumbTrail $trail, $model) {
     $trail->push(__('Update'), route('editions.edit', $model));
 });
 
+
+// Home > Calendar
+Breadcrumbs::for('calendar-dynamics.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Calendars'), route('calendar-dynamics.index'));
+});
+Breadcrumbs::for('calendar-dynamics.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('calendar-dynamics.index');
+    $trail->push(__('Create'), route('calendar-dynamics.create'));
+});
+Breadcrumbs::for('calendar-dynamics.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('calendar-dynamics.index');
+    $trail->push('Edição' .$model->phase, route('calendar-dynamics.show', $model));
+});
+Breadcrumbs::for('calendar-dynamics.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('calendar-dynamics.show', $model);
+    $trail->push(__('Update'), route('calendar-dynamics.edit', $model));
+});
+
 /*
 // Home > Blog
 Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
