@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Chat;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 use App\Models\User;
@@ -38,8 +39,8 @@ class ChatFactory extends Factory
             'sender_id' => $sender->id,
             'receiver_id' => $receiver->id,
             'content' => $this->faker->text($this->faker->numberBetween(5, 65535)),
-            'created_at' => $this->faker->date('Y-m-d H:i:s'),
-            'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ];
     }
 }

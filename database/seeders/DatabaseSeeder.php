@@ -78,6 +78,8 @@ class DatabaseSeeder extends Seeder
             $this->call(CitizensTableSeeder::class);
             $this->call(ProposalsTableSeeder::class);
             $this->call(VotesTableSeeder::class);
+            $this->call(CalendarDynamicsSeeder::class);
+            $this->call(EditionsTableSeeder::class);
         }
     }
 }
