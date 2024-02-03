@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('calendar-dynamics.create') }}
     @endsection
     <div class="intro-y mt-8 flex flex-col items-center sm:flex-row">
-        <h2 class="mr-auto text-lg font-medium">{{ __('Create Calendar Dynamic') }}</h2>
+        <h2 class="mr-auto text-lg font-medium">{{ __('Create Calendar') }}</h2>
     </div>
     <div class="intro-y box mt-3 p-5">
         <form action="{{ route('calendar-dynamics.store') }}" method="POST" accept-charset="UTF-8">

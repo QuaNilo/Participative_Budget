@@ -21,7 +21,7 @@
                 href="{{ route('calendar-dynamics.create') }}"
                 as="a"
             >
-                {{ __('Create Calendar Dynamic') }}
+                {{ __('Create Calendar') }}
             </x-base.button>
                 <x-base.menu class="ml-auto sm:ml-0">
                 <x-base.menu.button
