@@ -3,7 +3,7 @@
         <div class="lg:flex justify-center">
             <div class="lg:w-full">
                 <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                    <form action="{{ route('propostasFE-store') }}" wire:submit.prevent="store" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <form wire:submit.prevent="store" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-1">
                             <h5 class="text-lg font-semibold">Crie uma proposta :</h5>
@@ -137,20 +137,21 @@
 
                         <div class="grid grid-cols-1 mt-8">
                             <div class="mb-3">
-                                <input type="file" wire:model="photo">
+{{--                                <input type="file" wire:model="photo">--}}
+                               <livewire:files-upload-f-e
+                                    inputName="files"
+                                    :isMultiple="true"
+                                    maxFiles="3"
+                                    maxFileSize="10240"
+    {{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
+                                    :label="__('Upload Cover')"
+                                    acceptedFileTypes="image/*"
+                                    :uploadFieldMainLabel="__('Upload an image')"
+                                />
 
                                 @error('photo') <span class="error">{{ $message }}</span> @enderror
                             </div>
-{{--                           <livewire:files-upload-f-e--}}
-{{--                                inputName="files"--}}
-{{--                                :isMultiple="true"--}}
-{{--                                maxFiles="3"--}}
-{{--                                maxFileSize="10240"--}}
-{{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
-{{--                                :label="__('Upload Cover')"--}}
-{{--                                acceptedFileTypes="image/*"--}}
-{{--                                :uploadFieldMainLabel="__('Upload an image')"--}}
-{{--                            />--}}
+
 
                             @error('files') <span class="error">{{ $message }}</span> @enderror
                         </div>

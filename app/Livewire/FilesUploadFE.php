@@ -49,7 +49,6 @@ class FilesUploadFE extends Component
     public function updatedFiles() : void
     {
         $mimes = $this->getMimesFromAcceptedFileTypes($this->acceptedFileTypes);
-
         $maxFiles = $this->isMultiple ? $this->maxFiles : 1;
         //code to check if we have more than files that the maxFiles and remove the ones that are over the limit
         if (count($this->files)+count($this->previousFiles) > $maxFiles) {
@@ -106,6 +105,7 @@ class FilesUploadFE extends Component
         }
         //fire the event of file uploaded with an array with the basic information about the files
         $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
+        $this->dispatch('update-files', $this->convertToArrayFiles())->to(ProposalCreateForm::class);
 
     }
 

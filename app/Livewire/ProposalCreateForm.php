@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Request;
@@ -19,6 +20,7 @@ class ProposalCreateForm extends Component
 {
     use WithFileUploads;
 
+    public $receivedFiles;
     public $photo;
     public $title;
     public $user_id;
@@ -42,13 +44,23 @@ class ProposalCreateForm extends Component
         $categories = Category::get();
         return view('livewire.propostas.create.proposal-create-form', ['categories' => $categories]);
     }
+    #[On('update-files')]
+    public function onFilesUpdated($files): void
+    {
 
-        public function store(\Illuminate\Http\Request $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
-        {
+        if (!empty($files['files'])) {
+            $this->receivedFiles = $files;
+        }
+    }
+
+        public function updatedReceivedFiles($value): void
+    {
+    }
+
+    public function store(\Illuminate\Http\Request $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
+    {
         $this->user_id = auth()->user()->id;
-//        dd($request, $this);
         $this->validate(Proposal::rules());
-
 
         /** @var Proposal $proposal */
                 $proposal = Proposal::create([
@@ -66,14 +78,16 @@ class ProposalCreateForm extends Component
                     'freguesia' => $this->freguesia,
                 ]);
         if($proposal) {
-            $file = $this->photo;
-//            if (count($file_names) > 1) {
-//                // Multiple files
-//                $this->fileUploadHandle($request, $file_names, 'cover', $proposal, true );
-//            } else {
-//                // Single file
-                $this->fileUploadHandle($request, $file, 'cover', $proposal, false);
-//            }
+            if (!empty($this->receivedFiles['files'])) {
+                if (count($this->receivedFiles['files']) > 1) {
+                    $this->fileUploadHandle('cover', $proposal, true);
+                } else {
+                    $this->fileUploadHandle('cover', $proposal, false);
+                }
+            }
+
+
+    //            }
 
             flash(__('Saved successfully.'))->overlay()->success();
         }else{
@@ -83,22 +97,21 @@ class ProposalCreateForm extends Component
         return redirect(route('home'));
     }
 
-    protected function fileUploadHandle($request, $file, $collection, $model, $isMultiple = false): void
+    protected function fileUploadHandle($collection, $model, $isMultiple = false): void
     {
-        if($isMultiple == false) {
-
-            if (!empty($file)) {
-                $model->addMedia(storage_path("app/livewire-tmp/" . $file->getFilename()))
-//                    ->usingName($request->input($file_names . '_original_name'))//get the media original name at the same index as the media item
-                    ->toMediaCollection($collection);
+        if($isMultiple){
+            foreach($this->receivedFiles['files'] as $file ){
+                $model->addMedia(storage_path("app/livewire-tmp/" . $file['filename']))
+                    ->usingName($file['originalName'])//get the media original name at the same index as the media item
+                    ->toMediaCollection();
             }
-//        }else{
-////            foreach ($files as $file) {
-////                $model->addMedia(storage_path( "app/livewire-tmp/" . $file->filename))
-////                    ->toMediaCollection($collection);
-////            }
-//
+        }else{
+//            dd($this->receivedFiles['files'][0], $this->receivedFiles['files'], $this->receivedFiles, $this->receivedFiles['files'][0]['filename'], $this->receivedFiles['files'][0]->filename);
+            $model->addMedia(storage_path("app/livewire-tmp/" . $this->receivedFiles['files'][0]['filename']))
+                ->usingName($this->receivedFiles['files'][0]['originalName'])//get the media original name at the same index as the media item
+                ->toMediaCollection();
         }
+
     }
 
 }

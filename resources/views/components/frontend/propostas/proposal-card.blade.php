@@ -2,9 +2,9 @@
 <div class="group relative shadow shadow-xl rounded-md  hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden ">
     <div class="content p-6 relative flex flex-col h-full">
         <a href="{{ route('proposta-detail', $proposal->id) }}">
-            @foreach($proposal->getMedia('cover') as $media)
-                 <img src="{{ $media->getUrl() }}" alt="{{ $media->name }}">
-            @endforeach
+{{--            @foreach($proposal->getFirstMedia()->getUrl() as $media)--}}
+                 <img src="{{ $proposal->getFirstMediaUrl() }}">
+{{--            @endforeach--}}
             <div class="flex-grow">
                 <span class="font-extrabold block text-indigo-600">{{$proposal->title}}</span>
                 <span class="font-medium block text-black">{{$proposal->category()->first()->name}}</span>
