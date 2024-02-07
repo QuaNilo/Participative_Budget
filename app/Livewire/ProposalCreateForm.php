@@ -58,7 +58,7 @@ class ProposalCreateForm extends Component
     #[On('getCoordinates')]
     public function getCoordinates()
     {
-//        $address = ($this->street ?? ''). " " . ($this->city ?? '') . " " . ($this->freguesia ?? '') . " " . ($this->postal_code ?? '');
+        $address = ($this->street ?? ''). " " . ($this->postal_code ?? '') . " " . ($this->city ?? '') . " " . ($this->freguesia ?? '');
 
         $client = new \GuzzleHttp\Client();
 
@@ -68,16 +68,15 @@ class ProposalCreateForm extends Component
 
         $geocoder->setCountry(config('geocoder.country', 'PT'));
 
-        $coordinates = $geocoder->getCoordinatesForAddress('Rua da esperança n94, 2330-111 Entroncamento');
+        $coordinates = $geocoder->getCoordinatesForAddress($address);
         $this->lat = $coordinates['lat'];
         $this->lng = $coordinates['lng'];
-
+        $this->dispatch('changedCoordinates', $this->lat, $this->lng);
     }
     public function store(\Illuminate\Http\Request $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
         $this->user_id = auth()->user()->id;
         $this->validate(Proposal::rules());
-        dd($this);
         /** @var Proposal $proposal */
                 $proposal = Proposal::create([
                     'title' => $this->title,

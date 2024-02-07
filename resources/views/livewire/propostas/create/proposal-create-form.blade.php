@@ -81,17 +81,17 @@
                         <div class="grid grid-cols-1 mt-8">
                             <h5 class="text-lg font-semibold">Ou deixe um pin no mapa :</h5>
                         </div>
-                            <x-button wire:click="getCoordinates()">Procurar</x-button>
+                            <x-button wire:click.prevent="getCoordinates()">Procurar</x-button>
                         <div class="col-span-12 text-start mt-8">
-                            <input id="lng" wire:model.lazy="lng" name="lng" type="text"  class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
-                            <input id="lat"  wire:model.lazy="lat" name="lat" type="text"  class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
+                            <input id="lng" hidden wire:model="lng" name="lng" type="text"  class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
+                            <input id="lat" hidden wire:model="lat" name="lat" type="text"  class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
                             <div class="" wire:ignore>
-{{--                                <livewire:show-map :lat="$lat" :lng="$lng"/>--}}
                                 <style type="text/css">
                                     #map {
                                       height: 20rem;
                                         width: auto;
                                     }
+
                                 </style>
                                 <div class="h-screen w-screen bg-gray-100" id="map"></div>
                                 <script type="text/javascript">
@@ -122,26 +122,12 @@
                                         @this.set('lat', clickedLatLng.lat);
                                         @this.set('lng', clickedLatLng.lng);
                                       });
-
-                                        // Add event listeners to latitude and longitude inputs
-                                        document.getElementById('lat').addEventListener('input', function(event) {
-                                            const lat = parseFloat(event.target.value);
-                                            const lng = parseFloat(document.getElementById('lng').value);
-
-                                            // Update marker position if latitude is valid
-                                            if (!isNaN(lat) && !isNaN(lng)) {
-                                                marker.setPosition({ lat: lat, lng: lng });
+                                        Livewire.on('changedCoordinates', function (coordinates){
+                                            latlng = {
+                                                lat: coordinates[0],
+                                                lng: coordinates[1]
                                             }
-                                        });
-
-                                        document.getElementById('lng').addEventListener('input', function(event) {
-                                            const lat = parseFloat(document.getElementById('lat').value);
-                                            const lng = parseFloat(event.target.value);
-
-                                            // Update marker position if longitude is valid
-                                            if (!isNaN(lat) && !isNaN(lng)) {
-                                                marker.setPosition({ lat: lat, lng: lng });
-                                            }
+                                            marker.setPosition(latlng);
                                         });
                                     }
                                     window.initMap = initMap;
