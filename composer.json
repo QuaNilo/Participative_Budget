@@ -24,8 +24,11 @@
         "noopstudios/laravel-recaptchav3": "^1.0",
         "owen-it/laravel-auditing": "^13.5",
         "rappasoft/laravel-livewire-tables": "v3.0.0-beta.2",
+        "salmanzafar/laravel-geocode": "^1.0",
+        "spatie/geocoder": "^3.15",
         "spatie/laravel-medialibrary": "^10.0.0",
         "spatie/laravel-permission": "^5.11",
+        "toin0u/geocoder-laravel": "^4.6",
         "wire-elements/modal": "^2.0"
     },
     "require-dev": {
@@ -95,5 +98,11 @@
     "provide": {
         "infyomlabs/laravel-ui-adminlte": "*",
         "laracasts/flash": "*"
-    }
+    },
+    "post-update-cmd": [
+            "@php artisan cache:clear"
+    ],
+    "post-install-cmd": [
+        "@php artisan cache:clear"
+    ]
 }

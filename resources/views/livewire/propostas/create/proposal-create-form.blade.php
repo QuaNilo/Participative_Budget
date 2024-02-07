@@ -81,9 +81,12 @@
                         <div class="grid grid-cols-1 mt-8">
                             <h5 class="text-lg font-semibold">Ou deixe um pin no mapa :</h5>
                         </div>
+                            <x-button wire:click="getCoordinates()">Procurar</x-button>
                         <div class="col-span-12 text-start mt-8">
-                            <div class="">
-                                <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                            <input id="lng" wire:model.lazy="lng" name="lng" type="text"  class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
+                            <input id="lat"  wire:model.lazy="lat" name="lat" type="text"  class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
+                            <div class="" wire:ignore>
+{{--                                <livewire:show-map :lat="$lat" :lng="$lng"/>--}}
                                 <style type="text/css">
                                     #map {
                                       height: 20rem;
@@ -92,15 +95,16 @@
                                 </style>
                                 <div class="h-screen w-screen bg-gray-100" id="map"></div>
                                 <script type="text/javascript">
-                                    function initMap() {
-                                      const myLatLng = { lat: 39.45881646622997, lng: -8.43029715113065 };
-                                      const map = new google.maps.Map(document.getElementById("map"), {
-                                        zoom: 5,
-                                        center: myLatLng,
+                                    async function initMap() {
+                                      const { Map } = await google.maps.importLibrary("maps");
+                                          map = new Map(document.getElementById("map"), {
+                                            center: { lat: 39.137612, lng: -8.201025 },
+                                            zoom: 8,
+                                            mapTypeId: "satellite"
                                       });
 
                                       const marker = new google.maps.Marker({
-                                        position: myLatLng,
+                                        position: { lat: 39.137612, lng: -8.201025 },
                                         map,
                                         title: "Localização Proposta",
                                       });
@@ -111,32 +115,48 @@
                                           lat: event.latLng.lat(),
                                           lng: event.latLng.lng()
                                         };
-
-                                        // Store or use the clicked coordinates as needed
-                                        console.log("Clicked Coordinates:", clickedLatLng);
-
                                         document.getElementById('lat').value = clickedLatLng['lat']
                                         document.getElementById('lng').value = clickedLatLng['lng']
                                         // Update marker position
                                         marker.setPosition(clickedLatLng);
-                                            @this.set('lat', clickedLatLng.lat);
-                                            @this.set('lng', clickedLatLng.lng);
+                                        @this.set('lat', clickedLatLng.lat);
+                                        @this.set('lng', clickedLatLng.lng);
                                       });
+
+                                        // Add event listeners to latitude and longitude inputs
+                                        document.getElementById('lat').addEventListener('input', function(event) {
+                                            const lat = parseFloat(event.target.value);
+                                            const lng = parseFloat(document.getElementById('lng').value);
+
+                                            // Update marker position if latitude is valid
+                                            if (!isNaN(lat) && !isNaN(lng)) {
+                                                marker.setPosition({ lat: lat, lng: lng });
+                                            }
+                                        });
+
+                                        document.getElementById('lng').addEventListener('input', function(event) {
+                                            const lat = parseFloat(document.getElementById('lat').value);
+                                            const lng = parseFloat(event.target.value);
+
+                                            // Update marker position if longitude is valid
+                                            if (!isNaN(lat) && !isNaN(lng)) {
+                                                marker.setPosition({ lat: lat, lng: lng });
+                                            }
+                                        });
                                     }
-
                                     window.initMap = initMap;
-                                </script>
-                                <script type="text/javascript"
-                                    src="https://maps.google.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&callback=initMap" ></script>
-                                <input id="lat"  wire:model="lat" name="lat" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Latitude">
-                                <input id="lng" wire:model="lng" name="lng" type="text" readonly class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 " placeholder="Longitude">
 
+
+                                </script>
+                               <script async
+                                    src="https://maps.googleapis.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&loading=async&callback=initMap">
+                               </script>
                             </div>
                         </div>
 
 
                         <div class="grid grid-cols-1 mt-8">
-                            <div class="mb-3">
+                            <div class="mb-3" wire:ignore.self>
 {{--                                <input type="file" wire:model="photo">--}}
                                <livewire:files-upload-f-e
                                     inputName="files"
@@ -147,7 +167,7 @@
                                     :label="__('Upload Cover')"
                                     acceptedFileTypes="image/*"
                                     :uploadFieldMainLabel="__('Upload an image')"
-                                />
+                               />
 
                                 @error('photo') <span class="error">{{ $message }}</span> @enderror
                             </div>

@@ -14,7 +14,10 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Request;
+use Salman\GeoCode\Services\GeoCode;
+use Spatie\Geocoder\Geocoder;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use GuzzleHttp\Client;
 
 class ProposalCreateForm extends Component
 {
@@ -34,7 +37,7 @@ class ProposalCreateForm extends Component
     public $lng;
     public $lat;
     public $url;
-
+    protected $listeners = ['updateCoordinates'];
 
     public function mount()
     {
@@ -52,16 +55,29 @@ class ProposalCreateForm extends Component
             $this->receivedFiles = $files;
         }
     }
-
-        public function updatedReceivedFiles($value): void
+    #[On('getCoordinates')]
+    public function getCoordinates()
     {
-    }
+//        $address = ($this->street ?? ''). " " . ($this->city ?? '') . " " . ($this->freguesia ?? '') . " " . ($this->postal_code ?? '');
 
+        $client = new \GuzzleHttp\Client();
+
+        $geocoder = new Geocoder($client);
+
+        $geocoder->setApiKey(config('geocoder.key'));
+
+        $geocoder->setCountry(config('geocoder.country', 'PT'));
+
+        $coordinates = $geocoder->getCoordinatesForAddress('Rua da esperança n94, 2330-111 Entroncamento');
+        $this->lat = $coordinates['lat'];
+        $this->lng = $coordinates['lng'];
+
+    }
     public function store(\Illuminate\Http\Request $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
         $this->user_id = auth()->user()->id;
         $this->validate(Proposal::rules());
-
+        dd($this);
         /** @var Proposal $proposal */
                 $proposal = Proposal::create([
                     'title' => $this->title,

@@ -12,7 +12,7 @@ class MapController extends Controller
     {
         if($id)
         {
-            $proposals = Proposal::where('edition_id', $id)
+            $proposals = Proposal::with('category', 'user')->where('edition_id', $id)
                 ->get();
         }
         else

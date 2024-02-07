@@ -32,6 +32,8 @@
 
             // Update marker position
             marker.setPosition(clickedLatLng);
+            @this.set('lng', clickedLatLng.lng)
+            @this.set('lat', clickedLatLng.lat)
           });
         }
 

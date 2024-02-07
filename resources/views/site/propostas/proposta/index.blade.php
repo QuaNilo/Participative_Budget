@@ -62,9 +62,9 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-9 md:col-span-7 border border border-gray-100">
+                    <div class="lg:col-span-9 md:col-span-7 border border-gray-100">
                         <div id="myTabContent" class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md  border border-gray-100 ">
-                            <div class="" id="description" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="overflow-hidden" id="description" role="tabpanel" aria-labelledby="profile-tab">
                                 <p class="text-slate-400">{{$proposal->content}}</p>
                             </div>
 

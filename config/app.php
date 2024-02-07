@@ -171,6 +171,8 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
+        Geocoder\Laravel\Providers\GeocoderService::class,
+        Spatie\Geocoder\GeocoderServiceProvider::class
     ])->toArray(),
 
     /*
@@ -187,6 +189,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Setting' => App\Facades\Setting::class,
+        'Geocoder' => Spatie\Geocoder\Facades\Geocoder::class,
     ])->toArray(),
 
     'GOOGLE_API_KEY' => env('GOOGLE_API_KEY', null)

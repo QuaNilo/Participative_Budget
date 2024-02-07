@@ -1,7 +1,6 @@
 @props(['proposals'])
 
 <div class="">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <style type="text/css">
         #map {
           height: 800px;
@@ -9,22 +8,27 @@
     </style>
     <div class="h-screen w-screen bg-gray-100" id="map"></div>
     <script type="text/javascript">
-        function initMap() {
-          const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 5,
-            center: { lat: 39.92126926355065, lng: -8.43029715113065 },
-          });
+        let map;
 
+        async function initMap() {
+          const { Map } = await google.maps.importLibrary("maps");
+          map = new Map(document.getElementById("map"), {
+            center: { lat: 39.137612, lng: -8.201025 },
+            zoom: 8,
+            mapTypeId: "satellite"
+          });
           @foreach ($proposals as $proposal)
+{{--              @dd($proposal->lat, $proposal->lng, $proposal->title, $proposal->summary, $proposal->id, $proposal->user->name, $proposal->category->name )--}}
               addMarker(map, {{ $proposal->lat }}, {{ $proposal->lng }}, "{{ $proposal->title }}", "{{ $proposal->summary }}", {{$proposal->id}}, "{{$proposal->user->name}}", "{{$proposal->category->name}}");
           @endforeach
         }
 
-        function addMarker(map, lat, lng, title, description, id, author, category_name,) {
+        function addMarker(map, lat, lng, title, description, id, author, category_name) {
+            console.log(lat, lng, title, description, id, author, category_name )
             const marker = new google.maps.Marker({
                 position: { lat, lng },
                 map,
-                title: title,
+                title: title
             });
 
             const contentString = `
@@ -44,7 +48,7 @@
             `;
 
             const infoWindow = new google.maps.InfoWindow({
-                content: contentString,
+                content: contentString
             });
 
             marker.addListener('click', function() {
@@ -54,7 +58,7 @@
 
         window.initMap = initMap;
     </script>
-    <script type="text/javascript"
-
-        src="https://maps.google.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&callback=initMap" ></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key={{ config('app.GOOGLE_API_KEY') }}&loading=async&callback=initMap">
+    </script>
 </div>

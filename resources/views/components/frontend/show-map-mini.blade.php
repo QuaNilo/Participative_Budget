@@ -21,20 +21,6 @@
             map,
             title: "Localização Proposta",
           });
-
-            // Add click event listener to capture coordinates
-          map.addListener('click', function(event) {
-            const clickedLatLng = {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng()
-            };
-
-            // Store or use the clicked coordinates as needed
-            console.log("Clicked Coordinates:", clickedLatLng);
-
-            // Update marker position
-            marker.setPosition(clickedLatLng);
-          });
         }
 
         window.initMap = initMap;

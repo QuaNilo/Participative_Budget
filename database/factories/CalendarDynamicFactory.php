@@ -22,14 +22,14 @@ class CalendarDynamicFactory extends Factory
      */
     public function definition()
     {
-        
+
         return [
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s'),
             'date' => $this->faker->text($this->faker->numberBetween(5, 255)),
             'text' => $this->faker->text($this->faker->numberBetween(5, 255)),
             'description' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'phase' => $this->faker->word
+            'phase' => $this->faker->unique()->numberBetween(1,25)
         ];
     }
 }

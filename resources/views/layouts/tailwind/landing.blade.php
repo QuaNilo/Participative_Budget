@@ -57,6 +57,7 @@
         @livewire('wire-elements-modal')
         <!-- Styles -->
         @livewireStyles
+
         @stack('styles')
 
     </head>
