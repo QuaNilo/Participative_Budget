@@ -109,7 +109,6 @@
                 'resources/tailwind-assets/js/app.js'
             ])
         @endif
-
         @livewireScripts
         @stack('scripts')
 

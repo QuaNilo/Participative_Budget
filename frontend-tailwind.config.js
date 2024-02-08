@@ -14,6 +14,7 @@ module.exports = {
         //'./resources/views/layout/tailwind/landing.blade.php'
     ],
     darkMode: 'class',
+    mode: "jit",
     important: false,
     theme: {
         screens: {

@@ -93,6 +93,14 @@
                                             <td class="font-semibold py-4">Orçamento</td>
                                             <td class="text-slate-400 py-4">{{$proposal->budget_estimate ? : 'N/A' }}</td>
                                         </tr>
+                                        @if($proposal->url)
+                                            <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
+                                                <td class="font-semibold py-4">Video</td>
+                                                <td class="text-slate-400 py-4">
+                                                    <a  class="underline hover:text-indigo-600" href="{{$proposal->url}}">{{$proposal->url ? : 'N/A' }}</a>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
