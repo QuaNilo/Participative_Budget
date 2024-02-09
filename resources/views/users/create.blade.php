@@ -12,9 +12,9 @@
                     variant="primary"
                     type="submit"
                 >
+
                     {{ __('Save') }}
                 </x-base.button>
-
             </div>
         </div>
         <div class="intro-y mt-5 grid grid-cols-12 gap-5">

@@ -15,6 +15,7 @@
                             Sucede contudo, decorrido este lapso de tempo impõe -se a introdução de alterações, as quais sendo vastas, justifica -se a elaboração e aprovação de um novo documento regulamentar em matéria de orçamento participativo.<br>
                         </p>
                     </div>
+
                     <div>
                         <h4 class="text-xl font-semibold mb-4">Indice</h4>
                         <ul class="list-none mt-3">

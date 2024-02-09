@@ -35,7 +35,6 @@
         <div class="mt-2 text-danger">{{ $message }}</div>
         @enderror
     </div>
-
 </div>
 @if(empty($user->id))
     <div class="mt-5 rounded-md border border-slate-200/60 p-5 dark:border-darkmode-400">

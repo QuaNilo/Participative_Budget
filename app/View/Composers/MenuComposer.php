@@ -14,7 +14,6 @@ class   MenuComposer
      */
     public function compose(View $view): void
     {
-
         if (!is_null(request()->route())) {
             $sideMenu = [
                 'dashboard' => [
