@@ -18601,6 +18601,198 @@
      
 }
 
+    namespace Spatie\Geocoder\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Geocoder {
+                    /**
+         * 
+         *
+         * @deprecated Use `get()` instead.
+         * @static 
+         */ 
+        public static function all()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->all();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function get()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->get();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function toJson()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->toJson();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function doNotCache()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->doNotCache();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function dump($dumper)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->dump($dumper);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function geocode($value)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->geocode($value);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function geocodeQuery($query)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->geocodeQuery($query);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getLimit()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->getLimit();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getName()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->getName();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function limit($limit)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->limit($limit);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getProvider()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->getProvider();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getProviders()
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->getProviders();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerProvider($provider)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->registerProvider($provider);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerProviders($providers = [])
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->registerProviders($providers);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerProvidersFromConfig($providers)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->registerProvidersFromConfig($providers);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function reverse($latitude, $longitude)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->reverse($latitude, $longitude);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function reverseQuery($query)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->reverseQuery($query);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function using($name)
+        {
+                        /** @var \Geocoder\Laravel\ProviderAndDumperAggregator $instance */
+                        return $instance->using($name);
+        }
+         
+    }
+     
+}
+
     namespace Barryvdh\Debugbar\Facades { 
             /**
      * 
@@ -21013,6 +21205,27 @@
         {
                         /** @var \Lunaweb\RecaptchaV3\RecaptchaV3 $instance */
                         return $instance->field($action, $name, $requestOnSubmit, $formId, $functionName);
+        }
+         
+    }
+     
+}
+
+    namespace Salman\GeoCode\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class GeoCode {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getLatAndLong($address)
+        {
+                        /** @var \Salman\GeoCode\Services\GeoCode $instance */
+                        return $instance->getLatAndLong($address);
         }
          
     }
@@ -28153,6 +28366,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class Setting extends \App\Facades\Setting {}
+            class Geocoder extends \Spatie\Geocoder\Facades\Geocoder {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class LaRecipe extends \BinaryTorch\LaRecipe\LaRecipe {}
             class Breadcrumbs extends \Diglactic\Breadcrumbs\Breadcrumbs {}
@@ -28161,6 +28375,7 @@ namespace  {
             class Html extends \Collective\Html\HtmlFacade {}
             class Livewire extends \Livewire\Livewire {}
             class RecaptchaV3 extends \Lunaweb\RecaptchaV3\Facades\RecaptchaV3 {}
+            class GeoCode extends \Salman\GeoCode\Facades\GeoCode {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
 }

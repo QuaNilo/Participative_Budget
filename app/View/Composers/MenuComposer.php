@@ -22,13 +22,13 @@ class   MenuComposer
                     'route_name' => 'dashboard',
                     'params' => [],
                 ],
-                'divider',
                 'profile.show' => [
                     'icon' => 'user',
                     'route_name' => 'profile.show',
                     'params' => [],
                     'title' => __('My profile')
                 ],
+                'divider',
                 'Calendar' => [
                     'icon' => 'calendar',
                     'title' => __('Calendar'),
@@ -47,6 +47,55 @@ class   MenuComposer
                         ],
                     ]
                 ],
+                'Regulation' => [
+                    'icon' => 'book',
+                    'title' => __('Regulation'),
+                    'sub_menu' => [
+                        'regulations.index' => [
+                                    'icon' => 'list',
+                                    'route_name' => 'regulations.index',
+                                    'params' => [],
+                                    'title' => __('Regulation')
+                        ],
+                        'Chapters' => [
+                            'icon' => 'text',
+                            'title' => __('Chapters'),
+                            'sub_menu' => [
+                                'chapters.index' => [
+                                    'icon' => 'list',
+                                    'route_name' => 'chapters.index',
+                                    'params' => [],
+                                    'title' => __('List Chapters')
+                                ],
+                                'chapters.create' => [
+                                    'icon' => 'plus-circle',
+                                    'route_name' => 'chapters.create',
+                                    'params' => [],
+                                    'title' => __('Create Chapter')
+                                ],
+                            ]
+                        ],
+                        'Articles' => [
+                            'icon' => 'text',
+                            'title' => __('Articles'),
+                            'sub_menu' => [
+                                'articles.index' => [
+                                    'icon' => 'list',
+                                    'route_name' => 'articles.index',
+                                    'params' => [],
+                                    'title' => __('List Articles')
+                                ],
+                                'articles.create' => [
+                                    'icon' => 'plus-circle',
+                                    'route_name' => 'articles.create',
+                                    'params' => [],
+                                    'title' => __('Create Article')
+                                ],
+                            ]
+                        ],
+                    ]
+                ],
+                'divider',
                 'users' => [
                     'icon' => 'users',
                     'title' => __('Users'),

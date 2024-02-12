@@ -86,12 +86,7 @@ Route::middleware([
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
     Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
+    Route::resource('regulations', App\Http\Controllers\RegulationsController::class);
+    Route::resource('chapters', App\Http\Controllers\ChapterController::class);
+    Route::resource('articles', App\Http\Controllers\ArticleController::class);
 });
-
-
-
-
-
-
-
-

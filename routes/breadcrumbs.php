@@ -214,6 +214,64 @@ Breadcrumbs::for('calendar-dynamics.edit', function (BreadcrumbTrail $trail, $mo
     $trail->push(__('Update'), route('calendar-dynamics.edit', $model));
 });
 
+
+
+// Home > Regulations
+Breadcrumbs::for('regulations.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Regulations'), route('regulations.index'));
+});
+Breadcrumbs::for('regulations.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('regulations.index');
+    $trail->push(__('Create'), route('regulations.create'));
+});
+Breadcrumbs::for('regulations.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('regulations.index');
+    $trail->push('Edição' .$model->phase, route('regulations.show', $model));
+});
+Breadcrumbs::for('regulations.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('regulations.show', $model);
+    $trail->push(__('Update'), route('regulations.edit', $model));
+});
+
+
+// Home > Chapters
+Breadcrumbs::for('chapters.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Chapters'), route('chapters.index'));
+});
+Breadcrumbs::for('chapters.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('chapters.index');
+    $trail->push(__('Create'), route('chapters.create'));
+});
+Breadcrumbs::for('chapters.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('chapters.index');
+    $trail->push('Chapter' .$model->title, route('chapters.show', $model));
+});
+Breadcrumbs::for('chapters.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('chapters.show', $model);
+    $trail->push(__('Update'), route('chapters.edit', $model));
+});
+
+
+// Home > Article
+Breadcrumbs::for('articles.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Article'), route('articles.index'));
+});
+Breadcrumbs::for('articles.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('articles.index');
+    $trail->push(__('Create'), route('articles.create'));
+});
+Breadcrumbs::for('articles.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('articles.index');
+    $trail->push('Chapter' .$model->title, route('articles.show', $model));
+});
+Breadcrumbs::for('articles.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('articles.show', $model);
+    $trail->push(__('Update'), route('articles.edit', $model));
+});
+
 /*
 // Home > Blog
 Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
