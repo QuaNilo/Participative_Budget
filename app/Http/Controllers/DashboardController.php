@@ -37,12 +37,13 @@ class   DashboardController extends Controller
         //flash('Mensagem de informação no canto superior direito')->overlay()->success();
        // flash('Mensagem de informação no canto superior direito')->overlay()->info();
         /*flash('Info menssage')->overlay()->info();
-        flash('danger')->overlay()->danger()->duration(3000);
         flash('success')->overlay()->success();
         flash('Warning   menssage')->overlay()->warning();
         flash('No icon')->overlay()->noIcon();
-        flash('Titulo', 'Mensagem mais longa para fazer coisas')->overlay()->warning();*/
-        flash('Bem vindo')->overlay()->success();
+        */
+//        flash('Titulo', 'Mensagem mais longa para fazer coisas')->overlay()->warning();
+//        flash('danger')->overlay()->danger()->duration(3000);
+        flash('Bem vindo')->overlay()->success()->duration(3000);
 
 
 //        request()->session()->flash('flash.banner', 'Yay it works2!');

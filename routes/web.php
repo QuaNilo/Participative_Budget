@@ -49,6 +49,7 @@ Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->nam
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
+Route::delete('/edition/proposta/remove-vote/{id}', [ProposalFEController::class, 'remove_vote'])->name('proposta-remove-vote');
 
 Route::get('/FEproposals/{FEproposal}', [ProposalFEController::class, 'edit'])->name('FEproposals.edit');
 Route::delete('/FEproposals/{FEproposal}', [ProposalFEController::class, 'destroy'])->name('FEproposals.destroy');

@@ -46,7 +46,6 @@
                     <livewire:votos-profile-component/>
                 @elseif($tab === 'details')
                     <livewire:profile-details/>
-
                 @elseif($tab === 'update-password')
                     <x-frontend.profile.update-password-component/>
                 @endif

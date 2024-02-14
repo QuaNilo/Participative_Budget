@@ -12,30 +12,7 @@ view()->share('showBgEffect', true);
 
 
     <div class="mt-20">
-                <!-- Start Hero -->
-{{--            <section class="relative table w-full pt-24 lg:py-44">--}}
-{{--                <div class="container relative">--}}
-{{--                    <div class="grid md:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">--}}
-{{--                        <div class="md:col-span-7">--}}
-{{--                            <div class="me-6">--}}
-{{--                                <h4 class="font-semibold lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 text-black dark:text-white">A sua participação é o nosso<span class="text-indigo-600"> Sucesso</span></h4>--}}
-{{--                                <p class="text-slate-400 text-lg max-w-xl">Muito mais do que um voto.</p>--}}
-
-{{--                                <div class="mt-6">--}}
-{{--                                    <a href="#what" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2">Saiba Mais</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div><!--end col-->--}}
-
-{{--                        <div class="md:col-span-5">--}}
-{{--                            <img src="{{asset('assets-frontend/illustrator/Startup_SVG.svg')}}" alt="">--}}
-{{--                        </div><!--end col-->--}}
-{{--                    </div><!--end grid-->--}}
-{{--                </div><!--end container-->--}}
-{{--            </section><!--end section-->--}}
-
-
-        <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')]">
+        <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover ">
             <div class="absolute inset-0 bg-white/30 dark:bg-slate-900/60"></div>
             <div class="container relative z-1">
                 <div class="grid md:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">

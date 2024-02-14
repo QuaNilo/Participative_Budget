@@ -14,7 +14,14 @@
                 <th class="px-2 py-3 text-center" scope="row">{{ $vote->id }}</th>
                 <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</td>
                 <td class="px-2 py-3 text-center">{{$vote->proposal->title}}</td>
-                <td class="px-2 py-3 text-center"><a href="/edition/proposta/{{$vote->proposal->id}}" class="font-bold text-indigo-600">View</a></td>
+                <td class="px-2 py-3 text-center">
+                    <a href="{{route('proposta-detail', $vote->proposal->id)}}" class="font-bold text-indigo-600">View</a>
+                    <form method="POST" action="{{ route('proposta-remove-vote', $vote->proposal->id) }}">
+                        @csrf
+                        @method('DELETE') <!-- Assuming you're using DELETE method for removing the vote -->
+                        <button type="submit" class="font-bold text-red-600">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

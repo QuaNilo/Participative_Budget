@@ -8,11 +8,27 @@ use App\Models\Proposal;
 use App\Models\Vote;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class ProposalFEController extends Controller
 {
+
+    public function remove_vote($proposal_id)
+    {
+//        dd("Olá", $proposal_id);
+        $proposal = Proposal::find($proposal_id);
+        if ($proposal) {
+            $deletedVotes = $proposal->votes()->where('user_id', auth()->user()->id)->delete();
+            if ($deletedVotes > 0) {
+                flash('Voto Apagado')->overlay()->success()->duration(3000);
+                return Redirect::back()->with('success', 'Vote deleted successfully');
+            }
+            flash('Falha ao apagar voto')->overlay()->danger()->duration(3000);
+            return Redirect::back()->with('error', 'Failed to delete Vote');
+        }
+    }
 
     public function show_frontend($edition_id)
     {
