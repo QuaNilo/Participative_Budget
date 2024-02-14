@@ -14,7 +14,10 @@ class ProposalsProfileComponent extends Component
         $user = User::find(auth()->user()->id);
         if($user->proposals())
         {
-            $this->proposals = $user->proposals()->withCount('votes')->get();
+            $this->proposals = $user->proposals()
+                ->withCount('votes')
+                ->orderByDesc('created_at')
+                ->get();
         }
     }
     public function render()

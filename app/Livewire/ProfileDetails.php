@@ -19,23 +19,6 @@ class ProfileDetails extends Component
     public $description;
     public $CC;
 
-
-    public static function rulesUser(): array
-    {
-        return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|string|max:255|unique:users',
-        ];
-    }
-
-    public static function rulesCitizen(): array
-    {
-        return [
-            'CC' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-        ];
-    }
-
     public function mount()
     {
         $this->user = User::find(auth()->user()->id);

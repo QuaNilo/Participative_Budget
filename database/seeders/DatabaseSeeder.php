@@ -80,6 +80,9 @@ class DatabaseSeeder extends Seeder
             $this->call(VotesTableSeeder::class);
             $this->call(CalendarDynamicsSeeder::class);
             $this->call(EditionsTableSeeder::class);
+            $this->call(RegulationsTableSeeder::class);
+            $this->call(ChaptersTableSeeder::class);
+            $this->call(ArticlesTableSeeder::class);
         }
     }
 }

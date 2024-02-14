@@ -119,6 +119,7 @@
                                         document.getElementById('lng').value = clickedLatLng['lng']
                                         // Update marker position
                                         marker.setPosition(clickedLatLng);
+                                        centerMap(marker.getPosition());
                                         @this.set('lat', clickedLatLng.lat);
                                         @this.set('lng', clickedLatLng.lng);
                                       });
@@ -128,10 +129,14 @@
                                                 lng: coordinates[1]
                                             }
                                             marker.setPosition(latlng);
+                                            centerMap(marker.getPosition());
                                         });
                                     }
+                                    function centerMap(position)
+                                    {
+                                        map.panTo(position);
+                                    }
                                     window.initMap = initMap;
-
 
                                 </script>
                                <script async
@@ -149,7 +154,7 @@
                                     :isMultiple="true"
                                     maxFiles="3"
                                     maxFileSize="10240"
-    {{--                                    :previousFiles="$proposal->getMedia('cover')"--}}
+                                    :previousFiles="collect()"
                                     :label="__('Upload Cover')"
                                     acceptedFileTypes="image/*"
                                     :uploadFieldMainLabel="__('Upload an image')"

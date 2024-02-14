@@ -88,7 +88,7 @@ class Proposal extends Model implements Auditable, HasMedia
         'postal_code' => 'nullable|string|max:20',
         'city' => 'nullable|string|max:60',
         'freguesia' => 'nullable|string|max:60',
-        'url' => 'nullable|string|max:60',
+        'url' => 'nullable|string|max:255',
         ];
     }
 

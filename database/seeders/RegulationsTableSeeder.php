@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Regulation;
 use Illuminate\Database\Seeder;
 
 class RegulationsTableSeeder extends Seeder
@@ -13,6 +14,6 @@ class RegulationsTableSeeder extends Seeder
      */
     public function run()
     {
-
+        Regulation::factory(1)->create();
     }
 }

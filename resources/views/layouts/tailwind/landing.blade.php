@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ \Illuminate\Support\Facades\Cookie::get('lightmode') }} scroll-smooth" dir="ltr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

@@ -160,8 +160,8 @@
         class="flatpickr"
         data-wrap="true"
         data-enable-time="false"
-        data-date-format='Y-m-d'
-        data-time_24hr='true'
+        data-date-format='Y'
+        data-time_24hr='false'
         data-minute-increment='1'
         inputGroup
     >
@@ -171,12 +171,13 @@
                 icon="Calendar"
             />
         </x-base.input-group.text>
-        <x-base.flatpickr
-            class="{{ ($errors->has('ano') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
+        <x-base.form-input
+            class="w-full {{ ($errors->has('ano') ? 'border-danger' : '') }}"
             id="ano"
             name="ano"
             :value="old('ano', $edition->ano ?? '')"
-            data-input
+            type="number"
+            step="1"
         />
         <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
             <x-base.lucide

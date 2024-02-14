@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProposalRequest;
+use App\Http\Requests\UpdateProposalRequest;
 use App\Models\Proposal;
 use App\Models\Vote;
 use Illuminate\Http\RedirectResponse;
@@ -12,6 +13,7 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class ProposalFEController extends Controller
 {
+
     public function show_frontend($edition_id)
     {
         return view('site.propostas.index', ['edition_id' => $edition_id]);
@@ -81,6 +83,59 @@ class ProposalFEController extends Controller
         }
 
         return redirect(route('demos.index'));
+    }
+
+    public function edit($id)
+    {
+        /** @var Proposal $proposal */
+        $proposal = Proposal::with('media')->find($id);
+
+        if (empty($proposal)) {
+            flash(__('Not found'))->overlay()->danger();
+        }
+
+        return view('site.profile.edit')->with('proposal', $proposal);
+    }
+
+    public function update($id, UpdateProposalRequest $request)
+    {
+        /** @var Proposal $proposal */
+        $proposal = Proposal::find($id);
+
+        if (empty($proposal)) {
+            flash(__('Not found'))->overlay()->danger();
+
+            return redirect(route('proposals.index'));
+        }
+
+        $proposal->fill($request->all());
+        if($proposal->save()){
+            flash(__('Updated successfully.'))->overlay()->success();
+        }else{
+            flash(__('Ups something went wrong'))->overlay()->danger();
+        }
+
+        return redirect(route('proposals.index'));
+    }
+
+    public function destroy($id)
+    {
+        /** @var Proposal $proposal */
+        $proposal = Proposal::find($id);
+
+        if (empty($proposal)) {
+            flash(__('Not found'))->overlay()->danger();
+
+            return redirect()->back()->withInput()->withErrors(['message' => 'Validation failed.']);
+        }
+
+        if($proposal->delete()){
+            flash(__('Deleted successfully.'))->overlay()->success();
+        }else{
+            flash(__('Ups something went wrong'))->overlay()->danger();
+        }
+
+        return redirect()->back()->with('success', 'Operation successful!');
     }
 
     protected function fileUploadHandle($request, $file_names, $collection, $model, $isMultiple = false): void

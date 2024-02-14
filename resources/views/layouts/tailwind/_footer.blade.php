@@ -94,14 +94,6 @@
                 <div class="ltr:md:text-left rtl:md:text-right text-center">
                     <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> {{ config('app.name', 'Laravel') }}. Design with <i class="mdi mdi-heart text-red-600"></i> by <a href="https://noop.pt/" target="_blank" class="text-reset">Noop</a>.</p>
                 </div>
-
-                <ul class="list-none ltr:md:text-right rtl:md:text-left text-center mt-6 md:mt-0">
-                    <li class="inline"><img src="/assets-frontend/images/payments/american-ex.png" class="max-h-6 inline" title="American Express" alt=""></li>
-                    <li class="inline"><img src="/assets-frontend/images/payments/discover.png" class="max-h-6 inline" title="Discover" alt=""></li>
-                    <li class="inline"><img src="/assets-frontend/images/payments/master-card.png" class="max-h-6 inline" title="Master Card" alt=""></li>
-                    <!--<li class="inline"><img src="/assets-frontend/images/payments/paypal.png" class="max-h-6 inline" title="Paypal" alt=""></li>-->
-                    <li class="inline"><img src="/assets-frontend/images/payments/visa.png" class="max-h-6 inline" title="Visa" alt=""></li>
-                </ul>
             </div><!--end grid-->
         </div><!--end container-->
     </div>
@@ -114,14 +106,14 @@
 <!-- Back to top -->
 
 <!-- Switcher -->
-<div class="fixed top-[30%] -right-2 z-50">
-    <span class="relative inline-block rotate-90">
-        <input type="checkbox" class="checkbox opacity-0 absolute" id="chk" {{ \Illuminate\Support\Facades\Cookie::get('darkmode') === 'true' ? 'checked' : '' }}/>
-        <label class="label bg-slate-900 dark:bg-white shadow dark:shadow-gray-800 cursor-pointer rounded-full flex justify-between items-center p-1 w-14 h-8" for="chk">
-            <i class="uil uil-moon text-[20px] text-yellow-500"></i>
-            <i class="uil uil-sun text-[20px] text-yellow-500"></i>
-            <span class="ball bg-white dark:bg-slate-900 rounded-full absolute top-[2px] left-[2px] w-7 h-7"></span>
-        </label>
-    </span>
-</div>
+{{--<div class="fixed top-[30%] -right-2 z-50">--}}
+{{--    <span class="relative inline-block rotate-90">--}}
+{{--        <input type="checkbox" class="checkbox opacity-0 absolute" id="chk" {{ \Illuminate\Support\Facades\Cookie::get('darkmode') === 'true' ? 'checked' : '' }}/>--}}
+{{--        <label class="label bg-slate-900 dark:bg-white shadow dark:shadow-gray-800 cursor-pointer rounded-full flex justify-between items-center p-1 w-14 h-8" for="chk">--}}
+{{--            <i class="uil uil-moon text-[20px] text-yellow-500"></i>--}}
+{{--            <i class="uil uil-sun text-[20px] text-yellow-500"></i>--}}
+{{--            <span class="ball bg-white dark:bg-slate-900 rounded-full absolute top-[2px] left-[2px] w-7 h-7"></span>--}}
+{{--        </label>--}}
+{{--    </span>--}}
+{{--</div>--}}
 <!-- Switcher -->

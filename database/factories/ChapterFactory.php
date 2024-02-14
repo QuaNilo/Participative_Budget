@@ -3,17 +3,19 @@
 namespace Database\Factories;
 
 use App\Models\Article;
+use App\Models\Chapter;
+use App\Models\Regulation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
-class ArticleFactory extends Factory
+class ChapterFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Article::class;
+    protected $model = Chapter::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +24,13 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
-        
+        Article::factory(6)->create();
+
         return [
-            'chapter_id' => $this->faker->word,
-            'title' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'description' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'regulation_id' => Regulation::first()->id,
+            'title' => $this->faker->text($this->faker->numberBetween(5, 30)),
+            'subtitle' => $this->faker->text($this->faker->numberBetween(5, 30)),
+            'description' => $this->faker->text($this->faker->numberBetween(5, 60)),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

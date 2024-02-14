@@ -36,7 +36,7 @@ class FilesUploadFE extends Component
     public function mount() : void
     {
         $this->removedPreviousFiles = collect(); // This creates an empty collection
-        $this->previousFiles = collect(); // This creates an empty collection
+//        $this->previousFiles = collect(); // This creates an empty collection
     }
 
     public function save() : void
@@ -105,7 +105,7 @@ class FilesUploadFE extends Component
         }
         //fire the event of file uploaded with an array with the basic information about the files
         $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
-        $this->dispatch('update-files', $this->convertToArrayFiles())->to(ProposalCreateForm::class);
+        $this->dispatch('update-files', $this->convertToArrayFiles());
 
     }
 

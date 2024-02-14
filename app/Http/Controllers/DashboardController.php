@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Edition;
 use App\Models\Lock;
 use App\Models\Proposal;
+use App\Models\User;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -42,12 +45,16 @@ class   DashboardController extends Controller
         flash('Bem vindo')->overlay()->success();
 
 
-        //request()->session()->flash('flash.banner', 'Yay it works2!');
+//        request()->session()->flash('flash.banner', 'Yay it works2!');
         /*request()->session()->flash('flash.banner', 'Yay it works1!');
         request()->session()->flash('overlay', [['type' =>'success', 'message' => 'Yay it works!'],['type' =>'danger', 'message' => 'Yay it danger!']]);
         request()->session()->flash('flash.overlay', 'Yay it works232323!');*/
+        $edition_count = Edition::count();
+        $votes_count = Vote::count();
+        $proposals_count = Proposal::count();
+        $user_count = User::count();
         $latestProposals = Proposal::with('edition')->latest()->take(20)->get();
-        return view('home.index', ['proposals' => $latestProposals]);
+        return view('home.index', ['proposals' => $latestProposals, 'user_count' => $user_count, 'proposal_count' => $proposals_count, 'edition_count' => $edition_count, 'votes_count' => $votes_count]);
     }
 
     /**

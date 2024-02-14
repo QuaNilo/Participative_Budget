@@ -2,21 +2,29 @@
     <table class="w-full text-start text-slate-500 dark:text-slate-400">
         <thead class="text-sm uppercase bg-slate-50 dark:bg-slate-800">
             <tr class="text-start">
-                <th scope="col" class="px-2 py-3 text-start">Proposal no.</th>
-                <th scope="col" class="px-2 py-3 text-start">Created</th>
-                <th scope="col" class="px-2 py-3 text-start">Status</th>
-                <th scope="col" class="px-2 py-3 text-start">Votes</th>
-                <th scope="col" class="px-2 py-3 text-start">Action</th>
+                <th scope="col" class="px-2 py-3 text-center">Proposal no.</th>
+                <th scope="col" class="px-2 py-3 text-center">Created</th>
+                <th scope="col" class="px-2 py-3 text-center">Status</th>
+                <th scope="col" class="px-2 py-3 text-center">Votes</th>
+                <th scope="col" class="px-2 py-3 text-center">Action</th>
             </tr>
         </thead>
         @foreach($proposals as $proposal)
         <tbody>
-            <tr class="bg-white dark:bg-slate-900 text-start">
-                <th class="px-2 py-3 text-start" scope="row">{{ $proposal->id }}</th>
-                <td class="px-2 py-3 text-start">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</td>
-                <td class="px-2 py-3 text-start text-green-600">{{$proposal->status_label}}</td>
-                <td class="px-2 py-3 text-start">{{$proposal->votes_count}}</td>
-                <td class="px-2 py-3 text-start"><a href="/edition/proposta/{{$proposal->id}}" class="text-indigo-600">View <i class="uil uil-arrow-right"></i></a></td>
+            <tr class="bg-white dark:bg-slate-900 text-center">
+                <th class="px-2 py-3 text-center" scope="row">{{ $proposal->id }}</th>
+                <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</td>
+                <td class="px-2 py-3 text-center text-green-600">{{$proposal->status_label}}</td>
+                <td class="px-2 py-3 text-center">{{$proposal->votes_count}}</td>
+                <td class="px-2 py-3 text-center">
+                    <a href="/edition/proposta/{{$proposal->id}}" class="font-bold text-indigo-600">View </a>
+                    <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600">Edit </a>
+                    <form method="POST" action="{{ route('FEproposals.destroy', $proposal) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="font-bold text-red-600">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

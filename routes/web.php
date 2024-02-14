@@ -16,6 +16,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserFEController;
 use App\Livewire\ProposalCreateForm;
+use App\Livewire\ProposalEdit;
 use App\Livewire\ShowMap;
 use App\Livewire\UsersProfile;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,9 @@ Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->nam
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
+
+Route::get('/FEproposals/{FEproposal}', [ProposalFEController::class, 'edit'])->name('FEproposals.edit');
+Route::delete('/FEproposals/{FEproposal}', [ProposalFEController::class, 'destroy'])->name('FEproposals.destroy');
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');

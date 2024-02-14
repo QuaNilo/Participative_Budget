@@ -41,13 +41,11 @@
                                 <x-base.tiny-slider id="important-notes">
                                     <div class="p-5">
                                         <div class="truncate text-base font-medium">
-                                            Lorem Ipsum is simply dummy text
+                                            É suposto meter o quê aqui???
                                         </div>
                                         <div class="mt-1 text-slate-400">20 Hours ago</div>
                                         <div class="mt-1 text-justify text-slate-500">
-                                            Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's
-                                            standard dummy text ever since the 1500s.
+                                            ??????????????????????????????????
                                         </div>
                                         <div class="mt-5 flex font-medium">
                                             <x-base.button
@@ -68,13 +66,11 @@
                                     </div>
                                     <div class="p-5">
                                         <div class="truncate text-base font-medium">
-                                            Lorem Ipsum is simply dummy text
+                                            É suposto meter o quê aqui???
                                         </div>
                                         <div class="mt-1 text-slate-400">20 Hours ago</div>
                                         <div class="mt-1 text-justify text-slate-500">
-                                            Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's
-                                            standard dummy text ever since the 1500s.
+                                            ??????????????????????????????????
                                         </div>
                                         <div class="mt-5 flex font-medium">
                                             <x-base.button
@@ -95,13 +91,11 @@
                                     </div>
                                     <div class="p-5">
                                         <div class="truncate text-base font-medium">
-                                            Lorem Ipsum is simply dummy text
+                                            É suposto meter o quê aqui???
                                         </div>
                                         <div class="mt-1 text-slate-400">20 Hours ago</div>
                                         <div class="mt-1 text-justify text-slate-500">
-                                            Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the industry's
-                                            standard dummy text ever since the 1500s.
+                                            ???????????????????????????????????
                                         </div>
                                         <div class="mt-5 flex font-medium">
                                             <x-base.button
@@ -157,8 +151,8 @@
                                             icon="bar-chart-4"
                                         />
                                     </div>
-                                    <div class="mt-6 text-3xl font-medium leading-8">49</div>
-                                    <div class="mt-1 text-base text-slate-500">Power BI</div>
+                                    <div class="mt-6 text-3xl font-medium leading-8">{{$votes_count}}</div>
+                                    <div class="mt-1 text-base text-slate-500">Votos</div>
                                 </div>
                             </div>
                         </div>
@@ -182,13 +176,13 @@
                                                 2%
                                                 <x-base.lucide
                                                     class="ml-0.5 h-4 w-4"
-                                                    icon="ChevronDown"
+                                                    icon="ChevronUp"
                                                 />
                                             </x-base.tippy>
                                         </div>
                                     </div>
-                                    <div class="mt-6 text-3xl font-medium leading-8">80</div>
-                                    <div class="mt-1 text-base text-slate-500">Ficheiros</div>
+                                    <div class="mt-6 text-3xl font-medium leading-8">{{ $edition_count }}</div>
+                                    <div class="mt-1 text-base text-slate-500">Edições</div>
                                 </div>
                             </div>
                         </div>
@@ -217,9 +211,9 @@
                                             </x-base.tippy>
                                         </div>
                                     </div>
-                                    <div class="mt-6 text-3xl font-medium leading-8">2.149</div>
+                                    <div class="mt-6 text-3xl font-medium leading-8">{{$proposal_count}}</div>
                                     <div class="mt-1 text-base text-slate-500">
-                                        Subscritores
+                                        Propostas
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +235,7 @@
                                                 as="div"
                                                 content="22% mais do que no último mês"
                                             >
-                                                22%
+                                                100%
                                                 <x-base.lucide
                                                     class="ml-0.5 h-4 w-4"
                                                     icon="ChevronUp"
@@ -249,7 +243,7 @@
                                             </x-base.tippy>
                                         </div>
                                     </div>
-                                    <div class="mt-6 text-3xl font-medium leading-8">321</div>
+                                    <div class="mt-6 text-3xl font-medium leading-8">{{$user_count}}</div>
                                     <div class="mt-1 text-base text-slate-500">
                                         Utilizadores
                                     </div>
