@@ -9,6 +9,7 @@
     <div class="h-screen w-screen bg-gray-100" id="map"></div>
     <script type="text/javascript">
         let map;
+        let openInfoWindow;
 
         async function initMap() {
           const { Map } = await google.maps.importLibrary("maps");
@@ -17,10 +18,16 @@
             zoom: 8,
             mapTypeId: "satellite"
           });
-          @foreach ($proposals as $proposal)
-{{--              @dd($proposal->lat, $proposal->lng, $proposal->title, $proposal->summary, $proposal->id, $proposal->user->name, $proposal->category->name )--}}
-              addMarker(map, {{ $proposal->lat }}, {{ $proposal->lng }}, "{{ $proposal->title }}", "{{ $proposal->summary }}", {{$proposal->id}}, "{{$proposal->user->name}}", "{{$proposal->category->name}}");
-          @endforeach
+              @foreach ($proposals as $proposal)
+                  addMarker(map, {{ $proposal->lat }}, {{ $proposal->lng }}, "{{ $proposal->title }}", "{{ $proposal->summary }}", {{$proposal->id}}, "{{$proposal->user->name}}", "{{$proposal->category->name}}");
+              @endforeach
+
+            map.addListener('click', function() {
+            if (openInfoWindow) {
+                openInfoWindow.close();
+                openInfoWindow = null;
+            }
+            });
         }
 
         function addMarker(map, lat, lng, title, description, id, author, category_name) {
@@ -52,7 +59,12 @@
             });
 
             marker.addListener('click', function() {
+                // Close previously open info window if exists
+                if (openInfoWindow) {
+                    openInfoWindow.close();
+                }
                 infoWindow.open(map, marker);
+                openInfoWindow = infoWindow;
             });
         }
 

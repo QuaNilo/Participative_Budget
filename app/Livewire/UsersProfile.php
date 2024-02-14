@@ -19,6 +19,7 @@ class UsersProfile extends Component
     {
         $this->tab = 'details';
     }
+
     public function setActiveTab($value)
     {
         $this->tab = $value;

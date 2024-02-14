@@ -15,9 +15,12 @@ return new class extends Migration
                 $table->id();
                 $table->foreignId('user_id')->constrained()->cascadeOnDelete();
                 $table->string('CC')->unique();
+                $table->string('occupation')->nullable();
+                $table->string('description')->nullable();
                 $table->timestamp('CC_verified_at')->nullable();
                 $table->boolean('CC_verified');
-                $table->string('address');
+                $table->string('address')->nullable();
+                $table->string('localidade')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
         });

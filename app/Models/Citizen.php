@@ -48,6 +48,9 @@ class Citizen extends Model implements Auditable
     public $fillable = [
         'user_id',
         'CC',
+        'occupation',
+        'description',
+        'localidade',
         'CC_verified_at',
         'CC_verified',
         'address',
@@ -69,7 +72,8 @@ class Citizen extends Model implements Auditable
         'CC' => 'required|string|max:255',
         'CC_verified_at' => 'nullable',
         'CC_verified' => 'required|boolean',
-        'address' => 'required|string|max:255',
+        'address' => 'nullable|string|max:255',
+        'localidade' => 'nullable|string|max:255',
         'remember_token' => 'nullable|string|max:100',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
@@ -90,6 +94,7 @@ class Citizen extends Model implements Auditable
         'CC_verified_at' => __('Cc Verified At'),
         'CC_verified' => __('Cc Verified'),
         'address' => __('Address'),
+        'localidade' => __('localidade'),
         'remember_token' => __('Remember Token'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')

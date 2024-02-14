@@ -45,7 +45,7 @@
                 @elseif($tab === 'votos')
                     <livewire:votos-profile-component/>
                 @elseif($tab === 'details')
-                    <x-frontend.profile.details-component/>
+                    <livewire:profile-details/>
 
                 @elseif($tab === 'update-password')
                     <x-frontend.profile.update-password-component/>

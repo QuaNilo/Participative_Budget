@@ -32,7 +32,6 @@ class CalendarDynamicsTable extends Component implements HasForms, HasTable
             ->columns([
                 TextColumn::make("date")
                 ->label($newModel->getAttributeLabel("date"))
-                ->dateTime()
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
