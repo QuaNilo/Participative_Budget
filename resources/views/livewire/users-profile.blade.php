@@ -6,8 +6,8 @@
                 <div class="flex items-center">
                     <img src="https://i.pravatar.cc/300" class="h-16 w-16 rounded-full shadow dark:shadow-gray-800" alt="">
                     <div class="ms-2">
-                        <p class="font-semibold text-slate-400">Hello,</p>
-                        <h5 class="text-lg font-semibold">{{auth()->user()->name}}</h5>
+                        <h5 class="text-lg font-semibold"><span class="font-semibold text-slate-400">Hello, </span>{{auth()->user()->name}}</h5>
+                        <button class="inline-flex items-center mt-2 px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-gray-700 transition ease-in-out duration-150" wire:click="logout">Logout</button>
                     </div>
                 </div>
             </div><!--end col-->
