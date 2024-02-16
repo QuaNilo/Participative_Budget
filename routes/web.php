@@ -93,7 +93,7 @@ Route::middleware([
     Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
     Route::resource('regulations', App\Http\Controllers\RegulationsController::class);
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);
+    Route::resource('citizens', App\Http\Controllers\citizenController::class);
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
 });
 
-Route::resource('citizens', App\Http\Controllers\citizenController::class);

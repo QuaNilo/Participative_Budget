@@ -33,6 +33,7 @@ class ProposalCreateForm extends Component
     public $category_id;
     public $street;
     public $postal_code;
+    public $budget_estimate;
     public $city;
     public $freguesia;
     public $lng;
@@ -100,6 +101,7 @@ class ProposalCreateForm extends Component
                     'city' => $this->city,
                     'url' => $this->url,
                     'freguesia' => $this->freguesia,
+                    'budget_estimate' => $this->budget_estimate
                 ]);
         if($proposal) {
             if (!empty($this->receivedFiles['files'])) {

@@ -37,6 +37,7 @@ class ProposalEdit extends Component
     public $category_id;
     public $street;
     public $postal_code;
+    public $budget_estimate;
     public $city;
     public $freguesia;
     public $lng;
@@ -58,6 +59,7 @@ class ProposalEdit extends Component
         $this->edition_id = $this->proposal->edition_id;
         $this->content = $this->proposal->content;
         $this->category_id = $this->proposal->category->id;
+        $this->budget_estimate = $this->proposal->budget_estimate;
     }
 
     public function update()
@@ -80,6 +82,7 @@ class ProposalEdit extends Component
             'city' => 'nullable|string|max:60',
             'freguesia' => 'nullable|string|max:60',
             'url' => 'nullable|string|max:255',
+            'budget_estimate' => 'nullable|numeric|max:9999999'
         ]);
 
         $this->proposal->update([
@@ -93,6 +96,7 @@ class ProposalEdit extends Component
            'city' => $this->city,
            'freguesia' => $this->freguesia,
            'url' => $this->url,
+            'budget_estimate' => $this->budget_estimate
         ]);
         if (!empty($this->receivedFiles['files'])) {
             if (count($this->receivedFiles['files']) > 1) {
