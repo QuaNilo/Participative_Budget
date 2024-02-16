@@ -1,5 +1,4 @@
 @props(['proposals'])
-
 <div class="">
     <style type="text/css">
         #map {
@@ -38,7 +37,8 @@
                 title: title
             });
 
-            const contentString = `
+            const contentString =
+            `
                 <div>
                     <div class="">
                         <dl class="grid grid-cols-12 mb-0">
@@ -67,7 +67,6 @@
                 openInfoWindow = infoWindow;
             });
         }
-
         window.initMap = initMap;
     </script>
     <script async

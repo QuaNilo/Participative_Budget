@@ -71,10 +71,7 @@
                     </ul>
                 </li>
                 <li><a href="{{route('editions-fe')}}" class="sub-menu-item">{{ __('Edições') }}</a></li>
-
                 <li><a href="{{ route('mapa') }}" class="sub-menu-item">{{ __('Mapa') }}</a></li>
-
-
             </ul><!--end navigation menu-->
         </div><!--end navigation-->
     </div><!--end container-->

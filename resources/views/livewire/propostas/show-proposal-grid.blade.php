@@ -52,8 +52,7 @@
         <div class="flex-grow"></div>
         <div class="flex flex-row space-x-4 items-center justify-center">
             <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
-                        <a
-                            href="{{ route('mapa', $edition->id) }}">MAPA
+                        <a href="{{ route('mapa', $edition->id) }}">MAPA
                         </a>
             </x-button>
             @if($edition->status != 1)

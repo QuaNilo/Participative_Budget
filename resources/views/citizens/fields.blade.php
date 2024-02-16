@@ -29,6 +29,36 @@
     @enderror
 </div>
 
+<!-- Occupation Field -->
+<div class="mb-3">
+    <x-base.form-label for="occupation">{{ $citizen->getAttributeLabel('occupation') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('occupation') ? 'border-danger' : '') }}"
+        id="occupation"
+        name="occupation"
+        :value="old('occupation', $citizen->occupation ?? '')"
+        type="text"
+    />
+    @error('occupation')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Description Field -->
+<div class="mb-3">
+    <x-base.form-label for="description">{{ $citizen->getAttributeLabel('description') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('description') ? 'border-danger' : '') }}"
+        id="description"
+        name="description"
+        :value="old('description', $citizen->description ?? '')"
+        type="text"
+    />
+    @error('description')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 <!-- Cc Verified At Field -->
 <div class="mb-3">
     <x-base.form-label for="CC_verified_at">{{ $citizen->getAttributeLabel('CC_verified_at') }}</x-base.form-label>
@@ -101,6 +131,66 @@
         type="text"
     />
     @error('address')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Localidade Field -->
+<div class="mb-3">
+    <x-base.form-label for="localidade">{{ $citizen->getAttributeLabel('localidade') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('localidade') ? 'border-danger' : '') }}"
+        id="localidade"
+        name="localidade"
+        :value="old('localidade', $citizen->localidade ?? '')"
+        type="text"
+    />
+    @error('localidade')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Freguesia Field -->
+<div class="mb-3">
+    <x-base.form-label for="freguesia">{{ $citizen->getAttributeLabel('freguesia') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('freguesia') ? 'border-danger' : '') }}"
+        id="freguesia"
+        name="freguesia"
+        :value="old('freguesia', $citizen->freguesia ?? '')"
+        type="text"
+    />
+    @error('freguesia')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Cod Postal Field -->
+<div class="mb-3">
+    <x-base.form-label for="cod_postal">{{ $citizen->getAttributeLabel('cod_postal') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('cod_postal') ? 'border-danger' : '') }}"
+        id="cod_postal"
+        name="cod_postal"
+        :value="old('cod_postal', $citizen->cod_postal ?? '')"
+        type="text"
+    />
+    @error('cod_postal')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Telemovel Field -->
+<div class="mb-3">
+    <x-base.form-label for="telemovel">{{ $citizen->getAttributeLabel('telemovel') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('telemovel') ? 'border-danger' : '') }}"
+        id="telemovel"
+        name="telemovel"
+        :value="old('telemovel', $citizen->telemovel ?? '')"
+        type="text"
+    />
+    @error('telemovel')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

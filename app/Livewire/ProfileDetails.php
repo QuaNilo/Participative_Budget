@@ -5,15 +5,20 @@ namespace App\Livewire;
 use App\Models\Citizen;
 use App\Models\User;
 use Laravel\Fortify\Rules\Password;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ProfileDetails extends Component
 {
+    public $receivedFiles;
     public $name;
     public $citizen;
     public $user;
     public $email;
     public $address;
+    public $cod_postal;
+    public $telemovel;
+    public $freguesia;
     public $localidade;
     public $occupation;
     public $description;
@@ -26,6 +31,9 @@ class ProfileDetails extends Component
 
 //        Citizen INFO
         $this->address = $this->citizen->address ?? "";
+        $this->telemovel = $this->citizen->telemovel ?? "";
+        $this->freguesia = $this->citizen->freguesia ?? "";
+        $this->cod_postal = $this->citizen->cod_postal ?? "";
         $this->CC = $this->citizen->CC ?? "";
         $this->occupation = $this->citizen->occupation ?? "";
         $this->description = $this->citizen->description ?? "";
@@ -37,8 +45,17 @@ class ProfileDetails extends Component
     }
 
 
-public function update()
-{
+    #[On('update-files')]
+    public function onFilesUpdated($files): void
+    {
+
+        if (!empty($files['files'])) {
+            $this->receivedFiles = $files;
+        }
+    }
+
+    public function update()
+    {
     if (empty($this->user)) {
         flash(__('User Not found'))->overlay()->danger();
         return redirect(route('proposals.index'));
@@ -65,6 +82,9 @@ public function update()
 
     // Validate and update citizen data
     $this->validate([
+        'cod_postal' => 'nullable|numeric|max:9999',
+        'freguesia' => 'nullable|string|max:60',
+        'telemovel' => 'nullable|numeric',
         'CC' => 'required|string|max:255',
         'address' => 'required|string|max:255',
         'occupation' => 'nullable|string|max:255',
@@ -73,6 +93,9 @@ public function update()
     ]);
 
     $this->citizen->update([
+        'cod_postal' => $this->cod_postal,
+        'freguesia' => $this->freguesia,
+        'telemovel' => $this->telemovel,
         'CC' => $this->CC,
         'address' => $this->address,
         'occupation' => $this->occupation,
@@ -84,7 +107,7 @@ public function update()
     flash(__('Updated successfully.'))->overlay()->success();
 
     return redirect("/profile");
-}
+    }
 
     public function render()
     {

@@ -19,7 +19,6 @@ class MapController extends Controller
         {
             $proposals = Proposal::get();
         }
-
         return view('site.mapa.index', ['proposals' => $proposals]);
     }
 }

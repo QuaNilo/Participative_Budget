@@ -147,7 +147,7 @@ class Edition extends Model implements Auditable
             self::STATUS_OPEN =>  __('Aberta'),
             self::STATUS_ANALYSIS =>  __('Analise'),
             self::STATUS_VOTING =>  __('Votação'),
-            self::STATUS_COMPLETED =>  __('Completado'),
+            self::STATUS_COMPLETED =>  __('Concluido'),
             self::STATUS_CLOSED =>  __('Fechada'),
             self::STATUS_CANCELED =>  __('Cancelada')
         ];

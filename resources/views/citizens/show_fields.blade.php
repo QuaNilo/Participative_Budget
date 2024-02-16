@@ -16,6 +16,24 @@
 
 
 
+<!-- Occupation Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('occupation') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->occupation }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Description Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('description') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->description }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
 <!-- Cc Verified At Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('CC_verified_at') }}</dt>
@@ -38,6 +56,42 @@
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('address') }}</dt>
     <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->address }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Localidade Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('localidade') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->localidade }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Freguesia Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('freguesia') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->freguesia }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Cod Postal Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('cod_postal') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->cod_postal }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Telemovel Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('telemovel') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->telemovel }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 

@@ -22089,6 +22089,13 @@
         class HasOneOrMany {
          
     }
+            /**
+     * 
+     *
+     */ 
+        class BelongsTo {
+         
+    }
      
 }
 

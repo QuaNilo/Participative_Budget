@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
 use OwenIt\Auditing\Contracts\Auditable;
- use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * App\Models\Citizen
@@ -13,9 +16,15 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property int $id
  * @property int $user_id
  * @property string $CC
+ * @property string|null $occupation
+ * @property string|null $description
  * @property \Illuminate\Support\Carbon|null $CC_verified_at
  * @property bool $CC_verified
- * @property string $address
+ * @property string|null $address
+ * @property string|null $localidade
+ * @property string|null $freguesia
+ * @property string|null $cod_postal
+ * @property string|null $telemovel
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -30,18 +39,25 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCC($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCCVerified($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCCVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCodPostal($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereFreguesia($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereLocalidade($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereOccupation($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereTelemovel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUserId($value)
  * @mixin \Eloquent
  */
-class Citizen extends Model implements Auditable
+class Citizen extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
     use HasFactory;
+    use InteractsWithMedia;
 
     public $table = 'citizens';
 
@@ -50,18 +66,27 @@ class Citizen extends Model implements Auditable
         'CC',
         'occupation',
         'description',
-        'localidade',
         'CC_verified_at',
         'CC_verified',
         'address',
+        'localidade',
+        'freguesia',
+        'cod_postal',
+        'telemovel',
         'remember_token'
     ];
 
     protected $casts = [
         'CC' => 'string',
+        'occupation' => 'string',
+        'description' => 'string',
         'CC_verified_at' => 'datetime',
         'CC_verified' => 'boolean',
         'address' => 'string',
+        'localidade' => 'string',
+        'freguesia' => 'string',
+        'cod_postal' => 'string',
+        'telemovel' => 'string',
         'remember_token' => 'string'
     ];
 
@@ -70,10 +95,15 @@ class Citizen extends Model implements Auditable
         return [
             'user_id' => 'required',
         'CC' => 'required|string|max:255',
+        'occupation' => 'nullable|string|max:255',
+        'description' => 'nullable|string|max:255',
         'CC_verified_at' => 'nullable',
         'CC_verified' => 'required|boolean',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
+        'freguesia' => 'nullable|string|max:255',
+        'cod_postal' => 'nullable|string|max:255',
+        'telemovel' => 'nullable|string|max:255',
         'remember_token' => 'nullable|string|max:100',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
@@ -91,10 +121,15 @@ class Citizen extends Model implements Auditable
             'id' => __('Id'),
         'user_id' => __('User Id'),
         'CC' => __('Cc'),
+        'occupation' => __('Occupation'),
+        'description' => __('Description'),
         'CC_verified_at' => __('Cc Verified At'),
         'CC_verified' => __('Cc Verified'),
         'address' => __('Address'),
-        'localidade' => __('localidade'),
+        'localidade' => __('Localidade'),
+        'freguesia' => __('Freguesia'),
+        'cod_postal' => __('Cod Postal'),
+        'telemovel' => __('Telemovel'),
         'remember_token' => __('Remember Token'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')
@@ -117,5 +152,43 @@ class Citizen extends Model implements Auditable
         return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
 
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('images');
+        $this->addMediaCollection('cover')
+            ->singleFile()
+            ->useFallbackUrl(asset('images/placeholders/800x800.jpg'))
+            ->useFallbackPath(public_path('/images/placeholders/800x800.jpg'))
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('original')
+                    ->fit('max', 1024, 1024)
+                    ->keepOriginalImageFormat();
+                $this
+                    ->addMediaConversion('square')
+                    ->crop('crop-center', 512, 512);
+                $this
+                    ->addMediaConversion('retangular')
+                    ->crop('crop-center', 512, 384);
+            });
+
+        //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
+        //->useFallbackUrl('/images/anonymous-user.jpg')
+        //->useFallbackPath(public_path('/images/anonymous-user.jpg'));
+        /*->useFallbackPath(public_path('/default_avatar.jpg'))
+        ->useFallbackPath(public_path('/default_avatar_thumb.jpg'), 'thumb')
+        ->registerMediaConversions(function (Media $media) {
+            $this
+                ->addMediaConversion('thumb')
+                ->width(50)
+                ->height(50);
+
+            $this
+                ->addMediaConversion('thumb_2')
+                ->width(100)
+                ->height(100);
+        });*/
+    }
 
 }

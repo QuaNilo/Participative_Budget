@@ -95,3 +95,5 @@ Route::middleware([
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
 });
+
+Route::resource('citizens', App\Http\Controllers\citizenController::class);

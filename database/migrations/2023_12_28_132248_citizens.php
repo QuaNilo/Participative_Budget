@@ -21,6 +21,9 @@ return new class extends Migration
                 $table->boolean('CC_verified');
                 $table->string('address')->nullable();
                 $table->string('localidade')->nullable();
+                $table->string('freguesia')->nullable();
+                $table->string('cod_postal')->nullable();
+                $table->string('telemovel')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
         });

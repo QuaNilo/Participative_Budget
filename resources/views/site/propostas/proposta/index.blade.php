@@ -20,9 +20,7 @@
                                 <h4 class="text-xl font-semibold text-amber-400">Projecto Vencedor<i class="mdi mdi-crown-outline text-amber-400 ml-2"></i></h4>
                             @else
                                 <h5 class="text-2xl font-bold">{{$proposal->title}}</h5>
-
                             @endif
-
                             <div class="mt-4 ">
                                 <h5 class="text-lg font-semibold">Autor :</h5>
 
@@ -35,12 +33,15 @@
                             </div>
                         </div>
                             <div class="mt-4 ml-6">
+                            @if(strtolower($proposal->edition->status_label) == "votação")
                                 @auth
-                                <livewire:voting :proposal_id="$proposal->id"/>
-                            @else
-                                Login to Vote!
-                                <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
-                            @endauth
+                                    <livewire:voting :proposal_id="$proposal->id"/>
+                                @else
+                                    Login to Vote!
+                                    <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
+                                @endauth
+                            @endif
+
                             </div>
                     </div>
                 </div><!--end grid-->

@@ -40,6 +40,16 @@ class CitizensTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("occupation")
+                ->label($newModel->getAttributeLabel("occupation"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("description")
+                ->label($newModel->getAttributeLabel("description"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
             TextColumn::make("CC_verified_at")
                 ->label($newModel->getAttributeLabel("CC_verified_at"))
                 ->dateTime()
@@ -53,6 +63,26 @@ class CitizensTable extends Component implements HasForms, HasTable
                 ->searchable(),
             TextColumn::make("address")
                 ->label($newModel->getAttributeLabel("address"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("localidade")
+                ->label($newModel->getAttributeLabel("localidade"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("freguesia")
+                ->label($newModel->getAttributeLabel("freguesia"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("cod_postal")
+                ->label($newModel->getAttributeLabel("cod_postal"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("telemovel")
+                ->label($newModel->getAttributeLabel("telemovel"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
