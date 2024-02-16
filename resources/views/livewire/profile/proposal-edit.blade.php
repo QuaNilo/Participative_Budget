@@ -158,6 +158,31 @@
                                     :uploadFieldMainLabel="__('Upload an image')"
                                />
 
+                               <livewire:files-upload-f-e
+                                    inputName="files"
+                                    :isMultiple="false"
+                                    :isCover="true"
+                                    maxFiles="3"
+                                    maxFileSize="10240"
+                                    :previousFiles="$proposal->getMedia('cover') ?? collect()"
+                                    :label="__('Upload Highlighted image')"
+                                    acceptedFileTypes="image/*"
+                                    :uploadFieldMainLabel="__('Upload an image')"
+                               />
+
+
+                               <livewire:files-upload-f-e
+                                    inputName="files"
+                                    :isMultiple="true"
+                                    :isCover="false"
+                                    maxFiles="3"
+                                    maxFileSize="10240"
+                                    :previousFiles="$proposal->getMedia('gallery') ?? collect()"
+                                    :label="__('Upload Gallery')"
+                                    acceptedFileTypes="image/*"
+                                    :uploadFieldMainLabel="__('Upload an image')"
+                               />
+
                                 @error('photo') <span class="error">{{ $message }}</span> @enderror
                             </div>
 

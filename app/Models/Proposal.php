@@ -209,23 +209,6 @@ class Proposal extends Model implements Auditable, HasMedia
             $this->addMediaConversion('retangular')
                 ->crop('crop-center', 800, 400);
 
-
-        //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
-        //->useFallbackUrl('/images/anonymous-user.jpg')
-        //->useFallbackPath(public_path('/images/anonymous-user.jpg'));
-        /*->useFallbackPath(public_path('/default_avatar.jpg'))
-        ->useFallbackPath(public_path('/default_avatar_thumb.jpg'), 'thumb')
-        ->registerMediaConversions(function (Media $media) {
-            $this
-                ->addMediaConversion('thumb')
-                ->width(50)
-                ->height(50);
-
-            $this
-                ->addMediaConversion('thumb_2')
-                ->width(100)
-                ->height(100);
-        });*/
     }
 
 }
