@@ -4,13 +4,15 @@ namespace App\Livewire;
 
 use App\Models\Citizen;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\Rules\Password;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProfileDetails extends Component
 {
-    public $receivedFiles;
+    public $receivedCitizenCard;
     public $name;
     public $citizen;
     public $user;
@@ -23,6 +25,12 @@ class ProfileDetails extends Component
     public $occupation;
     public $description;
     public $CC;
+
+
+    public function render()
+    {
+        return view('livewire.profile-details');
+    }
 
     public function mount()
     {
@@ -45,72 +53,91 @@ class ProfileDetails extends Component
     }
 
 
-    #[On('update-files')]
-    public function onFilesUpdated($files): void
+    #[On('update-files-citizen-card')]
+    public function onCoverUpdated($files): void
     {
-
         if (!empty($files['files'])) {
-            $this->receivedFiles = $files;
+            $this->receivedCitizenCard = $files;
         }
     }
 
     public function update()
     {
-    if (empty($this->user)) {
-        flash(__('User Not found'))->overlay()->danger();
-        return redirect(route('proposals.index'));
-    }
+        if (empty($this->user)) {
+            flash(__('User Not found'))->overlay()->danger();
+            return redirect(route('proposals.index'));
+        }
 
-    if (empty($this->citizen)) {
-        flash(__('Citizen info Not found'))->overlay()->danger();
-        return redirect(route('proposals.index'));
-    }
+        if (empty($this->citizen)) {
+            flash(__('Citizen info Not found'))->overlay()->danger();
+            return redirect(route('proposals.index'));
+        }
 
-    // Validate user data if it needs to be updated
-    if ($this->user->email != $this->email || $this->user->name != $this->name) {
+        // Validate user data if it needs to be updated
+        if ($this->user->email != $this->email || $this->user->name != $this->name) {
+            $this->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|string|max:255|unique:users,email,' . $this->user->id,
+            ]);
+
+            // Update user data
+            $this->user->update([
+                'name' => $this->name,
+                'email' => $this->email
+            ]);
+        }
+
+        // Validate and update citizen data
         $this->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|string|max:255|unique:users,email,' . $this->user->id,
+            'cod_postal' => 'nullable|numeric|max:9999',
+            'freguesia' => 'nullable|string|max:60',
+            'telemovel' => 'nullable|numeric',
+            'CC' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'occupation' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'localidade' => 'nullable|string|max:255',
         ]);
 
-        // Update user data
-        $this->user->update([
-            'name' => $this->name,
-            'email' => $this->email
+        $this->citizen->update([
+            'cod_postal' => $this->cod_postal,
+            'freguesia' => $this->freguesia,
+            'telemovel' => $this->telemovel,
+            'CC' => $this->CC,
+            'address' => $this->address,
+            'occupation' => $this->occupation,
+            'description' => $this->description,
+            'localidade' => $this->localidade
         ]);
+
+        if($this->citizen && !empty($this->receivedCitizenCard['files'])) {
+            if (count($this->receivedCitizenCard['files']) > 1) {
+                $this->fileUploadHandle('cc', $this->citizen, true);
+            } else {
+                $this->fileUploadHandle('cc', $this->citizen, false);
+            }
+        }
+
+        // Flash success message
+        flash(__('Updated successfully.'))->overlay()->success();
+
+        return redirect("/profile");
     }
 
-    // Validate and update citizen data
-    $this->validate([
-        'cod_postal' => 'nullable|numeric|max:9999',
-        'freguesia' => 'nullable|string|max:60',
-        'telemovel' => 'nullable|numeric',
-        'CC' => 'required|string|max:255',
-        'address' => 'required|string|max:255',
-        'occupation' => 'nullable|string|max:255',
-        'description' => 'nullable|string|max:255',
-        'localidade' => 'nullable|string|max:255',
-    ]);
-
-    $this->citizen->update([
-        'cod_postal' => $this->cod_postal,
-        'freguesia' => $this->freguesia,
-        'telemovel' => $this->telemovel,
-        'CC' => $this->CC,
-        'address' => $this->address,
-        'occupation' => $this->occupation,
-        'description' => $this->description,
-        'localidade' => $this->localidade
-    ]);
-
-    // Flash success message
-    flash(__('Updated successfully.'))->overlay()->success();
-
-    return redirect("/profile");
-    }
-
-    public function render()
+    protected function fileUploadHandle($collection, $model, $isMultiple = false): void
     {
-        return view('livewire.profile-details');
+        if($isMultiple){
+            foreach($this->receivedCitizenCard['files'] as $file ){
+                $model->addMedia(storage_path("app/livewire-tmp/" . $file['filename']))
+                    ->usingName($file['originalName'])//get the media original name at the same index as the media item
+                    ->toMediaCollection('cc');
+            }
+        }else{
+            $model->addMedia(storage_path("app/livewire-tmp/" . $this->receivedCitizenCard['files'][0]['filename']))
+                ->usingName($this->receivedCitizenCard['files'][0]['originalName'])//get the media original name at the same index as the media item
+                ->toMediaCollection('cc');
+        }
     }
+
+
 }

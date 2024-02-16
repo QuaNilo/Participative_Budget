@@ -9,7 +9,9 @@ use App\Models\Proposal;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -57,6 +59,17 @@ class ProposalCreateForm extends Component
         }
     }
 
+    #[On('remove-file')]
+    protected function removeMediaHandling($file): void
+    {
+        if (isset($this->receivedFiles['files'])) {
+            foreach ($this->receivedFiles['files'] as $key => $receivedFile) {
+                if ($receivedFile === $file) {
+                    unset($this->receivedFiles['files'][$key]);
+                }
+            }
+        }
+    }
 
     #[On('update-files-cover')]
     public function onCoverUpdated($files): void
@@ -122,7 +135,7 @@ class ProposalCreateForm extends Component
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('home'));
+        return redirect()->route('propostas', ['id' => $this->edition_id]);
     }
 
     protected function fileUploadHandle($collection, $model, $isMultiple = false): void

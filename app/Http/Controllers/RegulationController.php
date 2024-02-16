@@ -13,19 +13,9 @@ class RegulationController extends Controller
     /**
      * Display a listing of the Regulation.
      */
-    public function index()
+    public function index(Request $request)
     {
-//        return view('regulations.index');
-        dd("aqui");
-        $regulation = Regulation::first();
-        dd($regulation);
-        if (empty($regulation)) {
-            flash(__('Not found'))->overlay()->danger();
-
-            return redirect(route('regulations.create'));
-        }
-
-        return view('regulations.edit')->with('regulation', $regulation);
+        return view('dashboard');
     }
 
     /**
@@ -48,12 +38,12 @@ class RegulationController extends Controller
         /** @var Regulation $regulation */
         $regulation = Regulation::create($input);
         if($regulation){
-            flash(__('Saved successfully.'))->overlay()->success();
+            flash(__('Regulation Saved successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('regulations.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -67,10 +57,10 @@ class RegulationController extends Controller
         if (empty($regulation)) {
             flash(__('Not found'))->overlay()->danger();
 
-            return redirect(route('regulations.index'));
+            return redirect(route('dashboard'));
         }
 
-        return view('regulations.show')->with('regulation', $regulation);
+        return view('dashboard')->with('regulation', $regulation);
     }
 
     /**
@@ -101,17 +91,17 @@ class RegulationController extends Controller
         if (empty($regulation)) {
             flash(__('Not found'))->overlay()->danger();
 
-            return redirect(route('regulations.index'));
+            return redirect(route('dashboard'));
         }
 
         $regulation->fill($request->all());
         if($regulation->save()){
-            flash(__('Updated successfully.'))->overlay()->success();
+            flash(__('Updated Regulation successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('regulations.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -127,15 +117,15 @@ class RegulationController extends Controller
         if (empty($regulation)) {
             flash(__('Not found'))->overlay()->danger();
 
-            return redirect(route('regulations.index'));
+            return redirect(route('dashboard'));
         }
 
         if($regulation->delete()){
-            flash(__('Deleted successfully.'))->overlay()->success();
+            flash(__('Deleted Regulation successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
         }
 
-        return redirect(route('regulations.index'));
+        return redirect(route('dashboard'));
     }
 }

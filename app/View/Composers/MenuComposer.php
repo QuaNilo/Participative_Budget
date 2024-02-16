@@ -53,9 +53,9 @@ class   MenuComposer
                     'sub_menu' => [
                         'regulations.index' => [
                                     'icon' => 'list',
-                                    'route_name' => 'regulations.index',
-                                    'params' => [],
-                                    'title' => __('Regulation')
+                                    'route_name' => 'regulations.edit',
+                                    'params' => [1],
+                                    'title' => __('Ver Regulamento')
                         ],
                         'Chapters' => [
                             'icon' => 'text',

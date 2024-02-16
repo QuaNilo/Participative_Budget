@@ -1,10 +1,9 @@
 <!-- Start Navbar -->
-<nav id="topnav" class="defaultscroll is-sticky">
-    <div class="container relative border-b-2 border-gray-600/5">
+<nav id="topnav" class="fixed top-0 border-4 border-blue-700-500 w-full bg-white z-50">
+    <div class="container mx-auto">
         <!-- Logo container-->
         <a class="logo" href="{{ route('home') }}">
             <img src="/assets-frontend/images/op.png" class="inline-block dark:hidden w-10" alt="{{ config('app.name', 'Laravel') }}">
-            <img src="/assets-frontend/images/op.png" class="hidden dark:inline-block w-10" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <!-- End Logo container-->

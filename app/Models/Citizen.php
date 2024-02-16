@@ -153,42 +153,19 @@ class Citizen extends Model implements Auditable, HasMedia
     }
 
 
-    public function registerMediaCollections(): void
+    public function registerMediaCollections(Media $media = null): void
     {
         $this->addMediaCollection('images');
-        $this->addMediaCollection('cover')
-            ->singleFile()
-            ->useFallbackUrl(asset('images/placeholders/800x800.jpg'))
-            ->useFallbackPath(public_path('/images/placeholders/800x800.jpg'))
-            ->registerMediaConversions(function (Media $media) {
-                $this
-                    ->addMediaConversion('original')
-                    ->fit('max', 1024, 1024)
-                    ->keepOriginalImageFormat();
-                $this
-                    ->addMediaConversion('square')
-                    ->crop('crop-center', 512, 512);
-                $this
-                    ->addMediaConversion('retangular')
-                    ->crop('crop-center', 512, 384);
-            });
 
-        //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
-        //->useFallbackUrl('/images/anonymous-user.jpg')
-        //->useFallbackPath(public_path('/images/anonymous-user.jpg'));
-        /*->useFallbackPath(public_path('/default_avatar.jpg'))
-        ->useFallbackPath(public_path('/default_avatar_thumb.jpg'), 'thumb')
-        ->registerMediaConversions(function (Media $media) {
-            $this
-                ->addMediaConversion('thumb')
-                ->width(50)
-                ->height(50);
+        $this->addMediaConversion('original')
+            ->keepOriginalImageFormat();
 
-            $this
-                ->addMediaConversion('thumb_2')
-                ->width(100)
-                ->height(100);
-        });*/
+        $this->addMediaConversion('square')
+            ->crop('crop-center', 800, 800);
+
+        $this->addMediaConversion('retangular')
+            ->crop('crop-center', 800, 400);
+
     }
 
 }

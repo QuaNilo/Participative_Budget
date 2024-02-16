@@ -5,10 +5,10 @@
             <div class="container relative">
                 @if(isset($regulation))
                     <div class="grid grid-cols-1 items-center gap-[30px]">
-                        <h4 class="text-3xl font-semibold mb-4">Regulamento do Orçamento Participativo do Município de <span class="font-bold text-xl text-red-600">FILL</span></h4>
+                        <h4 class="text-3xl font-semibold mb-4">{{$regulation->title}}</h4>
 
                         <div>
-                            <p class="text-slate-400 text-base leading-8">Nota Justificativa.</p>
+                            <p class="text-slate-400 text-base leading-8">{{$regulation->subtitle}}.</p>
                             <p class="text-slate-800 text-base leading-8 mt-2 dark:text-white">
                                 {{$regulation->description ?? ""}}
                             </p>

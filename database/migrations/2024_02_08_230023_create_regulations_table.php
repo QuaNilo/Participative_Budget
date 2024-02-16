@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('regulations', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
-            $table->string('author')->nullable();
             $table->timestamps();
         });
     }

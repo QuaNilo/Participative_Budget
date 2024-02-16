@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -132,6 +133,8 @@ class ProposalEdit extends Component
             $this->receivedCover = $files;
         }
     }
+
+
 
     #[On('getCoordinates')]
     public function getCoordinates()

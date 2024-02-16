@@ -30,13 +30,18 @@ class RegulationsTable extends Component implements HasForms, HasTable
         return $table
             ->query(Regulation::query())
             ->columns([
-                TextColumn::make("description")
-                ->label($newModel->getAttributeLabel("description"))
+                TextColumn::make("title")
+                ->label($newModel->getAttributeLabel("title"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("author")
-                ->label($newModel->getAttributeLabel("author"))
+            TextColumn::make("subtitle")
+                ->label($newModel->getAttributeLabel("subtitle"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("description")
+                ->label($newModel->getAttributeLabel("description"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

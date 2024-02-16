@@ -57,30 +57,28 @@
         @livewire('wire-elements-modal')
         <!-- Styles -->
         @livewireStyles
-
         @stack('styles')
 
     </head>
 
     <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900 flex flex-col min-h-screen">
-        <div class="">
+        @include('layouts.tailwind._navbar_center')
+        <x-frontend.notification-handler />
+        <div class="min-h-screen">
             <!-- Loader Start -->
-            <!-- <div id="preloader">
+            <div id="preloader">
                 <div id="status">
                     <div class="spinner">
                         <div class="double-bounce1"></div>
                         <div class="double-bounce2"></div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- Loader End -->
-            {{-- @if(isset($showBgEffect) && $showBgEffect == true)
+             @if(isset($showBgEffect) && $showBgEffect == true)
                 <span class="fixed blur-[200px] lg:w-[600px] w-[400px] lg:h-[600px] h-[400px] rounded-full top-[10%] md:start-[10%] -start-[20%] bg-indigo-600/20"></span>
                 <span class="fixed blur-[200px] lg:w-[600px] w-[400px] lg:h-[600px] h-[400px] rounded-full bottom-[10%] md:end-[10%] -end-[20%] bg-red-600/20"></span>
-            @endif --}}
-            @include('layouts.tailwind._navbar_center')
-            {{-- @include('flash::message_tailwind') --}}
-            <x-frontend.notification-handler />
+            @endif
             {{ $slot }}
         </div>
 

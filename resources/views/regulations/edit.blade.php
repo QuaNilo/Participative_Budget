@@ -16,7 +16,7 @@
                     class="mr-1 w-24"
                     type="a"
                     variant="outline-secondary"
-                    href="{{ route('regulations.index') }}"
+                    href="{{ route('dashboard') }}"
                 >{{ __('Cancel') }}
                 </x-base.button>
                 <x-base.button

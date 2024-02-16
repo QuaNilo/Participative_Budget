@@ -1,14 +1,14 @@
 @props(['calendars'])
 <x-landing-layout>
     <!-- Start -->
-        <section class="relative mx-32 px-32 md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
+        <section class="relative mx-32 px-32 md:py-24 py-16 dark:bg-slate-800">
             <div class="container relative">
                 <div class="grid grid-cols-1 pb-8 text-center">
                     <h6 class="text-indigo-600 text-sm font-bold uppercase mb-2">Calendario</h6>
                     <h3 class="md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Calendario Orçamento Participativo</h3>
 
                 </div><!--end grid-->
-                @if(isset($calendars))
+                @if($calendars->isNotEmpty())
                     <div class="grid grid-cols-1 mt-8">
                         <div class="relative after:content-[''] after:absolute after:top-0 md:after:end-0 md:after:start-0 after:w-px after:h-full md:after:m-auto after:border-s-2 after:border-dashed after:border-gray-200 dark:after:border-gray-700 ms-3 md:ms-0">
                             <!--Start content-->

@@ -9,9 +9,7 @@ view()->share('pageTitle', __('Homepage'));
 view()->share('showBgEffect', true);
 ?>
 <x-landing-layout>
-
-
-    <div class="mt-20">
+    <div class="">
         <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover ">
             <div class="absolute inset-0 bg-white/30 dark:bg-slate-900/60"></div>
             <div class="container relative z-1">
@@ -33,7 +31,7 @@ view()->share('showBgEffect', true);
             </div>
         </section><!--end section-->
             <!-- End Hero -->
-            <section id="what" class="relative md:py-24 py-12 pt-0 mt-0 bg-gray-50 dark:bg-slate-800">
+            <section id="what" class="relative md:py-24 pt-0 mt-0 bg-gray-50 dark:bg-slate-800">
                 <div class="container relative">
                     <div class="grid grid-cols-1 pb-8 text-center">
                         <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("What is Participatory Budget")}}?</h3>

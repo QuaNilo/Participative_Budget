@@ -1,16 +1,16 @@
 <div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
     <table class="w-full text-start text-slate-500 dark:text-slate-400">
         <thead class="text-sm uppercase bg-slate-50 dark:bg-slate-800">
-            <tr class="text-start">
-                <th scope="col" class="px-2 py-3 text-center">Proposal no.</th>
-                <th scope="col" class="px-2 py-3 text-center">Created</th>
-                <th scope="col" class="px-2 py-3 text-center">Status</th>
-                <th scope="col" class="px-2 py-3 text-center">Votes</th>
-                <th scope="col" class="px-2 py-3 text-center">Action</th>
-            </tr>
+        <tr class="text-start">
+            <th scope="col" class="px-2 py-3 text-center">Proposal no.</th>
+            <th scope="col" class="px-2 py-3 text-center">Created</th>
+            <th scope="col" class="px-2 py-3 text-center">Status</th>
+            <th scope="col" class="px-2 py-3 text-center">Votes</th>
+            <th scope="col" class="px-2 py-3 text-center">Action</th>
+        </tr>
         </thead>
         @foreach($proposals as $proposal)
-        <tbody>
+            <tbody>
             <tr class="bg-white dark:bg-slate-900 text-center">
                 <th class="px-2 py-3 text-center" scope="row">{{ $proposal->id }}</th>
                 <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</td>
@@ -18,15 +18,18 @@
                 <td class="px-2 py-3 text-center">{{$proposal->votes_count}}</td>
                 <td class="px-2 py-3 text-center">
                     <a href="/edition/proposta/{{$proposal->id}}" class="font-bold text-indigo-600">View </a>
-                    <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600">Edit </a>
-                    <form method="POST" action="{{ route('FEproposals.destroy', $proposal) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="font-bold text-red-600">Delete</button>
-                    </form>
+                    @if($proposal->edition->status_label === 'Aberta')
+                        <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600">Edit </a>
+                        <form method="POST" action="{{ route('FEproposals.destroy', $proposal) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="font-bold text-red-600">Delete</button>
+                        </form>
+                    @endif
+
                 </td>
             </tr>
-        @endforeach
-        </tbody>
+            @endforeach
+            </tbody>
     </table>
 </div>

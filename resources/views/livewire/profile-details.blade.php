@@ -94,12 +94,13 @@
         <livewire:files-upload-f-e
             inputName="files"
             :isMultiple="true"
-            maxFiles="3"
+            :isCitizen="true"
+            maxFiles="2"
             maxFileSize="10240"
-            :previousFiles="$citizen->getMedia() ?? collect()"
-            :label="__('Upload File')"
+            :previousFiles="$citizen->getMedia('cc') ?? collect()"
+            :label="__('Upload Passport')"
             acceptedFileTypes="files/*"
-            :uploadFieldMainLabel="__('Upload a file')"
+            :uploadFieldMainLabel="__('Upload Front and Back of Citizen Card')"
         />
 
 {{--        <div class="grid grid-cols-1">--}}

@@ -14,6 +14,6 @@ class RegulationsTableSeeder extends Seeder
      */
     public function run()
     {
-        Regulation::factory(1)->create();
+        Regulation::factory()->create();
     }
 }

@@ -4,12 +4,15 @@ namespace App\Livewire;
 
 use App\Facades\HelperMethods;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Rule;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class FilesUploadFE extends Component
 {
@@ -25,6 +28,7 @@ class FilesUploadFE extends Component
     public $files = [];
     public $isMultiple = true;
     public $isCover = false;
+    public $isCitizen = false;
     public $maxFiles = 10;
     public $maxFileSize = 10240; // 10MB in KB
     public $acceptedFileTypes = '*/*'; // "'image/*,application/pdf'";
@@ -110,6 +114,9 @@ class FilesUploadFE extends Component
         {
             $this->dispatch('update-files-cover', $this->convertToArrayFiles());
         }
+        else if($this->isCitizen) {
+            $this->dispatch('update-files-citizen-card', $this->convertToArrayFiles());
+        }
         else{
             $this->dispatch('update-files', $this->convertToArrayFiles());
         }
@@ -130,7 +137,6 @@ class FilesUploadFE extends Component
         $this->files->re*/
         //$this->_removeUpload('files', $filename);
         // Logic to remove file from $this->files/
-
         $this->files = collect($this->files)->reject(function ($file) use ($filename) {
             return $file->getFilename() === $filename;
         })->values()->all();
@@ -145,11 +151,15 @@ class FilesUploadFE extends Component
     {
         //add the removed file to a collection of removed files
         $removedPreviousFile = $this->previousFiles->where('id', $id)->first();
+        dd($removedPreviousFile);
         $this->removedPreviousFiles->add($removedPreviousFile);
         //remove the removed file from the previousFiles collection
         $this->previousFiles =  $this->previousFiles->filter(function ($file) use ($id) {
             return $file->id != $id;
         });
+        $this->removeMediaHandling($id);
+        $this->dispatch('remove-file', $removedPreviousFile )->to(ProposalCreateForm::class);
+
     }
 
 
@@ -246,4 +256,29 @@ class FilesUploadFE extends Component
         }
         return $filesArray;
     }
+
+    private function collectionName()
+    {
+        return $this->isCover ? 'cover' : ($this->isCitizen ? 'cc' : 'gallery');
+    }
+
+    protected function removeMediaHandling($id): void
+    {
+        $storagePath = public_path('storage' . DIRECTORY_SEPARATOR . $id) ;
+        $collection_name = $this->collectionName();
+        $deleted = Media::where('id', $id)
+                    ->where('collection_name', $collection_name)
+                    ->delete();
+
+        if ($deleted > 0) {
+            if (File::exists($storagePath)) {
+                File::deleteDirectory($storagePath);
+            } else {
+                flash(__('Image info Not found'))->overlay()->danger();
+                redirect('/profile');
+            }
+        }
+
+    }
+
 }
