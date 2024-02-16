@@ -34,7 +34,7 @@ class CitizenFactory extends Factory
             'CC_verified' => $this->faker->boolean,
             'address' => $this->faker->text($this->faker->numberBetween(5, 40)),
             'localidade' => $this->faker->sentence($this->faker->numberBetween(5, 20)),
-            'freguesia' => $this->faker->sentence($this->faker->numberBetween(5, 40)),
+            'freguesia' => $this->faker->text($this->faker->numberBetween(5, 40)),
             'cod_postal' => $this->faker->numberBetween(1000, 9000),
             'telemovel' => $this->faker->numberBetween(111111111, 999999999),
             'remember_token' => $this->faker->text($this->faker->numberBetween(5, 100)),

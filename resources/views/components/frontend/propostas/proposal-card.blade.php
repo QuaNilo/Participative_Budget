@@ -3,7 +3,11 @@
     <div class="content p-6 relative flex flex-col h-full">
         <a href="{{ route('proposta-detail', $proposal->id) }}">
 {{--            @foreach($proposal->getFirstMedia()->getUrl() as $media)--}}
+            @if($proposal->getFirstMediaUrl('cover', 'square'))
+                 <img src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}">
+            @else
                  <img src="{{ $proposal->getFirstMediaUrl() }}">
+            @endif
 {{--            @endforeach--}}
             <div class="flex-grow">
                 <span class="font-extrabold block text-indigo-600">{{$proposal->title}}</span>

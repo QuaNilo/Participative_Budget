@@ -5,11 +5,26 @@
                 <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px] items-center border border-gray-100">
                     <div class="lg:col-span-5 md:col-span-6">
                         <div class="tiny-single-item border border-gray-100">
-                        @foreach($proposal->getMedia() as $media)
                             <div class="tiny-slide">
-                                <img src="{{ $media->getUrl() }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
+{{--                                <img src="{{ $media->getUrl() }}" class="rounded-md shadow dark:shadow-gray-800" alt="">--}}
+                                <img src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
                             </div><!--end content-->
-                        @endforeach
+                            @if($proposal->getMedia('gallery')->isNotEmpty())
+                                @if($proposal->getMedia('gallery')[0]->hasGeneratedConversion('square'))
+                                    @foreach($proposal->getMedia('gallery') as $media)
+                                        <div class="tiny-slide">
+                                          <img src="{{ $media->getUrl('square') }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
+                                        </div><!--end content-->
+                                    @endforeach
+                                @else
+                                    @foreach($proposal->getMedia('gallery') as $media)
+                                        <div class="tiny-slide">
+                                          <img src="{{ $media->getUrl() }}" class="rounded-md shadow dark:shadow-gray-800" alt="">
+                                        </div><!--end content-->
+                                    @endforeach
+                                @endif
+                            @endif
+{{--                                <img src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}" class="rounded-md shadow dark:shadow-gray-800" alt="">--}}
                         </div><!--end tiny slider-->
                     </div><!--end col-->
 

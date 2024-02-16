@@ -179,7 +179,7 @@ class Proposal extends Model implements Auditable, HasMedia
         return $array[$this->status] ?? "";
     }
 
-    public function registerMediaCollections(): void
+    public function registerMediaCollections(Media $media = null): void
     {
         $this->addMediaCollection('images');
         $this->addMediaCollection('cover')
@@ -193,11 +193,22 @@ class Proposal extends Model implements Auditable, HasMedia
                     ->keepOriginalImageFormat();
                 $this
                     ->addMediaConversion('square')
-                    ->crop('crop-center', 512, 512);
+                    ->crop('crop-center', 800, 800);
                 $this
                     ->addMediaConversion('retangular')
-                    ->crop('crop-center', 512, 384);
+                    ->crop('crop-center', 800, 400);
             });
+
+
+            $this->addMediaConversion('original')
+                ->keepOriginalImageFormat();
+
+            $this->addMediaConversion('square')
+                ->crop('crop-center', 800, 800);
+
+            $this->addMediaConversion('retangular')
+                ->crop('crop-center', 800, 400);
+
 
         //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
         //->useFallbackUrl('/images/anonymous-user.jpg')

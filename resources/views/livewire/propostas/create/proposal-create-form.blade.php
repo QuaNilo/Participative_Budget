@@ -151,11 +151,25 @@
 {{--                                <input type="file" wire:model="photo">--}}
                                <livewire:files-upload-f-e
                                     inputName="files"
-                                    :isMultiple="true"
+                                    :isMultiple="false"
+                                    :isCover="true"
                                     maxFiles="3"
                                     maxFileSize="10240"
                                     :previousFiles="collect()"
-                                    :label="__('Upload Cover')"
+                                    :label="__('Upload Highlighted image')"
+                                    acceptedFileTypes="image/*"
+                                    :uploadFieldMainLabel="__('Upload an image')"
+                               />
+
+
+                               <livewire:files-upload-f-e
+                                    inputName="files"
+                                    :isMultiple="true"
+                                    :isCover="false"
+                                    maxFiles="3"
+                                    maxFileSize="10240"
+                                    :previousFiles="collect()"
+                                    :label="__('Upload Gallery')"
                                     acceptedFileTypes="image/*"
                                     :uploadFieldMainLabel="__('Upload an image')"
                                />

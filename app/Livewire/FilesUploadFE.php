@@ -24,6 +24,7 @@ class FilesUploadFE extends Component
     public Collection $removedPreviousFiles;
     public $files = [];
     public $isMultiple = true;
+    public $isCover = false;
     public $maxFiles = 10;
     public $maxFileSize = 10240; // 10MB in KB
     public $acceptedFileTypes = '*/*'; // "'image/*,application/pdf'";
@@ -105,7 +106,13 @@ class FilesUploadFE extends Component
         }
         //fire the event of file uploaded with an array with the basic information about the files
         $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
-        $this->dispatch('update-files', $this->convertToArrayFiles());
+        if($this->isCover)
+        {
+            $this->dispatch('update-files-cover', $this->convertToArrayFiles());
+        }
+        else{
+            $this->dispatch('update-files', $this->convertToArrayFiles());
+        }
 
     }
 
