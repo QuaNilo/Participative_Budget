@@ -84,14 +84,13 @@ Route::middleware([
 
     Route::impersonate();
 
-    Route::resource('settings', App\Http\Controllers\SettingController::class); //TODO este controller e crud não está ainda feito
+    Route::resource('settings', App\Http\Controllers\SettingController::class);
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
 
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
     Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
-//    Route::resource('regulations', App\Http\Controllers\RegulationsController::class);
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);
     Route::resource('citizens', App\Http\Controllers\citizenController::class);
     Route::resource('articles', App\Http\Controllers\ArticleController::class);

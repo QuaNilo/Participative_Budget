@@ -77,7 +77,7 @@ Breadcrumbs::for('settings.create', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('settings.show', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('settings.index');
-    $trail->push($model->name, route('settings.show', $model));
+    $trail->push('1', route('settings.show', $model));
 });
 Breadcrumbs::for('settings.edit', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('settings.show', $model);

@@ -16,22 +16,23 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
-        if(!DB::table('settings')->where('slug','email')->exists()) {
-            DB::table('settings')->insert([
-                [
-                    'type' => Setting::TYPE_TEXTFIELD,
-                    'group' => 'main',
-                    'name' => 'Email da plataforma',
-                    'slug' => "email",
-                    'options' => null,
-                    'value' => 'geral@noop.pt',
-                    'order' => 0,
-                    'created_at' => date("Y-m-d H:i:s"),
-                    'updated_at' => date("Y-m-d H:i:s")
-                ]
-            ]);
-        }
-        Cache::forget('setting-params');
-        Cache::forget('setting-options');
+//        if(!DB::table('settings')->where('slug','email')->exists()) {
+//            DB::table('settings')->insert([
+//                [
+//                    'type' => Setting::TYPE_TEXTFIELD,
+//                    'group' => 'main',
+//                    'name' => 'Email da plataforma',
+//                    'slug' => "email",
+//                    'options' => null,
+//                    'value' => 'geral@noop.pt',
+//                    'order' => 0,
+//                    'created_at' => date("Y-m-d H:i:s"),
+//                    'updated_at' => date("Y-m-d H:i:s")
+//                ]
+//            ]);
+//        }
+//        Cache::forget('setting-params');
+//        Cache::forget('setting-options');
+        Setting::factory()->create();
     }
 }

@@ -51,7 +51,7 @@ class   MenuComposer
                     'icon' => 'book',
                     'title' => __('Regulation'),
                     'sub_menu' => [
-                        'regulations.index' => [
+                        'regulations.edit' => [
                                     'icon' => 'list',
                                     'route_name' => 'regulations.edit',
                                     'params' => [1],
@@ -194,8 +194,8 @@ class   MenuComposer
                 ],
                 'settings' => [
                     'icon' => 'settings',
-                    'route_name' => 'settings.index',
-                    'params' => [],
+                    'route_name' => 'settings.edit',
+                    'params' => [1],
                     'title' => __('Settings')
                 ],
 

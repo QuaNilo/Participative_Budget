@@ -18549,59 +18549,7 @@
      
 }
 
-        namespace App\Facades { 
-            /**
-     * 
-     *
-     */ 
-        class Setting {
-                    /**
-         * return a parameter from the config array;
-         * Can be accessed using Setting::getParam('slug') or \App\Facades\Setting::getParam('slug')
-         *
-         * @param string $param
-         * @param boolean $isArray is is set to true it converts the string to an array
-         * @return \App\Helpers\element from array or array
-         * @static 
-         */ 
-        public static function getParam($param, $isArray = false)
-        {
-                        /** @var \App\Helpers\Setting $instance */
-                        return $instance->getParam($param, $isArray);
-        }
-                    /**
-         * return a parameter from the options array;
-         *
-         * @param string $param
-         * @param boolean $isArray is is set to true it converts the string to an array
-         * @return \App\Helpers\element from array or array
-         * @static 
-         */ 
-        public static function getOptions($param, $isArray = false)
-        {
-                        /** @var \App\Helpers\Setting $instance */
-                        return $instance->getOptions($param, $isArray);
-        }
-                    /**
-         * Set a parameter from the config array;
-         * Can be accessed using Setting::getParam('slug', 'teste') or \App\Facades\Setting::setParam('slug', 'teste')
-         *
-         * @param string $param
-         * @param boolean $isArray is is set to true it converts the string to an array
-         * @return boolean 
-         * @static 
-         */ 
-        public static function setParam($param, $value, $isArray = false)
-        {
-                        /** @var \App\Helpers\Setting $instance */
-                        return $instance->setParam($param, $value, $isArray);
-        }
-         
-    }
-     
-}
-
-    namespace Spatie\Geocoder\Facades { 
+        namespace Spatie\Geocoder\Facades { 
             /**
      * 
      *
@@ -28365,7 +28313,6 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
-            class Setting extends \App\Facades\Setting {}
             class Geocoder extends \Spatie\Geocoder\Facades\Geocoder {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class LaRecipe extends \BinaryTorch\LaRecipe\LaRecipe {}
