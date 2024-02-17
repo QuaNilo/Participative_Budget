@@ -123,6 +123,22 @@
     @enderror
 </div>
 
+<!-- Proposals Per User Field -->
+<div class="mb-3">
+    <x-base.form-label for="proposals_per_user">{{ $edition->getAttributeLabel('proposals_per_user') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('proposals_per_user') ? 'border-danger' : '') }}"
+        id="proposals_per_user"
+        name="proposals_per_user"
+        :value="old('proposals_per_user', $edition->proposals_per_user ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('proposals_per_user')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 <!-- Title Field -->
 <div class="mb-3">
     <x-base.form-label for="title">{{ $edition->getAttributeLabel('title') }}</x-base.form-label>
@@ -156,36 +172,14 @@
 <!-- Ano Field -->
 <div class="mb-3">
     <x-base.form-label for="ano">{{ $edition->getAttributeLabel('ano') }}</x-base.form-label>
-    <x-base.input-group
-        class="flatpickr"
-        data-wrap="true"
-        data-enable-time="false"
-        data-date-format='Y'
-        data-time_24hr='false'
-        data-minute-increment='1'
-        inputGroup
-    >
-        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>
-            <x-base.lucide
-                class="h-5 w-5"
-                icon="Calendar"
-            />
-        </x-base.input-group.text>
-        <x-base.form-input
-            class="w-full {{ ($errors->has('ano') ? 'border-danger' : '') }}"
-            id="ano"
-            name="ano"
-            :value="old('ano', $edition->ano ?? '')"
-            type="number"
-            step="1"
-        />
-        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
-            <x-base.lucide
-                class="h-5 w-5 "
-                icon="x"
-            />
-        </x-base.input-group.text>
-    </x-base.input-group>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('ano') ? 'border-danger' : '') }}"
+        id="ano"
+        name="ano"
+        :value="old('ano', $edition->ano ?? '')"
+        type="number"
+        step="1"
+    />
     @error('ano')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror

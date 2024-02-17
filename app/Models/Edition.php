@@ -18,9 +18,10 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property int $status 0 - Pendente | 1 - Aberta | 2 - Analise | 3 - Votação | 4 - Completado | 5 - Fechado | 6 - Cancelado
  * @property string $identifier
  * @property int|null $edition_number
+ * @property int $proposals_per_user
  * @property string|null $title
  * @property string|null $description
- * @property \Illuminate\Support\Carbon|null $ano
+ * @property int|null $ano
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
  * @property-read string $status_label
@@ -38,6 +39,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereEditionPublish($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereIdentifier($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Edition whereProposalsPerUser($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Edition whereUpdatedAt($value)
@@ -68,6 +70,7 @@ class Edition extends Model implements Auditable
         'status',
         'identifier',
         'edition_number',
+        'proposals_per_user',
         'title',
         'description',
         'ano'
@@ -92,7 +95,8 @@ class Edition extends Model implements Auditable
         'status' => 'required',
         'identifier' => 'required|string|max:255',
         'edition_number' => 'nullable',
-        'title' => 'nullable|string|max:60',
+        'proposals_per_user' => 'required',
+        'title' => 'nullable|string|max:255',
         'description' => 'nullable|string|max:255',
         'ano' => 'nullable'
         ];
@@ -106,7 +110,7 @@ class Edition extends Model implements Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
+            'id' => __('ID'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At'),
         'edition_end' => __('Edition End'),
@@ -114,6 +118,7 @@ class Edition extends Model implements Auditable
         'status' => __('Status'),
         'identifier' => __('Identifier'),
         'edition_number' => __('Edition Number'),
+        'proposals_per_user' => __('Proposals Per User'),
         'title' => __('Title'),
         'description' => __('Description'),
         'ano' => __('Ano')

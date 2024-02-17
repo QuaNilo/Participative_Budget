@@ -39,11 +39,6 @@ class UsersTable extends Component implements HasForms, HasTable
                     ->sortable()
                     ->toggleable()
                     ->searchable(),
-                TextColumn::make("person")
-                    ->label($newModel->getAttributeLabel("person"))
-                    ->sortable()
-                    ->toggleable()
-                    ->searchable(),
                 TextColumn::make("email")
                     ->label($newModel->getAttributeLabel("email"))
                     ->sortable()
@@ -53,11 +48,6 @@ class UsersTable extends Component implements HasForms, HasTable
                     ->label($newModel->getAttributeLabel("brand"))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make("nif")
-                    ->label($newModel->getAttributeLabel("nif"))
-                    ->sortable()
-                    ->toggleable()
-                    ->searchable(),
                 TextColumn::make("nif_type")
                     ->label($newModel->getAttributeLabel("nif_type"))
                     ->sortable()

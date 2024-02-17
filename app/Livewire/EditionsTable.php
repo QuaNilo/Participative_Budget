@@ -30,16 +30,6 @@ class EditionsTable extends Component implements HasForms, HasTable
         return $table
             ->query(Edition::query())
             ->columns([
-                TextColumn::make("edition_end")
-                ->label($newModel->getAttributeLabel("edition_end"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("edition_publish")
-                ->label($newModel->getAttributeLabel("edition_publish"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
             TextColumn::make("status")
                 ->label($newModel->getAttributeLabel("status"))
                 ->formatStateUsing(fn (Edition $record): string => $record->statusLabel)
@@ -53,6 +43,11 @@ class EditionsTable extends Component implements HasForms, HasTable
                 ->searchable(),
             TextColumn::make("edition_number")
                 ->label($newModel->getAttributeLabel("edition_number"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("proposals_per_user")
+                ->label($newModel->getAttributeLabel("proposals_per_user"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

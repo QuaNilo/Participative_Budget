@@ -19,6 +19,7 @@ return new class extends Migration
             $table->smallInteger('status')->default(0)->comment("0 - Pendente | 1 - Aberta | 2 - Analise | 3 - Votação | 4 - Completado | 5 - Fechado | 6 - Cancelado");
             $table->string('identifier')->unique();
             $table->integer('edition_number')->nullable()->unique();
+            $table->integer('proposals_per_user')->default(0);
             $table->string('title')->nullable()->unique();
             $table->string('description')->nullable()->unique();
             $table->integer('ano')->nullable();

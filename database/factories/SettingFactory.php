@@ -22,21 +22,21 @@ class SettingFactory extends Factory
      */
     public function definition()
     {
-        
+
         return [
             'validate_cc' => $this->faker->boolean,
             'validate_address' => $this->faker->boolean,
             'require_cc_vote_create' => $this->faker->boolean,
             'require_address_vote_create' => $this->faker->boolean,
             'allow_change_lang' => $this->faker->boolean,
-            'map_lat' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'map_lng' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'map_lat' => $this->faker->numberBetween(5, 255),
+            'map_lng' => $this->faker->numberBetween(5, 255),
             'email_cm' => $this->faker->email,
-            'facebook' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'instagram' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'twitter' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'linkedin' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'youtube' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'facebook' => $this->faker->url(),
+            'instagram' => $this->faker->url(),
+            'twitter' => $this->faker->url(),
+            'linkedin' => $this->faker->url(),
+            'youtube' => $this->faker->url(),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

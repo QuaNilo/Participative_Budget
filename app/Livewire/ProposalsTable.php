@@ -30,18 +30,18 @@ class ProposalsTable extends Component implements HasForms, HasTable
         return $table
             ->query(Proposal::query())
             ->columns([
-                TextColumn::make("user_id")
-                ->label($newModel->getAttributeLabel("user_id"))
+                TextColumn::make('user.name')
+                ->label(__('User'))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("category_id")
-                ->label($newModel->getAttributeLabel("category_id"))
+            TextColumn::make("category.name")
+                ->label(__('Category'))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("edition_id")
-                ->label($newModel->getAttributeLabel("edition_id"))
+            TextColumn::make("edition.identifier")
+                ->label(__("Edition-Identifier"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

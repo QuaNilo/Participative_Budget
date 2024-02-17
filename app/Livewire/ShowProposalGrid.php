@@ -19,7 +19,6 @@ class ShowProposalGrid extends Component
     public $keywordsInput;
     public $edition_id;
     public $edition;
-
     protected $rules = [
 
     ];
@@ -85,6 +84,10 @@ class ShowProposalGrid extends Component
     public function render()
     {
         $proposals = $this->proposals;
-        return view('livewire.propostas.show-proposal-grid', ['proposals' => $proposals]);
+        $user_id = auth()->user()->id;
+        $user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
+            $query->where('id', $user_id);
+        })->where('edition_id', $this->edition_id)->count();
+        return view('livewire.propostas.show-proposal-grid', ['proposals' => $proposals, 'user_proposals_count' => $user_proposals_count, 'proposals_per_user' => $this->edition->proposals_per_user]);
     }
 }

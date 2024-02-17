@@ -1,4 +1,4 @@
-@props(['proposals'])
+@props(['proposals', 'proposals_per_user', 'user_proposals_count'])
 <div>
     <h1 class="text-3xl "><span class="text-4xl font-medium text-black">{{__('Edição')}} {{$edition->identifier}}</span></h1>
     <h1 class="text-xl mb-12 mt-1"><span class="text-xl font-medium text-black">{{$edition->status_label}}</span></h1>
@@ -63,11 +63,20 @@
             @endif
             @auth()
                 @if($edition->status == 1)
-                    <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
-                        <a
-                            href="{{ route('proposal-create', $edition->id) }}">Create Proposal
-                        </a>
-                    </x-button>
+                    @if($proposals_per_user !== 0 && $user_proposals_count >= $proposals_per_user)
+                        <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
+                            <a
+                                href="{{ route('display_warning') }}">Create Proposal
+                            </a>
+                        </x-button>
+                    @else
+                        <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
+                            <a
+                                href="{{ route('proposal-create', $edition->id) }}">Create Proposal
+                            </a>
+                        </x-button>
+
+                    @endif
                 @endif
             @endauth
         </div>

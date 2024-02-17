@@ -7,6 +7,7 @@ use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EditionsFE;
 use App\Http\Controllers\FAQ;
+use App\Http\Controllers\Helper;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\ProposalController;
@@ -39,6 +40,8 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
     ->middleware(['guest:'.config('fortify.guard')])
     ->name('password.email');*/
 
+Route::get('/warning', [Helper::class, 'display_warning'])->name('display_warning');
+
 Route::get('/profile', [UserFEController::class, 'index'])->name('users_dashboard');
 Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
 
@@ -66,6 +69,8 @@ Route::get('/privacy-policy-1', [HomeController::class,'privacyPolicy'])->name('
 Route::get('/terms-of-service', [HomeController::class,'termsOfService'])->name('home.terms_of_service');
 Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
 Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
+
+
 
 Route::middleware([
     'auth:sanctum',

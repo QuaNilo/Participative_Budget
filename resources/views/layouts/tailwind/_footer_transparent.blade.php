@@ -12,20 +12,21 @@
                             </a>
                             <p class="mt-6">{{ __('') }}</p>
                             <ul class="list mt-6">
-                                    <li class="inline"><a href="https://1.envato.market/techwind" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-shopping-cart align-middle" title="Buy Now"></i></a></li>
-                                    <li class="inline"><a href="https://dribbble.com/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-dribbble align-middle" title="dribbble"></i></a></li>
-                                    <li class="inline"><a href="https://www.behance.net/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-behance" title="Behance"></i></a></li>
-                                    <li class="inline"><a href="http://linkedin.com/company/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-linkedin" title="Linkedin"></i></a></li>
-                                    <li class="inline"><a href="https://www.facebook.com/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
-                                    <li class="inline"><a href="https://www.instagram.com/shreethemes/" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
-                                    <li class="inline"><a href="https://twitter.com/shreethemes" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
-                                    <li class="inline"><a href="mailto:support@shreethemes.in" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-envelope align-middle" title="email"></i></a></li>
-                                    <li class="inline"><a href="https://forms.gle/QkTueCikDGqJnbky9" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-file align-middle" title="customization"></i></a></li>
-
-                                <li class="inline"><a href="https://www.instagram.com/noop.pt/" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
-                                <li class="inline"><a href="https://www.facebook.com/noop.pt" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
-                                <li class="inline"><a href="https://twitter.com/agencianoop" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
-                                <li class="inline"><a href="https://www.linkedin.com/company/noop" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-linkedin" title="Linkedin"></i></a></li>
+                                @if(\App\Models\Setting::first()->facebook)
+                                    <li class="inline"><a href="{{\App\Models\Setting::first()->facebook}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
+                                @endif
+                                @if(\App\Models\Setting::first()->twitter)
+                                    <li class="inline"><a href="{{\App\Models\Setting::first()->twitter}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
+                                @endif
+                                @if(\App\Models\Setting::first()->instagram)
+                                    <li class="inline"><a href="{{\App\Models\Setting::first()->instagram}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
+                                @endif
+                                @if(\App\Models\Setting::first()->linkedin)
+                                    <li class="inline"><a href="{{\App\Models\Setting::first()->linkedin}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-linkedin" title="Linkedin"></i></a></li>
+                                @endif
+                                @if(\App\Models\Setting::first()->youtube)
+                                        <li class="inline"><a href="{{\App\Models\Setting::first()->youtube}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-youtube align-middle" title="Youtube"></i></a></li>
+                                @endif
 
                             </ul><!--end icon-->
                         </div><!--end col-->
@@ -92,11 +93,11 @@
                 </div>
 
 {{--                <ul class="list-none md:text-end text-center mt-6 md:mt-0">--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/payments/american-ex.png" class="max-h-6 inline" title="American Express" alt=""></li>--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/payments/discover.png" class="max-h-6 inline" title="Discover" alt=""></li>--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/payments/master-card.png" class="max-h-6 inline" title="Master Card" alt=""></li>--}}
-{{--                    <!--<li class="inline"><img src="/assets-frontend/images/payments/paypal.png" class="max-h-6 inline" title="Paypal" alt=""></li>-->--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/payments/visa.png" class="max-h-6 inline" title="Visa" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/client/instagram.svg" class="max-h-6 inline" title="American Express" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/client/discover.png" class="max-h-6 inline" title="Discover" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/client/master-card.png" class="max-h-6 inline" title="Master Card" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/client/paypal.png" class="max-h-6 inline" title="Paypal" alt=""></li>--}}
+{{--                    <li class="inline"><img src="/assets-frontend/images/client/visa.png" class="max-h-6 inline" title="Visa" alt=""></li>--}}
 {{--                </ul>--}}
             </div><!--end grid-->
         </div><!--end container-->
@@ -107,16 +108,3 @@
 <!-- Back to top -->
 <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top fixed hidden text-lg rounded-full z-10 bottom-5 end-5 h-9 w-9 text-center bg-indigo-600 text-white leading-9"><i class="uil uil-arrow-up"></i></a>
 <!-- Back to top -->
-
-<!-- Switcher -->
-{{--<div class="fixed top-[30%] -right-2 z-50">--}}
-{{--    <span class="relative inline-block rotate-90">--}}
-{{--        <input type="checkbox" class="checkbox opacity-0 absolute" id="chk" {{ \Illuminate\Support\Facades\Cookie::get('darkmode') === 'true' ? 'checked' : '' }}/>--}}
-{{--        <label class="label bg-slate-900 dark:bg-white shadow dark:shadow-gray-800 cursor-pointer rounded-full flex justify-between items-center p-1 w-14 h-8" for="chk">--}}
-{{--            <i class="uil uil-moon text-[20px] text-yellow-500"></i>--}}
-{{--            <i class="uil uil-sun text-[20px] text-yellow-500"></i>--}}
-{{--            <span class="ball bg-white dark:bg-slate-900 rounded-full absolute top-[2px] left-[2px] w-7 h-7"></span>--}}
-{{--        </label>--}}
-{{--    </span>--}}
-{{--</div>--}}
-<!-- Switcher -->
