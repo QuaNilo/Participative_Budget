@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Citizen;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\Rules\Password;
@@ -118,8 +119,13 @@ class ProfileDetails extends Component
             }
         }
 
-        // Flash success message
-        flash(__('Updated successfully.'))->overlay()->success();
+        if(Setting::first()->validate_cc && Setting::first()->require_cc_vote_create)
+        {
+            flash(__('Your ID will be required to vote and create proposals.'))->overlay()->warning()->duration(4000);
+        }
+        else{
+            flash(__('Updated successfully.'))->overlay()->success()->duration(4000);
+        }
 
         return redirect("/profile");
     }

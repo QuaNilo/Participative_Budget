@@ -69,6 +69,18 @@
                                 href="{{ route('display_warning') }}">Create Proposal
                             </a>
                         </x-button>
+                    @elseif(\App\Models\Setting::first()->require_cc_vote_create && !auth()->user()->citizen->CC_verified)
+                        <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
+                            <a
+                                href="{{ route('display_warning_cc') }}">Create Proposal
+                            </a>
+                        </x-button>
+                    @elseif(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified)
+                        <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
+                            <a
+                                href="{{ route('display_warning_address') }}">Create Proposal
+                            </a>
+                        </x-button>
                     @else
                         <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                             <a

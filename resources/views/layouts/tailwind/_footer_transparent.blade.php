@@ -53,11 +53,12 @@
                                 @endif
                             </ul>
                         </div><!--end col-->
-                        @if(false)
+                        @if(true)
                             <div class="lg:col-span-3 md:col-span-4">
                                 <h5 class="tracking-[1px] text-black dark:text-white font-semibold">{{ __('Company') }}</h5>
                                 <p class="mt-6">
                                     Nooperation Lda<br>
+                                    {{App\Models\Setting::first()->email_cm}}<br>
                                     Cais - Espaço Empresarial, Largo José da Cruz, Nº 3 2260-369 Vila Nova da Barquinha<br>
                                     NIF: 515447650
                                 </p>
