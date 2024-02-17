@@ -120,6 +120,30 @@
     @enderror
 </div>
 
+<!-- Address Verified Field -->
+<div class="mb-3">
+    <x-base.form-input
+        id="address_verified_hidden"
+        name="address_verified"
+        :value="0"
+        type="hidden"
+    />
+    <x-base.form-check>
+        <x-base.form-check.input
+            class="{{ ($errors->has('address_verified') ? 'border-danger' : '') }}"
+            id="address_verified"
+            name="address_verified"
+            :value="1"
+            :checked="old('address_verified', $citizen->address_verified ?? '0') == 1"
+            type="checkbox"
+        />
+        <x-base.form-check.label for="address_verified">{{ $citizen->getAttributeLabel('address_verified') }}</x-base.form-check.label>
+    </x-base.form-check>
+    @error('address_verified')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
 <!-- Address Field -->
 <div class="mb-3">
     <x-base.form-label for="address">{{ $citizen->getAttributeLabel('address') }}</x-base.form-label>

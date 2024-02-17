@@ -20,6 +20,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string|null $description
  * @property \Illuminate\Support\Carbon|null $CC_verified_at
  * @property bool $CC_verified
+ * @property bool $address_verified
  * @property string|null $address
  * @property string|null $localidade
  * @property string|null $freguesia
@@ -36,6 +37,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen query()
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereAddressVerified($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCC($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCCVerified($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCCVerifiedAt($value)
@@ -68,6 +70,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'description',
         'CC_verified_at',
         'CC_verified',
+        'address_verified',
         'address',
         'localidade',
         'freguesia',
@@ -82,6 +85,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'description' => 'string',
         'CC_verified_at' => 'datetime',
         'CC_verified' => 'boolean',
+        'address_verified' => 'boolean',
         'address' => 'string',
         'localidade' => 'string',
         'freguesia' => 'string',
@@ -99,6 +103,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'description' => 'nullable|string|max:255',
         'CC_verified_at' => 'nullable',
         'CC_verified' => 'required|boolean',
+        'address_verified' => 'required|boolean',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
         'freguesia' => 'nullable|string|max:255',
@@ -125,6 +130,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'description' => __('Description'),
         'CC_verified_at' => __('Cc Verified At'),
         'CC_verified' => __('Cc Verified'),
+        'address_verified' => __('Address Verified'),
         'address' => __('Address'),
         'localidade' => __('Localidade'),
         'freguesia' => __('Freguesia'),

@@ -216,6 +216,25 @@ Breadcrumbs::for('calendar-dynamics.edit', function (BreadcrumbTrail $trail, $mo
 
 
 
+// Home > Calendar
+Breadcrumbs::for('citizens.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Calendars'), route('calendar-dynamics.index'));
+});
+Breadcrumbs::for('citizens.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('citizens.index');
+    $trail->push(__('Create'), route('citizens.create'));
+});
+Breadcrumbs::for('citizens.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('citizens.index');
+    $trail->push($model->user->name, route('citizens.show', $model));
+});
+Breadcrumbs::for('citizens.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('citizens.show', $model);
+    $trail->push(__('Update'), route('citizens.edit', $model));
+});
+
+
 // Home > Regulations
 Breadcrumbs::for('regulations.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

@@ -61,6 +61,11 @@ class CitizensTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("address_verified")
+                ->label($newModel->getAttributeLabel("address_verified"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
             TextColumn::make("address")
                 ->label($newModel->getAttributeLabel("address"))
                 ->sortable()

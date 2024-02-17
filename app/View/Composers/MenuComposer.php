@@ -114,6 +114,24 @@ class   MenuComposer
                         ],
                     ]
                 ],
+                'Citizens' => [
+                    'icon' => 'users',
+                    'title' => __('Citizens'),
+                    'sub_menu' => [
+                        'citizens.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'citizens.index',
+                            'params' => [],
+                            'title' => __('List Citizens')
+                        ],
+                        'citizen.create' => [
+                            'icon' => 'plus-circle',
+                            'route_name' => 'citizens.create',
+                            'params' => [],
+                            'title' => __('Create Citizen')
+                        ],
+                    ]
+                ],
                 'Edições' => [
                     'icon' => 'list',
                     'title' => __('Edições'),
