@@ -91,7 +91,8 @@
                 @enderror
             </div>
         </div><!--end grid-->
-        <livewire:files-upload-f-e
+        @if($citizen->getMedia('cc'))
+            <livewire:files-upload-f-e
             inputName="files"
             :isMultiple="true"
             :isCitizen="true"
@@ -101,7 +102,20 @@
             :label="__('Upload Passport')"
             acceptedFileTypes="files/*"
             :uploadFieldMainLabel="__('Upload Front and Back of Citizen Card')"
-        />
+            />
+        @else
+            <livewire:files-upload-f-e
+            inputName="files"
+            :isMultiple="true"
+            :isCitizen="true"
+            maxFiles="2"
+            maxFileSize="10240"
+            :previousFiles="collect()"
+            :label="__('Upload Passport')"
+            acceptedFileTypes="files/*"
+            :uploadFieldMainLabel="__('Upload Front and Back of Citizen Card')"
+            />
+        @endif
 
 {{--        <div class="grid grid-cols-1">--}}
 {{--            <div class="mt-5">--}}

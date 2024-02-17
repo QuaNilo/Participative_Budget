@@ -69,9 +69,6 @@ class UserFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function ($user) {
-            // Create a Citizen model and associate it with the user
-            Citizen::factory()->create(['user_id' => $user->id]);
-        });
+
     }
 }

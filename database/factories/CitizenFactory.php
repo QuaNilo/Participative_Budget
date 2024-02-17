@@ -23,7 +23,7 @@ class CitizenFactory extends Factory
      */
     public function definition()
     {
-        $user = User::whereDoesntHave('citizen')->first();
+//        $user = User::whereDoesntHave('citizen')->first();
 
         return [
             'user_id' => $this->faker->unique()->numberBetween(1,3),

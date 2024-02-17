@@ -85,6 +85,15 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
     use Impersonate;
 
 
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($user) {
+            $user->assignRole(Role::ROLE_USER);
+            Citizen::factory()->create(['user_id' => $user->id]);
+        });
+    }
     /**
      * The attributes that are mass assignable.
      *
