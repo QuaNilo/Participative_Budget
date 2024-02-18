@@ -14,7 +14,7 @@
                 <span class="font-medium block text-black">{{$proposal->category()->first()->name}}</span>
                 <p class="text-slate-400 mt-3 mb-4">{{$proposal->summary}}</p>
             </div>
-            <div>
+            <div class="absolute bottom-0 w-full p-4">
                 <ul class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center list-none text-slate-400">
                     <li class="flex items-center me-4">
                         <i class="uil uil-book-open text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
