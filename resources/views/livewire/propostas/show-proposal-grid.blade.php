@@ -1,7 +1,13 @@
 @props(['proposals', 'proposals_per_user', 'user_proposals_count'])
 <div>
-    <h1 class="text-3xl "><span class="text-4xl font-medium text-black">{{__('Edição')}} {{$edition->identifier}}</span></h1>
-    <h1 class="text-xl mb-12 mt-1"><span class="text-xl font-medium text-black">{{$edition->status_label}}</span></h1>
+    <div class="mb-12">
+        <h1 class="text-3xl "><span class="text-4xl font-medium text-black">{{$edition->identifier}}</span></h1>
+        <h2 class="my-4 text-base text-slate-800">{{$edition->title}}</h2>
+        <h3 class="my-4 text-base text-slate-800">{{$edition->description}}</h3>
+        <h1 class="text-xl mt-1"><span class="text-slate-600 text-base">{{__('Status')}} : </span><span class="text-xl font-medium text-black">{{$edition->status_label}}</span></h1>
+        <h1 class="text-xl mt-1"><span class="text-slate-600 text-base">{{__('Ano')}} : </span><span class="text-xl font-medium text-black">{{$edition->ano}}</span></h1>
+
+    </div>
 
     <div class="flex items-center space-x-8">
         <div class="lg:col-span-4 md:col-span-4 md:text-end">

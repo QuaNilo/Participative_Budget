@@ -1,18 +1,18 @@
 <!-- User Id Field -->
-<div class="mb-3">
-    <x-base.form-label for="user_id">{{ $citizen->getAttributeLabel('user_id') }}</x-base.form-label>
-    <x-base.form-input
-        class="w-full {{ ($errors->has('user_id') ? 'border-danger' : '') }}"
-        id="user_id"
-        name="user_id"
-        :value="old('user_id', $citizen->user_id ?? '')"
-        type="number"
-        step="1"
-    />
-    @error('user_id')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
+{{--<div class="mb-3">--}}
+{{--    <x-base.form-label for="user_id">{{ $citizen->getAttributeLabel('user_id') }}</x-base.form-label>--}}
+{{--    <x-base.form-input--}}
+{{--        class="w-full {{ ($errors->has('user_id') ? 'border-danger' : '') }}"--}}
+{{--        id="user_id"--}}
+{{--        name="user_id"--}}
+{{--        :value="old('user_id', $citizen->user_id ?? '')"--}}
+{{--        type="number"--}}
+{{--        step="1"--}}
+{{--    />--}}
+{{--    @error('user_id')--}}
+{{--        <div class="mt-2 text-danger">{{ $message }}</div>--}}
+{{--    @enderror--}}
+{{--</div>--}}
 
 <!-- Cc Field -->
 <div class="mb-3">
@@ -59,42 +59,42 @@
     @enderror
 </div>
 
-<!-- Cc Verified At Field -->
-<div class="mb-3">
-    <x-base.form-label for="CC_verified_at">{{ $citizen->getAttributeLabel('CC_verified_at') }}</x-base.form-label>
-    <x-base.input-group
-        class="flatpickr"
-        data-wrap="true"
-        data-enable-time="false"
-        data-date-format='Y-m-d'
-        data-time_24hr='true'
-        data-minute-increment='1'
-        inputGroup
-    >
-        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>
-            <x-base.lucide
-                class="h-5 w-5"
-                icon="Calendar"
-            />
-        </x-base.input-group.text>
-        <x-base.flatpickr
-            class="{{ ($errors->has('CC_verified_at') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
-            id="CC_verified_at"
-            name="CC_verified_at"
-            :value="old('CC_verified_at', $citizen->CC_verified_at ?? '')"
-            data-input
-        />
-        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
-            <x-base.lucide
-                class="h-5 w-5 "
-                icon="x"
-            />
-        </x-base.input-group.text>
-    </x-base.input-group>
-    @error('CC_verified_at')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
+{{--<!-- Cc Verified At Field -->--}}
+{{--<div class="mb-3">--}}
+{{--    <x-base.form-label for="CC_verified_at">{{ $citizen->getAttributeLabel('CC_verified_at') }}</x-base.form-label>--}}
+{{--    <x-base.input-group--}}
+{{--        class="flatpickr"--}}
+{{--        data-wrap="true"--}}
+{{--        data-enable-time="false"--}}
+{{--        data-date-format='Y-m-d'--}}
+{{--        data-time_24hr='true'--}}
+{{--        data-minute-increment='1'--}}
+{{--        inputGroup--}}
+{{--    >--}}
+{{--        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>--}}
+{{--            <x-base.lucide--}}
+{{--                class="h-5 w-5"--}}
+{{--                icon="Calendar"--}}
+{{--            />--}}
+{{--        </x-base.input-group.text>--}}
+{{--        <x-base.flatpickr--}}
+{{--            class="{{ ($errors->has('CC_verified_at') ? 'border-danger' : '') }} [&[readonly]]:bg-white"--}}
+{{--            id="CC_verified_at"--}}
+{{--            name="CC_verified_at"--}}
+{{--            :value="old('CC_verified_at', $citizen->CC_verified_at ?? '')"--}}
+{{--            data-input--}}
+{{--        />--}}
+{{--        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>--}}
+{{--            <x-base.lucide--}}
+{{--                class="h-5 w-5 "--}}
+{{--                icon="x"--}}
+{{--            />--}}
+{{--        </x-base.input-group.text>--}}
+{{--    </x-base.input-group>--}}
+{{--    @error('CC_verified_at')--}}
+{{--        <div class="mt-2 text-danger">{{ $message }}</div>--}}
+{{--    @enderror--}}
+{{--</div>--}}
 
 <!-- Cc Verified Field -->
 <div class="mb-3">

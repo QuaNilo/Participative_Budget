@@ -16,19 +16,19 @@
                         icon="edit"
                     /> {{ __('Update') }}
             </x-base.button>
-            <x-base.button
-                class="shadow-md sm:ml-0"
-                variant="danger"
-                data-tw-toggle="modal"
-                data-tw-target="#delete-modal"
-                href="#"
-                as="a"
-            >
-                <x-base.lucide
-                    class="mr-2 h-4 w-4"
-                    icon="trash"
-                /> {{ __('Delete') }}
-            </x-base.button>
+{{--            <x-base.button--}}
+{{--                class="shadow-md sm:ml-0"--}}
+{{--                variant="danger"--}}
+{{--                data-tw-toggle="modal"--}}
+{{--                data-tw-target="#delete-modal"--}}
+{{--                href="#"--}}
+{{--                as="a"--}}
+{{--            >--}}
+{{--                <x-base.lucide--}}
+{{--                    class="mr-2 h-4 w-4"--}}
+{{--                    icon="trash"--}}
+{{--                /> {{ __('Delete') }}--}}
+{{--            </x-base.button>--}}
             <x-base.dialog id="delete-modal" x-data>
                 <x-base.dialog.panel>
                     <div class="p-5 text-center">

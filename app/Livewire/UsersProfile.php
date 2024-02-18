@@ -27,7 +27,7 @@ class UsersProfile extends Component
 
     public function mount()
     {
-        $this->tab = 'details';
+        $this->tab = 'dashboard';
     }
 
     public function setActiveTab($value)
