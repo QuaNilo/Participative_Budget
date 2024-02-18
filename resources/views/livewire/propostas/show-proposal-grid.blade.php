@@ -20,7 +20,7 @@
                                     <div class="relative">
                                         <i class="uil uil-estate absolute top-[48%] -translate-y-1/2 start-3 z-1 text-white text-[20px]"></i>
                                         <select class=" bg-slate-800 hover:bg-slate-950 text-white pl-10" wire:model="category_selected">
-                                            <option>Escolha uma categoria</option>
+                                            <option value="{{false}}">Escolha uma categoria</option>
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
@@ -30,7 +30,7 @@
                                     <div class="relative ">
                                         <i class="uil uil-envelope-check absolute top-[48%] -translate-y-1/2 start-3 z-1 text-white text-[20px]"></i>
                                         <select class=" bg-slate-800 hover:bg-slate-950 text-white pl-10" wire:model="status_selected">
-                                            <option>Escolha um estado</option>
+                                            <option value="{{false}}">Escolha um estado</option>
                                             @foreach(\App\Models\Proposal::getStatusArray() as $statusId => $statusName)
                                                 <option value="{{$statusId}}">{{$statusName}}</option>
                                             @endforeach
@@ -55,7 +55,7 @@
                         <a href="{{ route('mapa', $edition->id) }}">MAPA
                         </a>
             </x-button>
-            @if($edition->status != 1)
+            @if(!in_array($edition->status, [0,1,2,3]))
                 <div class="relative">
 
                     <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 hover:bg-slate-950 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else text-amber-400 @endif  font-bold text-base mr-2"></i> Projectos Vencedores</button>

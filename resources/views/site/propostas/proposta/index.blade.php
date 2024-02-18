@@ -107,7 +107,7 @@
 
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
                                             <td class="font-semibold py-4">Orçamento</td>
-                                            <td class="text-slate-400 py-4">{{$proposal->budget_estimate ? : 'N/A' }}</td>
+                                            <td class="text-slate-400 py-4">{{$proposal->budget_estimate . ' €'? : 'N/A' }}</td>
                                         </tr>
                                         @if($proposal->url)
                                             <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">

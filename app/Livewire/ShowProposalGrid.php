@@ -30,7 +30,6 @@ class ShowProposalGrid extends Component
             ->where('edition_id', $this->edition_id)
             ->withCount('votes')
             ->paginate(9);
-        $this->status_selected = '*';
         $this->showWinners = false;
         $this->edition = Edition::find($this->edition_id);
 
@@ -54,10 +53,15 @@ class ShowProposalGrid extends Component
             ->paginate(9);
         }
     }
-    public function filter(): void
+    public function filter()
     {
-//        $this->validate($this->rules);
+        if(!$this->category_selected && !$this->status_selected)
+        {
+            return redirect()->route('propostas', ['id' => $this->edition_id]);
+        }
+
         $query = Proposal::with('user', 'category')
+            ->where('edition_id', $this->edition_id)
             ->withCount('votes');
 
         if(is_numeric($this->status_selected)){
@@ -84,10 +88,12 @@ class ShowProposalGrid extends Component
     public function render()
     {
         $proposals = $this->proposals;
-        $user_id = auth()->user()->id;
-        $user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
-            $query->where('id', $user_id);
-        })->where('edition_id', $this->edition_id)->count();
-        return view('livewire.propostas.show-proposal-grid', ['proposals' => $proposals, 'user_proposals_count' => $user_proposals_count, 'proposals_per_user' => $this->edition->proposals_per_user]);
+        if(auth()->user()){
+            $user_id = auth()->user()->id;
+            $user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
+                $query->where('id', $user_id);
+            })->where('edition_id', $this->edition_id)->count();
+        }
+        return view('livewire.propostas.show-proposal-grid', ['proposals' => $proposals, 'user_proposals_count' => $user_proposals_count ?? 0, 'proposals_per_user' => $this->edition->proposals_per_user]);
     }
 }
