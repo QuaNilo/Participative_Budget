@@ -55,26 +55,28 @@ class ShowProposalGrid extends Component
     }
     public function filter()
     {
-        if(!$this->category_selected && !$this->status_selected)
+        if(!$this->category_selected && !$this->status_selected && !$this->keywordsInput)
         {
             return redirect()->route('propostas', ['id' => $this->edition_id]);
         }
-
         $query = Proposal::with('user', 'category')
             ->where('edition_id', $this->edition_id)
             ->withCount('votes');
 
-        if(is_numeric($this->status_selected)){
+        if($this->status_selected){
+//            dd($this->status_selected);
             $query->where('status', $this->status_selected);
         }
 
-        if (is_numeric($this->category_selected)) {
+        if ($this->category_selected) {
+//            dd($this->category_selected);
             $query->whereHas('category', function ($categoryQuery) {
                 $categoryQuery->where('id', $this->category_selected);
             });
         }
 
         if (!empty($this->keywordsInput)) {
+//            dd($this->keywordsInput);
             $query->where(function ($keywordQuery) {
                 $keywordQuery->where('title', 'like', '%' . $this->keywordsInput . '%');
 //                    ->orWhere('summary', 'like', '%' . $this->keywordsInput . '%');
