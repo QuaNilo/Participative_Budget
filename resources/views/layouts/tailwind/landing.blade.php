@@ -52,7 +52,8 @@
             //'node_modules/tobii/dist/css/tobii.min.css',
             'node_modules/tiny-slider/dist/tiny-slider.css',
             'resources/tailwind-assets/scss/icons.scss',
-            'resources/tailwind-assets/scss/app.scss'
+            'resources/tailwind-assets/scss/app.scss',
+//            'resources/tailwind-assets/css/tailwind.css'
         ])
         @livewire('wire-elements-modal')
         <!-- Styles -->

@@ -151,7 +151,6 @@ class FilesUploadFE extends Component
     {
         //add the removed file to a collection of removed files
         $removedPreviousFile = $this->previousFiles->where('id', $id)->first();
-        dd($removedPreviousFile);
         $this->removedPreviousFiles->add($removedPreviousFile);
         //remove the removed file from the previousFiles collection
         $this->previousFiles =  $this->previousFiles->filter(function ($file) use ($id) {

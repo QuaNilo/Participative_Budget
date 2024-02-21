@@ -41,7 +41,6 @@ class FilesUpload extends Component
     public function save() : void
     {
         // Handle file saving or processing here...
-        //dd('aqui');
         //$this->photo->store('photos');
     }
 

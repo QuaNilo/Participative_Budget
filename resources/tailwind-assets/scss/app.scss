@@ -68,3 +68,38 @@
     }
 }
 
+.registration-form .submit-btn{
+  border-radius: 0.5rem;
+}
+.registration-form .form-input,
+.registration-form .choices[data-type*=select-one] .choices__inner{
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .registration-form .choices[data-type*=select-one] .choices__inner{
+    border-radius: 0px;
+  }
+}
+
+
+.filter-input-box,
+.filter-input-box.form-select,
+.filter-search-form .choices__inner{
+  height: 60px;
+  border-radius: 0px;
+  border-width: 0px;
+  padding-top: 13px;
+  -webkit-padding-end: 6px;
+          padding-inline-end: 6px;
+  padding-bottom: 15px;
+  -webkit-padding-start: 45px;
+          padding-inline-start: 45px;
+  font-size: 15px;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+          box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+
