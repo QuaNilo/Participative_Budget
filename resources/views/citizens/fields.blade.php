@@ -144,29 +144,25 @@
     @enderror
 </div>
 
-<!-- Pending Approval Field -->
-{{--<div class="mb-3">--}}
-{{--    <x-base.form-input--}}
-{{--        id="pending_approval_hidden"--}}
-{{--        name="pending_approval"--}}
-{{--        :value="0"--}}
-{{--        type="hidden"--}}
-{{--    />--}}
-{{--    <x-base.form-check>--}}
-{{--        <x-base.form-check.input--}}
-{{--            class="{{ ($errors->has('pending_approval') ? 'border-danger' : '') }}"--}}
-{{--            id="pending_approval"--}}
-{{--            name="pending_approval"--}}
-{{--            :value="1"--}}
-{{--            :checked="old('pending_approval', $citizen->pending_approval ?? '') == 1"--}}
-{{--            type="checkbox"--}}
-{{--        />--}}
-{{--        <x-base.form-check.label for="pending_approval">{{ $citizen->getAttributeLabel('pending_approval') }}</x-base.form-check.label>--}}
-{{--    </x-base.form-check>--}}
-{{--    @error('pending_approval')--}}
-{{--        <div class="mt-2 text-danger">{{ $message }}</div>--}}
-{{--    @enderror--}}
-{{--</div>--}}
+<!-- Pending Status Field -->
+<div class="mb-3">
+    <x-base.form-label for="pending_status">{{ $citizen->getAttributeLabel('pending_status') }}</x-base.form-label>
+    <x-base.form-select
+        class="w-full {{ ($errors->has('pending_status') ? 'border-danger' : '') }}"
+        id="pending_status"
+        name="pending_status"
+        :value="old('pending_status', $citizen->pending_status ?? '')"
+        type="text"
+    >
+        <option >{{ __('Select an option') }}</option>
+        @foreach(\App\Models\Citizen::getPendingStatusArray() as $key => $label)
+        <option value="{{ $key }}" {{ old('pending_status', $citizen->pending_status ?? '') == $key ? 'selected' : '' }}>{{ $label }}</option>
+        @endforeach
+    </x-base.form-select>
+    @error('pending_status')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
 
 <!-- Address Field -->
 <div class="mb-3">

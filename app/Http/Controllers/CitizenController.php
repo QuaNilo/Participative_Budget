@@ -18,7 +18,6 @@ class CitizenController extends Controller
         return view('citizens.index');
     }
 
-
     /**
      * Show the form for creating a new Citizen.
      */

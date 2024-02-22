@@ -21,7 +21,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property \Illuminate\Support\Carbon|null $CC_verified_at
  * @property bool $CC_verified
  * @property bool $address_verified
- * @property bool $pending_approval
+ * @property int $pending_status
  * @property string|null $address
  * @property string|null $localidade
  * @property string|null $freguesia
@@ -32,6 +32,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
+ * @property-read string $status_label
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\CitizenFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen newModelQuery()
@@ -49,14 +50,14 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereLocalidade($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereOccupation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Citizen wherePendingApproval($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen wherePendingStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereTelemovel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUserId($value)
  * @mixin \Eloquent
  */
-class Citizen extends Model implements Auditable, HasMedia
+class Citizen extends Model implements Auditable
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
@@ -78,7 +79,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at',
         'CC_verified',
         'address_verified',
-        'pending_approval',
+        'pending_status',
         'address',
         'localidade',
         'freguesia',
@@ -94,7 +95,6 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at' => 'datetime',
         'CC_verified' => 'boolean',
         'address_verified' => 'boolean',
-        'pending_approval' => 'boolean',
         'address' => 'string',
         'localidade' => 'string',
         'freguesia' => 'string',
@@ -113,7 +113,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at' => 'nullable',
         'CC_verified' => 'required|boolean',
         'address_verified' => 'required|boolean',
-        'pending_approval' => 'required|boolean',
+        'pending_status' => 'required',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
         'freguesia' => 'nullable|string|max:255',
@@ -141,7 +141,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at' => __('Cc Verified At'),
         'CC_verified' => __('Cc Verified'),
         'address_verified' => __('Address Verified'),
-        'pending_approval' => __('Pending Approval'),
+        'pending_status' => __('Pending Status'),
         'address' => __('Address'),
         'localidade' => __('Localidade'),
         'freguesia' => __('Freguesia'),

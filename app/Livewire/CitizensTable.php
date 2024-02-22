@@ -30,13 +30,13 @@ class CitizensTable extends Component implements HasForms, HasTable
         return $table
             ->query(Citizen::query())
             ->columns([
-                TextColumn::make("user.name")
-                ->label(__("User Name"))
+                TextColumn::make("user_id")
+                ->label($newModel->getAttributeLabel("user_id"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
             TextColumn::make("CC")
-                ->label(__('Citizen Card'))
+                ->label($newModel->getAttributeLabel("CC"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -63,6 +63,12 @@ class CitizensTable extends Component implements HasForms, HasTable
                 ->searchable(),
             TextColumn::make("address_verified")
                 ->label($newModel->getAttributeLabel("address_verified"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("pending_status")
+                ->label($newModel->getAttributeLabel("pending_status"))
+                ->formatStateUsing(fn (Citizen $record): string => $record->statusLabel)
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
