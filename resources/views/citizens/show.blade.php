@@ -29,35 +29,71 @@
 {{--                    icon="trash"--}}
 {{--                /> {{ __('Delete') }}--}}
 {{--            </x-base.button>--}}
-            <form action="{{ route('approve-citizen', ['id' => $citizen->id]) }}" method="POST">
-            @csrf
-                <x-base.button
-                    class="shadow-md sm:ml-0 mr-2"
-                    variant="primary"
-                    type="submit"
-                    href="#"
-                >
-                    <x-base.lucide
-                        class="mr-2 h-4 w-4"
-                        icon="check"
-                    /> {{ __('Approve') }}
-                </x-base.button>
-            </form>
-            <form action="{{route('reject-citizen', ['id' => $citizen->id])}}" method="POST">
+            @if($citizen->address_verified === 3)
+                <form action="{{ route('approve-citizen', ['id' => $citizen->id]) }}" method="POST">
                 @csrf
-                <x-base.button
-                    class="shadow-md sm:ml-0"
-                    variant="primary"
-                    type="submit"
-                    href="#"
-                >
-                    <x-base.lucide
-                        class="mr-2 h-4 w-4"
-                        icon="trash"
-                    /> {{ __('Reject') }}
-                </x-base.button>
+                    <x-base.button
+                        class="shadow-md sm:ml-0 mr-2"
+                        variant="primary"
+                        type="submit"
+                        href="#"
+                    >
+                        <x-base.lucide
+                            class="mr-2 h-4 w-4"
+                            icon="check"
+                        /> {{ __('Approve Address') }}
+                    </x-base.button>
+                </form>
+                <form action="{{route('reject-citizen', ['id' => $citizen->id])}}" method="POST">
+                    @csrf
+                    <x-base.button
+                        class="shadow-md sm:ml-0"
+                        variant="primary"
+                        type="submit"
+                        href="#"
+                    >
+                        <x-base.lucide
+                            class="mr-2 h-4 w-4"
+                            icon="trash"
+                        /> {{ __('Reject Address') }}
+                    </x-base.button>
 
-            </form>
+                </form>
+
+            @endif
+
+            @if($citizen->CC_verified === 3)
+                <form action="{{ route('approve-citizen', ['id' => $citizen->id]) }}" method="POST">
+                @csrf
+                    <x-base.button
+                        class="shadow-md sm:ml-0 mr-2"
+                        variant="primary"
+                        type="submit"
+                        href="#"
+                    >
+                        <x-base.lucide
+                            class="mr-2 h-4 w-4"
+                            icon="check"
+                        /> {{ __('Approve Citizen Card') }}
+                    </x-base.button>
+                </form>
+                <form action="{{route('reject-citizen', ['id' => $citizen->id])}}" method="POST">
+                    @csrf
+                    <x-base.button
+                        class="shadow-md sm:ml-0"
+                        variant="primary"
+                        type="submit"
+                        href="#"
+                    >
+                        <x-base.lucide
+                            class="mr-2 h-4 w-4"
+                            icon="trash"
+                        /> {{ __('Reject Citizen Card') }}
+                    </x-base.button>
+
+                </form>
+
+            @endif
         </div>
     </div>
     <div class="intro-y box mt-3 p-5">

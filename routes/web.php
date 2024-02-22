@@ -95,8 +95,10 @@ Route::middleware([
 
     Route::resource('settings', App\Http\Controllers\SettingController::class);
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
-    Route::post('/approve-citizen/{id}', [CitizenPending::class, 'approve'])->name('approve-citizen');
-    Route::post('/reject-citizen/{id}', [CitizenPending::class, 'reject'])->name('reject-citizen');
+    Route::post('/approve-citizen/{id}', [CitizenPending::class, 'approve_cc'])->name('approve-citizen');
+    Route::post('/approve-address/{id}', [CitizenPending::class, 'approve_address'])->name('approve-address');
+    Route::post('/reject-citizen/{id}', [CitizenPending::class, 'reject_cc'])->name('reject-citizen');
+    Route::post('/reject-address/{id}', [CitizenPending::class, 'reject_address'])->name('reject-address');
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
