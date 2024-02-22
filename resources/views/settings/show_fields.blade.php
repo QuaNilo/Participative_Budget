@@ -1,21 +1,3 @@
-<!-- Validate Cc Field -->
-<div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $setting->getAttributeLabel('validate_cc') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $setting->validate_cc }}</dd>
-</div>
-<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
-
-
-
-<!-- Validate Address Field -->
-<div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $setting->getAttributeLabel('validate_address') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $setting->validate_address }}</dd>
-</div>
-<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
-
-
-
 <!-- Require Cc Vote Create Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $setting->getAttributeLabel('require_cc_vote_create') }}</dt>
@@ -110,6 +92,24 @@
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $setting->getAttributeLabel('youtube') }}</dt>
     <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $setting->youtube }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Website Cm Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $setting->getAttributeLabel('website_cm') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $setting->website_cm }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
+
+
+<!-- Telephone Cm Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $setting->getAttributeLabel('telephone_cm') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $setting->telephone_cm }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 

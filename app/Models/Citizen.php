@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
 use OwenIt\Auditing\Contracts\Auditable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -21,6 +21,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property \Illuminate\Support\Carbon|null $CC_verified_at
  * @property bool $CC_verified
  * @property bool $address_verified
+ * @property bool $pending_approval
  * @property string|null $address
  * @property string|null $localidade
  * @property string|null $freguesia
@@ -48,6 +49,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereLocalidade($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereOccupation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen wherePendingApproval($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereTelemovel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUpdatedAt($value)
@@ -61,6 +63,11 @@ class Citizen extends Model implements Auditable, HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+
+    const PENDING_STATUS_APPROVED = 0;
+    const PENDING_STATUS = 1;
+    const PENDING_STATUS_REJECTED = 2;
+
     public $table = 'citizens';
 
     public $fillable = [
@@ -71,6 +78,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at',
         'CC_verified',
         'address_verified',
+        'pending_approval',
         'address',
         'localidade',
         'freguesia',
@@ -86,6 +94,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at' => 'datetime',
         'CC_verified' => 'boolean',
         'address_verified' => 'boolean',
+        'pending_approval' => 'boolean',
         'address' => 'string',
         'localidade' => 'string',
         'freguesia' => 'string',
@@ -104,6 +113,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at' => 'nullable',
         'CC_verified' => 'required|boolean',
         'address_verified' => 'required|boolean',
+        'pending_approval' => 'required|boolean',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
         'freguesia' => 'nullable|string|max:255',
@@ -131,6 +141,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC_verified_at' => __('Cc Verified At'),
         'CC_verified' => __('Cc Verified'),
         'address_verified' => __('Address Verified'),
+        'pending_approval' => __('Pending Approval'),
         'address' => __('Address'),
         'localidade' => __('Localidade'),
         'freguesia' => __('Freguesia'),
@@ -140,6 +151,27 @@ class Citizen extends Model implements Auditable, HasMedia
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')
         ];
+    }
+
+
+    public static function getStatusArray() : array
+    {
+        return [
+            self::PENDING_STATUS =>  __('Pendente'),
+            self::PENDING_STATUS_APPROVED =>  __('Aprovado'),
+            self::PENDING_STATUS_REJECTED =>  __('Rejeitado'),
+
+        ];
+    }
+
+    /**
+    * Return the status label
+    * @return string
+    */
+    public function getStatusLabelAttribute() : string
+    {
+        $array = static::getStatusArray();
+        return $array[$this->status] ?? "";
     }
 
     /**

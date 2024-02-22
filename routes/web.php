@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalendarPage;
+use App\Http\Controllers\CitizenPending;
 use App\Http\Controllers\ColorSchemeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DarkModeController;
@@ -94,7 +95,8 @@ Route::middleware([
 
     Route::resource('settings', App\Http\Controllers\SettingController::class);
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
-
+    Route::post('/approve-citizen/{id}', [CitizenPending::class, 'approve'])->name('approve-citizen');
+    Route::post('/reject-citizen/{id}', [CitizenPending::class, 'reject'])->name('reject-citizen');
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
@@ -103,6 +105,7 @@ Route::middleware([
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
     Route::resource('regulations', App\Http\Controllers\RegulationController::class);
+
 });
 
 

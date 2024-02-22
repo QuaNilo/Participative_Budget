@@ -216,10 +216,10 @@ Breadcrumbs::for('calendar-dynamics.edit', function (BreadcrumbTrail $trail, $mo
 
 
 
-// Home > Calendar
+// Home > Citizens
 Breadcrumbs::for('citizens.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Calendars'), route('calendar-dynamics.index'));
+    $trail->push(__('Citizens'), route('calendar-dynamics.index'));
 });
 Breadcrumbs::for('citizens.create', function (BreadcrumbTrail $trail) {
     $trail->parent('citizens.index');

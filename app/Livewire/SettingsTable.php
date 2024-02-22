@@ -30,19 +30,7 @@ class SettingsTable extends Component implements HasForms, HasTable
         return $table
             ->query(Setting::query())
             ->columns([
-                TextColumn::make("validate_cc")
-                ->label($newModel->getAttributeLabel("validate_cc"))
-                ->dateTime()
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("validate_address")
-                ->label($newModel->getAttributeLabel("validate_address"))
-                ->dateTime()
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("require_cc_vote_create")
+                TextColumn::make("require_cc_vote_create")
                 ->label($newModel->getAttributeLabel("require_cc_vote_create"))
                 ->sortable()
                 ->toggleable()
@@ -94,6 +82,16 @@ class SettingsTable extends Component implements HasForms, HasTable
                 ->searchable(),
             TextColumn::make("youtube")
                 ->label($newModel->getAttributeLabel("youtube"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("website_cm")
+                ->label($newModel->getAttributeLabel("website_cm"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("telephone_cm")
+                ->label($newModel->getAttributeLabel("telephone_cm"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

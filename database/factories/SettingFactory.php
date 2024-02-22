@@ -24,19 +24,19 @@ class SettingFactory extends Factory
     {
 
         return [
-            'validate_cc' => $this->faker->boolean,
-            'validate_address' => $this->faker->boolean,
             'require_cc_vote_create' => $this->faker->boolean,
             'require_address_vote_create' => $this->faker->boolean,
             'allow_change_lang' => $this->faker->boolean,
-            'map_lat' => $this->faker->numberBetween(5, 255),
-            'map_lng' => $this->faker->numberBetween(5, 255),
+            'map_lat' => $this->faker->latitude,
+            'map_lng' => $this->faker->longitude,
             'email_cm' => $this->faker->email,
             'facebook' => $this->faker->url(),
             'instagram' => $this->faker->url(),
             'twitter' => $this->faker->url(),
             'linkedin' => $this->faker->url(),
             'youtube' => $this->faker->url(),
+            'website_cm' => $this->faker->url(),
+            'telephone_cm' => $this->faker->numerify('0##########'),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

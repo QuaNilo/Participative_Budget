@@ -124,6 +124,12 @@ class   MenuComposer
                             'params' => [],
                             'title' => __('List Citizens')
                         ],
+                        'citizens-pending.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'citizens.show',
+                            'params' => ["pending"],
+                            'title' => __('List Pending Citizens')
+                        ],
 //                        'citizen.create' => [
 //                            'icon' => 'plus-circle',
 //                            'route_name' => 'citizens.create',

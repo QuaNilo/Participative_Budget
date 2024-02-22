@@ -18,6 +18,7 @@ class CitizenController extends Controller
         return view('citizens.index');
     }
 
+
     /**
      * Show the form for creating a new Citizen.
      */
@@ -51,6 +52,10 @@ class CitizenController extends Controller
      */
     public function show($id)
     {
+        if($id === 'pending')
+        {
+
+        }
         /** @var Citizen $citizen */
         $citizen = Citizen::find($id);
 

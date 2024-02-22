@@ -1,51 +1,3 @@
-<!-- Validate Cc Field -->
-<div class="mb-3">
-    <x-base.form-input
-        id="validate_cc_hidden"
-        name="validate_cc"
-        :value="0"
-        type="hidden"
-    />
-    <x-base.form-check>
-        <x-base.form-check.input
-            class="{{ ($errors->has('validate_cc') ? 'border-danger' : '') }}"
-            id="validate_cc"
-            name="validate_cc"
-            :value="1"
-            :checked="old('validate_cc', $setting->validate_cc ?? '') == 1"
-            type="checkbox"
-        />
-        <x-base.form-check.label for="validate_cc">{{ $setting->getAttributeLabel('validate_cc') }}</x-base.form-check.label>
-    </x-base.form-check>
-    @error('validate_cc')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
-<!-- Validate Address Field -->
-<div class="mb-3">
-    <x-base.form-input
-        id="validate_address_hidden"
-        name="validate_address"
-        :value="0"
-        type="hidden"
-    />
-    <x-base.form-check>
-        <x-base.form-check.input
-            class="{{ ($errors->has('validate_address') ? 'border-danger' : '') }}"
-            id="validate_address"
-            name="validate_address"
-            :value="1"
-            :checked="old('validate_address', $setting->validate_address ?? '') == 1"
-            type="checkbox"
-        />
-        <x-base.form-check.label for="validate_address">{{ $setting->getAttributeLabel('validate_address') }}</x-base.form-check.label>
-    </x-base.form-check>
-    @error('validate_address')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
 <!-- Require Cc Vote Create Field -->
 <div class="mb-3">
     <x-base.form-input
@@ -234,6 +186,36 @@
         type="text"
     />
     @error('youtube')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Website Cm Field -->
+<div class="mb-3">
+    <x-base.form-label for="website_cm">{{ $setting->getAttributeLabel('website_cm') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('website_cm') ? 'border-danger' : '') }}"
+        id="website_cm"
+        name="website_cm"
+        :value="old('website_cm', $setting->website_cm ?? '')"
+        type="text"
+    />
+    @error('website_cm')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Telephone Cm Field -->
+<div class="mb-3">
+    <x-base.form-label for="telephone_cm">{{ $setting->getAttributeLabel('telephone_cm') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('telephone_cm') ? 'border-danger' : '') }}"
+        id="telephone_cm"
+        name="telephone_cm"
+        :value="old('telephone_cm', $setting->telephone_cm ?? '')"
+        type="text"
+    />
+    @error('telephone_cm')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

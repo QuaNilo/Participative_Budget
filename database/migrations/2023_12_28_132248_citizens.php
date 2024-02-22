@@ -20,6 +20,7 @@ return new class extends Migration
                 $table->timestamp('CC_verified_at')->nullable();
                 $table->boolean('CC_verified')->default(0);
                 $table->boolean('address_verified')->default(0);
+                $table->boolean('pending_approval')->default(1);
                 $table->string('address')->nullable();
                 $table->string('localidade')->nullable();
                 $table->string('freguesia')->nullable();

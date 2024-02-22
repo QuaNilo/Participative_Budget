@@ -11,19 +11,19 @@ use OwenIt\Auditing\Contracts\Auditable;
  * App\Models\Setting
  *
  * @property int $id
- * @property bool $validate_cc
- * @property bool $validate_address
  * @property bool $require_cc_vote_create
  * @property bool $require_address_vote_create
  * @property bool $allow_change_lang
  * @property string $map_lat
  * @property string $map_lng
- * @property string $email_cm
- * @property string $facebook
- * @property string $instagram
- * @property string $twitter
- * @property string $linkedin
- * @property string $youtube
+ * @property string|null $email_cm
+ * @property string|null $facebook
+ * @property string|null $instagram
+ * @property string|null $twitter
+ * @property string|null $linkedin
+ * @property string|null $youtube
+ * @property string|null $website_cm
+ * @property string|null $telephone_cm
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
@@ -43,10 +43,10 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereMapLng($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereRequireAddressVoteCreate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereRequireCcVoteCreate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereTelephoneCm($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereTwitter($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Setting whereValidateAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Setting whereValidateCc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Setting whereWebsiteCm($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereYoutube($value)
  * @mixin \Eloquent
  */
@@ -59,8 +59,6 @@ class Setting extends Model implements Auditable
     public $table = 'settings';
 
     public $fillable = [
-        'validate_cc',
-        'validate_address',
         'require_cc_vote_create',
         'require_address_vote_create',
         'allow_change_lang',
@@ -71,12 +69,12 @@ class Setting extends Model implements Auditable
         'instagram',
         'twitter',
         'linkedin',
-        'youtube'
+        'youtube',
+        'website_cm',
+        'telephone_cm'
     ];
 
     protected $casts = [
-        'validate_cc' => 'boolean',
-        'validate_address' => 'boolean',
         'require_cc_vote_create' => 'boolean',
         'require_address_vote_create' => 'boolean',
         'allow_change_lang' => 'boolean',
@@ -87,25 +85,27 @@ class Setting extends Model implements Auditable
         'instagram' => 'string',
         'twitter' => 'string',
         'linkedin' => 'string',
-        'youtube' => 'string'
+        'youtube' => 'string',
+        'website_cm' => 'string',
+        'telephone_cm' => 'string'
     ];
 
     public static function rules(): array
     {
         return [
-            'validate_cc' => 'required|boolean',
-        'validate_address' => 'required|boolean',
-        'require_cc_vote_create' => 'required|boolean',
+            'require_cc_vote_create' => 'required|boolean',
         'require_address_vote_create' => 'required|boolean',
         'allow_change_lang' => 'required|boolean',
         'map_lat' => 'required|string|max:255',
         'map_lng' => 'required|string|max:255',
-        'email_cm' => 'required|string|max:255',
-        'facebook' => 'required|string|max:255',
-        'instagram' => 'required|string|max:255',
-        'twitter' => 'required|string|max:255',
-        'linkedin' => 'required|string|max:255',
-        'youtube' => 'required|string|max:255',
+        'email_cm' => 'nullable|string|max:255',
+        'facebook' => 'nullable|string|max:255',
+        'instagram' => 'nullable|string|max:255',
+        'twitter' => 'nullable|string|max:255',
+        'linkedin' => 'nullable|string|max:255',
+        'youtube' => 'nullable|string|max:255',
+        'website_cm' => 'nullable|string|max:255',
+        'telephone_cm' => 'nullable|string|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
         ];
@@ -120,19 +120,19 @@ class Setting extends Model implements Auditable
     {
         return [
             'id' => __('Id'),
-        'validate_cc' => __('Validate Cc'),
-        'validate_address' => __('Validate Address'),
-        'require_cc_vote_create' => __('Require Cc Vote Create'),
-        'require_address_vote_create' => __('Require Address Vote Create'),
-        'allow_change_lang' => __('Allow Change Lang'),
-        'map_lat' => __('Map Lat'),
-        'map_lng' => __('Map Lng'),
-        'email_cm' => __('Email Cm'),
+        'require_cc_vote_create' => __('Require Validated ID to Vote&Create'),
+        'require_address_vote_create' => __('Require Validated Address to Vote&Create'),
+        'allow_change_lang' => __('Allow Toggle of Language'),
+        'map_lat' => __('Map Latitude'),
+        'map_lng' => __('Map Longitude'),
+        'email_cm' => __('Email Town Hall'),
         'facebook' => __('Facebook'),
         'instagram' => __('Instagram'),
         'twitter' => __('Twitter'),
         'linkedin' => __('Linkedin'),
         'youtube' => __('Youtube'),
+        'website_cm' => __('Website Town Hall'),
+        'telephone_cm' => __('Telephone Town Hall'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')
         ];
@@ -149,7 +149,7 @@ class Setting extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
-    
+
 
 
 }

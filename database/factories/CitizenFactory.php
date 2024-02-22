@@ -33,6 +33,7 @@ class CitizenFactory extends Factory
             'CC_verified_at' => $this->faker->date('Y-m-d H:i:s'),
             'CC_verified' => $this->faker->boolean,
             'address_verified' => $this->faker->boolean,
+            'pending_approval' => $this->faker->boolean,
             'address' => $this->faker->address(),
             'localidade' => $this->faker->city(),
             'freguesia' => $this->faker->city(),

@@ -29,42 +29,34 @@
 {{--                    icon="trash"--}}
 {{--                /> {{ __('Delete') }}--}}
 {{--            </x-base.button>--}}
-            <x-base.dialog id="delete-modal" x-data>
-                <x-base.dialog.panel>
-                    <div class="p-5 text-center">
-                        <x-base.lucide
-                            class="mx-auto mt-3 h-16 w-16 text-danger"
-                            icon="XCircle"
-                        />
-                        <div class="mt-5 text-3xl">{{ __('Are you sure?') }}</div>
-                        <div class="mt-2 text-slate-500">
-                            {{ __('Do you really want to delete these records?') }} <br />
-                            {{ __('This process cannot be undone.') }}
-                        </div>
-                    </div>
-                    <div class="px-5 pb-8 text-center">
-                        <x-base.button
-                            class="mr-1 w-24"
-                            data-tw-dismiss="modal"
-                            type="button"
-                            variant="outline-secondary"
-                        >
-                            {{ __('Cancel') }}
-                        </x-base.button>
-                        <x-base.button
-                            class="w-24"
-                            type="button"
-                            variant="danger"
-                            @click="document.getElementById('delete-record-form').submit()"
-                        >
-                            {{ __('Delete') }}
-                        </x-base.button>
-                    </div>
-                </x-base.dialog.panel>
-            </x-base.dialog>
-            <form method="POST" action="{{ route('citizens.destroy', $citizen) }}" id="delete-record-form">
+            <form action="{{ route('approve-citizen', ['id' => $citizen->id]) }}" method="POST">
+            @csrf
+                <x-base.button
+                    class="shadow-md sm:ml-0 mr-2"
+                    variant="primary"
+                    type="submit"
+                    href="#"
+                >
+                    <x-base.lucide
+                        class="mr-2 h-4 w-4"
+                        icon="check"
+                    /> {{ __('Approve') }}
+                </x-base.button>
+            </form>
+            <form action="{{route('reject-citizen', ['id' => $citizen->id])}}" method="POST">
                 @csrf
-                @method('DELETE')
+                <x-base.button
+                    class="shadow-md sm:ml-0"
+                    variant="primary"
+                    type="submit"
+                    href="#"
+                >
+                    <x-base.lucide
+                        class="mr-2 h-4 w-4"
+                        icon="trash"
+                    /> {{ __('Reject') }}
+                </x-base.button>
+
             </form>
         </div>
     </div>

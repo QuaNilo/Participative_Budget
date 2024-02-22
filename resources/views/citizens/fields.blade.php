@@ -59,42 +59,42 @@
     @enderror
 </div>
 
-{{--<!-- Cc Verified At Field -->--}}
-{{--<div class="mb-3">--}}
-{{--    <x-base.form-label for="CC_verified_at">{{ $citizen->getAttributeLabel('CC_verified_at') }}</x-base.form-label>--}}
-{{--    <x-base.input-group--}}
-{{--        class="flatpickr"--}}
-{{--        data-wrap="true"--}}
-{{--        data-enable-time="false"--}}
-{{--        data-date-format='Y-m-d'--}}
-{{--        data-time_24hr='true'--}}
-{{--        data-minute-increment='1'--}}
-{{--        inputGroup--}}
-{{--    >--}}
-{{--        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>--}}
-{{--            <x-base.lucide--}}
-{{--                class="h-5 w-5"--}}
-{{--                icon="Calendar"--}}
-{{--            />--}}
-{{--        </x-base.input-group.text>--}}
-{{--        <x-base.flatpickr--}}
-{{--            class="{{ ($errors->has('CC_verified_at') ? 'border-danger' : '') }} [&[readonly]]:bg-white"--}}
-{{--            id="CC_verified_at"--}}
-{{--            name="CC_verified_at"--}}
-{{--            :value="old('CC_verified_at', $citizen->CC_verified_at ?? '')"--}}
-{{--            data-input--}}
-{{--        />--}}
-{{--        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>--}}
-{{--            <x-base.lucide--}}
-{{--                class="h-5 w-5 "--}}
-{{--                icon="x"--}}
-{{--            />--}}
-{{--        </x-base.input-group.text>--}}
-{{--    </x-base.input-group>--}}
-{{--    @error('CC_verified_at')--}}
-{{--        <div class="mt-2 text-danger">{{ $message }}</div>--}}
-{{--    @enderror--}}
-{{--</div>--}}
+<!-- Cc Verified At Field -->
+<div class="mb-3">
+    <x-base.form-label for="CC_verified_at">{{ $citizen->getAttributeLabel('CC_verified_at') }}</x-base.form-label>
+    <x-base.input-group
+        class="flatpickr"
+        data-wrap="true"
+        data-enable-time="false"
+        data-date-format='Y-m-d'
+        data-time_24hr='true'
+        data-minute-increment='1'
+        inputGroup
+    >
+        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>
+            <x-base.lucide
+                class="h-5 w-5"
+                icon="Calendar"
+            />
+        </x-base.input-group.text>
+        <x-base.flatpickr
+            class="{{ ($errors->has('CC_verified_at') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
+            id="CC_verified_at"
+            name="CC_verified_at"
+            :value="old('CC_verified_at', $citizen->CC_verified_at ?? '')"
+            data-input
+        />
+        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
+            <x-base.lucide
+                class="h-5 w-5 "
+                icon="x"
+            />
+        </x-base.input-group.text>
+    </x-base.input-group>
+    @error('CC_verified_at')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
 
 <!-- Cc Verified Field -->
 <div class="mb-3">
@@ -134,7 +134,7 @@
             id="address_verified"
             name="address_verified"
             :value="1"
-            :checked="old('address_verified', $citizen->address_verified ?? '0') == 1"
+            :checked="old('address_verified', $citizen->address_verified ?? '') == 1"
             type="checkbox"
         />
         <x-base.form-check.label for="address_verified">{{ $citizen->getAttributeLabel('address_verified') }}</x-base.form-check.label>
@@ -143,6 +143,30 @@
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
+
+<!-- Pending Approval Field -->
+{{--<div class="mb-3">--}}
+{{--    <x-base.form-input--}}
+{{--        id="pending_approval_hidden"--}}
+{{--        name="pending_approval"--}}
+{{--        :value="0"--}}
+{{--        type="hidden"--}}
+{{--    />--}}
+{{--    <x-base.form-check>--}}
+{{--        <x-base.form-check.input--}}
+{{--            class="{{ ($errors->has('pending_approval') ? 'border-danger' : '') }}"--}}
+{{--            id="pending_approval"--}}
+{{--            name="pending_approval"--}}
+{{--            :value="1"--}}
+{{--            :checked="old('pending_approval', $citizen->pending_approval ?? '') == 1"--}}
+{{--            type="checkbox"--}}
+{{--        />--}}
+{{--        <x-base.form-check.label for="pending_approval">{{ $citizen->getAttributeLabel('pending_approval') }}</x-base.form-check.label>--}}
+{{--    </x-base.form-check>--}}
+{{--    @error('pending_approval')--}}
+{{--        <div class="mt-2 text-danger">{{ $message }}</div>--}}
+{{--    @enderror--}}
+{{--</div>--}}
 
 <!-- Address Field -->
 <div class="mb-3">
