@@ -19,9 +19,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string|null $occupation
  * @property string|null $description
  * @property \Illuminate\Support\Carbon|null $CC_verified_at
- * @property bool $CC_verified
- * @property bool $address_verified
- * @property int $pending_status
+ * @property int $CC_verified
+ * @property int $address_verified
+ * @property \Illuminate\Support\Carbon $address_verified_at
  * @property string|null $address
  * @property string|null $localidade
  * @property string|null $freguesia
@@ -32,7 +32,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
- * @property-read string $status_label
  * @property-read \App\Models\User $user
  * @method static \Database\Factories\CitizenFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen newModelQuery()
@@ -40,6 +39,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen query()
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereAddressVerified($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereAddressVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCC($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCCVerified($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCCVerifiedAt($value)
@@ -50,14 +50,13 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereLocalidade($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereOccupation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Citizen wherePendingStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereTelemovel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereUserId($value)
  * @mixin \Eloquent
  */
-class Citizen extends Model implements Auditable
+class Citizen extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
@@ -79,7 +78,7 @@ class Citizen extends Model implements Auditable
         'CC_verified_at',
         'CC_verified',
         'address_verified',
-        'pending_status',
+        'address_verified_at',
         'address',
         'localidade',
         'freguesia',
@@ -93,8 +92,9 @@ class Citizen extends Model implements Auditable
         'occupation' => 'string',
         'description' => 'string',
         'CC_verified_at' => 'datetime',
-        'CC_verified' => 'boolean',
-        'address_verified' => 'boolean',
+        'CC_verified' => 'integer',
+        'address_verified' => 'integer',
+        'address_verified_at' => 'datetime',
         'address' => 'string',
         'localidade' => 'string',
         'freguesia' => 'string',
@@ -111,9 +111,9 @@ class Citizen extends Model implements Auditable
         'occupation' => 'nullable|string|max:255',
         'description' => 'nullable|string|max:255',
         'CC_verified_at' => 'nullable',
-        'CC_verified' => 'required|boolean',
-        'address_verified' => 'required|boolean',
-        'pending_status' => 'required',
+        'CC_verified' => 'required\numeric',
+        'address_verified' => 'required|numeric',
+        'address_verified_at' => 'required',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
         'freguesia' => 'nullable|string|max:255',
@@ -141,7 +141,7 @@ class Citizen extends Model implements Auditable
         'CC_verified_at' => __('Cc Verified At'),
         'CC_verified' => __('Cc Verified'),
         'address_verified' => __('Address Verified'),
-        'pending_status' => __('Pending Status'),
+        'address_verified_at' => __('Address Verified At'),
         'address' => __('Address'),
         'localidade' => __('Localidade'),
         'freguesia' => __('Freguesia'),

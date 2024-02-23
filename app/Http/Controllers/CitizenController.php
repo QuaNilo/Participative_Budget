@@ -51,10 +51,6 @@ class CitizenController extends Controller
      */
     public function show($id)
     {
-        if($id === 'pending')
-        {
-
-        }
         /** @var Citizen $citizen */
         $citizen = Citizen::find($id);
 

@@ -144,22 +144,39 @@
     @enderror
 </div>
 
-<!-- Pending Status Field -->
+<!-- Address Verified At Field -->
 <div class="mb-3">
-    <x-base.form-label for="pending_status">{{ $citizen->getAttributeLabel('pending_status') }}</x-base.form-label>
-    <x-base.form-select
-        class="w-full {{ ($errors->has('pending_status') ? 'border-danger' : '') }}"
-        id="pending_status"
-        name="pending_status"
-        :value="old('pending_status', $citizen->pending_status ?? '')"
-        type="text"
+    <x-base.form-label for="address_verified_at">{{ $citizen->getAttributeLabel('address_verified_at') }}</x-base.form-label>
+    <x-base.input-group
+        class="flatpickr"
+        data-wrap="true"
+        data-enable-time="false"
+        data-date-format='Y-m-d'
+        data-time_24hr='true'
+        data-minute-increment='1'
+        inputGroup
     >
-        <option >{{ __('Select an option') }}</option>
-        @foreach(\App\Models\Citizen::getPendingStatusArray() as $key => $label)
-        <option value="{{ $key }}" {{ old('pending_status', $citizen->pending_status ?? '') == $key ? 'selected' : '' }}>{{ $label }}</option>
-        @endforeach
-    </x-base.form-select>
-    @error('pending_status')
+        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>
+            <x-base.lucide
+                class="h-5 w-5"
+                icon="Calendar"
+            />
+        </x-base.input-group.text>
+        <x-base.flatpickr
+            class="{{ ($errors->has('address_verified_at') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
+            id="address_verified_at"
+            name="address_verified_at"
+            :value="old('address_verified_at', $citizen->address_verified_at ?? '')"
+            data-input
+        />
+        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
+            <x-base.lucide
+                class="h-5 w-5 "
+                icon="x"
+            />
+        </x-base.input-group.text>
+    </x-base.input-group>
+    @error('address_verified_at')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

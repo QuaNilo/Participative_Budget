@@ -193,6 +193,21 @@
                             </div>
 
 
+                            <div class="mb-3">
+                                <livewire:files-upload-f-e
+                                    inputName="files"
+                                    :isMultiple="true"
+                                    :isDocument="true"
+                                    maxFiles="10"
+                                    maxFileSize="10240"
+                                    :previousFiles="collect()"
+                                    :label="__('Upload Files')"
+                                    acceptedFileTypes="*/*"
+                                    :uploadFieldMainLabel="__('Upload files')"
+                                />
+                            </div>
+
+
                             @error('files') <span class="error">{{ $message }}</span> @enderror
                         </div>
 

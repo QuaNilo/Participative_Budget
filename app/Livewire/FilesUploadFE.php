@@ -29,6 +29,7 @@ class FilesUploadFE extends Component
     public $isMultiple = true;
     public $isCover = false;
     public $isCitizen = false;
+    public $isDocument = false;
     public $maxFiles = 10;
     public $maxFileSize = 10240; // 10MB in KB
     public $acceptedFileTypes = '*/*'; // "'image/*,application/pdf'";
@@ -116,6 +117,10 @@ class FilesUploadFE extends Component
         }
         else if($this->isCitizen) {
             $this->dispatch('update-files-citizen-card', $this->convertToArrayFiles());
+        }
+        elseif($this->isDocument)
+        {
+            $this->dispatch('update-files-documents', $this->convertToArrayFiles());
         }
         else{
             $this->dispatch('update-files', $this->convertToArrayFiles());
@@ -258,7 +263,24 @@ class FilesUploadFE extends Component
 
     private function collectionName()
     {
-        return $this->isCover ? 'cover' : ($this->isCitizen ? 'cc' : 'gallery');
+        $collectionName = "";
+        if ($this->isDocument)
+        {
+            $collectionName = 'document';
+        }
+        elseif ($this->isCover)
+        {
+            $collectionName = 'cover';
+        }
+        elseif ($this->isCitizen)
+        {
+            $collectionName = 'cc';
+        }
+        else
+        {
+            $collectionName = 'gallery';
+        }
+        return $collectionName;
     }
 
     protected function removeMediaHandling($id): void

@@ -1,13 +1,13 @@
 @props(['proposals', 'proposals_per_user', 'user_proposals_count'])
 <div>
-    <div class="mb-12">
+{{--    <div class="mb-12">--}}
 {{--        <h1 class="text-3xl "><span class="text-4xl font-medium text-black">{{$edition->identifier}}</span></h1>--}}
 {{--        <h2 class="my-4 text-base text-slate-800">{{$edition->title}}</h2>--}}
 {{--        <h3 class="my-4 text-base text-slate-800">{{$edition->description}}</h3>--}}
 {{--        <h1 class="text-xl mt-1"><span class="text-slate-600 text-base">{{__('Status')}} : </span><span class="text-xl font-medium text-black">{{$edition->status_label}}</span></h1>--}}
 {{--        <h1 class="text-xl mt-1"><span class="text-slate-600 text-base">{{__('Ano')}} : </span><span class="text-xl font-medium text-black">{{$edition->ano}}</span></h1>--}}
 
-    </div>
+{{--    </div>--}}
 
     <div class="flex items-center space-x-8">
 {{--                            <div class="lg:col-span-4 md:col-span-4 md:text-end">--}}
@@ -54,7 +54,7 @@
 {{--                                        </div>--}}
 {{--                                    </div><!--end grid-->--}}
 {{--                                </div><!--end container-->--}}
-        <div class="container relative">
+        <div class="container relative border-t-2 border-slate-100">
             <div class="grid grid-cols-1">
                 <div class="p-6 bg-white dark:bg-slate-900 rounded-md shadow-md dark:shadow-gray-800 gap-4">
                     <form wire:submit="filter">

@@ -167,17 +167,6 @@
                             <div class="mb-3" wire:ignore.self>
                                <livewire:files-upload-f-e
                                     inputName="files"
-                                    :isMultiple="true"
-                                    maxFiles="3"
-                                    maxFileSize="10240"
-                                    :previousFiles="$proposal->getMedia()"
-                                    :label="__('Upload Cover')"
-                                    acceptedFileTypes="image/*"
-                                    :uploadFieldMainLabel="__('Upload an image')"
-                               />
-
-                               <livewire:files-upload-f-e
-                                    inputName="files"
                                     :isMultiple="false"
                                     :isCover="true"
                                     maxFiles="3"
@@ -200,6 +189,21 @@
                                     acceptedFileTypes="image/*"
                                     :uploadFieldMainLabel="__('Upload an image')"
                                />
+                            </div>
+
+
+                            <div class="mb-3">
+                                <livewire:files-upload-f-e
+                                    inputName="file"
+                                    :isMultiple="true"
+                                    :isDocument="true"
+                                    maxFiles="10"
+                                    maxFileSize="10240"
+                                    :previousFiles="$proposal->getMedia('documents') ?? collect()"
+                                    :label="__('Upload Files')"
+                                    acceptedFileTypes="*/*"
+                                    :uploadFieldMainLabel="__('Upload files')"
+                                />
                             </div>
 
 

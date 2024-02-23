@@ -2,7 +2,7 @@
     @section('breadcrumbs')
         {{ Breadcrumbs::render('citizens.show', $citizen) }}
     @endsection
-    <div class="intro-y mt-8 flex flex-col items-center sm:flex-row">
+    <div class="intro-y mt-8 flex flex-col  space-x-3 items-center sm:flex-row">
         <h2 class="mr-auto text-lg font-medium">{{ __('Citizen Details') }}</h2>
         <div class="mt-4 flex w-full sm:mt-0 sm:w-auto">
             <x-base.button
@@ -30,7 +30,7 @@
 {{--                /> {{ __('Delete') }}--}}
 {{--            </x-base.button>--}}
             @if($citizen->address_verified === 3)
-                <form action="{{ route('approve-citizen', ['id' => $citizen->id]) }}" method="POST">
+                <form action="{{ route('approve-address', ['id' => $citizen->id]) }}" method="POST">
                 @csrf
                     <x-base.button
                         class="shadow-md sm:ml-0 mr-2"
@@ -44,7 +44,7 @@
                         /> {{ __('Approve Address') }}
                     </x-base.button>
                 </form>
-                <form action="{{route('reject-citizen', ['id' => $citizen->id])}}" method="POST">
+                <form action="{{route('reject-address', ['id' => $citizen->id])}}" method="POST">
                     @csrf
                     <x-base.button
                         class="shadow-md sm:ml-0"

@@ -31,7 +31,7 @@ class EditionFactory extends Factory
             'status' => $this->faker->numberBetween(0,4),
             'identifier' => $year_randomized,
             'edition_number' => $this->faker->unique()->numberBetween(1, 50),
-            'proposals_per_user' => $this->faker->boolean,
+            'proposals_per_user' => $this->faker->numberBetween(1,12),
             'title' => $this->faker->unique()->text($this->faker->numberBetween(5, 60)),
             'description' => $this->faker->unique()->text($this->faker->numberBetween(5, 255)),
             'ano' => $year_randomized

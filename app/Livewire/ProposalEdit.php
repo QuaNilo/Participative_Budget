@@ -29,6 +29,7 @@ class ProposalEdit extends Component
     public $proposal;
 
     public $receivedFiles;
+    public $receivedDocuments;
     public $receivedCover;
     public $photo;
     public $title;
@@ -107,6 +108,14 @@ class ProposalEdit extends Component
             }
         }
 
+        if (!empty($this->receivedDocuments['files'])) {
+                if (count($this->receivedDocuments['files']) > 1) {
+                    $this->fileUploadHandle('documents', $this->proposal, true);
+                } else {
+                    $this->fileUploadHandle('documents', $this->proposal, false);
+                }
+            }
+
         if(!empty($this->receivedCover['files']))
         {
             $this->fileUploadHandle('cover', $this->proposal, false);
@@ -134,7 +143,13 @@ class ProposalEdit extends Component
         }
     }
 
-
+    #[On('update-files-documents')]
+    public function onDocumentsUpdated($files): void
+    {
+        if (!empty($files['files'])) {
+            $this->receivedDocuments = $files;
+        }
+    }
 
     #[On('getCoordinates')]
     public function getCoordinates()
@@ -164,7 +179,14 @@ class ProposalEdit extends Component
                 ->usingName($this->receivedCover['files'][0]['originalName'])//get the media original name at the same index as the media item
                 ->toMediaCollection('cover');
         }
-        else{
+        elseif ($collection === 'documents')
+        {
+            $model->addMedia(storage_path("app/livewire-tmp/" . $this->receivedDocuments['files'][0]['filename']))
+                    ->usingName($this->receivedDocuments['files'][0]['originalName'])//get the media original name at the same index as the media item
+                    ->toMediaCollection($collection);
+        }
+        else
+        {
             if($isMultiple){
                 foreach($this->receivedFiles['files'] as $file ){
                     $model->addMedia(storage_path("app/livewire-tmp/" . $file['filename']))

@@ -90,7 +90,7 @@ class ProfileDetails extends Component
 
         // Validate and update citizen data
         $this->validate([
-            'cod_postal' => 'nullable|numeric|max:9999',
+            'cod_postal' => 'nullable|string',
             'freguesia' => 'nullable|string|max:60',
             'telemovel' => 'nullable|numeric',
             'CC' => 'required|string|max:255',
@@ -119,7 +119,7 @@ class ProfileDetails extends Component
             }
         }
 
-        if(Setting::first()->validate_cc && Setting::first()->require_cc_vote_create)
+        if(Setting::first()->require_cc_vote_create && empty($this->receivedCitizenCard['files']))
         {
             flash(__('Your ID will be required to vote and create proposals.'))->overlay()->warning()->duration(4000);
         }

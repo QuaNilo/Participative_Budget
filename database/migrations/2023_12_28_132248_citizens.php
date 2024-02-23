@@ -18,9 +18,9 @@ return new class extends Migration
                 $table->string('occupation')->nullable();
                 $table->string('description')->nullable();
                 $table->timestamp('CC_verified_at')->nullable();
-                $table->boolean('CC_verified')->default(3);
-                $table->boolean('address_verified')->default(3);
-                $table->timestamp('address_verified_at')->default(1);
+                $table->integer('CC_verified')->default(3);
+                $table->integer('address_verified')->default(3);
+                $table->timestamp('address_verified_at');
                 $table->string('address')->nullable();
                 $table->string('localidade')->nullable();
                 $table->string('freguesia')->nullable();

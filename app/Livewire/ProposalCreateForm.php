@@ -26,6 +26,7 @@ class ProposalCreateForm extends Component
     use WithFileUploads;
 
     public $receivedFiles;
+    public $receivedDocuments;
     public $receivedCover;
     public $photo;
     public $title;
@@ -68,6 +69,15 @@ class ProposalCreateForm extends Component
                     unset($this->receivedFiles['files'][$key]);
                 }
             }
+        }
+    }
+
+
+    #[On('update-files-documents')]
+    public function onDocumentsUpdated($files): void
+    {
+        if (!empty($files['files'])) {
+            $this->receivedDocuments = $files;
         }
     }
 
@@ -130,6 +140,14 @@ class ProposalCreateForm extends Component
                 $this->fileUploadHandle('cover', $proposal, false);
             }
 
+            if (!empty($this->receivedDocuments['files'])) {
+                if (count($this->receivedDocuments['files']) > 1) {
+                    $this->fileUploadHandle('documents', $proposal, true);
+                } else {
+                    $this->fileUploadHandle('documents', $proposal, false);
+                }
+            }
+
             flash(__('Saved successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
@@ -145,6 +163,20 @@ class ProposalCreateForm extends Component
             $model->addMedia(storage_path("app/livewire-tmp/" . $this->receivedCover['files'][0]['filename']))
                     ->usingName($this->receivedCover['files'][0]['originalName'])//get the media original name at the same index as the media item
                     ->toMediaCollection('cover');
+        }
+        elseif ($collection === 'documents')
+        {
+            if($isMultiple){
+                foreach($this->receivedDocuments['files'] as $file ){
+                    $model->addMedia(storage_path("app/livewire-tmp/" . $file['filename']))
+                        ->usingName($file['originalName'])//get the media original name at the same index as the media item
+                        ->toMediaCollection($collection);
+                }
+            }else{
+                $model->addMedia(storage_path("app/livewire-tmp/" . $this->receivedDocuments['files'][0]['filename']))
+                    ->usingName($this->receivedDocuments['files'][0]['originalName'])//get the media original name at the same index as the media item
+                    ->toMediaCollection($collection);
+            }
         }
         else{
             if($isMultiple){
