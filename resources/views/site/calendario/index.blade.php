@@ -4,8 +4,8 @@
         <section class="relative mx-32 px-32 md:py-24 py-16 dark:bg-slate-800">
             <div class="container relative">
                 <div class="grid grid-cols-1 pb-8 text-center">
-                    <h6 class="text-indigo-600 text-sm font-bold uppercase mb-2">Calendario</h6>
-                    <h3 class="md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Calendario Orçamento Participativo</h3>
+                    <h6 class="text-indigo-600 text-sm font-bold uppercase mb-2">{{__('Calendar')}}</h6>
+                    <h3 class="md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{{__("Participative Budget's Calendar")}}</h3>
 
                 </div><!--end grid-->
                 @if($calendars->isNotEmpty())
@@ -46,7 +46,7 @@
                         </div>
                     </div><!--end grid-->
                 @else
-                    <h1>No calendars found</h1>
+                    <h1>{{__('No Calendars Found')}}</h1>
                 @endif
             </div><!--end container-->
         </section><!--end section-->

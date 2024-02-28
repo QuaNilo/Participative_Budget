@@ -42,11 +42,11 @@
                 <div>
                     <div class="">
                         <dl class="grid grid-cols-12 mb-0">
-                            <dt class="md:col-span-4 col-span-5 mt-2">Autor :</dt>
+                            <dt class="md:col-span-4 col-span-5 mt-2">{{__('Author')}} :</dt>
                             <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${author}</dd>
-                            <dt class="md:col-span-4 col-span-5 mt-2">Category :</dt>
+                            <dt class="md:col-span-4 col-span-5 mt-2">{{__('Category')}} :</dt>
                             <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${category_name}</dd>
-                            <dt class="md:col-span-4 col-span-5 mt-2">Titulo :</dt>
+                            <dt class="md:col-span-4 col-span-5 mt-2">{{__('Title')}} :</dt>
                             <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${title}</dd>
                         </dl>
                     </div>

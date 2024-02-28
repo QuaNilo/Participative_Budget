@@ -15,13 +15,13 @@
                         </div>
 
                         <div>
-                            <h4 class="text-xl font-semibold mb-4">Indice</h4>
+                            <h4 class="text-xl font-semibold mb-4">{{__('Index')}}</h4>
                             <ul class="list-none mt-3">
                                 @foreach($regulation->chapters as $chapter)
                                     <li class="flex mt-2">
                                         <i class="mdi mdi-arrow-right"></i>
                                         <div class="ms-2">
-                                                <h6 class="font-semibold text-xl">Capitulo {{$chapter->title}}</h6>
+                                                <h6 class="font-semibold text-xl">{{__('Chapter')}} {{$chapter->title}}</h6>
                                                 <p class="text-slate-400">{{$chapter->subtitle}}</p>
                                                 <div  class="text-slate-800 text-base leading-8 text-sm mt-2">
                                                     @foreach($chapter->articles as $article)
@@ -36,7 +36,7 @@
                         </div>
                         @foreach($regulation->chapters as $chapter)
                             <div>
-                                <h4 class="text-4xl font-semibold mb-4">Capitulo {{$chapter->title}}</h4>
+                                <h4 class="text-4xl font-semibold mb-4">{{__('Chapter')}} {{$chapter->title}}</h4>
                                 <p class="text-slate-400">{{$chapter->description}}</p>
                                 @foreach($chapter->articles as $article)
                                     <div id="{{$article->id}}{{$article->chapter_id}}">
@@ -51,7 +51,7 @@
 
                     </div>
                 @else
-                    <h1>No regulation found</h1>
+                    <h1>{{__('No Regulation Found')}}</h1>
                 @endif
             </div><!--grid-->
         </section><!--end section-->

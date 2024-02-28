@@ -18,7 +18,7 @@
                 <ul class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center list-none text-slate-400">
                     <li class="flex items-center me-4">
                         <i class="uil uil-book-open text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
-                        <span>{{$proposal->votes_count}} Votes</span>
+                        <span>{{$proposal->votes_count}} {{__('Votes')}}</span>
                     </li>
                     <li class="flex items-center me-4">
                         <i class="uil uil-user text-lg leading-none me-2 text-slate-900 dark:text-white"></i>

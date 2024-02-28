@@ -69,7 +69,7 @@
                                 <div class="filter-search-form relative">
                                     <i class="uil uil-estate absolute top-[38%] left-[5%] -translate-y-1/2 start-1 text-indigo-600 text-[20px]"></i>
                                     <select class="w-full h-[60px] pl-14 border-0 pb-6 text-base text-start text-slate-400" wire:model="category_selected">
-                                        <option value="{{false}}">{{__('Escolha uma Categoria')}}</option>
+                                        <option value="{{false}}">{{__('Choose a Category')}}</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @endforeach
@@ -79,7 +79,7 @@
                                 <div class="filter-search-form relative">
                                     <i class="uil uil-pen absolute top-[38%] left-[5%] -translate-y-1/2 start-1 text-indigo-600 text-[20px]"></i>
                                     <select class="w-full h-[60px] pl-14 border-0 pb-6 text-base text-start text-slate-400" wire:model="status_selected">
-                                        <option value="{{false}}">Escolha um estado</option>
+                                        <option value="{{false}}">{{__('Choose a Proposal State')}}</option>
                                         @foreach(\App\Models\Proposal::getStatusArray() as $statusId => $statusName)
                                             <option value="{{$statusId}}">{{$statusName}}</option>
                                         @endforeach
@@ -99,12 +99,12 @@
 
     <div class="flex align-items-end justify-end space-x-3 mt-4">
         <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
-                    <a href="{{ route('mapa', $edition->id) }}">MAPA
+                    <a href="{{ route('mapa', $edition->id) }}">{{__('Map')}}
                     </a>
         </x-button>
         @if(!in_array($edition->status, [0, 1, 2, 3]))
             <div class="relative">
-                <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 hover:bg-slate-950 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else text-amber-400 @endif  font-bold text-base mr-2"></i> Projectos Vencedores</button>
+                <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 hover:bg-slate-950 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else text-amber-400 @endif  font-bold text-base mr-2"></i>{{__('Winning Projects')}}</button>
             </div>
         @endif
         @auth()
@@ -112,25 +112,25 @@
                 @if($proposals_per_user !== 0 && $user_proposals_count >= $proposals_per_user)
                     <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                         <a
-                            href="{{ route('display_warning') }}">Create Proposal
+                            href="{{ route('display_warning') }}">{{__('Create Proposal')}}
                         </a>
                     </x-button>
                 @elseif(\App\Models\Setting::first()->require_cc_vote_create && !auth()->user()->citizen->CC_verified)
                     <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                         <a
-                            href="{{ route('display_warning_cc') }}">Create Proposal
+                            href="{{ route('display_warning_cc') }}">{{__('Create Proposal')}}
                         </a>
                     </x-button>
                 @elseif(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified)
                     <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                         <a
-                            href="{{ route('display_warning_address') }}">Create Proposal
+                            href="{{ route('display_warning_address') }}">{{__('Create Proposal')}}
                         </a>
                     </x-button>
                 @else
                     <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                         <a
-                            href="{{ route('proposal-create', $edition->id) }}">Create Proposal
+                            href="{{ route('proposal-create', $edition->id) }}">{{__('Create Proposal')}}
                         </a>
                     </x-button>
 

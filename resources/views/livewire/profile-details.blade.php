@@ -1,63 +1,63 @@
 <div>
-    <h5 class="text-lg font-semibold mb-4">Personal Detail :</h5>
+    <h5 class="text-lg font-semibold mb-4">{{__('Personal Detail')}} :</h5>
     <form wire:submit="update" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
         @csrf
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-5">
             <div>
-                <label class="form-label font-medium">Name : <span class="text-red-600">*</span></label>
+                <label class="form-label font-medium">{{__('Name')}} : <span class="text-red-600">*</span></label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input type="text" wire:model="name" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="First Name:" id="firstname" name="name" required="">
+                    <input type="text" wire:model="name" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('First Name')}}:" id="firstname" name="name" required="">
                     @error('name')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
-                <label class="form-label font-medium">Your Email : <span class="text-red-600">*</span></label>
+                <label class="form-label font-medium">{{__('Your Email')}} : <span class="text-red-600">*</span></label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="mail" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input type="email" wire:model="email" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Email" name="email" required="">
+                    <input type="email" wire:model="email" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Email')}}" name="email" required="">
                     @error('email')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
-                <label class="form-label font-medium">Occupation : </label>
+                <label class="form-label font-medium">{{__('Occupation')}} : </label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="bookmark" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="occupation" wire:model="occupation" id="occupation" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Occupation :">
+                    <input name="occupation" wire:model="occupation" id="occupation" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Occupation')}} :">
                     @error('occupation')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
-                <label class="form-label font-medium">Cartão Cidadão : </label>
+                <label class="form-label font-medium">{{__('Citizen Card')}} : </label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="CC" wire:model="CC" id="CC" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Cartão Cidadão :">
+                    <input name="CC" wire:model="CC" id="CC" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Citizen Card')}} :">
                     @error('CC')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
-                <label class="form-label font-medium">Morada : </label>
+                <label class="form-label font-medium">{{__('Address')}} : </label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="address" wire:model="address" id="address" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Cartão Cidadão :">
+                    <input name="address" wire:model="address" id="address" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Address')}} :">
                     @error('address')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
-                <label class="form-label font-medium">Localidade : </label>
+                <label class="form-label font-medium">{{__('Locality')}} : </label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="localidade" wire:model="localidade" id="localidade" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Localidade :">
+                    <input name="localidade" wire:model="localidade" id="localidade" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Locality')}} :">
                     @error('localidade')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -65,10 +65,10 @@
             </div>
 
             <div>
-                <label class="form-label font-medium">Freguesia : </label>
+                <label class="form-label font-medium">{{__('County')}} : </label>
                 <div class="form-icon relative mt-2">
                     <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="freguesia" wire:model="freguesia" id="freguesia" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Freguesia :">
+                    <input name="freguesia" wire:model="freguesia" id="freguesia" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('County')}} :">
                     @error('freguesia')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -76,16 +76,16 @@
             </div>
 
             <div class="">
-                <label class="font-semibold" for="cod_postal">Codigo Postal :</label>
-                <input id="cod_postal" wire:model="cod_postal" type="text" name="cod_postal" value="{{ old('cod_postal') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Codigo Postal">
+                <label class="font-semibold" for="cod_postal">{{__('Postal Code')}} :</label>
+                <input id="cod_postal" wire:model="cod_postal" type="text" name="cod_postal" value="{{ old('cod_postal') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Postal Code')}}">
                 @error('cod_postal')
                     <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="">
-                <label class="font-semibold" for="telemovel">Telemovel :</label>
-                <input id="telemovel" wire:model="telemovel" type="text" name="telemovel" value="{{ old('telemovel') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="Telemovel">
+                <label class="font-semibold" for="telemovel">{{__('Cellphone')}} :</label>
+                <input id="telemovel" wire:model="telemovel" type="text" name="telemovel" value="{{ old('telemovel') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('CellPhone')}}">
                 @error('telemovel')
                     <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                 @enderror

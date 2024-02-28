@@ -2,11 +2,11 @@
     <table class="w-full text-start text-slate-500 dark:text-slate-400">
         <thead class="text-sm uppercase bg-slate-50 dark:bg-slate-800">
         <tr class="text-start">
-            <th scope="col" class="px-2 py-3 text-center">Proposal no.</th>
-            <th scope="col" class="px-2 py-3 text-center">Created</th>
-            <th scope="col" class="px-2 py-3 text-center">Status</th>
-            <th scope="col" class="px-2 py-3 text-center">Votes</th>
-            <th scope="col" class="px-2 py-3 text-center">Action</th>
+            <th scope="col" class="px-2 py-3 text-center">{{__('Proposal no.')}}</th>
+            <th scope="col" class="px-2 py-3 text-center">{{__('Created')}}</th>
+            <th scope="col" class="px-2 py-3 text-center">{{__('Status')}}</th>
+            <th scope="col" class="px-2 py-3 text-center">{{__('Votes')}}</th>
+            <th scope="col" class="px-2 py-3 text-center">{{__('Actions')}}</th>
         </tr>
         </thead>
         @foreach($proposals as $proposal)
@@ -17,13 +17,13 @@
                 <td class="px-2 py-3 text-center text-green-600">{{$proposal->status_label}}</td>
                 <td class="px-2 py-3 text-center">{{$proposal->votes_count}}</td>
                 <td class="px-2 py-3 text-center">
-                    <a href="/edition/proposta/{{$proposal->id}}" class="font-bold text-indigo-600">View </a>
+                    <a href="/edition/proposta/{{$proposal->id}}" class="font-bold text-indigo-600">{{__('View')}} </a>
                     @if($proposal->edition->status_label === 'Aberta')
-                        <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600">Edit </a>
+                        <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600">{{__('Edit')}}</a>
                         <form method="POST" action="{{ route('FEproposals.destroy', $proposal) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="font-bold text-red-600">Delete</button>
+                            <button type="submit" class="font-bold text-red-600">{{__('Delete')}}</button>
                         </form>
                     @endif
 

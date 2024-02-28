@@ -37,12 +37,12 @@
                                 <h5 class="text-2xl font-bold">{{$proposal->title}}</h5>
                             @endif
                             <div class="mt-4 ">
-                                <h5 class="text-lg font-semibold">Autor :</h5>
+                                <h5 class="text-lg font-semibold">{{__('Author')}} :</h5>
 
                                 <dl class="grid grid-cols-12 mb-0">
-                                    <dt class="md:col-span-3 col-span-4 mt-2">Autor :</dt>
+                                    <dt class="md:col-span-3 col-span-4 mt-2">{{__('Author')}} :</dt>
                                     <dd class="md:col-span-7 col-span-6 mt-2 text-slate-400">{{$proposal->user->name}}</dd>
-                                    <dt class="md:col-span-3 col-span-4 mt-2">Category :</dt>
+                                    <dt class="md:col-span-3 col-span-4 mt-2">{{__('Category')}} :</dt>
                                     <dd class="md:col-span-7 col-span-6 mt-2 text-slate-400">{{$proposal->category->name}}</dd>
                                 </dl>
                             </div>
@@ -52,7 +52,7 @@
                                 @auth
                                     <livewire:voting :proposal_id="$proposal->id"/>
                                 @else
-                                    Login to Vote!
+                                    {{__('Login to Vote')}}
                                     <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
                                 @endauth
                             @endif
@@ -66,13 +66,13 @@
                         <div class="sticky top-20 ">
                             <ul class="flex-column p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                                 <li role="presentation">
-                                    <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full hover:text-indigo-600 duration-500" id="description-tab" data-tabs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                                    <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full hover:text-indigo-600 duration-500" id="description-tab" data-tabs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">{{__('Description')}}</button>
                                 </li>
                                 <li role="presentation">
-                                    <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full mt-3 duration-500" id="addinfo-tab" data-tabs-target="#addinfo" type="button" role="tab" aria-controls="addinfo" aria-selected="false">Informações adicionais</button>
+                                    <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full mt-3 duration-500" id="addinfo-tab" data-tabs-target="#addinfo" type="button" role="tab" aria-controls="addinfo" aria-selected="false">{{__('Additional Information')}}</button>
                                 </li>
                                 <li role="presentation">
-                                    <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full mt-3 duration-500" id="review-tab" data-tabs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">Localização</button>
+                                    <button class="px-4 py-2 text-start text-base font-semibold rounded-md w-full mt-3 duration-500" id="review-tab" data-tabs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">{{__('Localization')}}</button>
                                 </li>
                             </ul>
                         </div>
@@ -88,30 +88,30 @@
                                 <table class="w-full text-start">
                                     <tbody>
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4" style="width: 100px;">Vencedor</td>
+                                            <td class="font-semibold py-4" style="width: 100px;">{{__('Winner')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->winner == 1 ? 'Sim' : 'Não'}}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4" style="width: 100px;">Posição</td>
+                                            <td class="font-semibold py-4" style="width: 100px;">{{__('Position')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->rank ? : 'Não é vencedor' }}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4" style="width: 100px;">Criação</td>
+                                            <td class="font-semibold py-4" style="width: 100px;">{{__('Created at')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->created_at}}</td>
                                         </tr>
 
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4">Edição</td>
+                                            <td class="font-semibold py-4">{{__('Edition')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->edition->identifier}}</td>
                                         </tr>
 
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4">Orçamento</td>
+                                            <td class="font-semibold py-4">{{__('Budget')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->budget_estimate . ' €'? : 'N/A' }}</td>
                                         </tr>
                                         @if($proposal->url)
                                             <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                                <td class="font-semibold py-4">Video</td>
+                                                <td class="font-semibold py-4">{{__('Video')}}</td>
                                                 <td class="text-slate-400 py-4">
                                                     <a  class="underline hover:text-indigo-600" target="_blank" href="{{$proposal->url}}">{{$proposal->url ? : 'N/A' }}</a>
                                                 </td>
@@ -119,7 +119,7 @@
                                         @endif
                                         @if($proposal->getMedia('documents'))
                                             <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                                <td class="font-semibold py-4">Documentos</td>
+                                                <td class="font-semibold py-4">{{__('Documents')}}</td>
                                                     <td class="text-slate-400 py-4">
                                                         <div>
                                                             @foreach($proposal->getMedia('documents') as $media)
@@ -143,20 +143,20 @@
                                 <table class="w-full text-start">
                                     <tbody>
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4" style="width: 100px;">Cidade</td>
+                                            <td class="font-semibold py-4" style="width: 100px;">{{__('Cidade')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->city ? : 'N/A'}}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4" style="width: 100px;">Rua</td>
+                                            <td class="font-semibold py-4" style="width: 100px;">{{__('Street')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->street ? : 'N/A' }}</td>
                                         </tr>
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4" style="width: 100px;">Codigo Postal</td>
+                                            <td class="font-semibold py-4" style="width: 100px;">{{__('Postal Code')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->postal_code ? : 'N/A'}} </td>
                                         </tr>
 
                                         <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
-                                            <td class="font-semibold py-4">Freguesia</td>
+                                            <td class="font-semibold py-4">{{__('County')}}</td>
                                             <td class="text-slate-400 py-4">{{$proposal->freguesia ? : 'N/A'}}</td>
                                         </tr>
                                     </tbody>

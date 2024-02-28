@@ -2,10 +2,10 @@
     <table class="w-full text-start text-slate-500 dark:text-slate-400">
         <thead class="text-sm uppercase bg-slate-50 dark:bg-slate-800">
             <tr class="text-start">
-                <th scope="col" class="px-2 py-3 text-center">Vote no.</th>
-                <th scope="col" class="px-2 py-3 text-center">Created</th>
-                <th scope="col" class="px-2 py-3 text-center">Proposal</th>
-                <th scope="col" class="px-2 py-3 text-center">Action</th>
+                <th scope="col" class="px-2 py-3 text-center">{{__('Vote no.')}}</th>
+                <th scope="col" class="px-2 py-3 text-center">{{__('Created')}}</th>
+                <th scope="col" class="px-2 py-3 text-center">{{__('Proposal')}}</th>
+                <th scope="col" class="px-2 py-3 text-center">{{__('Action')}}</th>
             </tr>
         </thead>
         @foreach($votes as $vote)
@@ -15,11 +15,11 @@
                 <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</td>
                 <td class="px-2 py-3 text-center">{{$vote->proposal->title}}</td>
                 <td class="px-2 py-3 text-center">
-                    <a href="{{route('proposta-detail', $vote->proposal->id)}}" class="font-bold text-indigo-600">View</a>
+                    <a href="{{route('proposta-detail', $vote->proposal->id)}}" class="font-bold text-indigo-600">{{__('View')}}</a>
                     <form method="POST" action="{{ route('proposta-remove-vote', $vote->proposal->id) }}">
                         @csrf
                         @method('DELETE') <!-- Assuming you're using DELETE method for removing the vote -->
-                        <button type="submit" class="font-bold text-red-600">Delete</button>
+                        <button type="submit" class="font-bold text-red-600">{{__('Delete')}}</button>
                     </form>
                 </td>
             </tr>

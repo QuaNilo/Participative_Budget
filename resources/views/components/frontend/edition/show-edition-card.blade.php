@@ -17,9 +17,9 @@
         <div class="ms-3">
             <span><span class="text-indigo-600">{{$winners}}</span>
                 @if($winners == 1)
-                    Projecto Vencedor
+                    {{__('Winner Proposal')}}
                 @else
-                    Projectos Vencedores
+                    {{__('Winning Proposals')}}
                 @endif
                 </span>
         </div>
