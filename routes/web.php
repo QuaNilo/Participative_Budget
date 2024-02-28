@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\CalendarPage;
+use App\Http\Controllers\CitizenController;
 use App\Http\Controllers\CitizenPending;
 use App\Http\Controllers\ColorSchemeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DownloadMediaController;
 use App\Http\Controllers\EditionsFE;
 use App\Http\Controllers\FAQ;
 use App\Http\Controllers\Helper;
@@ -73,6 +75,8 @@ Route::get('/terms-of-service', [HomeController::class,'termsOfService'])->name(
 Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
 Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
+Route::post('download-single-file/{proposal}', [DownloadMediaController::class, 'download_zip'])->name('download-single-file');
+
 
 
 Route::middleware([
@@ -95,19 +99,20 @@ Route::middleware([
 
     Route::resource('settings', App\Http\Controllers\SettingController::class);
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
-    Route::post('/approve-citizen/{id}', [CitizenPending::class, 'approve_cc'])->name('approve-citizen');
-    Route::post('/approve-address/{id}', [CitizenPending::class, 'approve_address'])->name('approve-address');
-    Route::post('/reject-citizen/{id}', [CitizenPending::class, 'reject_cc'])->name('reject-citizen');
-    Route::post('/reject-address/{id}', [CitizenPending::class, 'reject_address'])->name('reject-address');
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
     Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);
+
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
+    Route::post('/citizens/{citizen}/approve-cc/', [CitizenController::class, 'approveCc'])->name('citizens.approve_cc');
+    Route::post('/citizens/{citizen}/approve-address/', [CitizenController::class, 'approveAddress'])->name('citizens.approve_address');
+    Route::post('/citizens/{citizen}/reject-cc/', [CitizenController::class, 'rejectCc'])->name('citizens.reject_cc');
+    Route::post('/citizens/{citizen}/reject-address/', [CitizenController::class, 'rejectAddress'])->name('citizens.reject_address');
+
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
     Route::resource('regulations', App\Http\Controllers\RegulationController::class);
-
 });
 
 

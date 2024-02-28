@@ -63,10 +63,9 @@ class Citizen extends Model implements Auditable, HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
-
-    const PENDING_STATUS_APPROVED = 0;
-    const PENDING_STATUS = 1;
-    const PENDING_STATUS_REJECTED = 2;
+    const APPROVAL_STATUS_PENDING = 2;
+    const APPROVAL_STATUS_ACCEPTED = 1;
+    const APPROVAL_STATUS_REJECTED = 0;
 
     public $table = 'citizens';
 
@@ -157,9 +156,9 @@ class Citizen extends Model implements Auditable, HasMedia
     public static function getStatusArray() : array
     {
         return [
-            self::PENDING_STATUS =>  __('Pendente'),
-            self::PENDING_STATUS_APPROVED =>  __('Aprovado'),
-            self::PENDING_STATUS_REJECTED =>  __('Rejeitado'),
+            self::APPROVAL_STATUS_PENDING =>  __('Pendente'),
+            self::APPROVAL_STATUS_ACCEPTED =>  __('Aprovado'),
+            self::APPROVAL_STATUS_REJECTED =>  __('Rejeitado'),
 
         ];
     }

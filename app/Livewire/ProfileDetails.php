@@ -118,8 +118,7 @@ class ProfileDetails extends Component
                 $this->fileUploadHandle('cc', $this->citizen, false);
             }
         }
-
-        if(Setting::first()->require_cc_vote_create && empty($this->receivedCitizenCard['files']))
+        if(Setting::first()->require_cc_vote_create &&  $this->citizen->getMedia('cc')->isEmpty())
         {
             flash(__('Your ID will be required to vote and create proposals.'))->overlay()->warning()->duration(4000);
         }

@@ -27,26 +27,27 @@ class CitizensTable extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         $newModel = new Citizen();
+        $query = Citizen::query();
+        if(request()->get('pending', 0) == 1)
+        {
+            $query->where('CC_verified', 2)
+                ->orWhere('address_verified', 2);
+        }
         return $table
-            ->query(Citizen::query())
+            ->query($query)
             ->columns([
-                TextColumn::make("user_id")
-                ->label($newModel->getAttributeLabel("user_id"))
+                TextColumn::make("user.name")
+                ->label($newModel->getAttributeLabel("User Name"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
             TextColumn::make("CC")
-                ->label($newModel->getAttributeLabel("CC"))
+                ->label($newModel->getAttributeLabel("Citizen Card"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
             TextColumn::make("occupation")
                 ->label($newModel->getAttributeLabel("occupation"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("description")
-                ->label($newModel->getAttributeLabel("description"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -69,36 +70,6 @@ class CitizensTable extends Component implements HasForms, HasTable
             TextColumn::make("pending_status")
                 ->label($newModel->getAttributeLabel("pending_status"))
                 ->formatStateUsing(fn (Citizen $record): string => $record->statusLabel)
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("address")
-                ->label($newModel->getAttributeLabel("address"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("localidade")
-                ->label($newModel->getAttributeLabel("localidade"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("freguesia")
-                ->label($newModel->getAttributeLabel("freguesia"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("cod_postal")
-                ->label($newModel->getAttributeLabel("cod_postal"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("telemovel")
-                ->label($newModel->getAttributeLabel("telemovel"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("remember_token")
-                ->label($newModel->getAttributeLabel("remember_token"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -134,13 +105,13 @@ class CitizensTable extends Component implements HasForms, HasTable
                 ->multiple()
                 ->options(Demo::getStatusArray())*/
             ])
-            ->actions([
-                Action::make('edit')
-                ->label(__('Update'))
-                ->url(fn (Citizen $record): string => route('citizens.edit', ['citizen' => $record]))
-                ->icon('heroicon-o-pencil')
-                //->color('danger')
-            ])
+//            ->actions([
+//                Action::make('edit')
+//                ->label(__('Update'))
+//                ->url(fn (Citizen $record): string => route('citizens.edit', ['citizen' => $record]))
+//                ->icon('heroicon-o-pencil')
+//                //->color('danger')
+//            ])
             ->bulkActions([
                 //BulkActionGroup::make([
                 BulkAction::make('delete')

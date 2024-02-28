@@ -117,6 +117,24 @@
                                                 </td>
                                             </tr>
                                         @endif
+                                        @if($proposal->getMedia('documents'))
+                                            <tr class="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-gray-700">
+                                                <td class="font-semibold py-4">Documentos</td>
+                                                    <td class="text-slate-400 py-4">
+                                                        <div>
+                                                            @foreach($proposal->getMedia('documents') as $media)
+                                                                <p  class="underline hover:text-indigo-600">{{$media->name}}</p>
+                                                            @endforeach
+                                                        </div>
+                                                        <td>
+                                                            <form action="{{route('download-single-file', $proposal)}}" method="POST">
+                                                                @csrf
+                                                                <button class="inline-flex items-center mt-2 px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-gray-700 transition ease-in-out duration-150" type="submit">{{__('Get Documents')}}</button>
+                                                            </form>
+                                                        </td>
+                                                    </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCitizenRequest;
 //use App\Http\Controllers\AppBaseController;
 use App\Models\Citizen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CitizenController extends Controller
 {
@@ -127,5 +128,59 @@ class CitizenController extends Controller
         }
 
         return redirect(route('citizens.index'));
+    }
+
+
+    public function rejectCc(Request $request,Citizen $citizen)
+    {
+        if($citizen)
+        {
+            $citizen->update(['CC_verified' => 0, 'CC_verified_at' => null]);
+            flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
+            return Redirect::back();
+        }
+
+        flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
+        return Redirect::back();
+    }
+
+    public function approveCc(Request $request, Citizen $citizen)
+    {
+        if($citizen)
+        {
+            $citizen->update(['CC_verified' => 1, 'CC_verified_at' => now()]);
+            flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
+            return Redirect::back();
+        }
+
+        flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
+        return Redirect::back();
+    }
+
+
+    public function rejectAddress(Request $request,Citizen $citizen)
+    {
+        if($citizen)
+        {
+            $citizen->update(['address_verified' => 0, 'address_verified_at' => null]);
+            flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
+            return Redirect::back();
+        }
+
+        flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
+        return Redirect::back();
+    }
+
+    public function approveAddress(Request $request, Citizen $citizen)
+    {
+        if($citizen)
+        {
+            $citizen->update(['address_verified' => 1, 'address_verified_at' => now()]);
+            flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
+            return Redirect::back();
+        }
+
+        flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
+        return Redirect::back();
     }
 }

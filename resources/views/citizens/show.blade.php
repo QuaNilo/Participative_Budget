@@ -29,8 +29,8 @@
 {{--                    icon="trash"--}}
 {{--                /> {{ __('Delete') }}--}}
 {{--            </x-base.button>--}}
-            @if($citizen->address_verified === 3)
-                <form action="{{ route('approve-address', ['id' => $citizen->id]) }}" method="POST">
+            @if($citizen->address_verified === App\Models\Citizen::APPROVAL_STATUS_PENDING)
+                <form action="{{ route('citizens.approve_address', $citizen) }}" method="POST">
                 @csrf
                     <x-base.button
                         class="shadow-md sm:ml-0 mr-2"
@@ -44,7 +44,7 @@
                         /> {{ __('Approve Address') }}
                     </x-base.button>
                 </form>
-                <form action="{{route('reject-address', ['id' => $citizen->id])}}" method="POST">
+                <form action="{{route('citizens.reject_address', $citizen)}}" method="POST">
                     @csrf
                     <x-base.button
                         class="shadow-md sm:ml-0"
@@ -62,8 +62,8 @@
 
             @endif
 
-            @if($citizen->CC_verified === 3)
-                <form action="{{ route('approve-citizen', ['id' => $citizen->id]) }}" method="POST">
+            @if($citizen->CC_verified === App\Models\Citizen::APPROVAL_STATUS_PENDING)
+                <form action="{{ route('citizens.approve_cc', $citizen) }}" method="POST">
                 @csrf
                     <x-base.button
                         class="shadow-md sm:ml-0 mr-2"
@@ -77,7 +77,7 @@
                         /> {{ __('Approve Citizen Card') }}
                     </x-base.button>
                 </form>
-                <form action="{{route('reject-citizen', ['id' => $citizen->id])}}" method="POST">
+                <form action="{{route('citizens.reject_cc', $citizen)}}" method="POST">
                     @csrf
                     <x-base.button
                         class="shadow-md sm:ml-0"
