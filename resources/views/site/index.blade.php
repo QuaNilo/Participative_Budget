@@ -16,7 +16,7 @@ view()->share('showBgEffect', true);
                 <div class="grid md:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
                     <div class="lg:col-span-8 md:col-span-7 md:order-1 order-2">
                         <div class="md:me-6">
-                            <h4 class="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 text-black dark:text-white">{{__("Build the county of your")}} <br> de <span class="text-indigo-600">{{__("Dreams")}}</span></h4>
+                            <h4 class="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 text-black dark:text-white">{{__("Build the county of your")}} <br> <span class="text-indigo-600">{{__("Dreams")}}</span></h4>
 {{--                            <p class="text-slate-900 dark:text-white/75 text-lg max-w-xl"></p>--}}
 
                             <div class="mt-6">

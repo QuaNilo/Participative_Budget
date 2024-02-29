@@ -129,4 +129,12 @@ class SettingController extends Controller
 
         return redirect(route('settings.index'));
     }
+
+    public function change_language($language)
+    {
+        app()->setLocale($language);
+        session(['locale' => $language]);
+        flash(__('Language Changed to ') . app()->getLocale())->overlay()->success()->duration(3000);
+        return redirect()->back();
+    }
 }

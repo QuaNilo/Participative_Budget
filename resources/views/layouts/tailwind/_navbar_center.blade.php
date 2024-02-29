@@ -71,6 +71,16 @@
                 </li>
                 <li><a href="{{route('editions-fe')}}" class="sub-menu-item">{{ __('Edições') }}</a></li>
                 <li><a href="{{ route('mapa') }}" class="sub-menu-item">{{ __('Mapa') }}</a></li>
+                <div class="flex items-center align-content-center ">
+                    <form action="{{route('setting.change_language', 'pt')}}" class="border-2 border-slate-200" method="POST">
+                        @csrf
+                        <button type="submit" class="{{ app()->isLocale('pt') ? 'font-medium bg-indigo-600 p-1' : '' }}">PT</button>
+                    </form>
+                    <form action="{{route('setting.change_language', 'en')}}" class="border-2 border-slate-200" method="POST">
+                        @csrf
+                            <button type="submit" class="{{ app()->isLocale('en') ? 'font-medium bg-indigo-600 p-1' : '' }}">ENG</button>
+                    </form>
+                </div>
             </ul><!--end navigation menu-->
         </div><!--end navigation-->
     </div><!--end container-->
