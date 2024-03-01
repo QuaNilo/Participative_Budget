@@ -69,7 +69,7 @@ class Regulation extends Model implements Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
+            'id' => __('ID'),
         'title' => __('Title'),
         'subtitle' => __('Subtitle'),
         'description' => __('Description'),

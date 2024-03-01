@@ -121,7 +121,7 @@ class Edition extends Model implements Auditable
         'proposals_per_user' => __('Proposals Per User'),
         'title' => __('Title'),
         'description' => __('Description'),
-        'ano' => __('Ano')
+        'ano' => __('Year')
         ];
     }
 

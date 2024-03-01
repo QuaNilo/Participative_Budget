@@ -170,7 +170,7 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
+            'id' => __('ID'),
             'name' => __('Name'),
             'email' => __('Email'),
             'email_verified_at' => __('Email verified at'),
@@ -180,8 +180,8 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
             'two_factor_recovery_codes' => __('Two factor recovery codes'),
             'two_factor_confirmed_at' => __('Two factor confirmed at'),
             'remember_token' => __('Remember token'),
-            'current_team_id' => __('Current team id'),
-            'profile_photo_path' => __('profile photo path'), // acho que vai saltar fora
+            'current_team_id' => __('Current team ID'),
+            'profile_photo_path' => __('profile photo path'),
             'created_at' => __('Created at'),
             'updated_at' => __('Updated at'),
             'toc' => __('Terms of service'),

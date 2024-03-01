@@ -101,15 +101,15 @@ class Proposal extends Model implements Auditable, HasMedia
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
-        'user_id' => __('User Id'),
+            'id' => __('ID'),
+        'user_id' => __('User ID'),
         'category_id' => __('Category Id'),
         'edition_id' => __('Edition Id'),
         'title' => __('Title'),
         'content' => __('Content'),
         'summary' => __('Summary'),
-        'lat' => __('Lat'),
-        'lng' => __('Lng'),
+        'lat' => __('Latitude'),
+        'lng' => __('Longitude'),
         'street' => __('Street'),
         'postal_code' => __('Postal Code'),
         'city' => __('City'),

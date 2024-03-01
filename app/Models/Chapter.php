@@ -73,8 +73,8 @@ class Chapter extends Model implements Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
-        'regulation_id' => __('Regulation Id'),
+            'id' => __('ID'),
+        'regulation_id' => __('Regulation ID'),
         'title' => __('Title'),
         'subtitle' => __('Subtitle'),
         'description' => __('Description'),

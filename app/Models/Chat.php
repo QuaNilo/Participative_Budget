@@ -69,9 +69,9 @@ class Chat extends Model implements Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
-        'sender_id' => __('Sender Id'),
-        'receiver_id' => __('Receiver Id'),
+            'id' => __('ID'),
+        'sender_id' => __('Sender ID'),
+        'receiver_id' => __('Receiver ID'),
         'content' => __('Content'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')

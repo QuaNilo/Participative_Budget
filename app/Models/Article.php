@@ -68,7 +68,7 @@ class Article extends Model implements Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
+            'id' => __('ID'),
         'chapter_id' => __('Chapter'),
         'title' => __('Title'),
         'description' => __('Description'),

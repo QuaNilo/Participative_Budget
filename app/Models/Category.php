@@ -61,7 +61,7 @@ class Category extends Model implements Auditable
     public static function attributeLabels() : array
     {
         return [
-            'id' => __('Id'),
+            'id' => __('ID'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At'),
         'name' => __('Name')
