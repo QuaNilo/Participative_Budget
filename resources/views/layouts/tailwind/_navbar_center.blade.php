@@ -71,15 +71,39 @@
                 </li>
                 <li><a href="{{route('editions-fe')}}" class="sub-menu-item">{{ __('Edições') }}</a></li>
                 <li><a href="{{ route('mapa') }}" class="sub-menu-item">{{ __('Mapa') }}</a></li>
-                <div class="flex items-center align-content-center ">
-                    <form action="{{route('setting.change_language', 'pt')}}" class="border-2 border-slate-200" method="POST">
-                        @csrf
-                        <button type="submit" class="{{ app()->isLocale('pt') ? 'font-medium bg-indigo-600 p-1' : '' }}">PT</button>
-                    </form>
-                    <form action="{{route('setting.change_language', 'en')}}" class="border-2 border-slate-200" method="POST">
-                        @csrf
-                            <button type="submit" class="{{ app()->isLocale('en') ? 'font-medium bg-indigo-600 p-1' : '' }}">ENG</button>
-                    </form>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function (){
+                        let pt = document.getElementById('pt')
+                        let en = document.getElementById('en')
+                        function toggleButtonClass(clickedButton, otherButton){
+                            if (!clickedButton.classList.contains('text-indigo-600')){
+                                // Add classes to the clicked button
+                                clickedButton.classList.add('text-indigo-600 font-bold');
+                                // Remove classes from the other button
+                                otherButton.classList.remove('text-indigo-600 font-bold');
+                            }
+                        }
+                            // Add event listeners
+                            pt.addEventListener('click', function() {
+                                toggleButtonClass(pt, en);
+                            });
+
+                            en.addEventListener('click', function() {
+                                toggleButtonClass(en, pt);
+                            });
+                    })
+                </script>
+                <div class="flex items-center align-content-center">
+                    <div class="flex space-x-2">
+                        <form action="{{route('setting.change_language', 'pt')}}" class="" method="POST">
+                            @csrf
+                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-indigo-600 font-bold' : '' }}">PT</button>
+                        </form>
+                        <form action="{{route('setting.change_language', 'en')}}" class="" method="POST">
+                            @csrf
+                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-indigo-600 font-bold' : '' }}">ENG</button>
+                        </form>
+                    </div>
                 </div>
             </ul><!--end navigation menu-->
         </div><!--end navigation-->

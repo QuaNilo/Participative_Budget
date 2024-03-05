@@ -1,5 +1,5 @@
 @props(['edition_id'])
-<div class="container border-2 border-b-0 border-t-0 border-gray-100">
+<div class="container border-gray-100">
     <div class="grid md:grid-cols-6 grid-cols-2 gap-[30px]">
         <div class="lg:col-span-8 md:col-span-6">
 
