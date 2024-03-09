@@ -58,6 +58,10 @@ view()->share('showBgEffect', true);
                 </div><!--end container-->
             </section>
 
+            <div class="bg-gray-50 relative flex justify-center text-center">
+                <a href="{{ route('propostas', App\Models\Edition::where('status', \App\Models\Edition::STATUS_OPEN)->first()) }}" class="py-2 px-[250px] inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2">{{__("Participa")}}</a>
+            </div>
+
     <!-- Start -->
             <section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
                 <div class="container relative">

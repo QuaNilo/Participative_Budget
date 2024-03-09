@@ -1,9 +1,9 @@
 <section class="relative md:py-24 py-16">
     <div class="container flex space-x-6">
         <div class="bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
-            <div class="border-1 border-slate-200 flex p-4 mb-2 bg-indigo-100/40">
+            <div class="border-1 border-slate-200 flex p-4 mb-2 bg-indigo-100/20">
                 <div class="flex items-center">
-                    <img src="https://i.pravatar.cc/300" class="h-16 w-16 rounded-full shadow dark:shadow-gray-800" alt="">
+{{--                    <img src="https://i.pravatar.cc/300" class="h-16 w-16 rounded-full shadow dark:shadow-gray-800" alt="">--}}
                     <div class="ms-2">
                         <h5 class="text-lg font-semibold"><span class="font-semibold text-slate-400">Hello, </span>{{auth()->user()->name}}</h5>
                         <button class="inline-flex items-center mt-2 px-3 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-gray-700 transition ease-in-out duration-150" wire:click="logout">Logout</button>

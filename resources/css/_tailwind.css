@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /*.nav-primary-btn {*/
+  /*  @apply text-gray-500 no-underline text-center hover:text-black font-normal focus:outline-none focus:ring-violet-400 focus:ring-opacity-75;*/
+  /*}*/
+
+  /*.nav-primary-div {*/
+  /*  @apply flex justify-center*/
+  /*}*/
+}
+
 [x-cloak] {
     display: none;
 }
