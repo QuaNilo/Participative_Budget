@@ -273,6 +273,46 @@ Breadcrumbs::for('chapters.edit', function (BreadcrumbTrail $trail, $model) {
 });
 
 
+
+// Home > FAQS
+Breadcrumbs::for('faqs.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('FAQ'), route('faqs.index'));
+});
+Breadcrumbs::for('faqs.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('faqs.index');
+    $trail->push(__('Create'), route('faqs.create'));
+});
+Breadcrumbs::for('faqs.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('faqs.index');
+    $trail->push('FAQ' .$model->question, route('faqs.show', $model));
+});
+Breadcrumbs::for('faqs.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('faqs.show', $model);
+    $trail->push(__('Update'), route('faqs.edit', $model));
+});
+
+
+
+// Home > FAQS
+Breadcrumbs::for('faq-themes.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('FAQ Theme'), route('faqs.index'));
+});
+Breadcrumbs::for('faq-themes.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('faq-themes.index');
+    $trail->push(__('Create'), route('faq-themes.create'));
+});
+Breadcrumbs::for('faq-themes.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('faq-themes.index');
+    $trail->push('FAQ Theme' .$model->question, route('faq-themes.show', $model));
+});
+Breadcrumbs::for('faq-themes.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('faq-themes.show', $model);
+    $trail->push(__('Update'), route('faq-themes.edit', $model));
+});
+
+
 // Home > Article
 Breadcrumbs::for('articles.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

@@ -1,7 +1,5 @@
 <?php
   $chapters = \App\Models\Chapter::get();
-
-
 ?>
 <div class="mb-3">
     <x-base.form-label for="chapter_id">{{ $article->getAttributeLabel('chapter_id') }}</x-base.form-label>

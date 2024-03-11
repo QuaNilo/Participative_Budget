@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
 use OwenIt\Auditing\Contracts\Auditable;
  use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * App\Models\Demo
@@ -33,7 +30,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
  * @property-read int|null $audits_count
- * @property-read mixed|string $status_label
+ * @property-read string $status_label
  * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\DemoFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Demo newModelQuery()
@@ -57,22 +54,17 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Demo whereValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Demo whereVat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Demo whereZip($value)
- * @property-read Demo|null $demo
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
- * @property-read int|null $media_count
  * @mixin \Eloquent
  */
-class Demo extends Model implements Auditable, HasMedia
+class Demo extends Model implements Auditable
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
-    use InteractsWithMedia;
     use HasFactory;
-    public $table = 'demos';
-
+    const STATUS_DISABLE = 0;
     const STATUS_ACTIVE = 1;
-    const STATUS_DISABLE = 2;
-    const STATUS_DRAFT = 3;
+
+    public $table = 'demos';
 
     public $fillable = [
         'demo_id',
@@ -111,97 +103,63 @@ class Demo extends Model implements Auditable, HasMedia
     {
         return [
             'demo_id' => 'nullable',
-            'user_id' => 'nullable',
-            'name' => 'required|string|max:255',
-            'body' => 'required|string|max:65535',
-            'phone' => 'nullable|string|max:32',
-            'vat' => 'nullable|string|max:32',
-            'zip' => 'nullable|string|max:16',
-            'optional' => 'nullable|string|max:255',
-            'body_optional' => 'nullable|string|max:65535',
-            'value' => 'nullable|numeric',
-            'date' => 'nullable',
-            'datetime' => 'nullable',
-            'checkbox' => 'required|boolean',
-            'privacy_policy' => 'required|boolean',
-            'status' => 'required',
-            'created_at' => 'nullable',
-            'updated_at' => 'nullable'
+        'user_id' => 'nullable',
+        'name' => 'required|string|max:255',
+        'body' => 'required|string|max:65535',
+        'phone' => 'nullable|string|max:32',
+        'vat' => 'nullable|string|max:32',
+        'zip' => 'nullable|string|max:16',
+        'optional' => 'nullable|string|max:255',
+        'body_optional' => 'nullable|string|max:65535',
+        'value' => 'nullable|numeric',
+        'date' => 'nullable',
+        'datetime' => 'nullable',
+        'checkbox' => 'required|boolean',
+        'privacy_policy' => 'required|boolean',
+        'status' => 'required',
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable'
         ];
     }
 
     /**
-     * Attribute labels
-     *
-     * @return array
-     */
-    public static function attributeLabels()
+    * Attribute labels
+    *
+    * @return array
+    */
+    public static function attributeLabels() : array
     {
         return [
             'id' => __('Id'),
-            'demo_id' => __('Demo'),
-            'user_id' => __('User'),
-            'name' => __('Name'),
-            'body' => __('Body'),
-            'phone' => __('Phone'),
-            'vat' => __('Vat'),
-            'zip' => __('Zip'),
-            'optional' => __('Optional'),
-            'body_optional' => __('Body Optional'),
-            'value' => __('Value'),
-            'date' => __('Date'),
-            'datetime' => __('Datetime'),
-            'checkbox' => __('Checkbox'),
-            'privacy_policy' => __('Privacy Policy'),
-            'status' => __('Status'),
-            'created_at' => __('Created At'),
-            'updated_at' => __('Updated At'),
-            'cover' => __('Cover'),
-            'files' => __('Files'),
-            'template' => __('Template'),
+        'demo_id' => __('Demo Id'),
+        'user_id' => __('User Id'),
+        'name' => __('Name'),
+        'body' => __('Body'),
+        'phone' => __('Phone'),
+        'vat' => __('Vat'),
+        'zip' => __('Zip'),
+        'optional' => __('Optional'),
+        'body_optional' => __('Body Optional'),
+        'value' => __('Value'),
+        'date' => __('Date'),
+        'datetime' => __('Datetime'),
+        'checkbox' => __('Checkbox'),
+        'privacy_policy' => __('Privacy Policy'),
+        'status' => __('Status'),
+        'created_at' => __('Created At'),
+        'updated_at' => __('Updated At')
         ];
     }
 
     /**
-     * Return the attribute label
-     * @param string $attribute
-     * @return string
-     */
-    public function getAttributeLabel($attribute){
+    * Return the attribute label
+    * @param string $attribute
+    * @return string
+    */
+    public function getAttributeLabel($attribute) : string
+    {
         $attributeLabels = static::attributeLabels();
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
-    }
-
-    /**
-     * Return an array with the values of status field
-     * @return array
-     */
-    public static function getStatusArray()
-    {
-        return [
-            self::STATUS_ACTIVE =>  __('Active'),
-            self::STATUS_DISABLE =>  __('Disable'),
-            self::STATUS_DRAFT =>  __('Draft'),
-        ];
-    }
-
-    /**
-     * Return an array with the values of status field
-     * @return array
-     */
-    public function getStatusOptions()
-    {
-        return static::getStatusArray();
-    }
-
-    /**
-     * Return the status label
-     * @return mixed|string
-     */
-    public function getStatusLabelAttribute()
-    {
-        $array = self::getStatusOptions();
-        return $array[$this->status] ?? "";
     }
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -209,48 +167,26 @@ class Demo extends Model implements Auditable, HasMedia
         return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
 
-    public function demo(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    /**
+    * Return an array with the values of status field
+    * @return array
+    */
+    public static function getStatusArray() : array
     {
-        return $this->belongsTo(\App\Models\Demo::class, 'demo_id');
+        return [
+            self::STATUS_ACTIVE =>  __('Active'),
+            self::STATUS_DISABLE =>  __('Disable'),
+        ];
     }
 
     /**
-     * Register the media collection for this model
-     */
-    public function registerMediaCollections(): void
+    * Return the status label
+    * @return string
+    */
+    public function getStatusLabelAttribute() : string
     {
-        $this->addMediaCollection('files');
-        $this->addMediaCollection('cover')
-            ->singleFile()
-            ->useFallbackUrl(asset('images/placeholders/800x800.jpg'))
-            ->useFallbackPath(public_path('/images/placeholders/800x800.jpg'))
-            ->registerMediaConversions(function (Media $media) {
-                $this
-                    ->addMediaConversion('original')
-                    ->fit('max', 1024, 1024)
-                    ->keepOriginalImageFormat();
-                $this
-                    ->addMediaConversion('square')
-                    ->crop('crop-center', 512, 512);
-                $this
-                    ->addMediaConversion('retangular')
-                    ->crop('crop-center', 512, 384);
-            });
-        //->useFallbackUrl(asset('images/placeholders/amt.jpg'));;
-        //->useFallbackUrl('/images/anonymous-user.jpg')
-        //->useFallbackPath(public_path('/images/anonymous-user.jpg'));
-        /*->useFallbackPath(public_path('/default_avatar.jpg'))
-        ->useFallbackPath(public_path('/default_avatar_thumb.jpg'), 'thumb')
-        ->registerMediaConversions(function (Media $media) {
-            $this
-                ->addMediaConversion('thumb')
-                ->width(50)
-                ->height(50);
-
-            $this
-                ->addMediaConversion('thumb_2')
-                ->width(100)
-                ->height(100);
-        });*/
+        $array = static::getStatusArray();
+        return $array[$this->status] ?? "";
     }
+
 }

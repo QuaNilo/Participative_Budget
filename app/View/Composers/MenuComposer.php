@@ -95,6 +95,24 @@ class   MenuComposer
                         ],
                     ]
                 ],
+                'FAQ' => [
+                    'icon' => 'mail-check',
+                    'title' => __('FAQ'),
+                    'sub_menu' => [
+                        'faqs.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'faqs.index',
+                            'params' => [],
+                            'title' => __('FAQ Questions')
+                        ],
+                        'faq-themes.index' => [
+                            'icon' => 'list',
+                            'route_name' => 'faq-themes.index',
+                            'params' => [],
+                            'title' => __('FAQ Themes')
+                        ],
+                    ],
+                ],
                 'divider',
                 'users' => [
                     'icon' => 'users',

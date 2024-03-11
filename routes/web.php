@@ -65,7 +65,7 @@ Route::delete('/FEproposals/{FEproposal}', [ProposalFEController::class, 'destro
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');
-Route::get('/FAQ', [FAQ::class, 'show'])->name('faq-page');
+Route::get('/FAQ', [\App\Http\Controllers\FAQController::class, 'FEShow'])->name('faq-page');
 
 
 Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
@@ -115,6 +115,10 @@ Route::middleware([
 
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
     Route::resource('regulations', App\Http\Controllers\RegulationController::class);
+    Route::resource('faq-themes', App\Http\Controllers\FaqThemeController::class);
+    Route::resource('faqs', App\Http\Controllers\FaqController::class);
 });
+
+
 
 
