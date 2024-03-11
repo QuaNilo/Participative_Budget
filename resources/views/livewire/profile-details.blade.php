@@ -6,18 +6,16 @@
             <div>
                 <label class="form-label font-medium">{{__('Name')}} : <span class="text-red-600">*</span></label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input type="text" wire:model="name" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('First Name')}}:" id="firstname" name="name" required="">
+                    <input type="text" wire:model="name" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('First Name')}}:" id="firstname" name="name" required="">
                     @error('name')
-                        <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                        <div class="mt-2 mb-4 text-danger">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
                 <label class="form-label font-medium">{{__('Your Email')}} : <span class="text-red-600">*</span></label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="mail" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input type="email" wire:model="email" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Email')}}" name="email" required="">
+                    <input type="email" wire:model="email" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Email')}}" name="email" required="">
                     @error('email')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -26,8 +24,7 @@
             <div>
                 <label class="form-label font-medium">{{__('Occupation')}} : </label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="bookmark" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="occupation" wire:model="occupation" id="occupation" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Occupation')}} :">
+                    <input name="occupation" wire:model="occupation" id="occupation" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Occupation')}} :">
                     @error('occupation')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -36,8 +33,7 @@
             <div>
                 <label class="form-label font-medium">{{__('Citizen Card')}} : </label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="CC" wire:model="CC" id="CC" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Citizen Card')}} :">
+                    <input name="CC" wire:model="CC" id="CC" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Citizen Card')}} :">
                     @error('CC')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -46,8 +42,7 @@
             <div>
                 <label class="form-label font-medium">{{__('Address')}} : </label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="address" wire:model="address" id="address" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Address')}} :">
+                    <input name="address" wire:model="address" id="address" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Address')}} :">
                     @error('address')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -56,8 +51,7 @@
             <div>
                 <label class="form-label font-medium">{{__('Locality')}} : </label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="localidade" wire:model="localidade" id="localidade" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Locality')}} :">
+                    <input name="localidade" wire:model="localidade" id="localidade" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Locality')}} :">
                     @error('localidade')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror
@@ -67,8 +61,7 @@
             <div>
                 <label class="form-label font-medium">{{__('County')}} : </label>
                 <div class="form-icon relative mt-2">
-                    <i data-feather="user" class="w-4 h-4 absolute top-3 start-4"></i>
-                    <input name="freguesia" wire:model="freguesia" id="freguesia" type="text" class="form-input ps-12 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('County')}} :">
+                    <input name="freguesia" wire:model="freguesia" id="freguesia" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('County')}} :">
                     @error('freguesia')
                         <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                     @enderror

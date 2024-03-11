@@ -61,7 +61,7 @@
                     </div>
                 </div><!--end grid-->
 
-                <div class="grid md:grid-cols-12 grid-cols-1 mt-10 gap-[30px] border border-gray-100 shadow shadow-xl">
+                <div class="grid md:grid-cols-12 grid-cols-1 mt-10 gap-[30px]">
                     <div class="lg:col-span-3 md:col-span-5 ">
                         <div class="sticky top-20 ">
                             <ul class="flex-column p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="lg:col-span-9 md:col-span-7 border border-gray-100">
-                        <div id="myTabContent" class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md  border border-gray-100 ">
+                        <div id="myTabContent" class="p-6 bg-white shadow rounded-md  border border-gray-100 ">
                             <div class="overflow-hidden" id="description" role="tabpanel" aria-labelledby="profile-tab">
                                 <p class="text-slate-400">{{$proposal->content}}</p>
                             </div>

@@ -56,11 +56,11 @@
 {{--                                </div><!--end container-->--}}
         <div class="container relative border-t-2 border-slate-100">
             <div class="grid grid-cols-1">
-                <div class="p-6 bg-white dark:bg-slate-900 rounded-md shadow-md dark:shadow-gray-800 gap-4">
+                <div class="p-1 bg-white dark:bg-slate-900 rounded-md shadow-md dark:shadow-gray-800 gap-4">
                     <form wire:submit="filter">
                         <div class="border-r border-1 relative text-dark text-start">
                             <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6 lg:divide-x-[1px] lg:divide-gray-200 lg:dark:divide-gray-700">
-                                <div class="h-[60px] relative">
+                                <div class="h-[50px] relative">
                                     <i class="uil uil-search absolute top-[48%] -translate-y-1/2 start-3 text-indigo-600 text-[20px]"></i>
                                     <input name="name" wire:model="keywordsInput" type="text" class="form-input lg:rounded-t-sm lg:rounded-e-none lg:rounded-b-none lg:rounded-s-sm lg:outline-0 w-full filter-input-box bg-gray-50 dark:bg-slate-800 border-0 focus:ring-0" placeholder="Search your keywords">
                                     <div>@error('keywordsInput') {{ $message }} @enderror</div>
@@ -87,7 +87,7 @@
                                 </div>
 
                                 <div class="lg:mt-6">
-                                    <input type="submit" id="search" name="search" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white searchbtn w-full !h-12 rounded" value="{{__('Search')}}">
+                                    <input type="submit" id="search" name="search" class="p-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:cursor-pointer hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white searchbtn w-full h-12 rounded" value="{{__('Search')}}">
                                 </div>
                             </div><!--end grid-->
                         </div><!--end container-->
