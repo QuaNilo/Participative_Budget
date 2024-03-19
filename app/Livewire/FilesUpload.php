@@ -22,6 +22,8 @@ class FilesUpload extends Component
     //#[Rule(['files.*' => 'image|max:10240'])]
     public Collection $previousFiles;
     public Collection $removedPreviousFiles;
+    public $isWallPaper = false;
+
     public $files = [];
     public $isMultiple = true;
     public $maxFiles = 10;
@@ -103,7 +105,13 @@ class FilesUpload extends Component
             return;
         }
         //fire the event of file uploaded with an array with the basic information about the files
-        $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
+        if($this->isWallPaper)
+        {
+            $this->dispatch('update-files-wallpaper', $this->convertToArrayFiles());
+        }
+        else{
+            $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
+        }
 
     }
 
@@ -111,7 +119,7 @@ class FilesUpload extends Component
      * Só consegui apagar os ficheiros assim de outras maneiras dava erros de javascript
      * TODO ver isto melhor
      */
-    public function removeFile($filename) : void
+    public function removeFile($filename, $file) : void
     {
         // Remove the file from the files array
         /*unset($this->files[$index]);
@@ -134,6 +142,7 @@ class FilesUpload extends Component
      */
     public function removePreviousFile($id) : void
     {
+
         //add the removed file to a collection of removed files
         $removedPreviousFile = $this->previousFiles->where('id', $id)->first();
         $this->removedPreviousFiles->add($removedPreviousFile);
@@ -141,6 +150,7 @@ class FilesUpload extends Component
         $this->previousFiles =  $this->previousFiles->filter(function ($file) use ($id) {
             return $file->id != $id;
         });
+        session()->put('removedPreviousFiles', $this->removedPreviousFiles);
     }
 
 

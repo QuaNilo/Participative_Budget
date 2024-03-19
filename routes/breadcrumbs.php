@@ -313,6 +313,64 @@ Breadcrumbs::for('faq-themes.edit', function (BreadcrumbTrail $trail, $model) {
 });
 
 
+
+// Home > FAQS
+Breadcrumbs::for('homes.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Home Page'), route('faqs.index'));
+});
+Breadcrumbs::for('homes.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('homes.index');
+    $trail->push(__('Create'), route('homes.create'));
+});
+Breadcrumbs::for('homes.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('homes.index');
+    $trail->push('Home Page' .$model->question, route('homes.show', $model));
+});
+Breadcrumbs::for('homes.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('homes.show', $model);
+    $trail->push(__('Update'), route('homes.edit', $model));
+});
+
+
+// Home-info > FAQS
+Breadcrumbs::for('home-infos.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Home Page'), route('faqs.index'));
+});
+Breadcrumbs::for('home-infos.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('home-infos.index');
+    $trail->push(__('Create'), route('home-infos.create'));
+});
+Breadcrumbs::for('home-infos.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('home-infos.index');
+    $trail->push('Home Page' .$model->question, route('home-infos.show', $model));
+});
+Breadcrumbs::for('home-infos.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('home-infos.show', $model);
+    $trail->push(__('Update'), route('home-infos.edit', $model));
+});
+
+
+// Home-bullet-points > FAQS
+Breadcrumbs::for('home-bullet-points.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push(__('Home Page'), route('homes.index'));
+});
+Breadcrumbs::for('home-bullet-points.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('home-bullet-points.index');
+    $trail->push(__('Create'), route('home-bullet-points.create'));
+});
+Breadcrumbs::for('home-bullet-points.show', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('home-bullet-points.index');
+    $trail->push('Home Page' . $model->question, route('home-bullet-points.show', $model));
+});
+Breadcrumbs::for('home-bullet-points.edit', function (BreadcrumbTrail $trail, $model) {
+    $trail->parent('home-bullet-points.show', $model);
+    $trail->push(__('Update'), route('home-bullet-points.edit', $model));
+});
+
+
 // Home > Article
 Breadcrumbs::for('articles.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

@@ -186,7 +186,6 @@ class ProposalCreateForm extends Component
                         ->toMediaCollection('gallery');
                 }
             }else{
-    //            dd($this->receivedFiles['files'][0], $this->receivedFiles['files'], $this->receivedFiles, $this->receivedFiles['files'][0]['filename'], $this->receivedFiles['files'][0]->filename);
                 $model->addMedia(storage_path("app/livewire-tmp/" . $this->receivedFiles['files'][0]['filename']))
                     ->usingName($this->receivedFiles['files'][0]['originalName'])//get the media original name at the same index as the media item
                     ->toMediaCollection('gallery');

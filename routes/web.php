@@ -9,7 +9,7 @@ use App\Http\Controllers\DarkModeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadMediaController;
 use App\Http\Controllers\EditionsFE;
-use App\Http\Controllers\FAQ;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Helper;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MapController;
@@ -65,7 +65,7 @@ Route::delete('/FEproposals/{FEproposal}', [ProposalFEController::class, 'destro
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');
-Route::get('/FAQ', [\App\Http\Controllers\FAQController::class, 'FEShow'])->name('faq-page');
+Route::get('/FAQ', [\App\Http\Controllers\FaqController::class, 'FEShow'])->name('faq-page');
 
 
 Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
@@ -78,7 +78,6 @@ Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class
 
 Route::post('download-single-file/{proposal}', [DownloadMediaController::class, 'download_zip'])->name('download-single-file');
 Route::post('change-language/{language}', [SettingController::class, 'change_language'])->name('setting.change_language');
-
 
 
 Route::middleware([
@@ -116,8 +115,13 @@ Route::middleware([
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
     Route::resource('regulations', App\Http\Controllers\RegulationController::class);
     Route::resource('faq-themes', App\Http\Controllers\FaqThemeController::class);
+    Route::resource('homes', App\Http\Controllers\HomeController::class);
+    Route::post('/homes/update-home/', [\App\Livewire\HomeControllerLivewire::class, 'handleUpdate'])->name('tentativa');
     Route::resource('faqs', App\Http\Controllers\FaqController::class);
+    Route::resource('home-bullet-points', App\Http\Controllers\HomeBulletPointsController::class);
+    Route::resource('home-infos', App\Http\Controllers\HomeInfoController::class);
 });
+
 
 
 

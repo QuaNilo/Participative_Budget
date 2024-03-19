@@ -14,8 +14,8 @@ class Proposal extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
-    use HasFactory;
     use InteractsWithMedia;
+    use HasFactory;
 
 
     const STATUS_PENDING = 0;
@@ -200,7 +200,6 @@ class Proposal extends Model implements Auditable, HasMedia
                     ->crop('crop-center', 800, 400);
             });
 
-
             $this->addMediaConversion('original')
                 ->keepOriginalImageFormat();
 
@@ -209,7 +208,5 @@ class Proposal extends Model implements Auditable, HasMedia
 
             $this->addMediaConversion('retangular')
                 ->crop('crop-center', 800, 400);
-
     }
-
 }

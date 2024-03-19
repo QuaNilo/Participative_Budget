@@ -113,6 +113,12 @@ class   MenuComposer
                         ],
                     ],
                 ],
+                'Home' => [
+                    'icon' => 'mail-check',
+                    'title' => __('Home'),
+                    'route_name' => 'homes.index',
+                    'params' => []
+                ],
                 'divider',
                 'users' => [
                     'icon' => 'users',

@@ -83,6 +83,7 @@ class DatabaseSeeder extends Seeder
             $this->call(RegulationsTableSeeder::class);
             $this->call(ChaptersTableSeeder::class);
             $this->call(ArticlesTableSeeder::class);
+            $this->call(HomesTableSeeder::class);
         }
     }
 }

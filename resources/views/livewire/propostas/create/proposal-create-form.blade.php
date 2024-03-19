@@ -178,7 +178,6 @@
                                     :uploadFieldMainLabel="__('Upload an image')"
                                />
 
-
                                <livewire:files-upload-f-e
                                     inputName="files"
                                     :isMultiple="true"
@@ -191,7 +190,6 @@
                                     :uploadFieldMainLabel="__('Upload an image')"
                                />
                             </div>
-
 
                             <div class="mb-3">
                                 <livewire:files-upload-f-e
@@ -206,7 +204,6 @@
                                     :uploadFieldMainLabel="__('Upload files')"
                                 />
                             </div>
-
 
                             @error('files') <span class="error">{{ $message }}</span> @enderror
                         </div>
