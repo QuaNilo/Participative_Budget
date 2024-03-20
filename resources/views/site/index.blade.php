@@ -7,10 +7,17 @@
  */
 view()->share('pageTitle', __('Homepage'));
 view()->share('showBgEffect', true);
+$home = \App\Models\Home::first();
+$mediaItems = $home->getMedia('wallpaper');
 ?>
 <x-landing-layout>
     <div class="">
-        <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover ">
+{{--        @dd($home->getFirstMediaUrl('wallpaper'))--}}
+        @if($home->getFirstMediaUrl('wallpaper'))
+            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/{{ $mediaItems[0]->id }}/{{ $mediaItems[0]->file_name }}')] bg-no-repeat bg-cover">
+        @else
+            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover ">
+        @endif
             <div class="absolute inset-0 bg-white/30 dark:bg-slate-900/60"></div>
             <div class="container relative z-1">
                 <div class="grid md:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
@@ -34,9 +41,14 @@ view()->share('showBgEffect', true);
             <section id="what" class="relative md:py-24 pt-0 mt-0 bg-gray-50 dark:bg-slate-800">
                 <div class="container relative">
                     <div class="grid grid-cols-1 pb-8 text-center">
-                        <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("What is Participatory Budget")}}?</h3>
+                        @if($homeInfo = \App\Models\HomeInfo::first())
+                            <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{$homeInfo->title}}?</h3>
+                            <p class="text-slate-400 max-w-xl mx-auto">{{$homeInfo->content}}</p>
+                        @else
+                            <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("What is Participatory Budget")}}?</h3>
+                            <p class="text-slate-400 max-w-xl mx-auto">{{__("It's a public policy tool to engage and increase public participation in local government decision-making by funding ideas generated and debated by the population. The Municipality of Lisbon was the first European capital to implement Participatory Budgeting in 2008, through Deliberation No. 506/CM/2008 approved at a City Council meeting, as published on July 9, 2008, in the 3rd supplement to Municipal Bulletin No. 751.")}}</p>
+                        @endif
 
-                        <p class="text-slate-400 max-w-xl mx-auto">{{__("It's a public policy tool to engage and increase public participation in local government decision-making by funding ideas generated and debated by the population. The Municipality of Lisbon was the first European capital to implement Participatory Budgeting in 2008, through Deliberation No. 506/CM/2008 approved at a City Council meeting, as published on July 9, 2008, in the 3rd supplement to Municipal Bulletin No. 751.")}}</p>
                     </div><!--end grid-->
 
                     <div class="grid lg:grid-cols-12 md:grid-cols-2 grid-cols-1 items-center mt-10 gap-[30px]">
@@ -47,10 +59,16 @@ view()->share('showBgEffect', true);
                             <div class="lg:ms-10">
                                 <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("Objectives")}}</h3>
                                 <ul class="list-none text-slate-400 mt-4">
+                                @if($homeBullets = \App\Models\HomeBulletPoints::get())
+                                    @foreach($homeBullets as $homeBullet)
+                                        <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{$homeBullet->bullet_point}}</li>
+                                    @endforeach
+                                @else
                                     <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Incentivar o diálogo entre eleitos, técnicos municipais, cidadãos e a sociedade civil organizada, na procura das melhores soluções para os problemas tendo em conta os recursos disponíveis.")}}</li>
                                     <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Contribuir para a educação cívica, permitindo aos cidadãos integrar as suas preocupações pessoais com o bem comum, compreender a complexidade dos problemas e desenvolver atitudes, competências e práticas de participação.")}}</li>
                                     <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Adequar as políticas públicas municipais às necessidades e expectativas das pessoas, para melhorar a qualidade de vida na cidade.")}}</li>
                                     <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Aumentar a transparência da atividade da Autarquia, o nível de responsabilização dos eleitos e da estrutura municipal, contribuindo para reforçar a qualidade da democracia.")}}</li>
+                                @endif
                                 </ul>
                             </div>
                         </div>

@@ -32,15 +32,8 @@
                         acceptedFileTypes="*/*"
                         :uploadFieldMainLabel="__('Upload Wallpaper')"
                     />
-                </div>
+            </div>
             <div class="mt-5 text-right">
-                <x-base.button
-                    class="mr-1 w-24"
-                    type="a"
-                    variant="outline-secondary"
-                    href="{{ route('homes.index') }}"
-                >{{ __('Cancel') }}
-                </x-base.button>
                 <x-base.button
                     class="w-24"
                     type="submit"
