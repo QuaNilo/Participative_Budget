@@ -1,6 +1,6 @@
 @props(['proposal'])
-<div class="group relative bg-slate-200/30 shadow-lg rounded-md  hover:shadow-xl dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden ">
-    <div class="content p-6 relative flex flex-col h-full">
+<div class="bg-slate-200/30 shadow-lg rounded-md  hover:shadow-xl dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden">
+    <div class="content p-6 relative flex flex-col">
         <a href="{{ route('proposta-detail', $proposal->id) }}">
 {{--            @foreach($proposal->getFirstMedia()->getUrl() as $media)--}}
             @if($proposal->getFirstMediaUrl('cover', 'square'))
@@ -9,10 +9,9 @@
                  <img src="{{ $proposal->getFirstMediaUrl() }}">
             @endif
 {{--            @endforeach--}}
-            <div class="flex-grow">
+            <div class="mb-10">
                 <span class="font-extrabold block text-indigo-600 p-2">{{$proposal->title}}</span>
                 <span class="font-medium block text-black p-2">{{$proposal->category()->first()->name}}</span>
-                <p class="text-slate-400 mt-3 mb-4 pb-4">{{$proposal->summary}}</p>
             </div>
             <div class="absolute bottom-0 w-full p-4 mt-2">
                 <ul class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center list-none text-slate-400">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="" dir="ltr">
     <head>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -94,6 +95,7 @@
         @endif
         <script src="{{ Vite::asset('node_modules/tiny-slider/dist/min/tiny-slider.js') }}"></script>
         <script src="{{ Vite::asset('node_modules/feather-icons/dist/feather.min.js') }}"></script>
+
         @if(true)
             <script src="{{ Vite::asset('resources/tailwind-assets/js/plugins.init.js') }}"></script>
             <script src="{{ Vite::asset('resources/tailwind-assets/js/app.js') }}"></script>

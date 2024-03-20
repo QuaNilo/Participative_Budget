@@ -1,61 +1,8 @@
 @props(['proposals', 'proposals_per_user', 'user_proposals_count'])
 <div>
-{{--    <div class="mb-12">--}}
-{{--        <h1 class="text-3xl "><span class="text-4xl font-medium text-black">{{$edition->identifier}}</span></h1>--}}
-{{--        <h2 class="my-4 text-base text-slate-800">{{$edition->title}}</h2>--}}
-{{--        <h3 class="my-4 text-base text-slate-800">{{$edition->description}}</h3>--}}
-{{--        <h1 class="text-xl mt-1"><span class="text-slate-600 text-base">{{__('Status')}} : </span><span class="text-xl font-medium text-black">{{$edition->status_label}}</span></h1>--}}
-{{--        <h1 class="text-xl mt-1"><span class="text-slate-600 text-base">{{__('Ano')}} : </span><span class="text-xl font-medium text-black">{{$edition->ano}}</span></h1>--}}
-
-{{--    </div>--}}
-
-    <div class="flex items-center space-x-8">
-{{--                            <div class="lg:col-span-4 md:col-span-4 md:text-end">--}}
-{{--                                <div class="container relative">--}}
-{{--                                    <div class="flex ">--}}
-{{--                                        <div class="bg-white dark:bg-slate-900 shadow-xl dark:shadow-gray-800">--}}
-{{--                                            <form class="" wire:submit="filter">--}}
-{{--                                                <div class="relative text-dark text-start">--}}
-{{--                                                    <div class="relative flex justify-center items-center  space-x-4 lg:divide-gray-200 lg:dark:divide-gray-700">--}}
-{{--                                                        <div class="">--}}
-{{--                                                            <i class="uil uil-search absolute top-[48%] -translate-y-1/2 start-3 z-1 text-indigo-600 text-[20px]"></i>--}}
-{{--                                                            <input wire:model="keywordsInput" name="name" type="text" class="form-input lg:rounded-t-sm lg:rounded-e-none lg:rounded-b-none lg:rounded-s-sm lg:outline-0 w-full filter-input-box bg-gray-50 dark:bg-slate-800 border-0 focus:ring-0 bg-slate-300/20" placeholder="Search your keywords">--}}
-{{--                                                            <div>@error('keywordsInput') {{ $message }} @enderror</div>--}}
-{{--                                                        </div>--}}
-{{--                    --}}
-{{--                                                        <div class="relative">--}}
-{{--                                                            <i class="uil uil-estate absolute top-[48%] -translate-y-1/2 start-3 z-1 text-white text-[20px]"></i>--}}
-{{--                                                            <select class=" bg-slate-800 hover:bg-slate-950 text-white pl-10" wire:model="category_selected">--}}
-{{--                                                                <option value="{{false}}">Escolha uma categoria</option>--}}
-{{--                                                                @foreach($categories as $category)--}}
-{{--                                                                    <option value="{{$category->id}}">{{$category->name}}</option>--}}
-{{--                                                                @endforeach--}}
-{{--                                                            </select>--}}
-{{--                                                        </div>--}}
-{{--                    --}}
-{{--                                                        <div class="relative ">--}}
-{{--                                                            <i class="uil uil-envelope-check absolute top-[48%] -translate-y-1/2 start-3 z-1 text-white text-[20px]"></i>--}}
-{{--                                                            <select class=" bg-slate-800 hover:bg-slate-950 text-white pl-10" wire:model="status_selected">--}}
-{{--                                                                <option value="{{false}}">Escolha um estado</option>--}}
-{{--                                                                @foreach(\App\Models\Proposal::getStatusArray() as $statusId => $statusName)--}}
-{{--                                                                    <option value="{{$statusId}}">{{$statusName}}</option>--}}
-{{--                                                                @endforeach--}}
-{{--                                                            </select>--}}
-{{--                                                        </div>--}}
-{{--                    --}}
-{{--                                                        <div class="flex justify-center align-content-center bg-indigo-600 hover:bg-indigo-800 w-16 h-full">--}}
-{{--                                                            <button class="h-16 w-full" type="submit" id="search" name="search">--}}
-{{--                                                                <i class="uil uil-search text-white text-[20px]"></i>--}}
-{{--                                                            </button>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div><!--end grid-->--}}
-{{--                                                </div><!--end container-->--}}
-{{--                                            </form>--}}
-{{--                                        </div>--}}
-{{--                                    </div><!--end grid-->--}}
-{{--                                </div><!--end container-->--}}
-        <div class="container relative border-t-2 border-slate-100">
-            <div class="grid grid-cols-1">
+    <div class="flex justify-start align-items-start space-x-8 w-3/4 h-4/5">
+        <div class="flex justify-start align-items-start relative  ">
+            <div class="grid grid-cols-1 border-t-2 border-slate-100">
                 <div class="p-1 bg-white dark:bg-slate-900 rounded-md shadow-md dark:shadow-gray-800 gap-4">
                     <form wire:submit="filter">
                         <div class="border-r border-1 relative text-dark text-start">
@@ -104,7 +51,7 @@
         </x-button>
         @if(!in_array($edition->status, [0, 1, 2, 3]))
             <div class="relative">
-                <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 hover:bg-slate-950 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else text-amber-400 @endif  font-bold text-base mr-2"></i>{{__('Winning Projects')}}</button>
+                <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else @endif  font-bold text-base mr-2"></i>{{__('Winning Projects')}}</button>
             </div>
         @endif
         @auth()

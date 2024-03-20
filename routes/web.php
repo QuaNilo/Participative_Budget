@@ -48,10 +48,10 @@ Route::get('/warning', [Helper::class, 'display_warning'])->name('display_warnin
 Route::get('/warning/cc', [Helper::class, 'display_warning_cc'])->name('display_warning_cc');
 Route::get('/warning/address', [Helper::class, 'display_warning_address'])->name('display_warning_address');
 
-Route::get('/profile', [UserFEController::class, 'index'])->name('users_dashboard');
+Route::get('/perfil', [UserFEController::class, 'index'])->name('users_dashboard');
 Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
 
-Route::get('/editions', [EditionsFE::class, 'index'])->name('editions-fe');
+Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');
 
 
 Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
@@ -65,7 +65,7 @@ Route::delete('/FEproposals/{FEproposal}', [ProposalFEController::class, 'destro
 
 Route::get('/calendario', [CalendarPage::class, 'show'])->name('calendar-page');
 Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');
-Route::get('/FAQ', [\App\Http\Controllers\FaqController::class, 'FEShow'])->name('faq-page');
+Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'FEShow'])->name('faq-page');
 
 
 Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
@@ -73,8 +73,7 @@ Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.coo
 Route::get('/privacy-policy', [HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
 Route::get('/privacy-policy-1', [HomeController::class,'privacyPolicy'])->name('policy.show');
 Route::get('/terms-of-service', [HomeController::class,'termsOfService'])->name('home.terms_of_service');
-Route::get('dark-mode-switcher', [DarkModeController::class, 'switch'])->name('dark-mode-switcher');
-Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
+//Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
 Route::post('download-single-file/{proposal}', [DownloadMediaController::class, 'download_zip'])->name('download-single-file');
 Route::post('change-language/{language}', [SettingController::class, 'change_language'])->name('setting.change_language');
@@ -116,7 +115,6 @@ Route::middleware([
     Route::resource('regulations', App\Http\Controllers\RegulationController::class);
     Route::resource('faq-themes', App\Http\Controllers\FaqThemeController::class);
     Route::resource('homes', App\Http\Controllers\HomeController::class);
-    Route::post('/homes/update-home/', [\App\Livewire\HomeControllerLivewire::class, 'handleUpdate'])->name('tentativa');
     Route::resource('faqs', App\Http\Controllers\FaqController::class);
     Route::resource('home-bullet-points', App\Http\Controllers\HomeBulletPointsController::class);
     Route::resource('home-infos', App\Http\Controllers\HomeInfoController::class);

@@ -14,9 +14,9 @@ $mediaItems = $home->getMedia('wallpaper');
     <div class="">
 {{--        @dd($home->getFirstMediaUrl('wallpaper'))--}}
         @if($home->getFirstMediaUrl('wallpaper'))
-            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/{{ $mediaItems[0]->id }}/{{ $mediaItems[0]->file_name }}')] bg-no-repeat bg-cover">
+            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/{{ $mediaItems[0]->id }}/{{ $mediaItems[0]->file_name }}')] bg-no-repeat bg-cover"/>
         @else
-            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover ">
+            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover "/>
         @endif
             <div class="absolute inset-0 bg-white/30 dark:bg-slate-900/60"></div>
             <div class="container relative z-1">
@@ -79,63 +79,25 @@ $mediaItems = $home->getMedia('wallpaper');
             <div class="bg-gray-50 relative flex justify-center text-center">
                 <a href="{{ route('propostas', App\Models\Edition::where('status', \App\Models\Edition::STATUS_OPEN)->first()) }}" class="py-2 px-[250px] inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2">{{__("Participa")}}</a>
             </div>
+        <section>
+            <div class="relative md:py-24 py-16 bg-gray-50 ">
+                <div class="grid grid-cols-1 text-center">
+                    <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("Tem alguma questão?")}}</h3>
 
-{{--    <!-- Start -->--}}
-{{--            <section class="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">--}}
-{{--                <div class="container relative">--}}
-{{--                    <div class="grid md:grid-cols-2 grid-cols-1 gap-[30px]">--}}
-{{--                        <div class="flex">--}}
-{{--                            <i data-feather="help-circle" class="fea icon-ex-md text-indigo-600 me-3"></i>--}}
-{{--                            <div class="flex-1">--}}
-{{--                                <h5 class="mb-2 text-xl font-semibold">{{__("Como funciona o")}} <span class="text-indigo-600">{{__("OP")}}</span> ?</h5>--}}
-{{--                                <p class="text-slate-400">{{__("Due to its widespread use as filler text for layouts, non-readability is of great importance: human perception is tuned to recognize certain patterns and repetitions in texts.")}}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                    <p class="text-slate-400 max-w-xl mx-auto">{{__("Consulte os seguintes Links!")}}</p>
 
-{{--                        <div class="flex">--}}
-{{--                            <i data-feather="help-circle" class="fea icon-ex-md text-indigo-600 me-3"></i>--}}
-{{--                            <div class="flex-1">--}}
-{{--                                <h5 class="mb-2 text-xl font-semibold">{{__("Qual é o processo para abrir uma conta ?")}} </h5>--}}
-{{--                                <p class="text-slate-400">{{__("If the distribution of letters and 'words' is random, the reader will not be distracted from making a neutral judgement on the visual impact")}}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="flex">--}}
-{{--                            <i data-feather="help-circle" class="fea icon-ex-md text-indigo-600 me-3"></i>--}}
-{{--                            <div class="flex-1">--}}
-{{--                                <h5 class="mb-2 text-xl font-semibold">{{__("Como criar uma proposta ?")}} </h5>--}}
-{{--                                <p class="text-slate-400">{{__("Furthermore, it is advantageous when the dummy text is relatively realistic so that the layout impression of the final publication is not compromised.")}}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="flex">--}}
-{{--                            <i data-feather="help-circle" class="fea icon-ex-md text-indigo-600 me-3"></i>--}}
-{{--                            <div class="flex-1">--}}
-{{--                                <h5 class="mb-2 text-xl font-semibold">{{__("Como funciona o Calendario das propostas do ")}} <span class="text-indigo-600">{{__("OP")}}</span> ?</h5>--}}
-{{--                                <p class="text-slate-400">{{__("Para saber mais sobre o calendario,")}} <a class=" text-indigo-600 hover:underline" href="{{route('calendar-page')}}">{{__("Clique aqui")}}</a></p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div><!--end grid-->--}}
-{{--                </div><!--end container-->--}}
-
-                <div class="relative md:py-24 py-16 bg-gray-50 ">
-                    <div class="grid grid-cols-1 text-center">
-                        <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("Tem alguma questão?")}}</h3>
-
-                        <p class="text-slate-400 max-w-xl mx-auto">{{__("Consulte os seguintes Links!")}}</p>
-
-                        <div class="mt-6">
-                            <a href="{{route('faq-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("FAQ")}}</a>
-                        </div>
-                        <div class="mt-6">
-                            <a href="{{route('calendar-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("Calendario")}}</a>
-                        </div>
-                        <div class="mt-6">
-                            <a href="{{route('rules-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("Regulamento")}}</a>
-                        </div>
-                    </div><!--end grid-->
-                </div><!--end container-->
-            </section><!--end section-->
+                    <div class="mt-6">
+                        <a href="{{route('faq-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("FAQ")}}</a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="{{route('calendar-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("Calendario")}}</a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="{{route('rules-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("Regulamento")}}</a>
+                    </div>
+                </div><!--end grid-->
+            </div><!--end container-->
+        </section>
 
 
     </div>

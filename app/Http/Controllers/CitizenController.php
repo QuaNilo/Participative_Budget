@@ -158,7 +158,7 @@ class CitizenController extends Controller
     }
 
 
-    public function rejectAddress(Request $request,Citizen $citizen)
+    public function rejectAddress(Request $request, Citizen $citizen)
     {
         if($citizen)
         {
