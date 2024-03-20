@@ -20,18 +20,18 @@
         <form action="{{ route('homes.update', \App\Models\Home::first()) }}" method="POST" accept-charset="UTF-8">
             @csrf
             @method("PATCH")
-            <div class="mb-3">
-                    <livewire:files-upload
-                        inputName="wallpaper"
-                        :isMultiple="false"
-                        :isWallPaper="true"
-                        maxFiles="1"
-                        maxFileSize="10240"
-                        :previousFiles="\App\Models\Home::first()->getMedia('wallpaper') ?? collect()"
-                        :label="__('Upload Wallpaper')"
-                        acceptedFileTypes="*/*"
-                        :uploadFieldMainLabel="__('Upload Wallpaper')"
-                    />
+            <div class="mb-6">
+                <livewire:files-upload
+                    inputName="wallpaper"
+                    :isMultiple="false"
+                    :isWallPaper="true"
+                    maxFiles="1"
+                    maxFileSize="10240"
+                    :previousFiles="\App\Models\Home::first()->getMedia('wallpaper') ?? collect()"
+                    :label="__('Upload Wallpaper')"
+                    acceptedFileTypes="*/*"
+                    :uploadFieldMainLabel="__('Upload Wallpaper')"
+                />
             </div>
             <div class="mt-5 text-right">
                 <x-base.button

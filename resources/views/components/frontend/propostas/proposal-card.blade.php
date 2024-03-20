@@ -32,7 +32,6 @@
                         <i class="uil uil-clock text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
                         <span>{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</span>
                     </li>
-
                 </ul>
             </div>
         </a>
