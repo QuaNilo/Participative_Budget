@@ -68,7 +68,7 @@ Route::get('/regras', [RulesPage::class, 'show'])->name('rules-page');
 Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'FEShow'])->name('faq-page');
 
 
-Route::get('/contact-us', [ContactController::class,'create'])->name('contacts.create');
+Route::get('/contact-us', [ContactController::class,'show'])->name('contact-us');
 Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.cookies');
 Route::get('/privacy-policy', [HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
 Route::get('/privacy-policy-1', [HomeController::class,'privacyPolicy'])->name('policy.show');

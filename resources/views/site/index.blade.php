@@ -12,9 +12,10 @@ $mediaItems = $home->getMedia('wallpaper');
 ?>
 <x-landing-layout>
     <div class="">
-{{--        @dd($home->getFirstMediaUrl('wallpaper'))--}}
         @if($home->getFirstMediaUrl('wallpaper'))
-            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/{{ $mediaItems[0]->id }}/{{ $mediaItems[0]->file_name }}')] bg-no-repeat bg-cover"/>
+{{--            @dd($mediaItems[0]->file_name, $mediaItems[0]->id)--}}
+            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/{{$mediaItems[0]->id}}/{{$mediaItems[0]->file_name}}')] bg-no-repeat bg-cover"/>
+{{--            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/2/8oSD3lOGKvbX7BEGvR7YivhoxR63qa-metaQ2FwdHVyYSBkZSBlY3LDoyAyMDIzLTA5LTA2IDEwMjkyNy5wbmc=-.png')] bg-no-repeat bg-cover"/>--}}
         @else
             <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover "/>
         @endif
@@ -24,8 +25,6 @@ $mediaItems = $home->getMedia('wallpaper');
                     <div class="lg:col-span-8 md:col-span-7 md:order-1 order-2">
                         <div class="md:me-6">
                             <h4 class="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 text-black dark:text-white">{{__("Build the county of your")}} <br> <span class="text-indigo-600">{{__("Dreams")}}</span></h4>
-{{--                            <p class="text-slate-900 dark:text-white/75 text-lg max-w-xl"></p>--}}
-
                             <div class="mt-6">
                                     <a href="#what" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2">{{__("Know more")}}</a>
                             </div>
@@ -59,7 +58,10 @@ $mediaItems = $home->getMedia('wallpaper');
                             <div class="lg:ms-10">
                                 <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("Objectives")}}</h3>
                                 <ul class="list-none text-slate-400 mt-4">
-                                @if($homeBullets = \App\Models\HomeBulletPoints::get())
+                                @if(\App\Models\HomeBulletPoints::exists())
+                                    <?php
+                                        $homeBullets = \App\Models\HomeBulletPoints::get()
+                                    ?>
                                     @foreach($homeBullets as $homeBullet)
                                         <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{$homeBullet->bullet_point}}</li>
                                     @endforeach
@@ -77,7 +79,7 @@ $mediaItems = $home->getMedia('wallpaper');
             </section>
 
             <div class="bg-gray-50 relative flex justify-center text-center">
-                <a href="{{ route('propostas', App\Models\Edition::where('status', \App\Models\Edition::STATUS_OPEN)->first()) }}" class="py-2 px-[250px] inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2">{{__("Participa")}}</a>
+                <a href="{{ route('propostas', App\Models\Edition::where('status', \App\Models\Edition::STATUS_OPEN)->first()) }}" class="py-2 px-5  w-[450px] inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md">{{__("Participa")}}</a>
             </div>
         <section>
             <div class="relative md:py-24 py-16 bg-gray-50 ">
@@ -85,15 +87,20 @@ $mediaItems = $home->getMedia('wallpaper');
                     <h3 class="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">{{__("Tem alguma questão?")}}</h3>
 
                     <p class="text-slate-400 max-w-xl mx-auto">{{__("Consulte os seguintes Links!")}}</p>
+                    <div class="flex flex-row justify-evenly w-1/2 mx-auto">
+                        <div class="mt-6">
+                            <a href="{{route('faq-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("FAQ")}}</a>
+                        </div>
+                        <div class="mt-6">
+                            <a href="{{route('calendar-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Calendario")}}</a>
+                        </div>
+                        <div class="mt-6">
+                            <a href="{{route('rules-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Regulamento")}}</a>
+                        </div>
+                        <div class="mt-6">
+                            <a href="{{route('contact-us')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Contact us")}}</a>
+                        </div>
 
-                    <div class="mt-6">
-                        <a href="{{route('faq-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("FAQ")}}</a>
-                    </div>
-                    <div class="mt-6">
-                        <a href="{{route('calendar-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("Calendario")}}</a>
-                    </div>
-                    <div class="mt-6">
-                        <a href="{{route('rules-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white text-xl rounded-md mt-4"><i class="uil uil-question-circle text-xl"></i> {{__("Regulamento")}}</a>
                     </div>
                 </div><!--end grid-->
             </div><!--end container-->

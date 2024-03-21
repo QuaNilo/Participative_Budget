@@ -51,7 +51,7 @@
                     <p class="text-slate-400 max-w-xl mx-auto">{{__("Pode entrar em contacto com a câmara municipal pelo seguinte e-mail ")}}</p>
 
                     <div class="mt-6">
-                        <a href="helpcenter-support.html" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2"><i class="uil uil-phone"></i> {{__("Contact us")}}</a>
+                        <a href="{{route('contact-us')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2"><i class="uil uil-phone"></i> {{__("Contact us")}}</a>
                     </div>
                 </div><!--end grid-->
             </div><!--end container-->
