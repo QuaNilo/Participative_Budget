@@ -50,7 +50,7 @@
                             <dd class="md:col-span-8 col-span-7 mt-2 text-slate-400">${title}</dd>
                         </dl>
                     </div>
-                    <x-button class="mt-4"  onclick="window.location.href='edition/proposta/${id}'">View Proposal</x-button>
+                    <x-button class="mt-4"  onclick="window.location.href='edition/proposta/${id}'">{{__('View Proposal')}}</x-button>
                 </div>
             `;
 

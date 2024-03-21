@@ -10,9 +10,6 @@
                     <livewire:statistics-card :value="$count_votes_winner_proposal" :title="'Votes on Winner Proposals'"/>
                     <livewire:statistics-card :value="$total_votes" :title="'Total Votes'"/>
                     <livewire:statistics-card :value="$averageVotesOnAllEditions" :title="'Average Votes On All Editions'"/>
-                    <livewire:statistics-card :value="'10'" :title="'Total Votes'"/>
-                    <livewire:statistics-card :value="'10'" :title="'Total Votes'"/>
-                    <livewire:statistics-card :value="'10'" :title="'Total Votes'"/>
                 </div>
                 <div class="flex flex-row">
                     <div class="w-1/2 h-1/2 flex-grow">
@@ -49,7 +46,7 @@
         </div>
         <div id="verified_status" class="shadow dark:shadow-gray-800 h-full">
             <div class="bg-slate-100">
-                <h1 class="bold text-2xl mb-2">{{__('Account Status')}}</h1>
+                <h1 class="bold text-2xl mb-2 text-center">{{__('Account Status')}}</h1>
             </div>
             <div class="text-center p-2">
                 @if($setting->require_cc_vote_create)

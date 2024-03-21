@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Edition;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Log;
 
 
 class EditionFactory extends Factory
@@ -23,12 +24,13 @@ class EditionFactory extends Factory
     public function definition()
     {
         $year_randomized = $this->faker->unique()->numberBetween(1990, 2024);
+
         return [
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s'),
             'edition_end' => $this->faker->date('Y-m-d'),
             'edition_publish' => $this->faker->date('Y-m-d'),
-            'status' => $this->faker->numberBetween(0,4),
+            'status' => $this->faker->numberBetween(0,6),
             'identifier' => $year_randomized,
             'edition_number' => $this->faker->unique()->numberBetween(1, 50),
             'proposals_per_user' => $this->faker->numberBetween(1,12),
