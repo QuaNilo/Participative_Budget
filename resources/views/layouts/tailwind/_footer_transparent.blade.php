@@ -1,4 +1,7 @@
 <!-- Footer Start -->
+<?php
+    $setting = \App\Models\Setting::first();
+?>
 <footer class="footer bg-transparent relative text-slate-400">
     <div class="container relative">
         <div class="grid grid-cols-12">
@@ -12,20 +15,20 @@
                             </a>
                             <p class="mt-6">{{ __('') }}</p>
                             <ul class="list mt-6">
-                                @if(\App\Models\Setting::first()->facebook)
-                                    <li class="inline"><a href="{{\App\Models\Setting::first()->facebook}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
+                                @if($setting->facebook)
+                                    <li class="inline"><a href="{{$setting->facebook}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
                                 @endif
-                                @if(\App\Models\Setting::first()->twitter)
-                                    <li class="inline"><a href="{{\App\Models\Setting::first()->twitter}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
+                                @if($setting->twitter)
+                                    <li class="inline"><a href="{{$setting->twitter}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
                                 @endif
-                                @if(\App\Models\Setting::first()->instagram)
-                                    <li class="inline"><a href="{{\App\Models\Setting::first()->instagram}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
+                                @if($setting->instagram)
+                                    <li class="inline"><a href="{{$setting->instagram}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
                                 @endif
-                                @if(\App\Models\Setting::first()->linkedin)
-                                    <li class="inline"><a href="{{\App\Models\Setting::first()->linkedin}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-linkedin" title="Linkedin"></i></a></li>
+                                @if($setting->linkedin)
+                                    <li class="inline"><a href="{{$setting->linkedin}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-linkedin" title="Linkedin"></i></a></li>
                                 @endif
-                                @if(\App\Models\Setting::first()->youtube)
-                                        <li class="inline"><a href="{{\App\Models\Setting::first()->youtube}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-youtube align-middle" title="Youtube"></i></a></li>
+                                @if($setting->youtube)
+                                        <li class="inline"><a href="{{$setting->youtube}}" target="_blank" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center text-gray-400 hover:text-white border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600"><i class="uil uil-youtube align-middle" title="Youtube"></i></a></li>
                                 @endif
 
                             </ul><!--end icon-->
@@ -57,10 +60,10 @@
                             <div class="lg:col-span-3 md:col-span-4">
                                 <h5 class="tracking-[1px] text-black dark:text-white font-semibold">{{ __('Town Hall') }}</h5>
                                 <p class="mt-6">
-                                    NOME DA CM<br>
-                                    {{App\Models\Setting::first()->email_cm}}<br>
-                                    Cais - Espaço Empresarial, Largo José da Cruz, Nº 3 2260-369 Vila Nova da Barquinha<br>
-                                    NIF: 515447650
+                                    {{$setting->nome_cm}}<br>
+                                    {{$setting->email_cm}}<br>
+                                    {{$setting->address}}<br>
+{{--                                    NIF: 515447650--}}
                                 </p>
                                 @if(false)
                                     <p class="mt-6">Sign up and receive the latest tips via email.</p>

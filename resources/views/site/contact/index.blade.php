@@ -15,7 +15,7 @@
 
                             <div class="lg:col-span-5 md:col-span-6">
                                 <div class="p-6">
-                                    <h3 class="mb-6 text-2xl leading-normal font-medium">{{__('Contactos Câmara Municipal')}}</h3>
+                                    <h3 class="mb-6 text-2xl leading-normal font-medium">{{__('Contactos Câmara Municipal')}} {{$setting->nome_cm}}</h3>
                                     <p class="text-slate-400">{{__('Pode entrar em contacto com a câmara municipal pelas seguintes formas.')}}</p>
 
                                     <div class="flex items-center mt-6">
