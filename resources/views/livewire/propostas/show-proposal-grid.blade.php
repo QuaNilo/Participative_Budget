@@ -32,7 +32,7 @@
             </div>
         </form>
         <div class="flex align-items-end justify-end space-x-3 mt-4">
-            <x-button class="px-2 py-2 bg-slate-800 hover:bg-indigo-700 active:bg-indigo-900">
+            <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
                         <a href="{{ route('mapa', $edition->id) }}">{{__('Map')}}
                         </a>
             </x-button>
@@ -46,19 +46,19 @@
                     @if($proposals_per_user !== 0 && $user_proposals_count >= $proposals_per_user)
                         <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                             <a
-                                href="{{ route('display_warning') }}">{{__('Create Proposal')}}
+                                href="{{ route('display_warning', ['message' => __('Exceeded maximum proposals for this edition')]) }}">{{__('Create Proposal')}}
                             </a>
                         </x-button>
                     @elseif(\App\Models\Setting::first()->require_cc_vote_create && !auth()->user()->citizen->CC_verified)
                         <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                             <a
-                                href="{{ route('display_warning_cc') }}">{{__('Create Proposal')}}
+                                href="{{ route('display_warning', ['message' => __('Your Citizen Card needs to be validated to create Proposals')]) }}">{{__('Create Proposal')}}
                             </a>
                         </x-button>
                     @elseif(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified)
                         <x-button class="px-2 py-2 bg-slate-800 hover:bg-slate-950 active:bg-slate-800">
                             <a
-                                href="{{ route('display_warning_address') }}">{{__('Create Proposal')}}
+                                href="{{ route('display_warning', ['message' => __('Your Address needs to be validated to create Proposals')]) }}">{{__('Create Proposal')}}
                             </a>
                         </x-button>
                     @else

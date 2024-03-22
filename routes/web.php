@@ -44,7 +44,7 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
     ->middleware(['guest:'.config('fortify.guard')])
     ->name('password.email');*/
 
-Route::get('/warning', [Helper::class, 'display_warning'])->name('display_warning');
+Route::get('/warning/{message}', [Helper::class, 'display_warning'])->name('display_warning');
 Route::get('/warning/cc', [Helper::class, 'display_warning_cc'])->name('display_warning_cc');
 Route::get('/warning/address', [Helper::class, 'display_warning_address'])->name('display_warning_address');
 
@@ -54,7 +54,7 @@ Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
 Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');
 
 
-Route::get('/edition/{id}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
+Route::get('/edition', [ProposalFEController::class, 'show_frontend'])->name('propostas');
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');

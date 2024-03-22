@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProposalRequest;
 use App\Http\Requests\UpdateProposalRequest;
+use App\Models\Edition;
 use App\Models\Proposal;
 use App\Models\Vote;
 use Illuminate\Http\RedirectResponse;
@@ -30,9 +31,13 @@ class ProposalFEController extends Controller
         }
     }
 
-    public function show_frontend($edition_id)
+    public function show_frontend()
     {
-        return view('site.propostas.index', ['edition_id' => $edition_id]);
+        if ($edition_id = Edition::where('status', Edition::STATUS_OPEN)->exists()) {
+            return view('site.propostas.index', ['edition_id' => $edition_id]);
+        }
+
+        return redirect()->route('display_warning', ['message' => __('No OPEN edition found.')]);
     }
 
     public function show_frontend_create($id)

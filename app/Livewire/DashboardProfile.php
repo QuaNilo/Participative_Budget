@@ -12,15 +12,19 @@ class DashboardProfile extends Component
     public $setting;
     public $user;
     public $allEditions;
+    public $allCategories;
     public $count_votes_winner_proposal;
     public $total_votes;
     public $averageVotesOnAllEditions;
     public $votesPerEditionJson;
     public $editionNamesJson;
+    public $votesPerCategoryJson;
+    public $categoryNamesJson;
     public function mount()
     {
         // Get all editions
         $this->allEditions = \App\Models\Edition::all();
+        $this->allCategories = \App\Models\Category::all();
 
         $this->user = Auth::user();
 
@@ -36,8 +40,36 @@ class DashboardProfile extends Component
         $this->getAverageVotesOnAllEditions();
 
         $this->getVotesPerEdition();
+        $this->getVotesPerCategory();
 
         $this->setting = \App\Models\Setting::first();
+    }
+
+    protected function getVotesPerCategory()
+    {
+        $categoryNames = [];
+        $votesPerCategory = [];
+
+        // Iterate through each edition
+        foreach ($this->allCategories as $category) {
+            // Get edition name
+            $categoryNames[] = $category->name;
+
+            // Count the number of votes the user cast on this edition's proposals
+            $votesOnEdition = $category->proposals()
+                ->whereHas('votes', function ($query) {
+                    $query->where('user_id', $this->user->id);
+                })
+                ->count();
+
+            // Add the votes for this edition to the array
+            $votesPerCategory[] = $votesOnEdition;
+        }
+
+        // Convert arrays to JSON format for use in JavaScript
+        $this->categoryNamesJson = json_encode($categoryNames);
+        $this->votesPerCategoryJson = json_encode($votesPerCategory);
+
     }
 
     protected function getVotesPerEdition()
@@ -64,8 +96,6 @@ class DashboardProfile extends Component
         // Convert arrays to JSON format for use in JavaScript
         $this->editionNamesJson = json_encode($editionNames);
         $this->votesPerEditionJson = json_encode($votesPerEdition);
-
-        $this->dispatch('chartData', $this->editionNamesJson, $this->votesPerEditionJson);
 
     }
     protected function getAverageVotesOnAllEditions()

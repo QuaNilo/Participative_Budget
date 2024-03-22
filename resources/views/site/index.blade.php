@@ -79,7 +79,7 @@ $mediaItems = $home->getMedia('wallpaper');
             </section>
 
             <div class="bg-gray-50 relative flex justify-center text-center">
-                <a href="{{ route('propostas', App\Models\Edition::where('status', \App\Models\Edition::STATUS_OPEN)->first()) }}" class="py-2 px-5  w-[450px] inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md">{{__("Participa")}}</a>
+                <a href="{{ route('propostas')}}" class="py-2 px-5  w-[450px] inline-block font-semibold tracking-wide border align-middle duration-500 text-center text-xl bg-indigo-600 hover:bg-indigo-800 border-indigo-600 text-white rounded-md">{{__("Participa")}}</a>
             </div>
         <section>
             <div class="relative md:py-24 py-16 bg-gray-50 ">

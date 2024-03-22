@@ -402,3 +402,98 @@ try{
     switcherRtl?.addEventListener("click" ,changeLayout )
 }
 catch(err){}
+
+// Dashboard VOTES/EDITION chart
+try{
+    var mainchartOptions = {
+    series: [{
+            name: 'Profit',
+            data: JSON.parse(editionVotes),
+    }],
+    chart: {
+        type: 'bar',
+        height: 350,
+        toolbar: {
+            show: false,
+            autoSelected: 'zoom'
+        },
+    },
+    grid: {
+        strokeDashArray: 5,
+
+    },
+    plotOptions: {
+        bar: {
+            borderRadius: 5,
+            horizontal: false,
+            columnWidth: '40%',
+            endingShape: 'rounded'
+        },
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+    },
+    colors: ['#4f46e5', '#10b981'],
+    xaxis: {
+            categories: JSON.parse(editionNames),
+    },
+    yaxis: {
+        title: {
+            text: 'Profit / Expenses (USD)',
+
+            style: {
+                colors: ['#8492a6'],
+                fontSize: '16px',
+                fontFamily: 'Nunito, sans-serif',
+                fontWeight: 600,
+            },
+        },
+    },
+    fill: {
+        opacity: 1,
+    },
+    tooltip: {
+        y: {
+            formatter: function (val) {
+                return "$" + val
+            }
+        }
+    }
+    };
+
+    var categoriesChartOptions = {
+    series: JSON.parse(categoryVotes),
+    labels: JSON.parse(categoryNames),
+    chart: {
+        type: 'donut',
+    },
+      pie: {
+        donut: {
+          size: '100%'
+        }
+      }
+    // responsive: [{
+    //   breakpoint: 480,
+    //   options: {
+    //     legend: {
+    //       position: 'bottom'
+    //     }
+    //   }
+    // }]
+    };
+
+    var categoriesChart = new ApexCharts(document.querySelector("#categoriesChart"), categoriesChartOptions);
+    var mainchart = new ApexCharts(document.querySelector("#mainchart"), mainchartOptions);
+    mainchart.render();
+    categoriesChart.render();
+}catch(err){
+    console.log(err)
+}
+
+
+
