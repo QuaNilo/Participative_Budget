@@ -38,7 +38,7 @@
             </x-button>
             @if(!in_array($edition->status, [0, 1, 2, 3]))
                 <div class="relative">
-                    <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-slate-800 @endif px-1 py-1 inline-flex items-center dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest dark:hover:bg-white dark:focus:bg-white dark:active:bg-gray-300  dark:focus:ring-offset-gray-800 transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else @endif  font-bold text-base mr-2"></i>{{__('Winning Projects')}}</button>
+                    <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900 @endif px-1 py-1 inline-flex items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-wides transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else @endif  font-bold text-base mr-2"></i>{{__('Winning Projects')}}</button>
                 </div>
             @endif
             @auth()

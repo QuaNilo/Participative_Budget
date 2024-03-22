@@ -1,11 +1,6 @@
 <div class="container-fluid relative px-3">
     <div class="layout-specing">
-        <div class="flex flex-row rounded-md shadow w-fit h-10 bg-gray-50 items-center p-3">
-            <span class="text-lg font-semibold mr-6 text-indigo-600">{{__('Account Status')}}</span>
-
-            <span class="text-slate-400 font-semibold mr-6">{{__('Citizen Card Verified')}} </span>
-            <span class="text-slate-400 font-semibold">{{__('Address Verified')}}</span>
-        </div>
+        <x-account-status/>
         <div class="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 mt-6 gap-6">
             <div class="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
                 <div class="p-5 flex items-center">
