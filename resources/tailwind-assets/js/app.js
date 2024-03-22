@@ -407,7 +407,7 @@ catch(err){}
 try{
     var mainchartOptions = {
     series: [{
-            name: 'Profit',
+            name: 'Votes',
             data: JSON.parse(editionVotes),
     }],
     chart: {
@@ -444,7 +444,7 @@ try{
     },
     yaxis: {
         title: {
-            text: 'Profit / Expenses (USD)',
+            text: 'Votes / Edition',
 
             style: {
                 colors: ['#8492a6'],
@@ -460,7 +460,7 @@ try{
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$" + val
+                return val
             }
         }
     }

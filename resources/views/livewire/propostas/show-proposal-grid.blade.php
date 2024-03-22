@@ -32,6 +32,7 @@
             </div>
         </form>
         <div class="flex align-items-end justify-end space-x-3 mt-4">
+            <livewire:proposals-sort/>
             <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
                         <a href="{{ route('mapa', $edition->id) }}">{{__('Map')}}
                         </a>

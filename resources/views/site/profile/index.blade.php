@@ -1,5 +1,5 @@
 <x-landing-layout>
-        <div class="my-24">
+        <div>
             <livewire:users-profile></livewire:users-profile>
         </div>
 </x-landing-layout>

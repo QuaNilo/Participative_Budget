@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Category;
 use App\Models\Edition;
 use App\Models\Proposal;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -51,9 +52,9 @@ class ShowProposalGrid extends Component
             ->paginate(9);
         }
     }
-    public function filter()
+    public function filter($sort = null)
     {
-        if(!$this->category_selected && !$this->status_selected && !$this->keywordsInput)
+        if((!$this->category_selected && !$this->status_selected && !$this->keywordsInput) && !$sort)
         {
             return redirect()->route('propostas', ['id' => $this->edition->id]);
         }
@@ -82,7 +83,24 @@ class ShowProposalGrid extends Component
             });
         }
 
+        if($sort)
+        {
+            if($sort['order'] == 'asc')
+            {
+                $query->orderBy($sort['sorter']);
+            }
+            elseif($sort['order'] == 'desc')
+            {
+                $query->orderByDesc($sort['sorter']);
+            }
+        }
+
         $this->proposals = $query->paginate(9);
+    }
+    #[On('sortToParent')]
+    public function sort($data)
+    {
+        $this->filter($data);
     }
 
     public function render()

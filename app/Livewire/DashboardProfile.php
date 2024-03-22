@@ -21,8 +21,10 @@ class DashboardProfile extends Component
     public $votesPerCategoryJson;
     public $categoryNamesJson;
     public $total_impressions;
+    public $selectedTab;
     public function mount()
     {
+        $this->selectedTab = 'votes';
         // Get all editions
         $this->allEditions = \App\Models\Edition::all();
         $this->allCategories = \App\Models\Category::all();
@@ -130,6 +132,11 @@ class DashboardProfile extends Component
         } else {
             $this->averageVotesOnAllEditions = 0;
         }
+    }
+
+    public function toggleTab($tab)
+    {
+        $this->selectedTab = $tab;
     }
     public function render()
     {
