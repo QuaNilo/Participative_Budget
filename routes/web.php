@@ -54,7 +54,7 @@ Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
 Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');
 
 
-Route::get('/edition', [ProposalFEController::class, 'show_frontend'])->name('propostas');
+Route::get('/edicao/{id?}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
 Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
@@ -98,13 +98,14 @@ Route::middleware([
     Route::impersonate();
 
     Route::resource('settings', App\Http\Controllers\SettingController::class);
+//    Route::resource('settings', App\Http\Controllers\SettingsController::class);
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
     Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
-    Route::resource('chapters', App\Http\Controllers\ChapterController::class);
 
+    Route::resource('chapters', App\Http\Controllers\ChapterController::class);
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
     Route::post('/citizens/{citizen}/approve-cc/', [CitizenController::class, 'approveCc'])->name('citizens.approve_cc');
     Route::post('/citizens/{citizen}/approve-address/', [CitizenController::class, 'approveAddress'])->name('citizens.approve_address');
@@ -125,4 +126,3 @@ Route::middleware([
 
 
 
-Route::resource('settings', App\Http\Controllers\SettingsController::class);

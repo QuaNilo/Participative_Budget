@@ -38,7 +38,9 @@ class SettingFactory extends Factory
             'website_cm' => $this->faker->url(),
             'telephone_cm' => $this->faker->numerify('0##########'),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
-            'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+            'nome_cm' => $this->faker->company(),
+            'address' => $this->faker->address()
         ];
     }
 }

@@ -48,7 +48,7 @@
             <!-- Navigation Menu-->
             <ul class="navigation-menu space-x-8">
                 <li><a href="{{ route('home') }}" class="sub-menu-item {{ request()->routeIs('home') ? "active" : "" }}">{{ __('Home') }}</a></li>
-                <li><a href="{{ route('propostas', App\Models\Edition::where('status', \App\Models\Edition::STATUS_VOTING)->first()) }}" class="sub-menu-item">{{ __('Participa') }}</a></li>
+                <li><a href="{{ route('propostas')}}" class="sub-menu-item">{{ __('Participa') }}</a></li>
                 <li><a href="{{route('editions-fe')}}" class="sub-menu-item">{{ __('Edições Anteriores') }}</a></li>
                 <li class="has-submenu parent-parent-menu-item">
                     <a href="javascript:void(0)">Informações</a><span class="menu-arrow"></span><span class="menu-arrow"></span>

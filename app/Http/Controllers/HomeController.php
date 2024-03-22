@@ -160,7 +160,6 @@ class HomeController extends Controller
 
         if(!empty($files = session('files'))){
             foreach ($files as $file){
-                dd($file);
                 $model->deleteMedia($file->id);
                 $folderPath = 'public/' . $file->model_id;
                 if (Storage::exists($folderPath)) {

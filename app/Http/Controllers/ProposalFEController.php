@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProposalRequest;
 use App\Models\Edition;
 use App\Models\Proposal;
 use App\Models\Vote;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -31,13 +32,26 @@ class ProposalFEController extends Controller
         }
     }
 
-    public function show_frontend()
+    public function show_frontend($id = null)
     {
         $validEditionStatuses = [
             Edition::STATUS_VOTING,
         ];
-        if ($edition_id = Edition::whereIn('status', $validEditionStatuses)->exists()) {
-            return view('site.propostas.index', ['edition_id' => $edition_id]);
+        if($id)
+        {
+            try {
+                $edition = Edition::where('id', $id)->first();
+            }catch(Exception $e)
+            {
+                \Log::error('Error Occurred' . $e->getMessage());
+                return redirect()->route('display_warning', ['message' => __('Error finding the given Edition')]);
+            }
+            return view('site.propostas.index', ['edition' => $edition]);
+        }
+
+        if (Edition::whereIn('status', $validEditionStatuses)->exists()) {
+            $edition = Edition::whereIn('status', $validEditionStatuses)->first();
+            return view('site.propostas.index', ['edition' => $edition]);
         }
 
         return redirect()->route('display_warning', ['message' => __('No open edition found.')]);

@@ -17,7 +17,6 @@ class ShowProposalGrid extends Component
     public $showWinners;
     private $proposals;
     public $keywordsInput;
-    public $edition_id;
     public $edition;
     protected $rules = [
 
@@ -27,11 +26,10 @@ class ShowProposalGrid extends Component
     {
         $this->categories = Category::get();
         $this->proposals = Proposal::with('user', 'category')
-            ->where('edition_id', $this->edition_id)
+            ->where('edition_id', $this->edition->id)
             ->withCount('votes')
             ->paginate(9);
         $this->showWinners = false;
-        $this->edition = Edition::find($this->edition_id);
 
     }
 
@@ -42,13 +40,13 @@ class ShowProposalGrid extends Component
         {
             $this->proposals = Proposal::with('user', 'category')
                 ->where('winner', 1)
-                ->where('edition_id', $this->edition_id)
+                ->where('edition_id', $this->edition->id)
                 ->withCount('votes')
                 ->paginate(9);
         }
         else{
             $this->proposals = Proposal::with('user', 'category')
-            ->where('edition_id', $this->edition_id)
+            ->where('edition_id', $this->edition->id)
             ->withCount('votes')
             ->paginate(9);
         }
@@ -57,10 +55,10 @@ class ShowProposalGrid extends Component
     {
         if(!$this->category_selected && !$this->status_selected && !$this->keywordsInput)
         {
-            return redirect()->route('propostas', ['id' => $this->edition_id]);
+            return redirect()->route('propostas', ['id' => $this->edition->id]);
         }
         $query = Proposal::with('user', 'category')
-            ->where('edition_id', $this->edition_id)
+            ->where('edition_id', $this->edition->id)
             ->withCount('votes');
 
         if($this->status_selected){
@@ -94,7 +92,7 @@ class ShowProposalGrid extends Component
             $user_id = auth()->user()->id;
             $user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
                 $query->where('id', $user_id);
-            })->where('edition_id', $this->edition_id)->count();
+            })->where('edition_id', $this->edition->id)->count();
         }
         return view('livewire.propostas.show-proposal-grid', ['proposals' => $proposals, 'user_proposals_count' => $user_proposals_count ?? 0, 'proposals_per_user' => $this->edition->proposals_per_user]);
     }

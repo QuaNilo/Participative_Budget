@@ -1,6 +1,6 @@
-@props(['edition_id'])
+@props(['edition'])
 <x-landing-layout>
         <div class="my-24">
-            <x-frontend.propostas.show-proposals :edition_id="$edition_id"/>
+            <x-frontend.propostas.show-proposals :edition="$edition"/>
         </div>
 </x-landing-layout>
