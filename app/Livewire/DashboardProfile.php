@@ -20,6 +20,7 @@ class DashboardProfile extends Component
     public $editionNamesJson;
     public $votesPerCategoryJson;
     public $categoryNamesJson;
+    public $total_impressions;
     public function mount()
     {
         // Get all editions
@@ -36,6 +37,9 @@ class DashboardProfile extends Component
 //        GET TOTAL VOTES
         $this->total_votes = Vote::where('user_id', $this->user->id)
             ->count();
+
+//        GET TOTAL IMPRESSIONS ON MY PROPOSALS
+        $this->total_impressions = auth()->user()->proposals()->sum('impressions');
 
         $this->getAverageVotesOnAllEditions();
 
