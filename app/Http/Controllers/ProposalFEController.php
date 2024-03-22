@@ -37,7 +37,7 @@ class ProposalFEController extends Controller
             return view('site.propostas.index', ['edition_id' => $edition_id]);
         }
 
-        return redirect()->route('display_warning', ['message' => __('No OPEN edition found.')]);
+        return redirect()->route('display_warning', ['message' => __('No open edition found.')]);
     }
 
     public function show_frontend_create($id)
