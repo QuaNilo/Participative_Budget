@@ -26,6 +26,7 @@ return new class extends Migration
                 $table->string('freguesia')->nullable();
                 $table->string('cod_postal')->nullable();
                 $table->string('telemovel')->nullable();
+                $table->integer('gender')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
         });

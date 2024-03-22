@@ -98,6 +98,7 @@
 
 <!-- Cc Verified Field -->
 <div class="mb-3">
+    <x-base.form-label for="CC_verified">{{ $citizen->getAttributeLabel('CC_verified') }}</x-base.form-label>
     <x-base.form-input
         id="CC_verified_hidden"
         name="CC_verified"
@@ -122,6 +123,7 @@
 
 <!-- Address Verified Field -->
 <div class="mb-3">
+    <x-base.form-label for="address_verified">{{ $citizen->getAttributeLabel('address_verified') }}</x-base.form-label>
     <x-base.form-input
         id="address_verified_hidden"
         name="address_verified"
@@ -252,6 +254,23 @@
         type="text"
     />
     @error('telemovel')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+//TODO trocar isto para um SELECT
+
+<!-- Gender Field -->
+<div class="mb-3">
+    <x-base.form-label for="gender">{{ $citizen->getAttributeLabel('gender') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('gender') ? 'border-danger' : '') }}"
+        id="gender"
+        name="gender"
+        :value="old('gender', $citizen->gender ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('gender')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>

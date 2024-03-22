@@ -10,6 +10,67 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
+/**
+ * App\Models\Proposal
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $category_id
+ * @property int $edition_id
+ * @property string $title
+ * @property string $content
+ * @property string|null $summary
+ * @property float|null $lat
+ * @property float|null $lng
+ * @property string|null $street
+ * @property string|null $postal_code
+ * @property string|null $city
+ * @property string|null $freguesia
+ * @property string|null $url
+ * @property bool|null $winner
+ * @property int|null $rank
+ * @property int $status 1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado
+ * @property float|null $budget_estimate
+ * @property int $unique_impressions
+ * @property int $impressions
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \OwenIt\Auditing\Models\Audit> $audits
+ * @property-read int|null $audits_count
+ * @property-read \App\Models\Category $category
+ * @property-read \App\Models\Edition $edition
+ * @property-read string $status_label
+ * @property-read \App\Models\User $user
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $votes
+ * @property-read int|null $votes_count
+ * @method static \Database\Factories\ProposalFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereBudgetEstimate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereEditionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereFreguesia($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereImpressions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereLng($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal wherePostalCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereRank($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereStreet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereSummary($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUniqueImpressions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereWinner($value)
+ * @mixin \Eloquent
+ */
 class Proposal extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
@@ -32,6 +93,7 @@ class Proposal extends Model implements Auditable, HasMedia
         'edition_id',
         'title',
         'content',
+        'summary',
         'lat',
         'lng',
         'street',
@@ -42,12 +104,15 @@ class Proposal extends Model implements Auditable, HasMedia
         'winner',
         'rank',
         'status',
-        'budget_estimate'
+        'budget_estimate',
+        'unique_impressions',
+        'impressions'
     ];
 
     protected $casts = [
         'title' => 'string',
         'content' => 'string',
+        'summary' => 'string',
         'lat' => 'float',
         'lng' => 'float',
         'street' => 'string',
@@ -119,6 +184,8 @@ class Proposal extends Model implements Auditable, HasMedia
         'rank' => __('Rank'),
         'status' => __('Status'),
         'budget_estimate' => __('Budget Estimate'),
+        'unique_impressions' => __('Unique Impressions'),
+        'impressions' => __('Impressions'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')
         ];

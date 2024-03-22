@@ -124,3 +124,5 @@ Route::middleware([
 
 
 
+
+Route::resource('settings', App\Http\Controllers\SettingsController::class);

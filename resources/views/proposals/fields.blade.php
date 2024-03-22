@@ -265,3 +265,35 @@
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
+
+<!-- Unique Impressions Field -->
+<div class="mb-3">
+    <x-base.form-label for="unique_impressions">{{ $proposal->getAttributeLabel('unique_impressions') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('unique_impressions') ? 'border-danger' : '') }}"
+        id="unique_impressions"
+        name="unique_impressions"
+        :value="old('unique_impressions', $proposal->unique_impressions ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('unique_impressions')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+<!-- Impressions Field -->
+<div class="mb-3">
+    <x-base.form-label for="impressions">{{ $proposal->getAttributeLabel('impressions') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('impressions') ? 'border-danger' : '') }}"
+        id="impressions"
+        name="impressions"
+        :value="old('impressions', $proposal->impressions ?? '')"
+        type="number"
+        step="1"
+    />
+    @error('impressions')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>

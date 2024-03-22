@@ -25,7 +25,10 @@ class CitizenFactory extends Factory
      */
     public function definition()
     {
-//        $user = User::whereDoesntHave('citizen')->first();
+        $user = User::first();
+        if (!$user) {
+            $user = User::factory()->create();
+        }
 
         return [
             'user_id' => $this->faker->unique()->numberBetween(1,3),
@@ -41,6 +44,7 @@ class CitizenFactory extends Factory
             'freguesia' => $this->faker->city(),
             'cod_postal' => $this->faker->postcode(),
             'telemovel' => $this->faker->phoneNumber(),
+            'gender' => $this->faker->numberBetween(0,2),
             'remember_token' => $this->faker->text($this->faker->numberBetween(5, 100)),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')

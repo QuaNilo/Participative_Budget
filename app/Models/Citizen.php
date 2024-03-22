@@ -27,6 +27,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string|null $freguesia
  * @property string|null $cod_postal
  * @property string|null $telemovel
+ * @property int|null $gender
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -47,6 +48,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereFreguesia($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereGender($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereLocalidade($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Citizen whereOccupation($value)
@@ -83,6 +85,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'freguesia',
         'cod_postal',
         'telemovel',
+        'gender',
         'remember_token'
     ];
 
@@ -110,14 +113,15 @@ class Citizen extends Model implements Auditable, HasMedia
         'occupation' => 'nullable|string|max:255',
         'description' => 'nullable|string|max:255',
         'CC_verified_at' => 'nullable',
-        'CC_verified' => 'required\numeric',
-        'address_verified' => 'required|numeric',
+        'CC_verified' => 'required',
+        'address_verified' => 'required',
         'address_verified_at' => 'required',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
         'freguesia' => 'nullable|string|max:255',
         'cod_postal' => 'nullable|string|max:255',
         'telemovel' => 'nullable|string|max:255',
+        'gender' => 'nullable',
         'remember_token' => 'nullable|string|max:100',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
@@ -146,6 +150,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'freguesia' => __('Freguesia'),
         'cod_postal' => __('Codigo Postal'),
         'telemovel' => __('Telemovel'),
+        'gender' => __('Gender'),
         'remember_token' => __('Remember Token'),
         'created_at' => __('Created At'),
         'updated_at' => __('Updated At')

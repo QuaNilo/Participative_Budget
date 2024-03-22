@@ -66,6 +66,8 @@ class ProposalFactory extends Factory
             'winner' => $winner['winner'] ?? false,
             'rank' => $winner['rank'] ?? null,
             'status' => $this->faker->numberBetween(0,4),
+            'unique_impressions' => $this->faker->numberBetween(0,1000),
+            'impressions' => $this->faker->numberBetween(0,1000),
             'budget_estimate' => $this->faker->numberBetween(0, 300000),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')

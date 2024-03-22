@@ -17,7 +17,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
-use App\Models\Setting;
+use App\Models\Settings;
 
 class SettingsTable extends Component implements HasForms, HasTable
 {
@@ -26,9 +26,9 @@ class SettingsTable extends Component implements HasForms, HasTable
 
     public function table(Table $table): Table
     {
-        $newModel = new Setting();
+        $newModel = new Settings();
         return $table
-            ->query(Setting::query())
+            ->query(Settings::query())
             ->columns([
                 TextColumn::make("require_cc_vote_create")
                 ->label($newModel->getAttributeLabel("require_cc_vote_create"))
@@ -45,6 +45,11 @@ class SettingsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
+            TextColumn::make("address")
+                ->label($newModel->getAttributeLabel("address"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
             TextColumn::make("map_lat")
                 ->label($newModel->getAttributeLabel("map_lat"))
                 ->sortable()
@@ -52,6 +57,11 @@ class SettingsTable extends Component implements HasForms, HasTable
                 ->searchable(),
             TextColumn::make("map_lng")
                 ->label($newModel->getAttributeLabel("map_lng"))
+                ->sortable()
+                ->toggleable()
+                ->searchable(),
+            TextColumn::make("nome_cm")
+                ->label($newModel->getAttributeLabel("nome_cm"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -130,7 +140,7 @@ class SettingsTable extends Component implements HasForms, HasTable
             ->actions([
                 Action::make('edit')
                 ->label(__('Update'))
-                ->url(fn (Setting $record): string => route('settings.edit', ['setting' => $record]))
+                ->url(fn (Settings $record): string => route('settings.edit', ['settings' => $record]))
                 ->icon('heroicon-o-pencil')
                 //->color('danger')
             ])
@@ -143,7 +153,7 @@ class SettingsTable extends Component implements HasForms, HasTable
             ])
             ->defaultSort('id', 'desc')
             ->recordUrl(
-                fn (Model $record): string => route('settings.show', ['setting' => $record]),
+                fn (Model $record): string => route('settings.show', ['settings' => $record]),
             )
             //->striped()
             ->persistFiltersInSession()

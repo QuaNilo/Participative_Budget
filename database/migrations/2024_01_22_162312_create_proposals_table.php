@@ -30,6 +30,8 @@ return new class extends Migration
             $table->integer('rank')->nullable();
             $table->smallInteger('status')->default(1)->comment("1 - Pendente | 2 - Em Revisão | 3 - Aceite | 4 - Rejeitado | 5 - Fechado");
             $table->float('budget_estimate')->nullable();
+            $table->integer('unique_impressions')->default(0);
+            $table->integer('impressions')->default(0);
             $table->timestamps();
         });
     }
