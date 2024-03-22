@@ -1,7 +1,7 @@
 @props(['proposal'])
 <div class="bg-white/20 shadow-lg rounded-md  hover:shadow-xl duration-500 ease-in-out overflow-hidden">
     <div class="content p-6 relative flex flex-col">
-        <a href="{{ route('proposta-detail', $proposal->id) }}">
+        <a href="{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}">
 {{--            @foreach($proposal->getFirstMedia()->getUrl() as $media)--}}
             @if($proposal->getFirstMediaUrl('cover', 'square'))
                  <img src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}">
@@ -30,6 +30,10 @@
                     <li class="flex items-center me-4">
                         <i class="uil uil-clock text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
                         <span>{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</span>
+                    </li>
+                    <li class="flex items-center me-4">
+                        <i class="uil uil-eye text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
+                        <span>{{$proposal->impressions}}</span>
                     </li>
                 </ul>
             </div>

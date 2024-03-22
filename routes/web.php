@@ -57,7 +57,7 @@ Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');
 Route::get('/edicao/{id?}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
-Route::get('/edition/proposta/{id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
+Route::middleware(['track.views'])->get('/edition/proposta/{proposal_id}', [ProposalFEController::class, 'show_proposal'])->name('proposta-detail');
 Route::delete('/edition/proposta/remove-vote/{id}', [ProposalFEController::class, 'remove_vote'])->name('proposta-remove-vote');
 
 Route::get('/FEproposals/{FEproposal}', [ProposalFEController::class, 'edit'])->name('FEproposals.edit');

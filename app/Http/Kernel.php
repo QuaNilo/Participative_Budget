@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'recaptcha' => \App\Http\Middleware\ValidateRecaptcha::class,
         'admin.access' => \App\Http\Middleware\AdminAccess::class,
+        'track.views' => \App\Http\Middleware\TrackProposalViews::class,
     ];
 }
