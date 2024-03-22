@@ -33,7 +33,10 @@ class ProposalFEController extends Controller
 
     public function show_frontend()
     {
-        if ($edition_id = Edition::where('status', Edition::STATUS_OPEN)->exists()) {
+        $validEditionStatuses = [
+            Edition::STATUS_VOTING,
+        ];
+        if ($edition_id = Edition::whereIn('status', $validEditionStatuses)->exists()) {
             return view('site.propostas.index', ['edition_id' => $edition_id]);
         }
 

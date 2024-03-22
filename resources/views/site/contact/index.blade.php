@@ -52,10 +52,7 @@
                                         <li class="inline"><a href="{{$setting->facebook}}" class="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-100 dark:border-gray-800 rounded-md hover:border-indigo-600 hover:text-white hover:bg-indigo-600"><i data-feather="gitlab" class="h-4 w-4"></i></a></li>
                                     </ul><!--end icon-->
                                 </div>
-                                <div class="flex justify-center text-center p-6 border-t border-gray-100 dark:border-gray-800">
-                                    <p class="mb-0 text-slate-400">© <script>document.write(new Date().getFullYear())</script>
-                                        {{__('Designed with')}} <i class="mdi mdi-heart text-red-600"></i> {{__('by')}} <a href="https://shreethemes.in/" target="_blank" class="text-reset">NOOP</a>.</p>
-                                </div>
+                                <x-designed-by/>
                             </div>
                         </div>
                     </div>

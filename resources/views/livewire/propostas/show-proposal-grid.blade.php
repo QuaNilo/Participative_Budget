@@ -1,10 +1,10 @@
 @props(['proposals', 'proposals_per_user', 'user_proposals_count'])
 <div>
     <div class="flex justify-between">
-        <form wire:submit="">
+        <form wire:submit="filter">
             <div class="flex">
                 <div>
-                  <select id="countries_disabled" wire:model="category_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
+                  <select wire:model="category_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
                    <option value="{{false}}">{{__('Choose a Category')}}</option>
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -12,7 +12,7 @@
                   </select>
                 </div>
                 <div>
-                  <select id="countries_disabled" wire:model="status_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
+                  <select wire:model="status_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
                     <option value="{{false}}">{{__('Choose a Proposal State')}}</option>
                     @foreach(\App\Models\Proposal::getStatusArray() as $statusId => $statusName)
                         <option value="{{$statusId}}">{{$statusName}}</option>
@@ -20,7 +20,7 @@
                   </select>
                 </div>
                 <div class="relative w-[450px]">
-                    <input name="name" wire:model="keywordsInput" type="text" class="block p-2.5 w-full z-20 text-sm text-gray-900 hover:bg-gray-100 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-indigo-500" placeholder="Search Mockups, Logos, Design Templates..."/>
+                    <input name="name" wire:model="keywordsInput" type="text" class="block p-2.5 w-full z-20 text-sm text-gray-900 hover:bg-gray-100 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-indigo-500" placeholder="{{__('Search for proposal titles...')}}"/>
                     <div>@error('keywordsInput') {{ $message }} @enderror</div>
                     <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-indigo-600 rounded-e-lg border border-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

@@ -55,9 +55,9 @@
                         </div><!--end col-->
                         @if(true)
                             <div class="lg:col-span-3 md:col-span-4">
-                                <h5 class="tracking-[1px] text-black dark:text-white font-semibold">{{ __('Company') }}</h5>
+                                <h5 class="tracking-[1px] text-black dark:text-white font-semibold">{{ __('Town Hall') }}</h5>
                                 <p class="mt-6">
-                                    Nooperation Lda<br>
+                                    NOME DA CM<br>
                                     {{App\Models\Setting::first()->email_cm}}<br>
                                     Cais - Espaço Empresarial, Largo José da Cruz, Nº 3 2260-369 Vila Nova da Barquinha<br>
                                     NIF: 515447650
@@ -86,23 +86,7 @@
         </div><!--end grid-->
     </div><!--end container-->
 
-    <div class="py-[30px] px-0 border-t border-gray-100 dark:border-slate-800">
-        <div class="container relative text-center">
-            <div class="grid md:grid-cols-2 items-center">
-                <div class="md:text-start text-center">
-                    <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> {{ config('app.name', 'Laravel') }}. Design with <i class="mdi mdi-heart text-red-600"></i> by <a href="https://noop.pt/" target="_blank" class="text-reset">Noop</a>.</p>
-                </div>
-
-{{--                <ul class="list-none md:text-end text-center mt-6 md:mt-0">--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/client/instagram.svg" class="max-h-6 inline" title="American Express" alt=""></li>--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/client/discover.png" class="max-h-6 inline" title="Discover" alt=""></li>--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/client/master-card.png" class="max-h-6 inline" title="Master Card" alt=""></li>--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/client/paypal.png" class="max-h-6 inline" title="Paypal" alt=""></li>--}}
-{{--                    <li class="inline"><img src="/assets-frontend/images/client/visa.png" class="max-h-6 inline" title="Visa" alt=""></li>--}}
-{{--                </ul>--}}
-            </div><!--end grid-->
-        </div><!--end container-->
-    </div>
+    <x-designed-by/>
 </footer><!--end footer-->
 <!-- Footer End -->
 

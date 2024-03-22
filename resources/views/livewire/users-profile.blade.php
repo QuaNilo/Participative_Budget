@@ -7,10 +7,11 @@
                     <div class="ms-2">
 {{--                        <h5 class="text-lg font-semibold"><span class="font-semibold text-slate-400">Hello, </span>{{auth()->user()->name}}</h5>--}}
                             <div>
-                                <h5 class="text-xl font-bold">Hello, {{auth()->user()->name}}</h5>
-                                <h6 class="text-slate-400 font-semibold">Welcome!</h6>
+                                <h5 class="text-xl font-bold">{{__('Hello')}}, {{auth()->user()->name}}</h5>
+                                <h6 class="text-slate-400 font-semibold">{{__('Welcome')}}!</h6>
                             </div>
-                        <button class="inline-flex items-center mt-2 px-3 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-gray-700 transition ease-in-out duration-150" wire:click="logout">Logout</button>
+                        <button class="inline-flex items-center mt-2 px-3 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-gray-700 transition ease-in-out duration-150" wire:click="logout">
+                            {{__('Logout')}}</button>
                     </div>
                 </div>
             </div><!--end col-->
