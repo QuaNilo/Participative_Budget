@@ -1,8 +1,8 @@
 @props(['proposals', 'proposals_per_user', 'user_proposals_count'])
 <div>
-    <div class="flex justify-between">
+    <div class="flex justify-between items-center pb-2">
         <form wire:submit="filter">
-            <div class="flex">
+            <div class="flex bg-indigo-600/10 shadow rounded-lg p-0.5 space-x-1">
                 <div>
                   <select wire:model="category_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
                    <option value="{{false}}">{{__('Choose a Category')}}</option>
@@ -31,47 +31,9 @@
                 </div>
             </div>
         </form>
-        <div class="flex align-items-end justify-end space-x-3 mt-4">
+        <div class="flex justify-end items-center space-x-3">
             <livewire:proposals-sort/>
-            <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
-                        <a href="{{ route('mapa', $edition->id) }}">{{__('Map')}}
-                        </a>
-            </x-button>
-            @if(!in_array($edition->status, [0, 1, 2, 3]))
-                <div class="relative">
-                    <button class="@if($showWinners) bg-gradient-to-r from-amber-600 to-amber-400 hover:bg-amber-600 @else bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900 @endif px-1 py-1 inline-flex items-center border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-wides transition ease-in-out duration-150'" wire:click="winners"><i class="uil uil-star @if($showWinners) text-yellow-50 @else @endif  font-bold text-base mr-2"></i>{{__('Winning Projects')}}</button>
-                </div>
-            @endif
-            @auth()
-                @if($edition->status == 1)
-                    @if($proposals_per_user !== 0 && $user_proposals_count >= $proposals_per_user)
-                        <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
-                            <a
-                                href="{{ route('display_warning', ['message' => __('Exceeded maximum proposals for this edition')]) }}">{{__('Create Proposal')}}
-                            </a>
-                        </x-button>
-                    @elseif(\App\Models\Setting::first()->require_cc_vote_create && !auth()->user()->citizen->CC_verified)
-                        <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
-                            <a
-                                href="{{ route('display_warning', ['message' => __('Your Citizen Card needs to be validated to create Proposals')]) }}">{{__('Create Proposal')}}
-                            </a>
-                        </x-button>
-                    @elseif(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified)
-                        <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
-                            <a
-                                href="{{ route('display_warning', ['message' => __('Your Address needs to be validated to create Proposals')]) }}">{{__('Create Proposal')}}
-                            </a>
-                        </x-button>
-                    @else
-                        <x-button class="px-2 py-2 bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
-                            <a
-                                href="{{ route('proposal-create', $edition->id) }}">{{__('Create Proposal')}}
-                            </a>
-                        </x-button>
-
-                    @endif
-                @endif
-            @endauth
+            <livewire:proposal-grid-options :edition="$edition"/>
         </div>
     </div>
 

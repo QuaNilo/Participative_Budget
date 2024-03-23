@@ -33,7 +33,7 @@ class ShowProposalGrid extends Component
         $this->showWinners = false;
 
     }
-
+    #[On('winnersFromChildren')]
     public function winners(): void
     {
         $this->showWinners = !$this->showWinners;

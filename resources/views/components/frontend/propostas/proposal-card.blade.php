@@ -2,7 +2,7 @@
 <div class="bg-gray-50 shadow rounded-md transition-transform transform-gpu hover:scale-105">
     <div class="flex items-center border-b border-slate-200/60 px-5 py-4">
         <div class="mr-auto">
-            <a href="" class="font-medium">{{$proposal->user->name}}</a>
+            <a class="font-medium">{{$proposal->user->name}}</a>
             <div class="flex text-slate-500 truncate text-xs mt-0.5">
                 <span class="text-indigo-600 inline-block truncate">
                     {{$proposal->category()->first()->name}}
@@ -24,7 +24,7 @@
                  <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl() }}">
             @endif
         </div>
-        <a href="{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}" class="block font-medium text-base mt-5">{{$proposal->title}}</a>
+        <a href="{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}" class="block font-medium text-base mt-5 hover:text-indigo-700">{{$proposal->title}}</a>
         <div class="text-slate-600 mt-2 overflow-hidden h-12 ">{{$proposal->summary}}</div>
     </div>
     <div class="px-5 pt-3 pb-5 border-t border-slate-200/60">
