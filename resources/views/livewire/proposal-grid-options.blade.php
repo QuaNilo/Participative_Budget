@@ -10,7 +10,7 @@
     @endif
     @auth()
         @if($edition->status == 1)
-            @if($proposals_per_user !== 0 && $user_proposals_count >= $proposals_per_user)
+            @if($edition->proposals_per_user !== 0 && $user_proposals_count >= $edition->proposals_per_user)
                 <x-button class="px-2 py-2 text-sm font-medium bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
                     <a
                         href="{{ route('display_warning', ['message' => __('Exceeded maximum proposals for this edition')]) }}">{{__('Create Proposal')}}

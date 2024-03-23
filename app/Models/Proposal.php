@@ -252,8 +252,8 @@ class Proposal extends Model implements Auditable, HasMedia
         $this->addMediaCollection('images');
         $this->addMediaCollection('cover')
             ->singleFile()
-            ->useFallbackUrl(asset('images/placeholders/800x800.jpg'))
-            ->useFallbackPath(public_path('/images/placeholders/800x800.jpg'))
+            ->useFallbackUrl(asset('images/placeholders/200x200.jpg'))
+            ->useFallbackPath(public_path('/images/placeholders/200x200.jpg'))
             ->registerMediaConversions(function (Media $media) {
                 $this
                     ->addMediaConversion('original')
