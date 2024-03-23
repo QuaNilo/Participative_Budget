@@ -1,5 +1,5 @@
 @props(['proposal'])
-<div class="bg-gray-50 shadow rounded-md transition-transform transform-gpu hover:scale-105">
+<div class="bg-gray-50 shadow-lg rounded-md transition-transform transform-gpu hover:scale-105">
     <div class="flex items-center border-b border-slate-200/60 px-5 py-4">
         <div class="mr-auto">
             <a class="font-medium">{{$proposal->user->name}}</a>
@@ -16,10 +16,10 @@
             </div>
         </div>
     </div>
-    <div class="p-5">
+    <div class="p-7">
         <div class="relative h-40 2xl:h-56">
-            @if($proposal->getFirstMediaUrl('cover', 'square'))
-             <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}">
+            @if($proposal->getFirstMediaUrl('cover', 'retangular'))
+                <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl('cover', 'retangular') }}">
             @else
                  <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl() }}">
             @endif

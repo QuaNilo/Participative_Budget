@@ -10,7 +10,7 @@
     <div class="mt-28 grid grid-cols-12 gap-4">
         <div class="col-span-1"></div>
         <div class="col-span-3 flex-col justify-center items-center mt-28">
-            <div class="p-6 flex flex-col items-start flex-1 shadow rounded-md">
+            <div class="p-6 flex flex-col items-start flex-1 shadow-lg rounded-xl">
                 <div class="text-slate-500 text-xs">{{__('Winner')}}</div>
                 <div class="mt-1.5 flex items-center">
                     <div class="text-base">{{$proposal->winner == 1 ? 'Sim' : 'Não'}}</div>
@@ -32,7 +32,7 @@
                     <div class="text-base">{{$proposal->budget_estimate . ' €'? : 'N/A' }}</div>
                 </div>
             </div>
-            <div class="p-6 mt-8 flex flex-col items-start flex-1 shadow rounded-md">
+            <div class="p-6 mt-8 flex flex-col items-start flex-1 shadow-lg rounded-xl">
                 <div class="text-slate-500 text-xs">{{__('Cidade')}}</div>
                 <div class="mt-1.5 flex items-center">
                     <div class="text-base">{{$proposal->city ? : 'N/A'}}</div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-6 p-10">
+        <div class="col-span-6 p-10 shadow-lg rounded-xl">
             <div class="flex-col">
                 <!-- BEGIN: Blog Layout -->
                 <h2 class="font-medium text-xl sm:text-2xl">
