@@ -1,42 +1,38 @@
 @props(['proposal'])
-<div class="bg-white/20 shadow-lg rounded-md  hover:shadow-xl duration-500 ease-in-out overflow-hidden">
-    <div class="content p-6 relative flex flex-col">
-        <a href="{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}">
-{{--            @foreach($proposal->getFirstMedia()->getUrl() as $media)--}}
+<div class="bg-gray-50 shadow rounded-md transition-transform transform-gpu hover:scale-105">
+    <div class="flex items-center border-b border-slate-200/60 px-5 py-4">
+        <div class="mr-auto">
+            <a href="" class="font-medium">{{$proposal->user->name}}</a>
+            <div class="flex text-slate-500 truncate text-xs mt-0.5">
+                <span class="text-indigo-600 inline-block truncate">
+                    {{$proposal->category()->first()->name}}
+                </span>
+                <span class="mx-1">
+                    •
+                </span>
+                <span class="text-xs italic">
+                    {{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="p-5">
+        <div class="relative h-40 2xl:h-56">
             @if($proposal->getFirstMediaUrl('cover', 'square'))
-                 <img src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}">
+             <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl('cover', 'square') }}">
             @else
-                 <img src="{{ $proposal->getFirstMediaUrl() }}">
+                 <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl() }}">
             @endif
-{{--            @endforeach--}}
-            <div class="mb-10">
-                <span class="font-extrabold block text-indigo-600 p-2">{{$proposal->title}}</span>
-                <span class="font-medium block text-black p-2">{{$proposal->category()->first()->name}}</span>
-            </div>
-            <div class="absolute bottom-0 w-full p-4 mt-2">
-                <ul class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center list-none text-slate-400">
-                    <li class="flex items-center me-4">
-                        <i class="uil uil-book-open text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
-                        <span>{{$proposal->votes_count}} {{__('Votes')}}</span>
-                    </li>
-                    <li class="flex items-center me-4">
-                        <i class="uil uil-user text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
-                        <span>{{$proposal->user->name}}</span>
-                    </li>
-                    <li class="flex items-center me-4">
-                        <i class="uil uil-check text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
-                        <span>{{$proposal->status_label}}</span>
-                    </li>
-                    <li class="flex items-center me-4">
-                        <i class="uil uil-clock text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
-                        <span>{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</span>
-                    </li>
-                    <li class="flex items-center me-4">
-                        <i class="uil uil-eye text-lg leading-none me-2 text-slate-900 dark:text-white"></i>
-                        <span>{{$proposal->impressions}}</span>
-                    </li>
-                </ul>
-            </div>
-        </a>
+        </div>
+        <a href="{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}" class="block font-medium text-base mt-5">{{$proposal->title}}</a>
+        <div class="text-slate-600 mt-2 overflow-hidden h-12 ">{{$proposal->summary}}</div>
+    </div>
+    <div class="px-5 pt-3 pb-5 border-t border-slate-200/60">
+        <div class="flex justify-around w-full text-slate-500 text-xs sm:text-sm">
+            <div class="text-sm italic">Comments: <span class="font-medium"> 31</span></div>
+            <div class="text-sm italic">Status: <span class="font-medium"> {{$proposal->status_label}}</span></div>
+            <div class="text-sm italic">Views: <span class="font-medium"> {{$proposal->impressions}}</span></div>
+            <div class="text-sm italic">Votes: <span class="font-medium"> {{$proposal->votes_count}}</span></div>
+        </div>
     </div>
 </div>

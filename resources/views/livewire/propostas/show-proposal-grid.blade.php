@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[50px] mt-8 bg-gray-50/50 ">
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[50px] mt-8">
                 @foreach($proposals as $proposal)
                     <x-frontend.propostas.proposal-card :proposal="$proposal"/>
                 @endforeach
