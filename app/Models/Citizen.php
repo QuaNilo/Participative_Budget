@@ -65,6 +65,9 @@ class Citizen extends Model implements Auditable, HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+    const GENDER_FEMALE = 1;
+    const GENDER_MALE = 2;
+    const GENDER_UNDEFINED = 0;
     const APPROVAL_STATUS_PENDING = 2;
     const APPROVAL_STATUS_ACCEPTED = 1;
     const APPROVAL_STATUS_REJECTED = 0;
@@ -167,6 +170,17 @@ class Citizen extends Model implements Auditable, HasMedia
 
         ];
     }
+
+    public static function getGenderArray() : array
+    {
+        return [
+            self::GENDER_UNDEFINED =>  __('Undefined'),
+            self::GENDER_FEMALE =>  __('Female'),
+            self::GENDER_MALE =>  __('Male'),
+
+        ];
+    }
+
 
     /**
     * Return the status label

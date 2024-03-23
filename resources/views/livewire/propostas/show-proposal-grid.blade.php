@@ -1,5 +1,9 @@
 @props(['proposals', 'proposals_per_user', 'user_proposals_count'])
-<div>
+<div class="">
+    <div class="flex space-x-3 my-5 font-medium text-3xl ">
+        <h1>{{__('Edition ')}}</h1>
+        <span class="flex items-center align-middle text-indigo-600 ">{{$edition->identifier}}</span>
+    </div>
     <div class="flex justify-between items-center pb-2">
         <form wire:submit="filter">
             <div class="flex bg-indigo-600/10 shadow rounded-lg p-0.5 space-x-1">

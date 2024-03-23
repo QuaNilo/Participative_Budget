@@ -19,14 +19,22 @@ class ProposalGridOptions extends Component
 
     public function mount()
     {
+        $this->getUserProposalsCount();
+    }
+
+
+    protected function getUserProposalsCount()
+    {
+        if(auth()->check())
+        {
+            $user_id = auth()->user()->id;
+            $this->user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
+                    $query->where('id', $user_id);
+                })->where('edition_id', $this->edition->id)->count();
+        }
     }
     public function render()
     {
-        $user_id = auth()->user()->id;
-        $this->user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
-                $query->where('id', $user_id);
-            })->where('edition_id', $this->edition->id)->count();
-
         return view('livewire.proposal-grid-options');
     }
 }

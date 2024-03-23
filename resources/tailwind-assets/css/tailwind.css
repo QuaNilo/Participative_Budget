@@ -5812,7 +5812,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
 }
-:is(.dark .tns-controls button[data-controls=prev]),:is(.dark 
+:is(.dark .tns-controls button[data-controls=prev]),:is(.dark
 .tns-controls button[data-controls=next]){
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
@@ -5933,7 +5933,7 @@ html[dir=rtl] .tns-visually-hidden {
           box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-:is(.dark .choices__list--dropdown),:is(.dark 
+:is(.dark .choices__list--dropdown),:is(.dark
 .choices[data-type*=select-one] .choices__input){
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
@@ -9959,4 +9959,5 @@ html[dir=rtl] .tns-visually-hidden {
     content: var(--tw-content) !important;
     width: 75rem !important;
   }
+
 }

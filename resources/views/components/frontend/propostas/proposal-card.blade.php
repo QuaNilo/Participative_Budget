@@ -18,6 +18,7 @@
     </div>
     <div class="p-7">
         <div class="relative h-40 2xl:h-56">
+{{--            <span class="absolute top-0 bg-pending/80 text-white text-xs m-5 px-2 py-1 rounded z-10">Featured</span>--}}
             @if($proposal->getFirstMediaUrl('cover', 'retangular'))
                 <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl('cover', 'retangular') }}">
             @else
@@ -29,7 +30,6 @@
     </div>
     <div class="px-5 pt-3 pb-5 border-t border-slate-200/60">
         <div class="flex justify-around w-full text-slate-500 text-xs sm:text-sm">
-            <div class="text-sm italic">Comments: <span class="font-medium"> 31</span></div>
             <div class="text-sm italic">Status: <span class="font-medium"> {{$proposal->status_label}}</span></div>
             <div class="text-sm italic">Views: <span class="font-medium"> {{$proposal->impressions}}</span></div>
             <div class="text-sm italic">Votes: <span class="font-medium"> {{$proposal->votes_count}}</span></div>

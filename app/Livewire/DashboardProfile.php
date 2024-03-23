@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Citizen;
 use App\Models\Proposal;
 use App\Models\Vote;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,8 @@ class DashboardProfile extends Component
     public $categoryNamesJson;
     public $total_impressions;
     public $selectedTab;
+    public $genderVotes;
+    public $genderNames;
     public function mount()
     {
         $this->selectedTab = 'votes';
@@ -47,6 +50,10 @@ class DashboardProfile extends Component
 
         $this->getVotesPerEdition();
         $this->getVotesPerCategory();
+        if(auth()->user()->proposals()->exists())
+        {
+            $this->getVotesPerGender();
+        }
 
         $this->setting = \App\Models\Setting::first();
     }
@@ -76,6 +83,28 @@ class DashboardProfile extends Component
         $this->categoryNamesJson = json_encode($categoryNames);
         $this->votesPerCategoryJson = json_encode($votesPerCategory);
 
+    }
+
+
+
+    protected function getVotesPerGender()
+    {
+        $genderVotes = [
+            Citizen::GENDER_UNDEFINED => 0,
+            Citizen::GENDER_FEMALE => 0,
+            Citizen::GENDER_MALE => 0
+        ];
+        $this->genderNames = json_encode(Citizen::getGenderArray());
+
+        // Iterate through each edition
+        foreach ($this->user->proposals as $proposal) {
+            foreach ($proposal->votes as $vote)
+            {
+                ++$genderVotes[$vote->user->citizen->gender];
+            }
+        }
+        // Convert arrays to JSON format for use in JavaScript
+        $this->genderVotes = json_encode($genderVotes);
     }
 
     protected function getVotesPerEdition()
