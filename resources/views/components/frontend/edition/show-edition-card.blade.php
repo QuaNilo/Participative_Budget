@@ -31,17 +31,17 @@
 
 <div class="bg-gray-50 shadow-lg rounded-md transition-transform transform-gpu hover:scale-105">
     <div class="flex items-start px-5 pt-5">
-        <div class="w-full flex flex-col lg:flex-row items-center">
-            <div class=" flex flex-col lg:ml-4 text-center lg:text-left mt-3 lg:mt-0">
-                <a href="{{ route('propostas', ['id' =>$edition->id]) }}" class="text-lg font-semibold hover:text-indigo-600">{{$edition->identifier}}</a>
-                <span class="text-slate-500 text-xs mt-0.5">{{$edition->status_label}}</span>
+        <div class="w-full items-center">
+            <div class="flex flex-col mt-3 lg:mt-0">
+                <a href="{{ route('propostas', ['id' =>$edition->id]) }}" class="text-lg font-bold hover:text-indigo-600">{{$edition->identifier}}</a>
+                <span class="text-slate-400 text-base mt-0.5">{{$edition->status_label}}</span>
             </div>
         </div>
     </div>
     <div class="text-center lg:text-left p-5 h-24 overflow-hidden">
         <div>{{$edition->description}}</div>
     </div>
-    <div class="flex flex-row justify-evenly lg:text-right border-t border-slate-200/60 dark:border-darkmode-400">
+    <div class="flex flex-row mt-2 bg-indigo-900/10 justify-evenly lg:text-right border-t border-slate-200/60 dark:border-darkmode-400">
 {{--        <span>{{ \Carbon\Carbon::parse($edition->created_at)->diffForHumans() }}</span>--}}
         <p class="text-slate-400"><i class="uil uil-pen text-indigo-600"></i> <span>{{$edition->proposals_count}} Propostas</span></p>
     </div>
