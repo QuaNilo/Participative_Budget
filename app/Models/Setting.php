@@ -21,6 +21,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property string|null $instagram
  * @property string|null $twitter
  * @property string|null $linkedin
+ * @property string|null $address
  * @property string|null $youtube
  * @property string|null $website_cm
  * @property string|null $telephone_cm
@@ -68,6 +69,7 @@ class Setting extends Model implements Auditable
         'facebook',
         'instagram',
         'twitter',
+        'address',
         'linkedin',
         'youtube',
         'website_cm',
@@ -86,6 +88,7 @@ class Setting extends Model implements Auditable
         'twitter' => 'string',
         'linkedin' => 'string',
         'youtube' => 'string',
+        'address' => 'string',
         'website_cm' => 'string',
         'telephone_cm' => 'string'
     ];
@@ -100,6 +103,7 @@ class Setting extends Model implements Auditable
         'map_lng' => 'required|string|max:255',
         'email_cm' => 'nullable|string|max:255',
         'facebook' => 'nullable|string|max:255',
+        'address' => 'nullable|string|max:255',
         'instagram' => 'nullable|string|max:255',
         'twitter' => 'nullable|string|max:255',
         'linkedin' => 'nullable|string|max:255',
@@ -123,6 +127,7 @@ class Setting extends Model implements Auditable
         'require_cc_vote_create' => __('Require Validated ID to Vote&Create'),
         'require_address_vote_create' => __('Require Validated Address to Vote&Create'),
         'allow_change_lang' => __('Allow Toggle of Language'),
+        'address' => __('Adddress'),
         'map_lat' => __('Map Latitude'),
         'map_lng' => __('Map Longitude'),
         'email_cm' => __('Email Town Hall'),

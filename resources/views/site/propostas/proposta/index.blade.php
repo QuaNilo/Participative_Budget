@@ -11,14 +11,24 @@
         <div class="col-span-1"></div>
         <div class="col-span-3 flex-col justify-center items-center mt-28">
             <div class="p-6 flex flex-col items-start flex-1 shadow-lg rounded-xl">
-                <div class="text-slate-500 text-xs">{{__('Winner')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->winner == 1 ? 'Sim' : 'Não'}}</div>
-                </div>
-                <div class="text-slate-500 text-xs mt-2">{{__('Position')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->rank ? : 'Não é vencedor' }}</div>
-                </div>
+                <?php
+                  $WinnerValidEditionStatus = [
+                      \App\Models\Edition::STATUS_COMPLETED,
+                      \App\Models\Edition::STATUS_CLOSED,
+                      \App\Models\Edition::STATUS_CANCELED
+                  ]
+                ?>
+                @if(in_array($proposal->edition->status, $WinnerValidEditionStatus))
+                    <div class="text-slate-500 text-xs">{{__('Winner')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->winner == 1 ? 'Sim' : 'Não'}}</div>
+                    </div>
+                    <div class="text-slate-500 text-xs mt-2">{{__('Position')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->rank ? : 'Não é vencedor' }}</div>
+                    </div>
+
+                @endif
                 <div class="text-slate-500 text-xs mt-2">{{__('Created at')}}</div>
                 <div class="mt-1.5 flex items-center">
                     <div class="text-base">{{$proposal->created_at}}</div>

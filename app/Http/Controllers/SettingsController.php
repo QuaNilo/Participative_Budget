@@ -23,9 +23,9 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        $settings = new Settings();
-        $settings->loadDefaultValues();
-        return view('settings.create', compact('settings'));
+        $setting = new Settings();
+        $setting->loadDefaultValues();
+        return view('settings.create', compact('setting'));
     }
 
     /**
@@ -35,9 +35,9 @@ class SettingsController extends Controller
     {
         $input = $request->all();
 
-        /** @var Settings $settings */
-        $settings = Settings::create($input);
-        if($settings){
+        /** @var Settings $setting */
+        $setting = Settings::create($input);
+        if($setting){
             flash(__('Saved successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
@@ -51,16 +51,16 @@ class SettingsController extends Controller
      */
     public function show($id)
     {
-        /** @var Settings $settings */
-        $settings = Settings::find($id);
+        /** @var Settings $setting */
+        $setting = Settings::find($id);
 
-        if (empty($settings)) {
+        if (empty($setting)) {
             flash(__('Not found'))->overlay()->danger();
 
             return redirect(route('settings.index'));
         }
 
-        return view('settings.show')->with('settings', $settings);
+        return view('settings.show')->with('settings', $setting);
     }
 
     /**
@@ -68,16 +68,16 @@ class SettingsController extends Controller
      */
     public function edit($id)
     {
-        /** @var Settings $settings */
-        $settings = Settings::find($id);
+        /** @var Settings $setting */
+        $setting = Settings::find($id);
 
-        if (empty($settings)) {
+        if (empty($setting)) {
             flash(__('Not found'))->overlay()->danger();
 
             return redirect(route('settings.index'));
         }
 
-        return view('settings.edit')->with('settings', $settings);
+        return view('settings.edit')->with('settings', $setting);
     }
 
     /**
@@ -85,17 +85,17 @@ class SettingsController extends Controller
      */
     public function update($id, UpdateSettingsRequest $request)
     {
-        /** @var Settings $settings */
-        $settings = Settings::find($id);
+        /** @var Settings $setting */
+        $setting = Settings::find($id);
 
-        if (empty($settings)) {
+        if (empty($setting)) {
             flash(__('Not found'))->overlay()->danger();
 
             return redirect(route('settings.index'));
         }
 
-        $settings->fill($request->all());
-        if($settings->save()){
+        $setting->fill($request->all());
+        if($setting->save()){
             flash(__('Updated successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
@@ -111,16 +111,16 @@ class SettingsController extends Controller
      */
     public function destroy($id)
     {
-        /** @var Settings $settings */
-        $settings = Settings::find($id);
+        /** @var Settings $setting */
+        $setting = Settings::find($id);
 
-        if (empty($settings)) {
+        if (empty($setting)) {
             flash(__('Not found'))->overlay()->danger();
 
             return redirect(route('settings.index'));
         }
 
-        if($settings->delete()){
+        if($setting->delete()){
             flash(__('Deleted successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();

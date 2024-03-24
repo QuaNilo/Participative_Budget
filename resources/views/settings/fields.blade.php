@@ -72,18 +72,19 @@
 
 <!-- Address Field -->
 <div class="mb-3">
-    <x-base.form-label for="address">{{ $settings->getAttributeLabel('address') }}</x-base.form-label>
+    <x-base.form-label for="address">{{ $setting->getAttributeLabel('address') }}</x-base.form-label>
     <x-base.form-input
         class="w-full {{ ($errors->has('address') ? 'border-danger' : '') }}"
         id="address"
         name="address"
-        :value="old('address', $settings->address ?? '')"
+        :value="old('address', $setting->address ?? '')"
         type="text"
     />
     @error('address')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
+
 
 <!-- Map Lat Field -->
 <div class="mb-3">
@@ -117,12 +118,12 @@
 
 <!-- Nome Cm Field -->
 <div class="mb-3">
-    <x-base.form-label for="nome_cm">{{ $settings->getAttributeLabel('nome_cm') }}</x-base.form-label>
+    <x-base.form-label for="nome_cm">{{ $setting->getAttributeLabel('nome_cm') }}</x-base.form-label>
     <x-base.form-input
         class="w-full {{ ($errors->has('nome_cm') ? 'border-danger' : '') }}"
         id="nome_cm"
         name="nome_cm"
-        :value="old('nome_cm', $settings->nome_cm ?? '')"
+        :value="old('nome_cm', $setting->nome_cm ?? '')"
         type="text"
     />
     @error('nome_cm')

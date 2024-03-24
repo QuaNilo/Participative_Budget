@@ -13,8 +13,8 @@ $mediaItems = $home->getMedia('wallpaper');
 <x-landing-layout>
     <div class="">
         @if($home->getFirstMediaUrl('wallpaper'))
-{{--            @dd($mediaItems[0]->file_name, $mediaItems[0]->id)--}}
-            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/{{$mediaItems[0]->id}}/{{$mediaItems[0]->file_name}}')] bg-no-repeat bg-cover"/>
+{{--            @dd('../../../../public/storage/' . $mediaItems[0]->id . '/' . $mediaItems[0]->file_name ,"../../../../public/storage/13/wP1TGGil8dESO5KjphmEjvyBOUx6dC-metaQ2FwdHVyYSBkZSBlY3LDoyAyMDIzLTA5LTA2IDEwMjkyNy5wbmc=-.png")--}}
+            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/13/wP1TGGil8dESO5KjphmEjvyBOUx6dC-metaQ2FwdHVyYSBkZSBlY3LDoyAyMDIzLTA5LTA2IDEwMjkyNy5wbmc=-.png')] bg-no-repeat bg-cover"/>
 {{--            <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/storage/2/8oSD3lOGKvbX7BEGvR7YivhoxR63qa-metaQ2FwdHVyYSBkZSBlY3LDoyAyMDIzLTA5LTA2IDEwMjkyNy5wbmc=-.png')] bg-no-repeat bg-cover"/>--}}
         @else
             <section class="relative md:h-screen py-36 flex items-center bg-[url('../../../../public/assets-frontend/images/digital/bg01.jpg')] bg-no-repeat bg-cover "/>

@@ -162,7 +162,7 @@ class CitizenController extends Controller
     {
         if($citizen)
         {
-            $citizen->update(['address_verified' => 0, 'address_verified_at' => null]);
+            $citizen->update(['address_verified' => 0, 'address_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
             return Redirect::back();
         }
