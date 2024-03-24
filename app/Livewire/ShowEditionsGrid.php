@@ -25,6 +25,11 @@ class ShowEditionsGrid extends Component
             ->withCount('proposals')
             ->orderByDesc('identifier')
             ->get();
+
+        if($this->editions->isEmpty())
+        {
+            $this->redirect(route('display_warning', ['message' => __("Oops, There isn't any completed Edition")]));
+        }
     }
     public function render(): View|\Illuminate\Foundation\Application|Factory|Application
     {
