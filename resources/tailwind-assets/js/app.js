@@ -412,7 +412,7 @@ try{
     }],
     chart: {
         type: 'bar',
-        height: 350,
+        height: 420,
         toolbar: {
             show: false,
             autoSelected: 'zoom'
@@ -466,25 +466,48 @@ try{
     }
     };
 
-    var categoriesChartOptions = {
-    series: JSON.parse(categoryVotes),
-    labels: JSON.parse(categoryNames),
-    chart: {
-        type: 'pie',
-    },
-      pie: {
-        donut: {
-          size: '100%'
-        }
-      }
+        var categoriesChartOptions = {
+          series: JSON.parse(categoryVotes),
+          labels: JSON.parse(categoryNames),
+          chart: {
+          width: 600,
+          type: 'pie',
+        },
+        plotOptions: {
+          pie: {
+            startAngle: -90,
+            endAngle: 270
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        fill: {
+          type: 'gradient',
+        },
+        legend: {
+          formatter: function(val, opts) {
+            return val + " - " + opts.w.globals.series[opts.seriesIndex]
+          }
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 500
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
     };
-
 
     var genderChartOptions = {
           series: JSON.parse(genderVotes),
           labels: JSON.parse(genderNames),
           chart: {
-          width: 380,
+          width: 600,
           type: 'donut',
         },
         plotOptions: {
@@ -508,14 +531,14 @@ try{
           breakpoint: 480,
           options: {
             chart: {
-              width: 200
+              width: 500
             },
             legend: {
               position: 'bottom'
             }
           }
         }]
-        };
+    };
 
 
     var genderChart = new ApexCharts(document.querySelector("#genderChart"), genderChartOptions);

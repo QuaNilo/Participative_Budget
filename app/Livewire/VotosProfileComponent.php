@@ -2,15 +2,22 @@
 
 namespace App\Livewire;
 
+use App\Models\Edition;
 use App\Models\User;
 use Livewire\Component;
 
 class VotosProfileComponent extends Component
 {
     public $votes;
+    public $validEditionStatusToDeleteVote;
 
     public function mount()
     {
+
+        $this->validEditionStatusToDeleteVote = [
+            Edition::STATUS_VOTING,
+        ];
+
         $user = User::find(auth()->user()->id);
         if($user->votes())
         {

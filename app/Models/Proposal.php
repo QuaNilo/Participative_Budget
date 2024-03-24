@@ -147,12 +147,12 @@ class Proposal extends Model implements Auditable, HasMedia
         'category_id' => 'required',
         'title' => 'required|string|max:255',
         'content' => 'required|string|max:32000',
-        'lat' => 'required|numeric',
-        'lng' => 'required|numeric',
-        'street' => 'required|string|max:60',
+        'lat' => 'nullable|numeric',
+        'lng' => 'nullable|numeric',
+        'street' => 'nullable|string|max:60',
         'postal_code' => 'nullable|string|max:20',
-        'city' => 'required|string|max:60',
-        'freguesia' => 'required|string|max:60',
+        'city' => 'nullable|string|max:60',
+        'freguesia' => 'nullable|string|max:60',
         'url' => 'nullable|string|max:255',
         'budget_estimate' => 'nullable|numeric|max:9999999'
         ];

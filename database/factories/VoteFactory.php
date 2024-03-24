@@ -35,8 +35,8 @@ class VoteFactory extends Factory
         return [
             'user_id' => $user->id,
             'proposal_id' => $proposal->id,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'created_at' => $this->faker->date('Y-m-d H:i:s'),
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

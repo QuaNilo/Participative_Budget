@@ -59,8 +59,8 @@ class CalendarDynamic extends Model implements Auditable
             'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'date' => 'nullable|string|max:255',
-        'text' => 'nullable|string|max:255',
-        'description' => 'nullable|string|max:255',
+        'text' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
         'phase' => 'required'
         ];
     }

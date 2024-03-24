@@ -36,6 +36,7 @@ class Vote extends Model implements Auditable
     use \OwenIt\Auditing\Auditable;
     use HasFactory;
 
+     public $timestamps = true;
     public $table = 'votes';
 
     public $fillable = [
@@ -44,7 +45,7 @@ class Vote extends Model implements Auditable
     ];
 
     protected $casts = [
-        
+
     ];
 
     public static function rules(): array

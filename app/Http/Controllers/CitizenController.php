@@ -135,7 +135,7 @@ class CitizenController extends Controller
     {
         if($citizen)
         {
-            $citizen->update(['CC_verified' => 0, 'CC_verified_at' => null]);
+            $citizen->update(['CC_verified' => Citizen::APPROVAL_STATUS_REJECTED, 'CC_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
             return Redirect::back();
         }
@@ -148,7 +148,7 @@ class CitizenController extends Controller
     {
         if($citizen)
         {
-            $citizen->update(['CC_verified' => 1, 'CC_verified_at' => now()]);
+            $citizen->update(['CC_verified' => Citizen::APPROVAL_STATUS_ACCEPTED, 'CC_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
             return Redirect::back();
         }
@@ -162,7 +162,7 @@ class CitizenController extends Controller
     {
         if($citizen)
         {
-            $citizen->update(['address_verified' => 0, 'address_verified_at' => now()]);
+            $citizen->update(['address_verified' => Citizen::APPROVAL_STATUS_REJECTED, 'address_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
             return Redirect::back();
         }
@@ -175,7 +175,7 @@ class CitizenController extends Controller
     {
         if($citizen)
         {
-            $citizen->update(['address_verified' => 1, 'address_verified_at' => now()]);
+            $citizen->update(['address_verified' => Citizen::APPROVAL_STATUS_ACCEPTED, 'address_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
             return Redirect::back();
         }

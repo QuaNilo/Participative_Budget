@@ -25,9 +25,12 @@ class DashboardProfile extends Component
     public $selectedTab;
     public $genderVotes;
     public $genderNames;
+    public $latestProposals;
+    public $latestVotes;
+    public $activityTabValue;
     public function mount()
     {
-        $this->selectedTab = 'votes';
+        $this->activityTabValue = 'proposals';
         // Get all editions
         $this->allEditions = \App\Models\Edition::all();
         $this->allCategories = \App\Models\Category::all();
@@ -50,6 +53,7 @@ class DashboardProfile extends Component
 
         $this->getVotesPerEdition();
         $this->getVotesPerCategory();
+        $this->getLatestActivity();
         if(auth()->user()->proposals()->exists())
         {
             $this->getVotesPerGender();
@@ -161,6 +165,32 @@ class DashboardProfile extends Component
         } else {
             $this->averageVotesOnAllEditions = 0;
         }
+    }
+
+    protected function getLatestActivity()
+    {
+        $this->latestVotes = $this->user->votes()->latest()->take(6)->get();
+        if($this->user->proposals())
+        {
+            $latestProposals = $this->user->proposals()
+            ->orderByDesc('updated_at')
+            ->take(6)
+            ->get();
+
+            $latestProposals->map(function ($proposal) {
+            // Check if updated_at is equal to created_at
+            if ($proposal->updated_at == $proposal->created_at) {
+                // If they are equal, add the 'action' parameter and set it to 'updated'
+                $proposal->action = 'Created';
+            }
+            });
+            $this->latestProposals = $latestProposals;
+        }
+    }
+
+    public function activityTab($item)
+    {
+        $this->activityTabValue = $item;
     }
 
     public function toggleTab($tab)
