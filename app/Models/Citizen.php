@@ -161,7 +161,7 @@ class Citizen extends Model implements Auditable, HasMedia
     }
 
 
-    public static function getStatusArray() : array
+    public static function getApprovalArray() : array
     {
         return [
             self::APPROVAL_STATUS_PENDING =>  __('Pendente'),
@@ -186,10 +186,27 @@ class Citizen extends Model implements Auditable, HasMedia
     * Return the status label
     * @return string
     */
-    public function getStatusLabelAttribute() : string
+    public function getAddressVerifiedLabelAttribute() : string
     {
-        $array = static::getStatusArray();
-        return $array[$this->status] ?? "";
+        $array = static::getApprovalArray();
+        return $array[$this->address_verified] ?? "";
+    }
+
+    public function getCcVerifiedLabelAttribute() : string
+    {
+        $array = static::getApprovalArray();
+        return $array[$this->address_verified] ?? "";
+    }
+
+
+    /**
+    * Return the status label
+    * @return string
+    */
+    public function getGenderLabelAttribute() : string
+    {
+        $array = static::getGenderArray();
+        return $array[$this->gender] ?? "";
     }
 
     /**

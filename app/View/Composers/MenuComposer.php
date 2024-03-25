@@ -32,20 +32,8 @@ class   MenuComposer
                 'Calendar' => [
                     'icon' => 'calendar',
                     'title' => __('Calendar'),
-                    'sub_menu' => [
-                        'calendar.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'calendar-dynamics.index',
-                            'params' => [],
-                            'title' => __('List calendars')
-                        ],
-                        'calendar.create' => [
-                            'icon' => 'plus-circle',
-                            'route_name' => 'calendar-dynamics.create',
-                            'params' => [],
-                            'title' => __('Create calendar')
-                        ],
-                    ]
+                    'route_name' => 'calendar-dynamics.index',
+                    'params' => []
                 ],
                 'Regulation' => [
                     'icon' => 'book',
@@ -120,23 +108,11 @@ class   MenuComposer
                     'params' => []
                 ],
                 'divider',
-                'users' => [
+                'Users' => [
                     'icon' => 'users',
                     'title' => __('Users'),
-                    'sub_menu' => [
-                        'users.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'users.index',
-                            'params' => [],
-                            'title' => __('List users')
-                        ],
-                        'users.create' => [
-                            'icon' => 'plus-circle',
-                            'route_name' => 'users.create',
-                            'params' => [],
-                            'title' => __('Create user')
-                        ],
-                    ]
+                    'route_name' => 'users.index',
+                    'params' => []
                 ],
                 'Citizens' => [
                     'icon' => 'users',
@@ -154,85 +130,31 @@ class   MenuComposer
                             'params' => ["pending" => 1],
                             'title' => __('Pending Citizens')
                         ],
-//                        'citizen.create' => [
-//                            'icon' => 'plus-circle',
-//                            'route_name' => 'citizens.create',
-//                            'params' => [],
-//                            'title' => __('Create Citizen')
-//                        ],
                     ]
                 ],
-                'Edições' => [
-                    'icon' => 'list',
+                'Editions' => [
+                    'icon' => 'mail-check',
                     'title' => __('Edições'),
-                    'sub_menu' => [
-                        'editions.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'editions.index',
-                            'params' => [],
-                            'title' => __('List Editions')
-                        ],
-                        'editions.create' => [
-                            'icon' => 'plus-circle',
-                            'route_name' => 'editions.create',
-                            'params' => [],
-                            'title' => __('Create Edition')
-                        ],
-                    ]
+                    'route_name' => 'editions.index',
+                    'params' => []
                 ],
                 'Proposals' => [
                     'icon' => 'list',
                     'title' => __('Proposals'),
-                    'sub_menu' => [
-                        'proposal.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'proposals.index',
-                            'params' => [],
-                            'title' => __('List proposals')
-                        ],
-                        'proposal.create' => [
-                            'icon' => 'plus-circle',
-                            'route_name' => 'proposals.create',
-                            'params' => [],
-                            'title' => __('Create Proposal')
-                        ],
-                    ]
+                    'route_name' => 'proposals.index',
+                    'params' => []
                 ],
                 'Categories' => [
                     'icon' => 'Bookmark',
                     'title' => __('Categories'),
-                    'sub_menu' => [
-                        'categories.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'categories.index',
-                            'params' => [],
-                            'title' => __('List Categories')
-                        ],
-                        'categories.create' => [
-                            'icon' => 'plus-circle',
-                            'route_name' => 'categories.create',
-                            'params' => [],
-                            'title' => __('Create Categories')
-                        ],
-                    ]
+                    'route_name' => 'categories.index',
+                    'params' => []
                 ],
                 'Votes' => [
                     'icon' => 'Heart',
                     'title' => __('Votes'),
-                    'sub_menu' => [
-                        'votes.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'votes.index',
-                            'params' => [],
-                            'title' => __('List Votes')
-                        ],
-                        'votes.create' => [
-                            'icon' => 'plus-circle',
-                            'route_name' => 'votes.create',
-                            'params' => [],
-                            'title' => __('Create Votes')
-                        ],
-                    ]
+                    'route_name' => 'votes.index',
+                    'params' => []
                 ],
                 'translations' => [
                     'icon' => 'globe',

@@ -1,18 +1,4 @@
 <!-- User Id Field -->
-{{--<div class="mb-3">--}}
-{{--    <x-base.form-label for="user_id">{{ $citizen->getAttributeLabel('user_id') }}</x-base.form-label>--}}
-{{--    <x-base.form-input--}}
-{{--        class="w-full {{ ($errors->has('user_id') ? 'border-danger' : '') }}"--}}
-{{--        id="user_id"--}}
-{{--        name="user_id"--}}
-{{--        :value="old('user_id', $citizen->user_id ?? '')"--}}
-{{--        type="number"--}}
-{{--        step="1"--}}
-{{--    />--}}
-{{--    @error('user_id')--}}
-{{--        <div class="mt-2 text-danger">{{ $message }}</div>--}}
-{{--    @enderror--}}
-{{--</div>--}}
 
 <!-- Cc Field -->
 <div class="mb-3">
@@ -40,6 +26,22 @@
         type="text"
     />
     @error('occupation')
+        <div class="mt-2 text-danger">{{ $message }}</div>
+    @enderror
+</div>
+
+
+<!-- Gender Field -->
+<div class="mb-3">
+    <x-base.form-label for="gender">{{ $citizen->getAttributeLabel('gender') }}</x-base.form-label>
+    <x-base.form-input
+        class="w-full {{ ($errors->has('gender') ? 'border-danger' : '') }}"
+        id="gender"
+        name="gender"
+        :value="old('gender', $citizen->gender ?? '')"
+        type="text"
+    />
+    @error('gender')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
