@@ -36,8 +36,8 @@
                         </li>
                     </ul>
                 </div>
-            </div><!--end col-->
-        </div><!--end grid-->
+            </div>
+        </div>
         <div class="col-span-5 flex-grow flex-col">
             <div class="">
                 @if($tab === 'dashboard')
@@ -51,8 +51,7 @@
                 @elseif($tab === 'update-password')
                     <x-frontend.profile.update-password-component/>
                 @endif
-            </div><!--end col-->
-
+            </div>
         </div>
     </div><!--end container-->
 </section><!--end section-->

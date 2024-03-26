@@ -1,3 +1,4 @@
+@props(['votes'])
 <div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
     <table class="w-full text-start text-slate-500 dark:text-slate-400">
         <thead class="text-sm uppercase bg-slate-50 dark:bg-slate-800">
@@ -28,4 +29,7 @@
         @endforeach
         </tbody>
     </table>
+    <div>
+        {{$votes->links()}}
+    </div>
 </div>

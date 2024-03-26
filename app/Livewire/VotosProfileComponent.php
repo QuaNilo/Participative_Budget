@@ -5,30 +5,29 @@ namespace App\Livewire;
 use App\Models\Edition;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class VotosProfileComponent extends Component
 {
-    public $votes;
+    use WithPagination;
     public $validEditionStatusToDeleteVote;
-
     public function mount()
     {
 
         $this->validEditionStatusToDeleteVote = [
             Edition::STATUS_VOTING,
         ];
-
-        $user = User::find(auth()->user()->id);
-        if($user->votes())
-        {
-            $this->votes = $user->votes()->with('proposal')
-                ->orderBy('created_at', 'desc')
-                ->get();
-        }
     }
 
     public function render()
     {
-        return view('livewire.profile.votos-profile-component');
+        $user = User::find(auth()->user()->id);
+        if($user->votes())
+        {
+            $votes = $user->votes()->with('proposal')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        }
+        return view('livewire.profile.votos-profile-component', ['votes' => $votes]);
     }
 }

@@ -2,26 +2,30 @@
 
 namespace App\Livewire;
 
+use App\Models\Proposal;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ProposalsProfileComponent extends Component
 {
-    public $proposals;
+    use WithPagination;
+    public $user;
 
     public function mount()
     {
-        $user = User::find(auth()->user()->id);
-        if($user->proposals())
-        {
-            $this->proposals = $user->proposals()
-                ->withCount('votes')
-                ->orderByDesc('created_at')
-                ->get();
-        }
+        $this->user = User::find(auth()->user()->id);
+
     }
     public function render()
     {
-        return view('livewire.profile.proposals-component');
+        if($this->user->proposals())
+        {
+            $proposals = Proposal::where('user_id', $this->user->id)
+                ->withCount('votes')
+                ->orderByDesc('created_at')
+                ->paginate(10);
+        }
+        return view('livewire.profile.proposals-component', ['proposals' => $proposals]);
     }
 }
