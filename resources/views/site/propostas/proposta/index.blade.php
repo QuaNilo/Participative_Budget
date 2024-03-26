@@ -1,4 +1,4 @@
-@props(['proposal'])
+@props(['proposal', 'WinnerValidEditionStatus'])
 <x-landing-layout>
     <style>
     .tiny-single-item img {
@@ -11,13 +11,6 @@
         <div class="col-span-1"></div>
         <div class="col-span-3 flex-col justify-center items-center mt-28">
             <div class="p-6 flex flex-col items-start flex-1 shadow-lg rounded-xl">
-                <?php
-                  $WinnerValidEditionStatus = [
-                      \App\Models\Edition::STATUS_COMPLETED,
-                      \App\Models\Edition::STATUS_CLOSED,
-                      \App\Models\Edition::STATUS_CANCELED
-                  ]
-                ?>
                 @if(in_array($proposal->edition->status, $WinnerValidEditionStatus))
                     <div class="text-slate-500 text-xs">{{__('Winner')}}</div>
                     <div class="mt-1.5 flex items-center">
@@ -37,35 +30,47 @@
                 <div class="mt-1.5 flex items-center">
                     <div class="text-base">{{$proposal->edition->identifier}}</div>
                 </div>
-                <div class="text-slate-500 text-xs mt-2">{{__('Budget')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->budget_estimate . ' €'? : 'N/A' }}</div>
-                </div>
+                @if($proposal->budget_estimate)
+                    <div class="text-slate-500 text-xs mt-2">{{__('Budget')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->budget_estimate . ' €' }}</div>
+                    </div>
+                @endif
             </div>
             <div class="p-6 mt-8 flex flex-col items-start flex-1 shadow-lg rounded-xl">
-                <div class="text-slate-500 text-xs">{{__('Cidade')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->city ? : 'N/A'}}</div>
-                </div>
-                <div class="text-slate-500 text-xs mt-2">{{__('Street')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->street ? : 'N/A' }}</div>
-                </div>
-                <div class="text-slate-500 text-xs mt-2">{{__('Postal Code')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->postal_code ? : 'N/A'}}</div>
-                </div>
-                <div class="text-slate-500 text-xs mt-2">{{__('County')}}</div>
-                <div class="mt-1.5 flex items-center">
-                    <div class="text-base">{{$proposal->freguesia ? : 'N/A'}}</div>
-                </div>
-                <div class="text-slate-500 text-xs mt-2 hidden xl:block">{{__('MAP')}}</div>
-                <div class="mt-1.5 flex items-center hidden xl:block">
-                    <div class="overflow-hidden mt-2">
-                        <x-frontend.show-map-mini :width="300" :height="300" :lng="$proposal->lng"
-                                                  :lat="$proposal->lat"/>
+                @if($proposal->city)
+                    <div class="text-slate-500 text-xs">{{__('Cidade')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->city ? : 'N/A'}}</div>
                     </div>
-                </div>
+                @endif
+                @if($proposal->street)
+                    <div class="text-slate-500 text-xs mt-2">{{__('Street')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->street }}</div>
+                    </div>
+                @endif
+                @if($proposal->postal_code)
+                    <div class="text-slate-500 text-xs mt-2">{{__('Postal Code')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->postal_code}}</div>
+                    </div>
+                @endif
+                @if($proposal->freguesia)
+                    <div class="text-slate-500 text-xs mt-2">{{__('County')}}</div>
+                    <div class="mt-1.5 flex items-center">
+                        <div class="text-base">{{$proposal->freguesia}}</div>
+                    </div>
+                @endif
+                @if($proposal->lng && $proposal->lat)
+                    <div class="text-slate-500 text-xs mt-2 hidden xl:block">{{__('MAP')}}</div>
+                    <div class="mt-1.5 flex items-center hidden xl:block">
+                        <div class="overflow-hidden mt-2">
+                            <x-frontend.show-map-mini :width="300" :height="300" :lng="$proposal->lng"
+                                                      :lat="$proposal->lat"/>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="col-span-6 p-10 shadow-lg rounded-xl">

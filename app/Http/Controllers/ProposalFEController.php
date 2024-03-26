@@ -64,11 +64,19 @@ class ProposalFEController extends Controller
 
     public function show_proposal($id)
     {
+
+        $WinnerValidEditionStatus = [
+            \App\Models\Edition::STATUS_COMPLETED,
+            \App\Models\Edition::STATUS_CLOSED,
+            \App\Models\Edition::STATUS_CANCELED
+        ];
+
+
         $proposal = Proposal::with('user', 'category')
             ->where('id', $id)
             ->withCount('votes')
             ->first();
-        return view('site.propostas.proposta.index', ['proposal' => $proposal]);
+        return view('site.propostas.proposta.index', ['proposal' => $proposal, 'WinnerValidEditionStatus' => $WinnerValidEditionStatus]);
     }
 
     /**
