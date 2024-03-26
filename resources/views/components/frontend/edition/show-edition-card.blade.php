@@ -1,9 +1,9 @@
 @props(['edition', 'winners'])
-<div class="bg-gray-50 shadow-lg rounded-md transition-transform transform-gpu hover:scale-105">
+<div onclick="window.location='{{ route('propostas', ['id' =>$edition->id]) }}'" class="bg-gray-50 shadow-lg rounded-md hover:cursor-pointer transition-transform transform-gpu hover:scale-105">
     <div class="flex items-start px-5 pt-5">
         <div class="w-full items-center">
             <div class="flex flex-col mt-3 lg:mt-0">
-                <a href="{{ route('propostas', ['id' =>$edition->id]) }}" class="text-lg font-bold hover:text-indigo-600">{{$edition->identifier}}</a>
+                <p class="text-lg font-bold">{{$edition->identifier}}</p>
                 <span class="text-slate-400 text-base mt-0.5">{{$edition->status_label}}</span>
             </div>
         </div>
