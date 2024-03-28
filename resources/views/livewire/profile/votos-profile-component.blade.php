@@ -29,7 +29,7 @@
         @endforeach
         </tbody>
     </table>
-    <div>
+    <div class="p-10">
         {{$votes->links()}}
     </div>
 </div>

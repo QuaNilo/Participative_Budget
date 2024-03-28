@@ -88,13 +88,13 @@
                 </div>
                 <div class="w-full h-1/4 mt-4">
                 <div class="tiny-single-item border border-gray-100">
-                    @if($proposal->getMedia('cover')->isNotEmpty())
+{{--                    @if($proposal->getMedia('cover')->isNotEmpty())--}}
                         <div class="tiny-slide ">
                             <img src="{{ $proposal->getFirstMediaUrl('cover', 'retangular') }}"
         {{--                             style="width: 1000px; height: 400px;"--}}
                                  class="rounded-md shadow w-full h-full" alt="">
                         </div><!--end content-->
-                    @endif
+{{--                    @endif--}}
                     @if($proposal->getMedia('gallery')->isNotEmpty())
                         @if($proposal->getMedia('gallery')[0]->hasGeneratedConversion('retangular'))
                             @foreach($proposal->getMedia('gallery') as $media)

@@ -13,7 +13,6 @@ class VotosProfileComponent extends Component
     public $validEditionStatusToDeleteVote;
     public function mount()
     {
-
         $this->validEditionStatusToDeleteVote = [
             Edition::STATUS_VOTING,
         ];

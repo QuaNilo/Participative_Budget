@@ -66,6 +66,7 @@ class Setting extends Model implements Auditable
         'map_lat',
         'map_lng',
         'email_cm',
+        'nome_cm',
         'facebook',
         'instagram',
         'twitter',
@@ -89,6 +90,7 @@ class Setting extends Model implements Auditable
         'linkedin' => 'string',
         'youtube' => 'string',
         'address' => 'string',
+        'nome_cm' => 'string',
         'website_cm' => 'string',
         'telephone_cm' => 'string'
     ];
@@ -102,6 +104,7 @@ class Setting extends Model implements Auditable
         'map_lat' => 'required|string|max:255',
         'map_lng' => 'required|string|max:255',
         'email_cm' => 'nullable|string|max:255',
+        'nome_cm' => 'nullable|string|max:255',
         'facebook' => 'nullable|string|max:255',
         'address' => 'nullable|string|max:255',
         'instagram' => 'nullable|string|max:255',
@@ -131,6 +134,7 @@ class Setting extends Model implements Auditable
         'map_lat' => __('Map Latitude'),
         'map_lng' => __('Map Longitude'),
         'email_cm' => __('Email Town Hall'),
+        'nome_cm' => __('Name of Town Hall'),
         'facebook' => __('Facebook'),
         'instagram' => __('Instagram'),
         'twitter' => __('Twitter'),

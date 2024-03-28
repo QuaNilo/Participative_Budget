@@ -404,151 +404,154 @@ try{
 catch(err){}
 
 // Dashboard VOTES/EDITION chart
-try{
-    var mainchartOptions = {
-    series: [{
-            name: 'Votes',
-            data: JSON.parse(editionVotes),
-    }],
-    chart: {
-        type: 'bar',
-        height: 420,
-        toolbar: {
-            show: false,
-            autoSelected: 'zoom'
-        },
-    },
-    grid: {
-        strokeDashArray: 5,
-
-    },
-    plotOptions: {
-        bar: {
-            borderRadius: 5,
-            horizontal: false,
-            columnWidth: '40%',
-            endingShape: 'rounded'
-        },
-    },
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent']
-    },
-    colors: ['#4f46e5', '#10b981'],
-    xaxis: {
-            categories: JSON.parse(editionNames),
-    },
-    yaxis: {
-        title: {
-            text: 'Votes / Edition',
-
-            style: {
-                colors: ['#8492a6'],
-                fontSize: '16px',
-                fontFamily: 'Nunito, sans-serif',
-                fontWeight: 600,
+const statistics = () => {
+    try{
+        var mainchartOptions = {
+        series: [{
+                name: 'Votes',
+                data: JSON.parse(editionVotes),
+        }],
+        chart: {
+            type: 'bar',
+            height: 420,
+            toolbar: {
+                show: false,
+                autoSelected: 'zoom'
             },
         },
-    },
-    fill: {
-        opacity: 1,
-    },
-    tooltip: {
-        y: {
-            formatter: function (val) {
-                return val
+        grid: {
+            strokeDashArray: 5,
+
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: 5,
+                horizontal: false,
+                columnWidth: '40%',
+                endingShape: 'rounded'
+            },
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        colors: ['#4f46e5', '#10b981'],
+        xaxis: {
+                categories: JSON.parse(editionNames),
+        },
+        yaxis: {
+            title: {
+                text: 'Votes / Edition',
+
+                style: {
+                    colors: ['#8492a6'],
+                    fontSize: '16px',
+                    fontFamily: 'Nunito, sans-serif',
+                    fontWeight: 600,
+                },
+            },
+        },
+        fill: {
+            opacity: 1,
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return val
+                }
             }
         }
+        };
+
+            var categoriesChartOptions = {
+              series: JSON.parse(categoryVotes),
+              labels: JSON.parse(categoryNames),
+              chart: {
+              width: 600,
+              type: 'pie',
+            },
+            plotOptions: {
+              pie: {
+                startAngle: -90,
+                endAngle: 270
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            fill: {
+              type: 'gradient',
+            },
+            legend: {
+              formatter: function(val, opts) {
+                return val + " - " + opts.w.globals.series[opts.seriesIndex]
+              }
+            },
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 500
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+        };
+
+        var genderChartOptions = {
+              series: JSON.parse(genderVotes),
+              labels: JSON.parse(genderNames),
+              chart: {
+              width: 600,
+              type: 'donut',
+            },
+            plotOptions: {
+              pie: {
+                startAngle: -90,
+                endAngle: 270
+              }
+            },
+            dataLabels: {
+              enabled: false
+            },
+            fill: {
+              type: 'gradient',
+            },
+            legend: {
+              formatter: function(val, opts) {
+                return val + " - " + opts.w.globals.series[opts.seriesIndex]
+              }
+            },
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 500
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+        };
+
+            var genderChart = new ApexCharts(document.querySelector("#genderChart"), genderChartOptions);
+            var categoriesChart = new ApexCharts(document.querySelector("#categoriesChart"), categoriesChartOptions);
+            var mainchart = new ApexCharts(document.querySelector("#mainchart"), mainchartOptions);
+            mainchart.render();
+            genderChart.render();
+            categoriesChart.render();
+
+
+    }catch(err){
+        console.log(err)
     }
-    };
-
-        var categoriesChartOptions = {
-          series: JSON.parse(categoryVotes),
-          labels: JSON.parse(categoryNames),
-          chart: {
-          width: 600,
-          type: 'pie',
-        },
-        plotOptions: {
-          pie: {
-            startAngle: -90,
-            endAngle: 270
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        fill: {
-          type: 'gradient',
-        },
-        legend: {
-          formatter: function(val, opts) {
-            return val + " - " + opts.w.globals.series[opts.seriesIndex]
-          }
-        },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 500
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-    };
-
-    var genderChartOptions = {
-          series: JSON.parse(genderVotes),
-          labels: JSON.parse(genderNames),
-          chart: {
-          width: 600,
-          type: 'donut',
-        },
-        plotOptions: {
-          pie: {
-            startAngle: -90,
-            endAngle: 270
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        fill: {
-          type: 'gradient',
-        },
-        legend: {
-          formatter: function(val, opts) {
-            return val + " - " + opts.w.globals.series[opts.seriesIndex]
-          }
-        },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 500
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-    };
-
-
-    var genderChart = new ApexCharts(document.querySelector("#genderChart"), genderChartOptions);
-    var categoriesChart = new ApexCharts(document.querySelector("#categoriesChart"), categoriesChartOptions);
-    var mainchart = new ApexCharts(document.querySelector("#mainchart"), mainchartOptions);
-    mainchart.render();
-    genderChart.render();
-    categoriesChart.render();
-}catch(err){
-    console.log(err)
 }
 
 

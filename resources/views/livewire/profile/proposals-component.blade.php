@@ -32,7 +32,7 @@
             </tbody>
         @endforeach
     </table>
-    <div class="mx-15">
+    <div class="p-10">
         {{$proposals->links()}}
     </div>
 </div>

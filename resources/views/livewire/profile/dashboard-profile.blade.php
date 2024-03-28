@@ -25,7 +25,6 @@
                             <span class="text-sm text-slate-400 font-semibold block">{{__('Votes on Top Proposals')}}</span>
                             <span class="flex items-center justify-between mt-1">
                                 <span class="text-xl font-semibold"><span class="counter-value" data-target="{{$count_votes_winner_proposal}}">{{$count_votes_winner_proposal}}</span></span>
-                                <span class="text-emerald-600 text-sm ms-1 font-semibold"><i class="uil uil-arrow-growth"></i> 3.84%</span>
                             </span>
                         </span>
                     </div>
@@ -43,7 +42,6 @@
                             <span class="text-sm text-slate-400 font-semibold block">{{__('Average Votes per Edition')}}</span>
                             <span class="flex items-center justify-between mt-1">
                                 <span class="text-xl font-semibold"><span class="counter-value" data-target="{{$averageVotesOnAllEditions}}">{{$averageVotesOnAllEditions}}</span></span>
-                                <span class="text-emerald-600 text-sm ms-1 font-semibold"><i class="uil uil-arrow-growth"></i> 1.46%</span>
                             </span>
                         </span>
                     </div>
@@ -62,7 +60,6 @@
                                     <span class="text-sm text-slate-400 font-semibold block">{{__('Total Impressions on my Proposals')}}</span>
                                     <span class="flex items-center justify-between mt-1">
                                         <span class="text-xl font-semibold"><span class="counter-value" data-target="{{$total_impressions}}">{{$total_impressions}}</span></span>
-                                        <span class="text-slate-400 text-sm ms-1 font-semibold"><i class="uil uil-analysis"></i> 0.0%</span>
                                     </span>
                                 </span>
                         </div>
@@ -156,8 +153,8 @@
     echo "<script> var genderNames = '$genderNames';</script>";
 ?>
 
-{{--@script--}}
-{{--<script>--}}
-{{--    statistics();--}}
-{{--</script>--}}
-{{--@endscript--}}
+@script
+<script>
+    statistics();
+</script>
+@endscript
