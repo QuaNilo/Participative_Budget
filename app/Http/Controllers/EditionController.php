@@ -23,6 +23,16 @@ class EditionController extends Controller
      */
     public function create()
     {
+        $uniqueEditionStatuses = [
+            Edition::STATUS_PENDING,
+            Edition::STATUS_OPEN,
+            Edition::STATUS_ANALYSIS,
+            Edition::STATUS_VOTING,
+        ];
+        if(Edition::whereIn('status', $uniqueEditionStatuses)->first())
+        {
+            return redirect(route('display_warning', ['message' => __('Can only have one active Edition. Please terminate the current edition first.')]));
+        }
         $edition = new Edition();
         $edition->loadDefaultValues();
         return view('editions.create', compact('edition'));
