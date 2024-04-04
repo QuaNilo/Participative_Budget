@@ -2,7 +2,7 @@
 <div class="">
     <style type="text/css">
         #map {
-          height: 800px;
+          height: 1000px;
         }
     </style>
     <div class="h-screen w-screen bg-gray-100" id="map"></div>
