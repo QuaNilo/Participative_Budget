@@ -97,7 +97,6 @@ $wallpaper = $home->getFirstMediaUrl('wallpaper');
                         <div class="mt-6">
                             <a href="{{route('contact-us')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-indigo-600 hover:bg-indigo-700/80 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Contact us")}}</a>
                         </div>
-
                     </div>
                 </div><!--end grid-->
             </div><!--end container-->

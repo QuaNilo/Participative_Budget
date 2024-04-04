@@ -1,19 +1,14 @@
 <?php
     $setting = \App\Models\Setting::first();
 ?>
-@if($setting->require_cc_vote_create == 1 || $setting->require_address_vote_create == 1)
-    <div class="flex flex-row rounded-md shadow w-fit h-10 bg-gray-50 items-center p-3">
-        <span class="text-lg font-semibold mr-6 text-indigo-600">{{__('Account Status')}}</span>
-    @if(auth()->user()->citizen->CC_verified == \App\Models\Citizen::APPROVAL_STATUS_ACCEPTED)
-        <span class="text-slate-400 font-semibold mr-6">{{__('Citizen Card Verified')}} </span>
-    @else
-        <span class="text-red-400 font-semibold mr-6">{{__('Citizen Card Unverified')}} </span>
+<div>
+    @if($setting->require_cc_vote_create == 1)
+        <div class="flex flex-row rounded-md shadow w-fit h-10 bg-gray-50 items-center p-3"/>
+            <span class="text-lg font-semibold mr-6 text-indigo-600">{{__('Account Status')}}</span>
+        @if(auth()->user()->citizen->CC_verified == \App\Models\Citizen::APPROVAL_STATUS_ACCEPTED)
+            <span class="text-slate-400 font-semibold mr-6">{{__('Citizen Card Verified')}} </span>
+        @else
+            <span class="text-red-400 font-semibold mr-6">{{__('Citizen Card Unverified')}} </span>
+        @endif
     @endif
-
-    @if(auth()->user()->citizen->address_verified == \App\Models\Citizen::APPROVAL_STATUS_ACCEPTED)
-        <span class="text-slate-400 font-semibold">{{__('Address Verified')}}</span>
-    @else
-        <span class="text-red-400 font-semibold">{{__('Address Unverified')}}</span>
-    @endif
-    </div>
-@endif
+</div>

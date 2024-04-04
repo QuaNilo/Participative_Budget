@@ -167,7 +167,6 @@ class Citizen extends Model implements Auditable, HasMedia
             self::APPROVAL_STATUS_PENDING =>  __('Pendente'),
             self::APPROVAL_STATUS_ACCEPTED =>  __('Aprovado'),
             self::APPROVAL_STATUS_REJECTED =>  __('Rejeitado'),
-
         ];
     }
 
@@ -177,7 +176,6 @@ class Citizen extends Model implements Auditable, HasMedia
             self::GENDER_UNDEFINED =>  __('Undefined'),
             self::GENDER_FEMALE =>  __('Female'),
             self::GENDER_MALE =>  __('Male'),
-
         ];
     }
 
@@ -195,7 +193,7 @@ class Citizen extends Model implements Auditable, HasMedia
     public function getCcVerifiedLabelAttribute() : string
     {
         $array = static::getApprovalArray();
-        return $array[$this->address_verified] ?? "";
+        return $array[$this->CC_verified] ?? "";
     }
 
 

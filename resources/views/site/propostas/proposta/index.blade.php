@@ -138,11 +138,13 @@
                         @endif
 
                     </div>
-                    <form action="{{route('download-single-file', $proposal)}}" method="POST">
-                    @csrf
-                        <button type="submit" class="intro-x w-8 h-8 sm:w-10 sm:h-10 flex flex-none items-center justify-center rounded-full bg-indigo-600 hover:bg-indigo-800 text-white ml-2 tooltip" title="Download Documents"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="share" data-lucide="share" class="lucide lucide-share w-3 h-3"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                        </button>
-                    </form>
+                    @if($proposal->hasMedia('documents'))
+                        <form action="{{route('download-files-proposal', $proposal)}}" method="POST">
+                        @csrf
+                            <button type="submit" class="intro-x w-8 h-8 sm:w-10 sm:h-10 flex flex-none items-center justify-center rounded-full bg-indigo-600 hover:bg-indigo-800 text-white ml-2 tooltip" title="Download Documents"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="share" data-lucide="share" class="lucide lucide-share w-3 h-3"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                            </button>
+                        </form>
+                    @endif
                 </div>
                 <div class=" text-justify leading-relaxed">
                     {{$proposal->content}}

@@ -71,9 +71,9 @@ Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.coo
 Route::get('/privacy-policy', [HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
 Route::get('/privacy-policy-1', [HomeController::class,'privacyPolicy'])->name('policy.show');
 Route::get('/terms-of-service', [HomeController::class,'termsOfService'])->name('home.terms_of_service');
-//Route::get('color-scheme-switcher/{color_scheme}', [ColorSchemeController::class, 'switch'])->name('color-scheme-switcher');
 
-Route::post('download-single-file/{proposal}', [DownloadMediaController::class, 'download_zip'])->name('download-single-file');
+Route::post('download-files/proposal/{proposal}', [DownloadMediaController::class, 'download_zip_proposal'])->name('download-files-proposal');
+Route::post('download-files/citizen/{citizen}', [DownloadMediaController::class, 'download_zip_citizen'])->name('download-files-citizen');
 Route::post('change-language/{language}', [SettingController::class, 'change_language'])->name('setting.change_language');
 
 
@@ -96,7 +96,6 @@ Route::middleware([
     Route::impersonate();
 
     Route::resource('settings', App\Http\Controllers\SettingController::class);
-//    Route::resource('settings', App\Http\Controllers\SettingsController::class);
     Route::get('translations/{groupKey?}', '\Barryvdh\TranslationManager\Controller@getIndex')->where('groupKey', '.*')->name('translations.index');
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
@@ -106,9 +105,10 @@ Route::middleware([
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
     Route::post('/citizens/{citizen}/approve-cc/', [CitizenController::class, 'approveCc'])->name('citizens.approve_cc');
-    Route::post('/citizens/{citizen}/approve-address/', [CitizenController::class, 'approveAddress'])->name('citizens.approve_address');
     Route::post('/citizens/{citizen}/reject-cc/', [CitizenController::class, 'rejectCc'])->name('citizens.reject_cc');
+    Route::post('/citizens/{citizen}/approve-address/', [CitizenController::class, 'approveAddress'])->name('citizens.approve_address');
     Route::post('/citizens/{citizen}/reject-address/', [CitizenController::class, 'rejectAddress'])->name('citizens.reject_address');
+    Route::post('/citizens/{citizen}/verify-wizard', [CitizenController::class, 'showVerifyWizard'])->name('citizens.verify-wizard');
 
     Route::resource('articles', App\Http\Controllers\ArticleController::class);
     Route::resource('regulations', App\Http\Controllers\RegulationController::class);

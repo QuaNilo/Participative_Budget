@@ -137,11 +137,11 @@ class CitizenController extends Controller
         {
             $citizen->update(['CC_verified' => Citizen::APPROVAL_STATUS_REJECTED, 'CC_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
-            return Redirect::back();
+            return Redirect::route('citizens.index');
         }
 
         flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
-        return Redirect::back();
+        return Redirect::route('citizens.index');
     }
 
     public function approveCc(Request $request, Citizen $citizen)
@@ -150,11 +150,11 @@ class CitizenController extends Controller
         {
             $citizen->update(['CC_verified' => Citizen::APPROVAL_STATUS_ACCEPTED, 'CC_verified_at' => now()]);
             flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
-            return Redirect::back();
+            return Redirect::route('citizens.index');
         }
 
         flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
-        return Redirect::back();
+        return Redirect::route('citizens.index');
     }
 
 
@@ -182,5 +182,10 @@ class CitizenController extends Controller
 
         flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
         return Redirect::back();
+    }
+
+    public function showVerifyWizard(Citizen $citizen)
+    {
+        return view('citizens.verify-wizard', ['citizen' => $citizen]);
     }
 }

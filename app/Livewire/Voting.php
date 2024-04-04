@@ -31,10 +31,10 @@ class Voting extends Component
             return redirect()->route('proposta-detail', $this->proposal_id);
         }
 
-        if(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified) {
-            flash(__('Your Address needs to be validated to Vote on Proposals'))->overlay()->warning()->duration(4000);
-            return redirect()->route('proposta-detail', $this->proposal_id);
-        }
+//        if(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified) {
+//            flash(__('Your Address needs to be validated to Vote on Proposals'))->overlay()->warning()->duration(4000);
+//            return redirect()->route('proposta-detail', $this->proposal_id);
+//        }
 
         // Check if the user has already voted for this proposal
         if ($this->has_voted) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Citizen;
 use App\Models\Proposal;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -9,13 +10,15 @@ use Spatie\MediaLibrary\Support\MediaStream;
 
 class DownloadMediaController extends Controller
 {
-    public function download_zip(Proposal $proposal)
-       {
-            // Let's get some media.
-            $documents = $proposal->getMedia('documents');
+    public function download_zip_proposal(Proposal $proposal): MediaStream
+    {
+        $documents = $proposal->getMedia('documents');
+        return MediaStream::create(substr($proposal->title, 0, 24) . '.zip')->addMedia($documents);
+    }
 
-            // Download the files associated with the media in a streamed way.
-            // No prob if your files are very large.
-            return MediaStream::create(substr($proposal->title, 0, 24) . '.zip')->addMedia($documents);
-       }
+   public function download_zip_citizen(Citizen $citizen): MediaStream
+    {
+        $cc = $citizen->getMedia('cc');
+        return MediaStream::create(substr($citizen->user->name, 0, 24) . '.zip')->addMedia($cc);
+    }
 }
