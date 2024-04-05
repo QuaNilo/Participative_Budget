@@ -6,7 +6,10 @@ use App\Http\Requests\CreateEditionRequest;
 use App\Http\Requests\UpdateEditionRequest;
 //use App\Http\Controllers\AppBaseController;
 use App\Models\Edition;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Log\Logger;
+use Illuminate\Support\Facades\Redirect;
 
 class EditionController extends Controller
 {
@@ -137,5 +140,21 @@ class EditionController extends Controller
         }
 
         return redirect(route('editions.index'));
+    }
+
+    public function cancel(Edition $edition)
+    {
+        try {
+            $edition->status = Edition::STATUS_CANCELED;
+            $edition->save();
+            flash(__('Canceled successfully.'))->overlay()->success();
+            return Redirect::back();
+
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('display_warning', ['message' => __('Edition not found')]);
+
+        } catch (\Exception $e) {
+            return redirect()->route('display_warning', ['message' => __('Failed to cancel edition')]);
+        }
     }
 }

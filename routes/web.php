@@ -100,6 +100,7 @@ Route::middleware([
     Route::resource('demos', App\Http\Controllers\DemoController::class);
     Route::resource('proposals', App\Http\Controllers\ProposalController::class);
     Route::resource('editions', App\Http\Controllers\EditionController::class);
+    Route::post('editions/{edition}', [App\Http\Controllers\EditionController::class, 'cancel'])->name('editions.cancel');
     Route::resource('calendar-dynamics', App\Http\Controllers\CalendarDynamicController::class);
 
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);

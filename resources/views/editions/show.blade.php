@@ -16,19 +16,21 @@
                         icon="edit"
                     /> {{ __('Update') }}
             </x-base.button>
-            <x-base.button
-                class="shadow-md sm:ml-0"
-                variant="danger"
-                data-tw-toggle="modal"
-                data-tw-target="#delete-modal"
-                href="#"
-                as="a"
-            >
-                <x-base.lucide
-                    class="mr-2 h-4 w-4"
-                    icon="trash"
-                /> {{ __('Delete') }}
-            </x-base.button>
+            @if($edition->status != \App\Models\Edition::STATUS_CANCELED)
+                <x-base.button
+                    class="shadow-md sm:ml-0"
+                    variant="danger"
+                    data-tw-toggle="modal"
+                    data-tw-target="#delete-modal"
+                    href="#"
+                    as="a"
+                >
+                    <x-base.lucide
+                        class="mr-2 h-4 w-4"
+                        icon="trash"
+                    /> {{ __('Cancel Edition') }}
+                </x-base.button>
+            @endif
             <x-base.dialog id="delete-modal" x-data>
                 <x-base.dialog.panel>
                     <div class="p-5 text-center">
@@ -38,7 +40,7 @@
                         />
                         <div class="mt-5 text-3xl">{{ __('Are you sure?') }}</div>
                         <div class="mt-2 text-slate-500">
-                            {{ __('Do you really want to delete these records?') }} <br />
+                            {{ __('Do you really want to cancel this Edition?') }} <br />
                             {{ __('This process cannot be undone.') }}
                         </div>
                     </div>
@@ -57,14 +59,14 @@
                             variant="danger"
                             @click="document.getElementById('delete-record-form').submit()"
                         >
-                            {{ __('Delete') }}
+                            {{ __('Confirm') }}
                         </x-base.button>
                     </div>
                 </x-base.dialog.panel>
             </x-base.dialog>
-            <form method="POST" action="{{ route('editions.destroy', $edition) }}" id="delete-record-form">
+            <form method="POST" action="{{ route('editions.cancel', $edition) }}" id="delete-record-form">
                 @csrf
-                @method('DELETE')
+                @method('POST')
             </form>
         </div>
     </div>
