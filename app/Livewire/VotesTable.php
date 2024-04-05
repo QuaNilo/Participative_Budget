@@ -30,11 +30,6 @@ class VotesTable extends Component implements HasForms, HasTable
         return $table
             ->query(Vote::query())
             ->columns([
-                TextColumn::make("user_id")
-                ->label(__("ID Votador"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
             TextColumn::make("user.name")
                 ->label(__('Nome Votador'))
                 ->sortable()

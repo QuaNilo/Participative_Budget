@@ -18,7 +18,7 @@
 <!-- Gender Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('gender') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->gender }}</dd>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->genderLabel }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
@@ -42,6 +42,15 @@
 
 
 
+
+
+<!-- Cc Verified Field -->
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('CC_verified') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->CC_verifiedLabel }}</dd>
+</div>
+<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
+
 <!-- Cc Verified At Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('CC_verified_at') }}</dt>
@@ -51,19 +60,10 @@
 
 
 
-<!-- Cc Verified Field -->
-<div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('CC_verified') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->CC_verified }}</dd>
-</div>
-<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
-
-
-
 <!-- Address Verified Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('address_verified') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->address_verified }}</dd>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->address_verifiedLabel }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
@@ -113,31 +113,9 @@
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
 
-
 <!-- Telemovel Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('telemovel') }}</dt>
     <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->telemovel }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
-
-
-
-<!-- Gender Field -->
-<div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('gender') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->gender }}</dd>
-</div>
-<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
-
-
-
-<!-- Remember Token Field -->
-<div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $citizen->getAttributeLabel('remember_token') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $citizen->remember_token }}</dd>
-</div>
-<div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
-
-
-

@@ -40,11 +40,6 @@ class CalendarDynamicsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("description")
-                ->label($newModel->getAttributeLabel("description"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
             TextColumn::make("phase")
                 ->label($newModel->getAttributeLabel("phase"))
                 ->sortable()

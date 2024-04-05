@@ -41,7 +41,7 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->toggleable()
                 ->searchable(),
             TextColumn::make("edition.identifier")
-                ->label(__("Edition-Identifier"))
+                ->label(__("Edition"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -50,29 +50,9 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-
-            TextColumn::make("postal_code")
-                ->label($newModel->getAttributeLabel("postal_code"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("city")
-                ->label($newModel->getAttributeLabel("city"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("freguesia")
-                ->label($newModel->getAttributeLabel("freguesia"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("url")
-                ->label($newModel->getAttributeLabel("url"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
             TextColumn::make("winner")
                 ->label($newModel->getAttributeLabel("winner"))
+                ->formatStateUsing(fn (Proposal $record): string => $record->winnerLabel)
                 ->sortable()
                 ->toggleable()
                 ->searchable(),

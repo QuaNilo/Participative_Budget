@@ -78,7 +78,8 @@ class Proposal extends Model implements Auditable, HasMedia
     use InteractsWithMedia;
     use HasFactory;
 
-
+    const STATUS_WINNER = 1;
+    const STATUS_LOSER = 0;
     const STATUS_PENDING = 0;
     const STATUS_REVIEW = 1;
     const STATUS_ACCEPTED = 2;
@@ -237,6 +238,14 @@ class Proposal extends Model implements Auditable, HasMedia
         ];
     }
 
+    public static function getWinnerArray() : array
+    {
+        return [
+            self::STATUS_LOSER =>  __('Non-Winner'),
+            self::STATUS_WINNER =>  __('Winner'),
+        ];
+    }
+
     /**
     * Return the status label
     * @return string
@@ -245,6 +254,12 @@ class Proposal extends Model implements Auditable, HasMedia
     {
         $array = static::getStatusArray();
         return $array[$this->status] ?? "";
+    }
+
+    public function getWinnerLabelAttribute() : string
+    {
+        $array = static::getWinnerArray();
+        return $array[$this->winner] ?? "";
     }
 
     public function registerMediaCollections(Media $media = null): void

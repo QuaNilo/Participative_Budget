@@ -1,7 +1,7 @@
 <!-- User Id Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('user_id') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->user_id }}</dd>
+    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('User') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->user->name }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
@@ -9,8 +9,8 @@
 
 <!-- Category Id Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('category_id') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->category_id }}</dd>
+    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('Category') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->category->name }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
@@ -18,8 +18,8 @@
 
 <!-- Edition Id Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
-    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('edition_id') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->edition_id }}</dd>
+    <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('Edition') }}</dt>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->edition->identifier }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
@@ -118,7 +118,7 @@
 <!-- Winner Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('winner') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->winner }}</dd>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->winnerLabel }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
@@ -136,7 +136,7 @@
 <!-- Status Field -->
 <div class="grid grid-cols-1 md:grid-cols-3">
     <dt class="font-medium md:col-span-1">{{ $proposal->getAttributeLabel('status') }}</dt>
-    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->status }}</dd>
+    <dd class="text-slate-500 dark:text-slate-300 md:col-span-2">{{ $proposal->statusLabel }}</dd>
 </div>
 <div class="mt-5 w-full border-t border-slate-200/60 dark:border-darkmode-400 last-of-type:hidden"></div>
 
