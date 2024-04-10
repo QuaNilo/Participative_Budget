@@ -79,46 +79,7 @@
                 </div>
             </div>
 
-            <div class="col-span-3 lg:col-span-3 shadow-lg rounded-md p-4 pb-2 mt-2 pt-1">
-                <div class="flex justify-around items-center border-b border-slate-200/60 dark:border-darkmode-400 sm:py-3 pl-0">
-                    <h2 class="text-lg font-semibold">Latest Activity</h2>
-                    <div class="flex flex-row space-x-4 p-3 rounded-3xl">
-                        <a class="@if($activityTabValue == 'proposals') text-indigo-600 @endif text-lg font-semibold cursor-pointer" wire:click="activityTab('proposals')">Proposals</a>
-                        <a class="@if($activityTabValue == 'votes') text-indigo-600 @endif text-lg font-semibold cursor-pointer" wire:click="activityTab('votes')">Votes</a>
-                    </div>
-                </div>
-                <div class="">
-                    @if($activityTabValue == 'proposals')
-                        @foreach($latestProposals as $proposal)
-                            <div class="relative mt-5 flex items-center border-b">
-                                <div class="ml-4 mr-auto">
-                                    <div class="mr-5 text-slate-600 sm:mr-5">
-                                        {{$proposal->title}}
-                                    </div>
-                                    <p class="font-medium text-slate-400 text-xs">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</p>
-                                </div>
-                                <div class="font-medium text-indigo-600 dark:text-slate-500">
-                                    {{ isset($proposal->action) ? $proposal->action : 'Updated' }}
-                                </div>
-                            </div>
-                        @endforeach
-                    @else
-                        @foreach($latestVotes as $vote)
-                            <div class="relative mt-5 flex items-center border-b">
-                                <div class="ml-4 mr-auto">
-                                    <div class="mr-5 text-slate-600 sm:mr-5">
-                                        {{$vote->proposal->title}}
-                                    </div>
-                                    <p class="font-medium text-slate-400 text-xs">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</p>
-                                </div>
-                                <div class="font-medium text-indigo-600 dark:text-slate-500">
-                                    {{__('Voted')}}
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
+            <x-profile-dashboard-latest-activity :latestProposals="$latestProposals" :latestVotes="$latestVotes"/>
 
             <div class="lg:col-span-5 shadow-lg rounded-md">
                 <div class="overflow-hidden dark:shadow-gray-700 bg-white dark:bg-slate-900">

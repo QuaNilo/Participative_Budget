@@ -77,7 +77,7 @@
             <div class="flex-col">
                 <!-- BEGIN: Blog Layout -->
                 <h2 class="font-medium text-xl sm:text-2xl">
-                    {{$proposal->title}}
+                    {{$proposal->edition->identifier}}
                 </h2>
                 <div class="text-slate-600 mt-3 text-xs sm:text-sm">
                     {{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}
@@ -118,7 +118,11 @@
 
                 <div class=" flex  pt-16 sm:pt-6 items-center pb-6">
                     <div class="absolute sm:relative -mt-12 sm:mt-0 w-full flex text-slate-600 text-xs sm:text-sm">
-                        <div class="intro-x mr-1 sm:mr-3"> Impressions: <span class="font-medium">{{$proposal->impressions}}</span> </div>
+                        <div class="intro-x mr-1 sm:mr-3"> Impressions:
+                            <span class="font-medium">
+                                {{$proposal->impressions}}
+                            </span>
+                        </div>
 {{--                        <div class="intro-x sm:mr-3 ml-auto"> Votes: <span class="font-medium">{{$proposal->votes_count}}</span> </div>--}}
                     </div>
                     <div class="">
@@ -146,6 +150,9 @@
                         </form>
                     @endif
                 </div>
+                <h2 class="font-medium text-xl sm:text-2xl mb-3">
+                    {{$proposal->title}}
+                </h2>
                 <div class=" text-justify leading-relaxed">
                     {{$proposal->content}}
                 </div>
