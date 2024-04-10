@@ -1,27 +1,3 @@
-//import './bootstrap';
-
-// import Alpine from 'alpinejs';
-
-// window.Alpine = Alpine;
-
-// Alpine.start();
-
-//import assetAsURL from '../../node_modules/animate.css/animate.min.css?url';
-//import meta glob naõ é bom para importar css e js mas sim para outros assets tipo fonts e imagens
-/*import.meta.glob([
-    //'../teste/**',
-    '../../node_modules/animate.css/animate.min.css',
-    '../../node_modules/tobii/dist/css/tobii.min.css',
-    '../../node_modules/tobii/dist/js/tobii.min.js',
-    '../../node_modules/tiny-slider/dist/tiny-slider.css',
-    '../../node_modules/tiny-slider/dist/min/tiny-slider.js',
-    '../../node_modules/@iconscout/unicons/css/line.css',
-    '../../node_modules/wow.js/dist/wow.min.js',
-    '../../node_modules/feather-icons/dist/feather.min.js'
-]);*/
-//import.meta.glob(["../../images/**"]); // to import images and vite assets
-//functiona bem o campo abaixo
-
 import.meta.glob([
     //'../teste/**',
     '../../../node_modules/animate.css/animate.min.css',
@@ -36,11 +12,6 @@ import.meta.glob([
     '../../../node_modules/choices.js/public/assets/styles/choices.min.css',
     '../../../node_modules/choices.js/public/assets/scripts/choices.min.js',
 ], { as: 'url'});
-
-//import.meta.glob('../../node_modules/@iconscout/unicons/css/line.css');
-
-
-//import.meta.glob(["../images/**"]); // tive que tirar os ficheiros .psd
 
 /* Template Name: Techwind - Multipurpose Tailwind CSS Landing Page Template
    Author: Shreethemes

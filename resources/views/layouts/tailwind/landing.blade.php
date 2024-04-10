@@ -42,10 +42,9 @@
         <meta property="og:type" content="website" />
         <meta property="og:description" content="@yield('page_description', $pageDescription ?? 'O Observatório da Autoridade da Mobilidade e dos Transportes (AMT) disponibiliza, através deste portal, informação estatística sobre diversos modos de transportes em Portugal.')" />
         <meta property="og:image" content="@yield('share_image', $shareImageUrl ?? asset('images/logo_dark.png'))" />
-{{--        @if(false)--}}
-{{--            <link rel="canonical" href="@yield('canonical', $pageCanonical ?? '')"/>--}}
-{{--        @endif--}}
+
         <x-cookie-consent-and-tracking></x-cookie-consent-and-tracking>
+
         @stack('firstStyles')
 
         @vite([
@@ -88,31 +87,14 @@
 
         @stack('firstScripts')
         @stack('vendors')
-        {{-- não se pode meter tudo com o @vite porque mete <script type="module" e isto não funciona para todos os modulos porque estas variáveis precisam de ser globais --}}
-{{--        @if(false)--}}
-{{--            <script src="{{ Vite::asset('node_modules/jarallax/dist/jarallax.min.js') }}"></script>--}}
-{{--            <script src="{{ Vite::asset('node_modules/tobii/dist/js/tobii.min.js') }}"></script>--}}
-{{--        @endif--}}
+
         <script src="{{ Vite::asset('node_modules/tiny-slider/dist/min/tiny-slider.js') }}"></script>
         <script src="{{ Vite::asset('node_modules/feather-icons/dist/feather.min.js') }}"></script>
-
-        @if(true)
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-            <script src="{{ Vite::asset('resources/tailwind-assets/js/plugins.init.js') }}"></script>
-            <script src="{{ Vite::asset('resources/tailwind-assets/js/app.js') }}"></script>
-        @else
-            @vite([
-                //'node_modules/wow.js/dist/wow.min.js',
-                //'node_modules/tobii/dist/js/tobii.min.js',
-                //'node_modules/tiny-slider/dist/min/tiny-slider.js',
-                //'node_modules/feather-icons/dist/feather.min.js',
-                //'resources/tailwind-assets/js/easy_background.js',
-                'resources/tailwind-assets/js/plugins.init.js',
-                'resources/tailwind-assets/js/app.js'
-            ])
-        @endif
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="{{ Vite::asset('resources/tailwind-assets/js/plugins.init.js') }}"></script>
+        <script src="{{ Vite::asset('resources/tailwind-assets/js/app.js') }}"></script>
         @livewireScripts
         @stack('scripts')
 

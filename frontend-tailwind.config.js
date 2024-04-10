@@ -3,15 +3,18 @@ const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-        //"./src/**/*.{html,js}",
         "./node_modules/tw-elements/dist/js/**/*.js",
         "./node_modules/choices.js/public/assets/**/*.{js,css}",
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        //'./resources/views/home/index.blade.php',
-        //'./resources/views/layout/tailwind/*.blade.php',
-        //'./resources/views/layout/tailwind/landing.blade.php'
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        './app/Filament/**/*.php',
+        './resources/views/filament/**/*.blade.php',
+        './vendor/filament/**/*.blade.php',
     ],
     darkMode: 'class',
     mode: "jit",
