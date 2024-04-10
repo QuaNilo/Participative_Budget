@@ -68,6 +68,23 @@
                 </div>
             </div>
 
+            <div>
+                <label class="form-label font-medium">{{__('Gender')}} : </label>
+                <div class="form-icon relative mt-2">
+                    <select id="gender" wire:model="gender" name="gender" value="{{ old('gender') }}" class="form-select form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0">
+                        <option value="{{$gender}}">{{$genderArray[$gender]}}</option>
+                        @foreach(\App\Models\Citizen::getGenderArray() as $key => $label)
+                            @if($key != $gender)
+                                <option value="{{$key}}">{{$label}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @error('gender')
+                        <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
             <div class="">
                 <label class="font-semibold" for="cod_postal">{{__('Postal Code')}} :</label>
                 <input id="cod_postal" wire:model="cod_postal" type="text" name="cod_postal" value="{{ old('cod_postal') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('Postal Code')}}">

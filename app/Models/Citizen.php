@@ -86,7 +86,6 @@ class Citizen extends Model implements Auditable, HasMedia
         'cod_postal',
         'telemovel',
         'gender',
-        'remember_token'
     ];
 
     protected $casts = [
@@ -107,7 +106,6 @@ class Citizen extends Model implements Auditable, HasMedia
     public static function rules(): array
     {
         return [
-            'user_id' => 'nullable',
         'CC' => 'nullable|string|max:255',
         'occupation' => 'nullable|string|max:255',
         'description' => 'nullable|string|max:255',
@@ -120,9 +118,6 @@ class Citizen extends Model implements Auditable, HasMedia
         'cod_postal' => 'nullable|string|max:255',
         'telemovel' => 'nullable|string|max:255',
         'gender' => 'nullable',
-        'remember_token' => 'nullable|string|max:100',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
         ];
     }
 

@@ -14,6 +14,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class ProfileDetails extends Component
 {
     public $receivedCitizenCard;
+    public $genderArray;
     public $name;
     public $citizen;
     public $user;
@@ -25,9 +26,9 @@ class ProfileDetails extends Component
     public $localidade;
     public $occupation;
     public $description;
+    public $gender;
     public $birth_date;
     public $CC;
-
 
     public function render()
     {
@@ -36,6 +37,7 @@ class ProfileDetails extends Component
 
     public function mount()
     {
+        $this->genderArray = Citizen::getGenderArray();
         $this->user = User::find(auth()->user()->id);
         $this->citizen = $this->user->citizen()->first();
 
@@ -49,6 +51,7 @@ class ProfileDetails extends Component
         $this->occupation = $this->citizen->occupation ?? "";
         $this->description = $this->citizen->description ?? "";
         $this->localidade = $this->citizen->localidade ?? "";
+        $this->gender = $this->citizen->gender ?? "";
 
 //        User info
         $this->name = $this->user->name;
@@ -92,7 +95,16 @@ class ProfileDetails extends Component
 
         // Validate and update citizen data
         $this->validate([
-            Citizen::rules()
+            'CC' => 'nullable|string|max:255',
+            'occupation' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'birth_date' => 'nullable|date',
+            'address' => 'nullable|string|max:255',
+            'localidade' => 'nullable|string|max:255',
+            'freguesia' => 'nullable|string|max:255',
+            'cod_postal' => 'nullable|string|max:255',
+            'telemovel' => 'nullable|string|max:255',
+            'gender' => 'nullable',
         ]);
 
         $this->citizen->update([
