@@ -128,7 +128,6 @@
                 @enderror
             </div>
 
-{{--    TODO MOSTRAR FLATPICKER--}}
         </div><!--end grid-->
         @if($citizen->getMedia('cc'))
             <livewire:files-upload-f-e

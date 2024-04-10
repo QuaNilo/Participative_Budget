@@ -24,6 +24,9 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
 
+                'resources/tailwind-assets/js/app.js',
+                'resources/tailwind-assets/scss/app.scss',
+
                 // Vendor
                 "resources/js/vendor/accordion/index.js",
                 "resources/js/vendor/alert/index.js",
@@ -125,12 +128,6 @@ export default defineConfig({
                 "resources/js/components/top-bar/index.js",
                 "resources/js/components/vertical-bar-chart/index.js",
 
-
-                'resources/tailwind-assets/scss/icons.scss',
-                'resources/tailwind-assets/scss/app.scss',
-                'resources/tailwind-assets/js/app.js',
-                // 'resources/tailwind-assets/js/easy_background.js',
-                'resources/tailwind-assets/js/plugins.init.js',
 
 
             ],

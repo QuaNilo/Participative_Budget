@@ -124,15 +124,6 @@ export default defineConfig({
                 "resources/js/components/tom-select/index.js",
                 "resources/js/components/top-bar/index.js",
                 "resources/js/components/vertical-bar-chart/index.js",
-
-
-                'resources/tailwind-assets/scss/icons.scss',
-                'resources/tailwind-assets/scss/app.scss',
-                'resources/tailwind-assets/js/app.js',
-                // 'resources/tailwind-assets/js/easy_background.js',
-                'resources/tailwind-assets/js/plugins.init.js',
-
-
             ],
             refresh: [
                 ...refreshPaths,

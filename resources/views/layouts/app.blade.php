@@ -24,10 +24,6 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        @if(false && config('recaptchav3.enable'))
-            {!! RecaptchaV3::initJs() !!}
-        @endif
-
         @if (!empty($pageTitle))
             <title>{{ $pageTitle }}</title>
             <meta property="og:title" content="{{ $pageTitle }}" />
@@ -42,21 +38,18 @@
         <meta property="og:type" content="website" />
         <meta property="og:description" content="@yield('page_description', $pageDescription ?? '')" />
         <meta property="og:image" content="@yield('share_image', $shareImageUrl ?? asset('/assets-frontend/images/logo.png'))" />
-        @if(false)
-            <link rel="canonical" href="@yield('canonical', $pageCanonical ?? '')"/>
-        @endif
 
         <x-cookie-consent-and-tracking></x-cookie-consent-and-tracking>
 
+        <!-- Styles -->
+
         @stack('firstStyles')
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css'])
-
-        <!-- Styles -->
         @livewireStyles
         @stack('styles')
     </head>
+
     <body >
         <div class="py-2">
             <x-mobile-menu />
@@ -70,34 +63,10 @@
                     <x-notification-handler />
                     {{ $slot }}
                 </div>
+
                 <!-- END: Content -->
             </div>
         </div>
-        @if(false)
-            <x-notification-handler />
-            <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
-                {{ $slot }}
-            </div>
-        @endif
-        @if(false)
-            <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-                @livewire('navigation-menu')
-
-                <!-- Page Heading -->
-                @if (isset($header))
-                    <header class="bg-white dark:bg-gray-800 shadow">
-                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                            {{ $header }}
-                        </div>
-                    </header>
-                @endif
-
-                <!-- Page Content -->
-                <main>
-                    {{ $slot }}
-                </main>
-            </div>
-        @endif
 
         @stack('firstScripts')
 
