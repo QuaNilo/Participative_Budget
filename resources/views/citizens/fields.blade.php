@@ -123,68 +123,6 @@
     @enderror
 </div>
 
-<!-- Address Verified Field -->
-<div class="mb-3">
-    <x-base.form-label for="address_verified">{{ $citizen->getAttributeLabel('address_verified') }}</x-base.form-label>
-    <x-base.form-input
-        id="address_verified_hidden"
-        name="address_verified"
-        :value="0"
-        type="hidden"
-    />
-    <x-base.form-check>
-        <x-base.form-check.input
-            class="{{ ($errors->has('address_verified') ? 'border-danger' : '') }}"
-            id="address_verified"
-            name="address_verified"
-            :value="1"
-            :checked="old('address_verified', $citizen->address_verified ?? '') == 1"
-            type="checkbox"
-        />
-        <x-base.form-check.label for="address_verified">{{ $citizen->getAttributeLabel('address_verified') }}</x-base.form-check.label>
-    </x-base.form-check>
-    @error('address_verified')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
-<!-- Address Verified At Field -->
-<div class="mb-3">
-    <x-base.form-label for="address_verified_at">{{ $citizen->getAttributeLabel('address_verified_at') }}</x-base.form-label>
-    <x-base.input-group
-        class="flatpickr"
-        data-wrap="true"
-        data-enable-time="false"
-        data-date-format='Y-m-d'
-        data-time_24hr='true'
-        data-minute-increment='1'
-        inputGroup
-    >
-        <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>
-            <x-base.lucide
-                class="h-5 w-5"
-                icon="Calendar"
-            />
-        </x-base.input-group.text>
-        <x-base.flatpickr
-            class="{{ ($errors->has('address_verified_at') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
-            id="address_verified_at"
-            name="address_verified_at"
-            :value="old('address_verified_at', $citizen->address_verified_at ?? '')"
-            data-input
-        />
-        <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
-            <x-base.lucide
-                class="h-5 w-5 "
-                icon="x"
-            />
-        </x-base.input-group.text>
-    </x-base.input-group>
-    @error('address_verified_at')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-
 <!-- Address Field -->
 <div class="mb-3">
     <x-base.form-label for="address">{{ $citizen->getAttributeLabel('address') }}</x-base.form-label>

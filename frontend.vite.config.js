@@ -26,6 +26,8 @@ export default defineConfig({
                 "resources/js/vendor/tom-select/index.js",
                 "resources/js/components/tom-select/index.js",
                 "resources/js/vendor/toastify/index.js",
+
+
             ],
             buildDirectory: '/frontend-assets',
             refresh: true,

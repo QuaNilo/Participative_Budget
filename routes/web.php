@@ -107,8 +107,6 @@ Route::middleware([
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
     Route::post('/citizens/{citizen}/approve-cc/', [CitizenController::class, 'approveCc'])->name('citizens.approve_cc');
     Route::post('/citizens/{citizen}/reject-cc/', [CitizenController::class, 'rejectCc'])->name('citizens.reject_cc');
-    Route::post('/citizens/{citizen}/approve-address/', [CitizenController::class, 'approveAddress'])->name('citizens.approve_address');
-    Route::post('/citizens/{citizen}/reject-address/', [CitizenController::class, 'rejectAddress'])->name('citizens.reject_address');
     Route::post('/citizens/{citizen}/verify-wizard', [CitizenController::class, 'showVerifyWizard'])->name('citizens.verify-wizard');
 
     Route::resource('articles', App\Http\Controllers\ArticleController::class);

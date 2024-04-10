@@ -22,12 +22,6 @@
                         href="{{ route('display_warning', ['message' => __('Your Citizen Card needs to be validated to create Proposals')]) }}">{{__('Create Proposal')}}
                     </a>
                 </x-button>
-            @elseif(\App\Models\Setting::first()->require_address_vote_create && !auth()->user()->citizen->address_verified)
-                <x-button class="px-2 py-2 text-sm font-medium bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
-                    <a
-                        href="{{ route('display_warning', ['message' => __('Your Address needs to be validated to create Proposals')]) }}">{{__('Create Proposal')}}
-                    </a>
-                </x-button>
             @else
                 <x-button class="px-2 py-2 text-sm font-medium bg-indigo-600 hover:bg-indigo-800 active:bg-indigo-900">
                     <a

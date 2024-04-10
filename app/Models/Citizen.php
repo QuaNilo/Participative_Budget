@@ -20,10 +20,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string|null $description
  * @property \Illuminate\Support\Carbon|null $CC_verified_at
  * @property int $CC_verified
- * @property int $address_verified
- * @property \Illuminate\Support\Carbon $address_verified_at
  * @property string|null $address
  * @property string|null $localidade
+ * @property \Illuminate\Support\Carbon|null birth-date
  * @property string|null $freguesia
  * @property string|null $cod_postal
  * @property string|null $telemovel
@@ -75,15 +74,13 @@ class Citizen extends Model implements Auditable, HasMedia
     public $table = 'citizens';
 
     public $fillable = [
-        'user_id',
         'CC',
         'occupation',
         'description',
         'CC_verified_at',
         'CC_verified',
-        'address_verified',
-        'address_verified_at',
         'address',
+        'birth_date',
         'localidade',
         'freguesia',
         'cod_postal',
@@ -97,9 +94,8 @@ class Citizen extends Model implements Auditable, HasMedia
         'occupation' => 'string',
         'description' => 'string',
         'CC_verified_at' => 'datetime',
+        'birth_date' => 'date',
         'CC_verified' => 'integer',
-        'address_verified' => 'integer',
-        'address_verified_at' => 'datetime',
         'address' => 'string',
         'localidade' => 'string',
         'freguesia' => 'string',
@@ -111,14 +107,13 @@ class Citizen extends Model implements Auditable, HasMedia
     public static function rules(): array
     {
         return [
-            'user_id' => 'required',
-        'CC' => 'required|string|max:255',
+            'user_id' => 'nullable',
+        'CC' => 'nullable|string|max:255',
         'occupation' => 'nullable|string|max:255',
         'description' => 'nullable|string|max:255',
+        'birth_date' => 'nullable|date',
         'CC_verified_at' => 'nullable',
-        'CC_verified' => 'required',
-        'address_verified' => 'required',
-        'address_verified_at' => 'required',
+        'CC_verified' => 'nullable',
         'address' => 'nullable|string|max:255',
         'localidade' => 'nullable|string|max:255',
         'freguesia' => 'nullable|string|max:255',
@@ -144,10 +139,9 @@ class Citizen extends Model implements Auditable, HasMedia
         'CC' => __('Cc'),
         'occupation' => __('Occupation'),
         'description' => __('Description'),
+        'birth_date' => __('Birth Date'),
         'CC_verified_at' => __('Citizen Card Verified At'),
         'CC_verified' => __('Citizen Card Verified'),
-        'address_verified' => __('Address Verified'),
-        'address_verified_at' => __('Address Verified At'),
         'address' => __('Address'),
         'localidade' => __('Localidade'),
         'freguesia' => __('Freguesia'),
@@ -184,11 +178,6 @@ class Citizen extends Model implements Auditable, HasMedia
     * Return the status label
     * @return string
     */
-    public function getAddressVerifiedLabelAttribute() : string
-    {
-        $array = static::getApprovalArray();
-        return $array[$this->address_verified] ?? "";
-    }
 
     public function getCcVerifiedLabelAttribute() : string
     {

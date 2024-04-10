@@ -37,8 +37,6 @@ class CitizenFactory extends Factory
             'description' => $this->faker->text($this->faker->numberBetween(5, 90)),
             'CC_verified_at' => $this->faker->date('Y-m-d H:i:s'),
             'CC_verified' => Setting::find(1)->require_cc_vote_create == 1 ? Citizen::APPROVAL_STATUS_PENDING : Citizen::APPROVAL_STATUS_REJECTED,
-            'address_verified' => Setting::find(1)->require_address_vote_create == 1 ? Citizen::APPROVAL_STATUS_PENDING : Citizen::APPROVAL_STATUS_REJECTED,
-            'address_verified_at' => $this->faker->date('Y-m-d H:i:s'),
             'address' => $this->faker->address(),
             'localidade' => $this->faker->city(),
             'freguesia' => $this->faker->city(),

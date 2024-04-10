@@ -42,9 +42,9 @@
         <meta property="og:type" content="website" />
         <meta property="og:description" content="@yield('page_description', $pageDescription ?? 'O Observatório da Autoridade da Mobilidade e dos Transportes (AMT) disponibiliza, através deste portal, informação estatística sobre diversos modos de transportes em Portugal.')" />
         <meta property="og:image" content="@yield('share_image', $shareImageUrl ?? asset('images/logo_dark.png'))" />
-        @if(false)
-            <link rel="canonical" href="@yield('canonical', $pageCanonical ?? '')"/>
-        @endif
+{{--        @if(false)--}}
+{{--            <link rel="canonical" href="@yield('canonical', $pageCanonical ?? '')"/>--}}
+{{--        @endif--}}
         <x-cookie-consent-and-tracking></x-cookie-consent-and-tracking>
         @stack('firstStyles')
 
@@ -89,10 +89,10 @@
         @stack('firstScripts')
         @stack('vendors')
         {{-- não se pode meter tudo com o @vite porque mete <script type="module" e isto não funciona para todos os modulos porque estas variáveis precisam de ser globais --}}
-        @if(false)
-            <script src="{{ Vite::asset('node_modules/jarallax/dist/jarallax.min.js') }}"></script>
-            <script src="{{ Vite::asset('node_modules/tobii/dist/js/tobii.min.js') }}"></script>
-        @endif
+{{--        @if(false)--}}
+{{--            <script src="{{ Vite::asset('node_modules/jarallax/dist/jarallax.min.js') }}"></script>--}}
+{{--            <script src="{{ Vite::asset('node_modules/tobii/dist/js/tobii.min.js') }}"></script>--}}
+{{--        @endif--}}
         <script src="{{ Vite::asset('node_modules/tiny-slider/dist/min/tiny-slider.js') }}"></script>
         <script src="{{ Vite::asset('node_modules/feather-icons/dist/feather.min.js') }}"></script>
 

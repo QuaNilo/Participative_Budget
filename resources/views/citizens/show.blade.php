@@ -16,51 +16,6 @@
                         icon="edit"
                     /> {{ __('Update') }}
             </x-base.button>
-{{--            <x-base.button--}}
-{{--                class="shadow-md sm:ml-0"--}}
-{{--                variant="danger"--}}
-{{--                data-tw-toggle="modal"--}}
-{{--                data-tw-target="#delete-modal"--}}
-{{--                href="#"--}}
-{{--                as="a"--}}
-{{--            >--}}
-{{--                <x-base.lucide--}}
-{{--                    class="mr-2 h-4 w-4"--}}
-{{--                    icon="trash"--}}
-{{--                /> {{ __('Delete') }}--}}
-{{--            </x-base.button>--}}
-{{--            @if($citizen->address_verified === App\Models\Citizen::APPROVAL_STATUS_PENDING)--}}
-{{--                <form action="{{ route('citizens.approve_address', $citizen) }}" method="POST">--}}
-{{--                @csrf--}}
-{{--                    <x-base.button--}}
-{{--                        class="shadow-md sm:ml-0 mr-2"--}}
-{{--                        variant="primary"--}}
-{{--                        type="submit"--}}
-{{--                        href="#"--}}
-{{--                    >--}}
-{{--                        <x-base.lucide--}}
-{{--                            class="mr-2 h-4 w-4"--}}
-{{--                            icon="check"--}}
-{{--                        /> {{ __('Approve Address') }}--}}
-{{--                    </x-base.button>--}}
-{{--                </form>--}}
-{{--                <form action="{{route('citizens.reject_address', $citizen)}}" method="POST">--}}
-{{--                    @csrf--}}
-{{--                    <x-base.button--}}
-{{--                        class="shadow-md sm:ml-0"--}}
-{{--                        variant="primary"--}}
-{{--                        type="submit"--}}
-{{--                        href="#"--}}
-{{--                    >--}}
-{{--                        <x-base.lucide--}}
-{{--                            class="mr-2 h-4 w-4"--}}
-{{--                            icon="trash"--}}
-{{--                        /> {{ __('Reject Address') }}--}}
-{{--                    </x-base.button>--}}
-
-{{--                </form>--}}
-
-{{--            @endif--}}
             @if(\App\Models\Setting::first()->require_cc_vote_create == true)
                 <form action="{{route('citizens.verify-wizard', $citizen)}}" method="POST">
                     @csrf
@@ -78,53 +33,6 @@
 
                 </form>
             @endif
-{{--                    @if($citizen->CC_verified == \App\Models\Citizen::APPROVAL_STATUS_ACCEPTED)--}}
-{{--                        <form action="{{route('citizens.reject_cc', $citizen)}}" method="POST">--}}
-{{--                            @csrf--}}
-{{--                            <x-base.button--}}
-{{--                                class="shadow-md sm:ml-0"--}}
-{{--                                variant="danger"--}}
-{{--                                type="submit"--}}
-{{--                                href="#"--}}
-{{--                            >--}}
-{{--                                <x-base.lucide--}}
-{{--                                    class="mr-2 h-4 w-4"--}}
-{{--                                    icon="trash"--}}
-{{--                                /> {{ __('Submit Citizen Approval') }}--}}
-{{--                            </x-base.button>--}}
-{{--                        </form>--}}
-{{--                    @else--}}
-{{--                        <form action="{{ route('citizens.verify-wizard', $citizen) }}" method="POST">--}}
-{{--                        @csrf--}}
-{{--                            <x-base.button--}}
-{{--                                class="shadow-md sm:ml-0 mr-2"--}}
-{{--                                variant="primary"--}}
-{{--                                type="submit"--}}
-{{--                                href="#"--}}
-{{--                            >--}}
-{{--                                <x-base.lucide--}}
-{{--                                    class="mr-2 h-4 w-4"--}}
-{{--                                    icon="check"--}}
-{{--                                /> {{ __('Approve Citizen Card') }}--}}
-{{--                            </x-base.button>--}}
-{{--                        </form>--}}
-{{--                    @endif--}}
-{{--                    <form action="{{ route('citizens.verify-wizard', $citizen) }}" method="POST">--}}
-{{--                    @csrf--}}
-{{--                        <x-base.button--}}
-{{--                            class="shadow-md sm:ml-0 mr-2"--}}
-{{--                            variant="primary"--}}
-{{--                            type="submit"--}}
-{{--                            href="#"--}}
-{{--                        >--}}
-{{--                            <x-base.lucide--}}
-{{--                                class="mr-2 h-4 w-4"--}}
-{{--                                icon="check"--}}
-{{--                            /> {{ __('Approve Citizen Card') }}--}}
-{{--                        </x-base.button>--}}
-{{--                    </form>--}}
-{{--                @endif--}}
-
         </div>
     </div>
     <div class="intro-y box mt-3 p-5">

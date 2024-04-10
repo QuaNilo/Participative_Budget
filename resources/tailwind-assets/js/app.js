@@ -21,6 +21,7 @@
 ]);*/
 //import.meta.glob(["../../images/**"]); // to import images and vite assets
 //functiona bem o campo abaixo
+
 import.meta.glob([
     //'../teste/**',
     '../../../node_modules/animate.css/animate.min.css',
@@ -34,7 +35,6 @@ import.meta.glob([
     '../../../node_modules/axios/dist/axios.min.js',
     '../../../node_modules/choices.js/public/assets/styles/choices.min.css',
     '../../../node_modules/choices.js/public/assets/scripts/choices.min.js',
-
 ], { as: 'url'});
 
 //import.meta.glob('../../node_modules/@iconscout/unicons/css/line.css');

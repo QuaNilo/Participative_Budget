@@ -15,12 +15,11 @@ return new class extends Migration
                 $table->id();
                 $table->foreignId('user_id')->unique()->constrained()->cascadeOnDelete();
                 $table->string('CC')->unique();
+                $table->date('birth_date')->nullable();
                 $table->string('occupation')->nullable();
                 $table->string('description')->nullable();
                 $table->timestamp('CC_verified_at')->nullable();
                 $table->integer('CC_verified')->default(3);
-                $table->integer('address_verified')->default(3);
-                $table->timestamp('address_verified_at');
                 $table->string('address')->nullable();
                 $table->string('localidade')->nullable();
                 $table->string('freguesia')->nullable();

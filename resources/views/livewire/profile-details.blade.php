@@ -83,6 +83,52 @@
                     <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                 @enderror
             </div>
+
+{{--            <div class="">--}}
+{{--                <label class="font-semibold" for="birth_date">{{__('birth_date')}} :</label>--}}
+{{--                <input id="birth_date" wire:model="birth_date" type="text" name="birth_date" value="{{ old('birth_date') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="{{__('CellPhone')}}">--}}
+{{--                @error('birth_date')--}}
+{{--                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>--}}
+{{--                @enderror--}}
+{{--            </div>--}}
+
+            <div class="mb-3">
+                <x-base.form-label for="edition_end">Birth Date</x-base.form-label>
+                <x-base.input-group
+                    class="flatpickr"
+                    data-wrap="true"
+                    data-enable-time="false"
+                    data-date-format='Y-m-d'
+                    data-time_24hr='true'
+                    data-minute-increment='1'
+                    inputGroup
+                >
+                    <x-base.input-group.text class="cursor-pointer" title="{{ __('Toggle') }}" data-toggle>
+                        <x-base.lucide
+                            class="h-5 w-5"
+                            icon="Calendar"
+                        />
+                    </x-base.input-group.text>
+                    <x-base.flatpickr
+                        class="{{ ($errors->has('edition_end') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
+                        id="edition_end"
+                        name="edition_end"
+                        :value="old('edition_end', $edition->edition_end ?? '')"
+                        data-input
+                    />
+                    <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
+                        <x-base.lucide
+                            class="h-5 w-5 "
+                            icon="x"
+                        />
+                    </x-base.input-group.text>
+                </x-base.input-group>
+                @error('edition_end')
+                    <div class="mt-2 text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+{{--    TODO MOSTRAR FLATPICKER--}}
         </div><!--end grid-->
         @if($citizen->getMedia('cc'))
             <livewire:files-upload-f-e

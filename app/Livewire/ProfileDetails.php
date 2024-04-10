@@ -25,6 +25,7 @@ class ProfileDetails extends Component
     public $localidade;
     public $occupation;
     public $description;
+    public $birth_date;
     public $CC;
 
 
@@ -40,6 +41,7 @@ class ProfileDetails extends Component
 
 //        Citizen INFO
         $this->address = $this->citizen->address ?? "";
+        $this->birth_date = $this->citizen->birth_date ?? "";
         $this->telemovel = $this->citizen->telemovel ?? "";
         $this->freguesia = $this->citizen->freguesia ?? "";
         $this->cod_postal = $this->citizen->cod_postal ?? "";
@@ -90,14 +92,7 @@ class ProfileDetails extends Component
 
         // Validate and update citizen data
         $this->validate([
-            'cod_postal' => 'nullable|string',
-            'freguesia' => 'nullable|string|max:60',
-            'telemovel' => 'nullable|numeric',
-            'CC' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'occupation' => 'nullable|string|max:255',
-            'description' => 'nullable|string|max:255',
-            'localidade' => 'nullable|string|max:255',
+            Citizen::rules()
         ]);
 
         $this->citizen->update([

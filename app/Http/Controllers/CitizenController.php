@@ -158,32 +158,6 @@ class CitizenController extends Controller
     }
 
 
-    public function rejectAddress(Request $request, Citizen $citizen)
-    {
-        if($citizen)
-        {
-            $citizen->update(['address_verified' => Citizen::APPROVAL_STATUS_REJECTED, 'address_verified_at' => now()]);
-            flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
-            return Redirect::back();
-        }
-
-        flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
-        return Redirect::back();
-    }
-
-    public function approveAddress(Request $request, Citizen $citizen)
-    {
-        if($citizen)
-        {
-            $citizen->update(['address_verified' => Citizen::APPROVAL_STATUS_ACCEPTED, 'address_verified_at' => now()]);
-            flash(__('Updated Citizen Successfully'))->overlay()->success()->duration(4000);
-            return Redirect::back();
-        }
-
-        flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
-        return Redirect::back();
-    }
-
     public function showVerifyWizard(Citizen $citizen)
     {
         return view('citizens.verify-wizard', ['citizen' => $citizen]);

@@ -30,19 +30,13 @@ class CitizensTable extends Component implements HasForms, HasTable
         $query = Citizen::query();
         if(request()->get('pending', 0) == 1)
         {
-            $query->where('CC_verified', 2)
-                ->orWhere('address_verified', 2);
+            $query->where('CC_verified', 2);
         }
         return $table
             ->query($query)
             ->columns([
                 TextColumn::make("user.name")
                 ->label($newModel->getAttributeLabel("User Name"))
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("CC")
-                ->label($newModel->getAttributeLabel("Citizen Card"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
@@ -57,21 +51,14 @@ class CitizensTable extends Component implements HasForms, HasTable
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
-            TextColumn::make("CC_verified_at")
-                ->label($newModel->getAttributeLabel("CC_verified_at"))
-                ->dateTime()
+            TextColumn::make("CC")
+                ->label($newModel->getAttributeLabel("Citizen Card"))
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
             TextColumn::make("CC_verified")
                 ->label($newModel->getAttributeLabel("CC_verified"))
                 ->formatStateUsing(fn (Citizen $record): string => $record->CcverifiedLabel)
-                ->sortable()
-                ->toggleable()
-                ->searchable(),
-            TextColumn::make("address_verified")
-                ->label($newModel->getAttributeLabel("address_verified"))
-                ->formatStateUsing(fn (Citizen $record): string => $record->addressVerifiedLabel)
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
