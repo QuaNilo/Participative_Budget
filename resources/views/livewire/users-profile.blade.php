@@ -1,6 +1,6 @@
 <section class="relative md:py-24">
-    <div class="grid grid-cols-6 gap-4 p-6">
-        <div class="bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
+    <div class="flex space-x-4 p-6">
+        <div class="h-fit bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
             <div class="border-1 border-slate-200 flex p-4 mb-2 bg-slate-50">
                 <div class="flex items-center">
 {{--                    <img src="https://i.pravatar.cc/300" class="h-16 w-16 rounded-full shadow dark:shadow-gray-800" alt="">--}}
@@ -16,7 +16,7 @@
                 </div>
             </div><!--end col-->
 
-            <div class="col-span-1 flex h-full w-full">
+            <div class="flex h-full w-full">
                 <div class="top-20 p-4 border-1 border-slate-200 max-h-64">
                     <ul class="flex-column" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                         <li role="presentation">
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-5 flex-grow flex-col">
+        <div class="flex-grow flex-col">
             <div class="">
                 @if($tab === 'dashboard')
                     <livewire:dashboard-profile/>

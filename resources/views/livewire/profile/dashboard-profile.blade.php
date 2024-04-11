@@ -1,4 +1,4 @@
-<div class="container-fluid relative px-3">
+<div class="relative px-3">
     <div class="layout-specing">
         <x-account-status/>
         <div class="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 mt-6 gap-6">
