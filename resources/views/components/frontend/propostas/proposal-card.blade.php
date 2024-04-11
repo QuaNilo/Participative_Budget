@@ -1,5 +1,5 @@
 @props(['proposal'])
-<div onclick="window.location='{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}'" class="bg-gray-50 shadow-lg rounded-md hover:cursor-pointer transition-transform transform-gpu hover:scale-105">
+<div onclick="window.location='{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}'" class="bg-white/90 shadow-lg rounded-md hover:cursor-pointer transition-transform transform-gpu hover:scale-105">
     <div class="flex items-center border-b border-slate-200/60 px-5 py-4">
         <div class="mr-auto">
             <a class="font-medium">{{$proposal->user->name}}</a>

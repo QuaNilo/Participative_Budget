@@ -62,7 +62,7 @@
 
     </head>
 
-    <body class="font-nunito text-base text-black dark:text-white dark:bg-slate-900 flex flex-col min-h-screen">
+    <body class="flex flex-col min-h-screen font-nunito text-base text-black bg-indigo-200/10">
         @include('layouts.tailwind._navbar_center')
         <x-frontend.notification-handler />
         <div class="min-h-screen">

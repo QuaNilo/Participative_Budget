@@ -39,9 +39,9 @@
                                 <h4 class="text-4xl font-semibold mb-4">{{__('Chapter')}} {{$chapter->title}}</h4>
                                 <p class="text-slate-400">{{$chapter->description}}</p>
                                 @foreach($chapter->articles as $article)
-                                    <div id="{{$article->id}}{{$article->chapter_id}}">
+                                    <div id="{{$article->id}}{{$article->chapter_id}}" class="">
                                         <h6  class="text-lg font-semibold mb-4 mt-6">{{$article->title}} </h6>
-                                        <div class="p-6 mt-6 rounded-md shadow dark:shadow-gray-800">
+                                        <div class="p-6 mt-6 rounded-md shadow bg-white">
                                             <p class="text-slate-800 text-base leading-8">{{$article->description}}
                                         </div>
                                     </div>

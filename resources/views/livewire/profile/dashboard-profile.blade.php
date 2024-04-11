@@ -1,5 +1,5 @@
 <div class="relative px-3">
-    <div class="layout-specing">
+    <div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md bg-white p-5">
         <x-account-status/>
         <div class="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 mt-6 gap-6">
             <div class="relative overflow-hidden shadow-md rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
@@ -67,39 +67,35 @@
             @endif
         </div>
 
-        <div class="grid lg:grid-cols-10 grid-cols-4 grid-rows-3 mt-6 gap-4 ">
-            <div class="lg:col-span-6 p-5 shadow-lg rounded-md">
-                <div class="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
-                    <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
-                        <h6 class="text-lg font-semibold">{{__('Votes Per Edition')}}</h6>
-                    </div>
-                    <div id="mainchart" class="apex-chart px-4">
+        <div class="grid lg:grid-cols-10 grid-cols-4 grid-rows-2 mt-6 gap-4 ">
+            <div class="lg:col-span-6 p-5 shadow-lg rounded-md bg-white">
+                <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
+                    <h6 class="text-lg font-semibold">{{__('Votes Per Edition')}}</h6>
+                </div>
+                <div id="mainchart" class="apex-chart px-4">
 
-                    </div>
                 </div>
             </div>
 
             <x-profile-dashboard-latest-activity :latestProposals="$latestProposals" :latestVotes="$latestVotes"/>
 
-            <div class="lg:col-span-5 shadow-lg rounded-md">
-                <div class="overflow-hidden dark:shadow-gray-700 bg-white dark:bg-slate-900">
-                    <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
-                        <h6 class="text-lg font-semibold">{{__('Category most Participated in')}}</h6>
-                    </div>
-                    <div class="flex flex-col items-center justify-between border-b border-gray-100 dark:border-gray-800">
-                        <div id="categoriesChart" class="apex-chart">
-                        </div>
+            <div class="lg:col-span-5 shadow-lg rounded-md bg-white">
+                <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
+                    <h6 class="text-lg font-semibold">{{__('Category most Participated in')}}</h6>
+                </div>
+                <div class="flex flex-col items-center justify-between border-gray-100 dark:border-gray-800">
+                    <div id="categoriesChart" class="apex-chart">
                     </div>
                 </div>
             </div>
             @if($user->proposals)
-                <div class="lg:col-span-5 shadow-lg rounded-md">
-                        <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
-                            <h6 class="text-lg font-semibold">{{__('Votes Per Gender')}}</h6>
-                        </div>
-                        <div class="flex flex-col items-center justify-between border-b border-gray-100 dark:border-gray-800">
-                            <span id="genderChart" class="apex-chart"/>
-                        </div>
+                <div class="lg:col-span-5 shadow-lg rounded-md bg-white">
+                    <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
+                        <h6 class="text-lg font-semibold">{{__('Votes Per Gender')}}</h6>
+                    </div>
+                    <div class="flex flex-col items-center justify-between border-gray-100 dark:border-gray-800">
+                        <span id="genderChart" class="apex-chart"/>
+                    </div>
                 </div>
             @endif
         </div>

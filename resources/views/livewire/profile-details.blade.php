@@ -1,4 +1,4 @@
-<div>
+<div class="relative overflow-x-auto shadow rounded-md bg-white p-5">
     <h5 class="text-lg font-semibold mb-4">{{__('Personal Detail')}} :</h5>
     <form wire:submit="update" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
         @csrf

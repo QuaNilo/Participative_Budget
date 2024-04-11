@@ -1,7 +1,7 @@
 <section class="relative md:py-24">
     <div class="flex space-x-4 p-6">
         <div class="h-fit bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
-            <div class="border-1 border-slate-200 flex p-4 mb-2 bg-slate-50">
+            <div class="border-1 border-slate-200 flex p-4 mb-2 bg-slate-100">
                 <div class="flex items-center">
 {{--                    <img src="https://i.pravatar.cc/300" class="h-16 w-16 rounded-full shadow dark:shadow-gray-800" alt="">--}}
                     <div class="ms-2">

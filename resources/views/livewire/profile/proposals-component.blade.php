@@ -1,7 +1,7 @@
 @props(['proposals'])
 <div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
-    <table class="w-full text-start text-slate-500 dark:text-slate-400">
-        <thead class="text-sm uppercase bg-slate-100 dark:bg-slate-800">
+    <table class="w-full text-start text-slate-500">
+        <thead class="text-sm uppercase bg-slate-100">
         <tr class="text-start">
             <th scope="col" class="px-2 py-3 text-center">{{__('Proposal no.')}}</th>
             <th scope="col" class="px-2 py-3 text-center">{{__('Created')}}</th>
@@ -32,7 +32,7 @@
             </tbody>
         @endforeach
     </table>
-    <div class="p-10">
+    <div class="p-10 bg-white/50">
         {{$proposals->links()}}
     </div>
 </div>

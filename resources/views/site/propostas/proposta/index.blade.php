@@ -10,7 +10,7 @@
     <div class="mt-28 grid grid-cols-12 gap-4">
         <div class="col-span-1"></div>
         <div class="col-span-3 flex-col justify-center items-center mt-28">
-            <div class="p-6 flex flex-col items-start flex-1 shadow-lg rounded-xl">
+            <div class="p-6 flex flex-col items-start flex-1 shadow-lg rounded-xl bg-white">
                 @if(in_array($proposal->edition->status, $WinnerValidEditionStatus))
                     <div class="text-slate-500 text-xs">{{__('Winner')}}</div>
                     <div class="mt-1.5 flex items-center">
@@ -37,7 +37,7 @@
                     </div>
                 @endif
             </div>
-            <div class="p-6 mt-8 flex flex-col items-start flex-1 shadow-lg rounded-xl">
+            <div class="p-6 mt-8 flex flex-col items-start flex-1 shadow-lg rounded-xl bg-white">
                 @if($proposal->city)
                     <div class="text-slate-500 text-xs">{{__('Cidade')}}</div>
                     <div class="mt-1.5 flex items-center">
@@ -73,7 +73,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-span-6 p-10 shadow-lg rounded-xl">
+        <div class="col-span-6 p-10 shadow-lg rounded-xl bg-white">
             <div class="flex-col">
                 <!-- BEGIN: Blog Layout -->
                 <h2 class="font-medium text-xl sm:text-2xl">

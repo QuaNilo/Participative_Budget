@@ -10,7 +10,7 @@
     </div>
     <div class="flex justify-between items-center pb-2">
         <form wire:submit="filter">
-            <div class="flex bg-indigo-600/10 shadow rounded-lg p-0.5 space-x-1">
+            <div class="flex bg-white shadow rounded-lg">
                 <div>
                   <select wire:model="category_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
                    <option value="{{false}}">{{__('Choose a Category')}}</option>
