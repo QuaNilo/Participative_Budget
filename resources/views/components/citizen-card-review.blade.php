@@ -29,11 +29,11 @@
                 />
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
-                <x-base.form-label for="input-wizard-2">{{__('Account Creation Date')}}</x-base.form-label>
+                <x-base.form-label for="input-wizard-2">{{__('Birth Date')}}</x-base.form-label>
                 <x-base.form-input
                     id="input-wizard-2"
                     type="text"
-                    placeholder="{{$citizen->created_at}}"
+                    placeholder="{{$citizen->birth_date}}"
                     readonly
                 />
             </div>
