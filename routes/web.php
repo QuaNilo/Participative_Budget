@@ -46,7 +46,11 @@ Route::post(\Laravel\Fortify\RoutePath::for('password.email', '/forgot-password'
 
 Route::get('/warning/{message}', [Helper::class, 'display_warning'])->name('display_warning');
 
-Route::get('/perfil', [UserFEController::class, 'index'])->name('users_dashboard');
+Route::get('/perfil/dashboard', [UserFEController::class, 'show_dashboard'])->name('users_dashboard_show_dashboard');
+Route::get('/perfil/propostas', [UserFEController::class, 'show_proposals'])->name('users_dashboard_show_proposals');
+Route::get('/perfil/votos', [UserFEController::class, 'show_votes'])->name('users_dashboard_show_votes');
+Route::get('/perfil/detalhes', [UserFEController::class, 'show_details'])->name('users_dashboard_show_details');
+Route::get('/perfil/password', [UserFEController::class, 'show_password'])->name('users_dashboard_show_password');
 Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
 
 Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');

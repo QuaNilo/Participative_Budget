@@ -70,7 +70,7 @@ class ProposalEdit extends Component
         if (empty($this->proposal)) {
             flash(__('Not found'))->overlay()->danger();
 
-            return redirect(route('users_dashboard'));
+            return redirect(route('users_dashboard_show_dashboard'));
         }
 
         $this->validate([
@@ -123,7 +123,7 @@ class ProposalEdit extends Component
 
         flash(__('Updated successfully.'))->overlay()->success();
 
-        return redirect(route('users_dashboard'));
+        return redirect(route('users_dashboard_show_dashboard'));
     }
 
     #[On('update-files')]

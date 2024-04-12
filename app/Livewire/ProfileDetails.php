@@ -133,7 +133,7 @@ class ProfileDetails extends Component
             flash(__('Updated successfully.'))->overlay()->success()->duration(4000);
         }
 
-        return redirect(route('users_dashboard'));
+        return redirect(route('users_dashboard_show_dashboard'));
     }
 
     protected function fileUploadHandle($collection, $model, $isMultiple = false): void
