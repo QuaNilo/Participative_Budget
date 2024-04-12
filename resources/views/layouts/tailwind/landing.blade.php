@@ -95,6 +95,8 @@
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script src="{{ Vite::asset('resources/tailwind-assets/js/plugins.init.js') }}"></script>
         <script src="{{ Vite::asset('resources/tailwind-assets/js/app.js') }}"></script>
+        @vite([
+        'resources/js/vendor/dom/index.js'])
         @livewireScripts
         @stack('scripts')
 

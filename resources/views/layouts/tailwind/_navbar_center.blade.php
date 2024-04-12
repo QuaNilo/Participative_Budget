@@ -1,5 +1,5 @@
 <!-- Start Navbar -->
-<nav id="topnav" class="fixed top-0 border-4 border-blue-700-500 w-full bg-white z-50">
+<nav id="" class="topnav fixed top-0 border-4 border-blue-700-500 w-full bg-white z-50">
     <div class="container mx-auto">
         <!-- Logo container-->
         <a class="logo" href="{{ route('home') }}">
