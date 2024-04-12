@@ -50,14 +50,10 @@ class DashboardProfile extends Component
         $this->total_impressions = auth()->user()->proposals()->sum('impressions');
 
         $this->getAverageVotesOnAllEditions();
-
         $this->getVotesPerEdition();
         $this->getVotesPerCategory();
         $this->getLatestActivity();
-        if(auth()->user()->proposals()->exists())
-        {
-            $this->getVotesPerGender();
-        }
+        $this->getVotesPerGender();
 
         $this->setting = \App\Models\Setting::first();
     }

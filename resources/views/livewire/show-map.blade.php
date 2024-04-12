@@ -28,8 +28,6 @@
             };
 
             // Store or use the clicked coordinates as needed
-            console.log("Clicked Coordinates:", clickedLatLng);
-
             // Update marker position
             marker.setPosition(clickedLatLng);
             @this.set('lng', clickedLatLng.lng)

@@ -10,9 +10,14 @@ class UsersProfile extends Component
 {
     public $tab;
     public $proposals;
+    public $hasProposals;
+    public $hasVotes;
+
 
     public function render()
     {
+        $this->hasVotes = !auth()->user()->votes->isEmpty();
+        $this->hasProposals = !auth()->user()->proposals->isEmpty();
         return view('livewire.users-profile');
     }
 

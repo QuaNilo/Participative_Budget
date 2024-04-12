@@ -30,7 +30,6 @@
         }
 
         function addMarker(map, lat, lng, title, description, id, author, category_name) {
-            console.log(lat, lng, title, description, id, author, category_name )
             const marker = new google.maps.Marker({
                 position: { lat, lng },
                 map,

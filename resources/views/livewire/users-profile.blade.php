@@ -41,11 +41,23 @@
         <div class="flex-grow flex-col">
             <div class="">
                 @if($tab === 'dashboard')
-                    <livewire:dashboard-profile/>
+                    @if($hasProposals && $hasVotes)
+                        <livewire:dashboard-profile/>
+                    @else
+                        <x-frontend.no-data  :message="__('No Data Found')" />
+                    @endif
                 @elseif($tab === 'proposals')
-                    <livewire:proposals-profile-component/>
+                    @if($hasProposals)
+                        <livewire:proposals-profile-component/>
+                    @else
+                        <x-frontend.no-data  :message="__('No Proposals Found')" />
+                    @endif
                 @elseif($tab === 'votos')
-                    <livewire:votos-profile-component/>
+                    @if($hasVotes)
+                        <livewire:votos-profile-component/>
+                    @else
+                        <x-frontend.no-data  :message="__('No Votes Found')" />
+                    @endif
                 @elseif($tab === 'details')
                     <livewire:profile-details/>
                 @elseif($tab === 'update-password')
