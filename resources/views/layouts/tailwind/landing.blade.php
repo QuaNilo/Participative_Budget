@@ -63,6 +63,7 @@
     </head>
 
     <body class="flex flex-col min-h-screen font-nunito text-base text-black bg-indigo-200/10">
+        @livewireScripts
         @include('layouts.tailwind._navbar_center')
         <x-frontend.notification-handler />
         <div class="min-h-screen">
@@ -97,7 +98,6 @@
         <script src="{{ Vite::asset('resources/tailwind-assets/js/app.js') }}"></script>
         @vite([
         'resources/js/vendor/dom/index.js'])
-        @livewireScripts
         @stack('scripts')
 
     </body>
