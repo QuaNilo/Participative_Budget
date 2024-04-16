@@ -110,13 +110,13 @@
 {{--            </div>--}}
 
             <div class="mb-3">
-                <x-base.form-label for="edition_end">Birth Date</x-base.form-label>
+                <x-base.form-label for="birth_date">Birth Date</x-base.form-label>
                 <x-base.input-group
                     class="flatpickr"
                     data-wrap="true"
                     data-enable-time="false"
                     data-date-format='Y-m-d'
-                    data-time_24hr='true'
+                    data-time_24hr='false'
                     data-minute-increment='1'
                     inputGroup
                 >
@@ -127,10 +127,11 @@
                         />
                     </x-base.input-group.text>
                     <x-base.flatpickr
-                        class="{{ ($errors->has('edition_end') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
-                        id="edition_end"
-                        name="edition_end"
-                        :value="old('edition_end', $edition->edition_end ?? '')"
+                        class="{{ ($errors->has('birth_date') ? 'border-danger' : '') }} [&[readonly]]:bg-white"
+                        id="birth_date"
+                        name="birth_date"
+                        wire:model="birth_date"
+                        :value="old('birth_date', $citizen->birth_date_formatted ?? '')"
                         data-input
                     />
                     <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
@@ -140,7 +141,7 @@
                         />
                     </x-base.input-group.text>
                 </x-base.input-group>
-                @error('edition_end')
+                @error('birth_date')
                     <div class="mt-2 text-danger">{{ $message }}</div>
                 @enderror
             </div>

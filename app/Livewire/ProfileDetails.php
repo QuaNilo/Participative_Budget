@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Citizen;
 use App\Models\Setting;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\Rules\Password;
 use Livewire\Attributes\On;
@@ -28,6 +29,7 @@ class ProfileDetails extends Component
     public $description;
     public $gender;
     public $birth_date;
+    public $birth_date_formatted;
     public $CC;
 
     public function render()
@@ -42,8 +44,10 @@ class ProfileDetails extends Component
         $this->citizen = $this->user->citizen()->first();
 
 //        Citizen INFO
-        $this->address = $this->citizen->address ?? "";
         $this->birth_date = $this->citizen->birth_date ?? "";
+        $carbonDate = Carbon::parse($this->birth_date);
+        $this->birth_date_formatted = $carbonDate->toDateString();
+        $this->address = $this->citizen->address ?? "";
         $this->telemovel = $this->citizen->telemovel ?? "";
         $this->freguesia = $this->citizen->freguesia ?? "";
         $this->cod_postal = $this->citizen->cod_postal ?? "";
@@ -111,6 +115,7 @@ class ProfileDetails extends Component
             'cod_postal' => $this->cod_postal,
             'freguesia' => $this->freguesia,
             'telemovel' => $this->telemovel,
+            'birth_date' => $this->birth_date,
             'CC' => $this->CC,
             'address' => $this->address,
             'occupation' => $this->occupation,
@@ -129,9 +134,8 @@ class ProfileDetails extends Component
         {
             flash(__('Your ID will be required to vote and create proposals.'))->overlay()->warning()->duration(4000);
         }
-        else{
-            flash(__('Updated successfully.'))->overlay()->success()->duration(4000);
-        }
+
+        flash(__('Updated successfully.'))->overlay()->success()->duration(4000);
 
         return redirect(route('users_dashboard_show_dashboard'));
     }
