@@ -375,7 +375,7 @@ try{
 catch(err){}
 
 // Dashboard VOTES/EDITION chart
-const statistics = () => {
+window.statistics = function statistics() {
     try{
         var mainchartOptions = {
         series: [{

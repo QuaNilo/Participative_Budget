@@ -26,6 +26,9 @@ export default defineConfig({
 
                 "resources/js/vendor/dom/index.js",
 
+                "resources/js/vendor/lucide/index.js",
+                "resources/js/components/lucide/index.js",
+
                 //Tom Select
                 "resources/js/vendor/tom-select/index.js",
                 "resources/js/components/tom-select/index.js",

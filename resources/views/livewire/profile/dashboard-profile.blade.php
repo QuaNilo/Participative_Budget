@@ -111,8 +111,8 @@
     echo "<script> var genderNames = '$genderNames';</script>";
 ?>
 
-@script
-<script>
-    statistics();
-</script>
-@endscript
+@push('scripts')
+    <script>
+        statistics();
+    </script>
+@endpush
