@@ -29,7 +29,6 @@ class ProfileDetails extends Component
     public $description;
     public $gender;
     public $birth_date;
-    public $birth_date_formatted;
     public $CC;
 
     public function render()
@@ -44,9 +43,7 @@ class ProfileDetails extends Component
         $this->citizen = $this->user->citizen()->first();
 
 //        Citizen INFO
-        $this->birth_date = $this->citizen->birth_date ?? "";
-        $carbonDate = Carbon::parse($this->birth_date);
-        $this->birth_date_formatted = $carbonDate->toDateString();
+        $this->birth_date = !empty($this->citizen->birth_date) ? $this->citizen->birth_date->format('Y-m-d') : '';
         $this->address = $this->citizen->address ?? "";
         $this->telemovel = $this->citizen->telemovel ?? "";
         $this->freguesia = $this->citizen->freguesia ?? "";

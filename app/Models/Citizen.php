@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
 use OwenIt\Auditing\Contracts\Auditable;
- use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -93,7 +93,7 @@ class Citizen extends Model implements Auditable, HasMedia
         'occupation' => 'string',
         'description' => 'string',
         'CC_verified_at' => 'datetime',
-        'birth_date' => 'date',
+        'birth_date' => 'date:Y-m-d',
         'CC_verified' => 'integer',
         'address' => 'string',
         'localidade' => 'string',
@@ -106,75 +106,75 @@ class Citizen extends Model implements Auditable, HasMedia
     public static function rules(): array
     {
         return [
-        'CC' => 'nullable|string|max:255',
-        'occupation' => 'nullable|string|max:255',
-        'description' => 'nullable|string|max:255',
-        'birth_date' => 'nullable|date',
-        'CC_verified_at' => 'nullable',
-        'CC_verified' => 'nullable',
-        'address' => 'nullable|string|max:255',
-        'localidade' => 'nullable|string|max:255',
-        'freguesia' => 'nullable|string|max:255',
-        'cod_postal' => 'nullable|string|max:255',
-        'telemovel' => 'nullable|string|max:255',
-        'gender' => 'nullable',
+            'CC' => 'nullable|string|max:255',
+            'occupation' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:255',
+            'birth_date' => 'nullable|date',
+            'CC_verified_at' => 'nullable',
+            'CC_verified' => 'nullable',
+            'address' => 'nullable|string|max:255',
+            'localidade' => 'nullable|string|max:255',
+            'freguesia' => 'nullable|string|max:255',
+            'cod_postal' => 'nullable|string|max:255',
+            'telemovel' => 'nullable|string|max:255',
+            'gender' => 'nullable',
         ];
     }
 
     /**
-    * Attribute labels
-    *
-    * @return array
-    */
-    public static function attributeLabels() : array
+     * Attribute labels
+     *
+     * @return array
+     */
+    public static function attributeLabels(): array
     {
         return [
             'id' => __('ID'),
-        'user_id' => __('User ID'),
-        'CC' => __('Cc'),
-        'occupation' => __('Occupation'),
-        'description' => __('Description'),
-        'birth_date' => __('Birth Date'),
-        'CC_verified_at' => __('Citizen Card Verified At'),
-        'CC_verified' => __('Citizen Card Verified'),
-        'address' => __('Address'),
-        'localidade' => __('Localidade'),
-        'freguesia' => __('Freguesia'),
-        'cod_postal' => __('Codigo Postal'),
-        'telemovel' => __('Telemovel'),
-        'gender' => __('Gender'),
-        'remember_token' => __('Remember Token'),
-        'created_at' => __('Created At'),
-        'updated_at' => __('Updated At')
+            'user_id' => __('User ID'),
+            'CC' => __('Cc'),
+            'occupation' => __('Occupation'),
+            'description' => __('Description'),
+            'birth_date' => __('Birth Date'),
+            'CC_verified_at' => __('Citizen Card Verified At'),
+            'CC_verified' => __('Citizen Card Verified'),
+            'address' => __('Address'),
+            'localidade' => __('Localidade'),
+            'freguesia' => __('Freguesia'),
+            'cod_postal' => __('Codigo Postal'),
+            'telemovel' => __('Telemovel'),
+            'gender' => __('Gender'),
+            'remember_token' => __('Remember Token'),
+            'created_at' => __('Created At'),
+            'updated_at' => __('Updated At')
         ];
     }
 
 
-    public static function getApprovalArray() : array
+    public static function getApprovalArray(): array
     {
         return [
-            self::APPROVAL_STATUS_PENDING =>  __('Pendente'),
-            self::APPROVAL_STATUS_ACCEPTED =>  __('Aprovado'),
-            self::APPROVAL_STATUS_REJECTED =>  __('Rejeitado'),
+            self::APPROVAL_STATUS_PENDING => __('Pendente'),
+            self::APPROVAL_STATUS_ACCEPTED => __('Aprovado'),
+            self::APPROVAL_STATUS_REJECTED => __('Rejeitado'),
         ];
     }
 
-    public static function getGenderArray() : array
+    public static function getGenderArray(): array
     {
         return [
-            self::GENDER_UNDEFINED =>  __('Undefined'),
-            self::GENDER_FEMALE =>  __('Female'),
-            self::GENDER_MALE =>  __('Male'),
+            self::GENDER_UNDEFINED => __('Undefined'),
+            self::GENDER_FEMALE => __('Female'),
+            self::GENDER_MALE => __('Male'),
         ];
     }
 
 
     /**
-    * Return the status label
-    * @return string
-    */
+     * Return the status label
+     * @return string
+     */
 
-    public function getCcVerifiedLabelAttribute() : string
+    public function getCcVerifiedLabelAttribute(): string
     {
         $array = static::getApprovalArray();
         return $array[$this->CC_verified] ?? "";
@@ -182,21 +182,21 @@ class Citizen extends Model implements Auditable, HasMedia
 
 
     /**
-    * Return the status label
-    * @return string
-    */
-    public function getGenderLabelAttribute() : string
+     * Return the status label
+     * @return string
+     */
+    public function getGenderLabelAttribute(): string
     {
         $array = static::getGenderArray();
         return $array[$this->gender] ?? "";
     }
 
     /**
-    * Return the attribute label
-    * @param string $attribute
-    * @return string
-    */
-    public function getAttributeLabel($attribute) : string
+     * Return the attribute label
+     * @param string $attribute
+     * @return string
+     */
+    public function getAttributeLabel($attribute): string
     {
         $attributeLabels = static::attributeLabels();
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);

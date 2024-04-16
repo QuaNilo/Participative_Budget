@@ -131,7 +131,7 @@
                         id="birth_date"
                         name="birth_date"
                         wire:model="birth_date"
-                        :value="old('birth_date', $citizen->birth_date_formatted ?? '')"
+                        :value="old('birth_date', $citizen->birth_date ?? '')"
                         data-input
                     />
                     <x-base.input-group.text class="cursor-pointer" title="{{ __('Clear') }}" data-clear>
