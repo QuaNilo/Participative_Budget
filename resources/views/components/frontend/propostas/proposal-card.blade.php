@@ -18,7 +18,9 @@
     </div>
     <div class="p-7">
         <div class="relative h-40 2xl:h-56">
-{{--            <span class="absolute top-0 bg-pending/80 text-white text-xs m-5 px-2 py-1 rounded z-10">Featured</span>--}}
+            @if($proposal->winner)
+                <span class="absolute top-0 z-50 right-0 bg-pending/80 text-white text-xs m-5 px-2 py-1 bg-amber-500 rounded ">Winner</span>
+            @endif
             @if($proposal->getFirstMediaUrl('cover', 'retangular'))
                 <img class="absolute inset-0 w-full h-full object-cover rounded-md" src="{{ $proposal->getFirstMediaUrl('cover', 'retangular') }}">
             @else

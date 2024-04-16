@@ -52,7 +52,7 @@
         @stack('firstStyles')
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css'])
+        @vite(['resources/css/app.css', 'resources/tailwind-assets/scss/app.scss'])
 
         <!-- Styles -->
         @livewireStyles
@@ -66,7 +66,7 @@
 
         @stack('firstScripts')
 
-        @vite('resources/js/app.js')
+        @vite(['resources/js/app.js', 'resources/tailwind-assets/js/app.js'])
         <!-- BEGIN: Vendor JS Assets-->
         @stack('vendors')
         <!-- END: Vendor JS Assets-->

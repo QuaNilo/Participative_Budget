@@ -12,16 +12,16 @@
         <form wire:submit="filter">
             <div class="flex bg-white shadow rounded-lg">
                 <div>
-                  <select wire:model="category_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
-                   <option value="{{false}}">{{__('Choose a Category')}}</option>
+                  <select wire:model="category_selected" class="mr-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
+                   <option value="{{false}}">{{__('Choose a Category ')}}</option>
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                   </select>
                 </div>
                 <div>
-                  <select wire:model="status_selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
-                    <option value="{{false}}">{{__('Choose a Proposal State')}}</option>
+                  <select wire:model="status_selected" class="mr-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
+                    <option value="{{false}}">{{__('Choose a Proposal State ')}}</option>
                     @foreach(\App\Models\Proposal::getStatusArray() as $statusId => $statusName)
                         <option value="{{$statusId}}">{{$statusName}}</option>
                     @endforeach
@@ -39,10 +39,10 @@
                 </div>
             </div>
         </form>
-        <div class="flex justify-end items-center space-x-3">
-            <livewire:proposals-sort/>
-            <livewire:proposal-grid-options :edition="$edition"/>
-        </div>
+    </div>
+    <div class="flex justify-end items-center space-x-3 mt-10">
+        <livewire:proposals-sort/>
+        <livewire:proposal-grid-options :edition="$edition"/>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[50px] mt-8">
