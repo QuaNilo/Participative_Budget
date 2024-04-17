@@ -1,7 +1,7 @@
 @props(['hasVotes', 'HasProposals', 'tab'])
 <x-landing-layout>
-    <section class="md:py-32">
-        <div class="flex space-x-3 container">
+    <section class="md:py-32 container">
+        <div class="flex space-x-3">
             <livewire:dashboard-navbar :tab="$tab"/>
             <div class="flex-grow">
                 @if($tab === 'proposals')
