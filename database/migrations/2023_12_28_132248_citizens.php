@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('citizens', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('user_id')->unique()->constrained()->cascadeOnDelete();
-                $table->string('CC')->unique();
+                $table->string('CC')->unique()->nullable();
                 $table->date('birth_date')->nullable();
                 $table->string('occupation')->nullable();
                 $table->string('description')->nullable();

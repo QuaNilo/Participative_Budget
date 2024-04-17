@@ -91,7 +91,22 @@ class User extends Authenticatable implements MustVerifyEmail, Auditable
         parent::boot();
         static::created(function ($user) {
             $user->assignRole(Role::ROLE_USER);
-            Citizen::factory()->create(['user_id' => $user->id]);
+//            Citizen::factory()->create(['user_id' => $user->id]);
+            $citizen = new Citizen();
+            $citizen->user_id = $user->id;
+            $citizen->CC = null;
+            $citizen->occupation = null;
+            $citizen->description = null;
+            $citizen->CC_verified_at = null;
+            $citizen->address = null;
+            $citizen->localidade = null;
+            $citizen->birth_date = null;
+            $citizen->freguesia = null;
+            $citizen->cod_postal = null;
+            $citizen->telemovel = null;
+            $citizen->gender = null;
+            $citizen->remember_token = null;
+            $citizen->save();
         });
     }
     /**
