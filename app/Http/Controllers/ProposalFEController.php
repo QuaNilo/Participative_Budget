@@ -34,9 +34,7 @@ class ProposalFEController extends Controller
 
     public function show_frontend($id = null)
     {
-        $validEditionStatuses = [
-            Edition::STATUS_VOTING,
-        ];
+
         if($id)
         {
             try {
@@ -49,8 +47,8 @@ class ProposalFEController extends Controller
             return view('site.propostas.index', ['edition' => $edition]);
         }
 
-        if (Edition::whereIn('status', $validEditionStatuses)->exists()) {
-            $edition = Edition::whereIn('status', $validEditionStatuses)->first();
+        if (Edition::whereIn('status', Edition::EDITION_ACTIVE_STATUS_LIST)->exists()) {
+            $edition = Edition::whereIn('status', Edition::EDITION_ACTIVE_STATUS_LIST)->first();
             return view('site.propostas.index', ['edition' => $edition]);
         }
 

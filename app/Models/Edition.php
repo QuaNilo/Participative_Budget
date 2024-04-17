@@ -61,6 +61,21 @@ class Edition extends Model implements Auditable
     const STATUS_CLOSED = 5;
     const STATUS_CANCELED = 6;
 
+    const EDITION_ACTIVE_STATUS_LIST =
+    [
+        Edition::STATUS_VOTING,
+        Edition::STATUS_ANALYSIS,
+        Edition::STATUS_OPEN
+    ];
+
+    const EDITION_INACTIVE_STATUS_LIST =
+        [
+            Edition::STATUS_PENDING,
+            Edition::STATUS_COMPLETED,
+            EDITION::STATUS_CLOSED,
+        ];
+
+
 
     public $table = 'editions';
 

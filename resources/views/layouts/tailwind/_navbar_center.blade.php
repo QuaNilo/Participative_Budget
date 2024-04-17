@@ -48,7 +48,9 @@
             <!-- Navigation Menu-->
             <ul class="navigation-menu space-x-8">
                 <li><a href="{{ route('home') }}" class="sub-menu-item {{ request()->routeIs('home') ? "active" : "" }}">{{ __('Home') }}</a></li>
-                <li><a href="{{ route('propostas')}}" class="sub-menu-item">{{ __('Participa') }}</a></li>
+                @if(\App\Models\Edition::whereIn('status', \App\Models\Edition::EDITION_ACTIVE_STATUS_LIST)->exists())
+                    <li><a href="{{ route('propostas')}}" class="sub-menu-item">{{ __('Participa') }}</a></li>
+                @endif
                 <li class="has-submenu parent-parent-menu-item">
                     <a href="javascript:void(0)">Informações</a><span class="menu-arrow"></span><span class="menu-arrow"></span>
                     <ul class="submenu">

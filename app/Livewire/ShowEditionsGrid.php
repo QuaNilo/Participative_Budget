@@ -14,14 +14,8 @@ class ShowEditionsGrid extends Component
 
     public function mount(): void
     {
-        $currentEditionStatusList = [
-            Edition::STATUS_PENDING,
-            Edition::STATUS_OPEN,
-            Edition::STATUS_VOTING,
-            Edition::STATUS_ANALYSIS,
-        ];
         $this->editions = Edition::with('proposals')
-            ->whereNotIn('status', $currentEditionStatusList)
+            ->whereIn('status', Edition::EDITION_INACTIVE_STATUS_LIST)
             ->withCount('proposals')
             ->orderByDesc('identifier')
             ->get();

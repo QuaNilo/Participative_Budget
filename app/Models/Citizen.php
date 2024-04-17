@@ -71,6 +71,7 @@ class Citizen extends Model implements Auditable, HasMedia
     const APPROVAL_STATUS_ACCEPTED = 1;
     const APPROVAL_STATUS_REJECTED = 0;
 
+
     public $table = 'citizens';
 
     public $fillable = [

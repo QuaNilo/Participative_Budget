@@ -13,9 +13,9 @@ $wallpaper = $home->getFirstMediaUrl('wallpaper');
 <x-landing-layout>
     <div class="">
         @if($home->getFirstMediaUrl('wallpaper'))
-            <section class="relative md:h-screen py-36 flex items-center" style="background-image: url('{{$wallpaper}}');">
+            <section class="relative md:h-screen py-36 flex items-center" style="background-image: url('{{$wallpaper}}');"/>
         @else
-            <section class="relative md:h-screen py-36 flex items-center bg-no-repeat bg-cover " style="background-image: url('{{ asset('assets-frontend/images/digital/bg01.jpg') }}');">
+            <section class="relative md:h-screen py-36 flex items-center bg-no-repeat bg-cover " style="background-image: url('{{ asset('assets-frontend/images/digital/bg01.jpg') }}');"/>
         @endif
             <div class="absolute inset-0 bg-white/30 dark:bg-slate-900/60"></div>
             <div class="container relative z-1">
