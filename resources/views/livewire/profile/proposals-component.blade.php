@@ -1,5 +1,5 @@
 @props(['proposals'])
-<div class="relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
+<div class="flex-grow relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
     <table class="w-full text-start text-slate-500">
         <thead class="text-sm uppercase bg-slate-100">
         <tr class="text-start">

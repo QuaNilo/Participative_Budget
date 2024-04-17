@@ -442,7 +442,7 @@ window.statistics = function statistics() {
               series: JSON.parse(categoryVotes),
               labels: JSON.parse(categoryNames),
               chart: {
-              width: 600,
+              width: 399,
               type: 'pie',
             },
             plotOptions: {
@@ -479,7 +479,7 @@ window.statistics = function statistics() {
               series: JSON.parse(genderVotes),
               labels: JSON.parse(genderNames),
               chart: {
-              width: 600,
+              width: 399,
               type: 'donut',
             },
             plotOptions: {
@@ -500,7 +500,7 @@ window.statistics = function statistics() {
               }
             },
             responsive: [{
-              breakpoint: 480,
+              breakpoint: 1090,
               options: {
                 chart: {
                   width: 500

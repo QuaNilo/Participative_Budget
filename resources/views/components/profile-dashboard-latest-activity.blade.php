@@ -1,4 +1,4 @@
-<div x-data="{ activeTab: 'proposals' }" class="col-span-3 lg:col-span-3 shadow-lg rounded-md p-4 pb-2 mt-2 pt-1 bg-white ">
+<div x-data="{ activeTab: 'proposals' }" class="col-span-4 lg:col-span-4 shadow-lg rounded-md p-4 pb-2 mt-2 pt-1 bg-white ">
     <div class="flex justify-around items-center border-b border-slate-200/60 bg-white sm:py-3 pl-0">
         <h2 class="text-lg font-semibold">Latest Activity</h2>
         <div class="flex flex-row space-x-4 p-3 rounded-3xl">
