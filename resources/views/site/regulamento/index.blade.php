@@ -23,9 +23,9 @@
                                         <div class="ms-2">
                                                 <h6 class="font-semibold text-xl">{{__('Chapter')}} {{$chapter->title}}</h6>
                                                 <p class="text-slate-400">{{$chapter->subtitle}}</p>
-                                                <div  class="text-slate-800 text-base leading-8 text-sm mt-2">
+                                                <div  class="text-slate-800 text-base leading-8 mt-2">
                                                     @foreach($chapter->articles as $article)
-                                                        <p><a class="hover:underline text-indigo-600" href="#{{$article->id}}{{$article->chapter_id}}"><i class="mdi mdi-arrow-right"></i>{{$article->title}}</a></p>
+                                                        <p><a class="hover:underline text-primary" href="#{{$article->id}}{{$article->chapter_id}}"><i class="mdi mdi-arrow-right"></i>{{$article->title}}</a></p>
                                                     @endforeach
                                                 </div>
                                         </div>

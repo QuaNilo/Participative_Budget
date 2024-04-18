@@ -4,7 +4,7 @@
         <div class="mr-auto">
             <a class="font-medium">{{$proposal->user->name}}</a>
             <div class="flex text-slate-500 truncate text-xs mt-0.5">
-                <span class="text-indigo-600 inline-block truncate">
+                <span class="text-primary inline-block truncate">
                     {{$proposal->category()->first()->name}}
                 </span>
                 <span class="mx-1">

@@ -22,9 +22,9 @@ $wallpaper = $home->getFirstMediaUrl('wallpaper');
                 <div class="grid md:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
                     <div class="lg:col-span-8 md:col-span-7 md:order-1 order-2">
                         <div class="md:me-6">
-                            <h4 class="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 text-black dark:text-white">{{__("Build the county of your")}} <br> <span class="text-indigo-600">{{__("Dreams")}}</span></h4>
+                            <h4 class="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl mb-5 text-black dark:text-white">{{__("Build the county of your")}} <br> <span class="text-primary">{{__("Dreams")}}</span></h4>
                             <div class="mt-6">
-                                    <a href="#what" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white rounded-md me-2 mt-2">{{__("Know more")}}</a>
+                                    <a href="#what" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-hover border-primary text-white rounded-md me-2 mt-2">{{__("Know more")}}</a>
                             </div>
                         </div>
                     </div><!--end col-->
@@ -60,13 +60,13 @@ $wallpaper = $home->getFirstMediaUrl('wallpaper');
                                     $homeBullets = \App\Models\HomeBulletPoints::get()
                                 ?>
                                 @foreach($homeBullets as $homeBullet)
-                                    <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{$homeBullet->bullet_point}}</li>
+                                    <li class="mb-1 flex"><i class="uil uil-check-circle text-primary text-xl me-2"></i> {{$homeBullet->bullet_point}}</li>
                                 @endforeach
                             @else
-                                <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Incentivar o diálogo entre eleitos, técnicos municipais, cidadãos e a sociedade civil organizada, na procura das melhores soluções para os problemas tendo em conta os recursos disponíveis.")}}</li>
-                                <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Contribuir para a educação cívica, permitindo aos cidadãos integrar as suas preocupações pessoais com o bem comum, compreender a complexidade dos problemas e desenvolver atitudes, competências e práticas de participação.")}}</li>
-                                <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Adequar as políticas públicas municipais às necessidades e expectativas das pessoas, para melhorar a qualidade de vida na cidade.")}}</li>
-                                <li class="mb-1 flex"><i class="uil uil-check-circle text-indigo-600 text-xl me-2"></i> {{__("Aumentar a transparência da atividade da Autarquia, o nível de responsabilização dos eleitos e da estrutura municipal, contribuindo para reforçar a qualidade da democracia.")}}</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-primary text-xl me-2"></i> {{__("Incentivar o diálogo entre eleitos, técnicos municipais, cidadãos e a sociedade civil organizada, na procura das melhores soluções para os problemas tendo em conta os recursos disponíveis.")}}</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-primary text-xl me-2"></i> {{__("Contribuir para a educação cívica, permitindo aos cidadãos integrar as suas preocupações pessoais com o bem comum, compreender a complexidade dos problemas e desenvolver atitudes, competências e práticas de participação.")}}</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-primary text-xl me-2"></i> {{__("Adequar as políticas públicas municipais às necessidades e expectativas das pessoas, para melhorar a qualidade de vida na cidade.")}}</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-primary text-xl me-2"></i> {{__("Aumentar a transparência da atividade da Autarquia, o nível de responsabilização dos eleitos e da estrutura municipal, contribuindo para reforçar a qualidade da democracia.")}}</li>
                             @endif
                             </ul>
                         </div>
@@ -75,7 +75,7 @@ $wallpaper = $home->getFirstMediaUrl('wallpaper');
             </div><!--end container-->
         </section>
         <div class="relative flex justify-center bg-gray-50 text-center pt-20">
-            <a href="{{ route('propostas')}}" class="py-2 px-5  w-[450px] inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-indigo-600 hover:bg-indigo-700 text-white rounded-md">{{__("Participa")}}</a>
+            <a href="{{ route('propostas')}}" class="py-2 px-5  w-[450px] inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-primary hover:bg-primary-hover text-white rounded-md">{{__("Participa")}}</a>
         </div>
         <section>
             <div class="relative md:py-24 py-16 bg-gray-50 ">
@@ -85,16 +85,16 @@ $wallpaper = $home->getFirstMediaUrl('wallpaper');
                     <p class="text-slate-400 max-w-xl mx-auto">{{__("Consulte os seguintes Links!")}}</p>
                     <div class="flex flex-row justify-evenly w-1/2 mx-auto">
                         <div class="mt-6">
-                            <a href="{{route('faq-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-indigo-600 hover:bg-indigo-700/80 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("FAQ")}}</a>
+                            <a href="{{route('faq-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-primary hover:bg-primary-hover text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("FAQ")}}</a>
                         </div>
                         <div class="mt-6">
-                            <a href="{{route('calendar-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-indigo-600 hover:bg-indigo-700/80 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Calendario")}}</a>
+                            <a href="{{route('calendar-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-primary hover:bg-primary-hover text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Calendario")}}</a>
                         </div>
                         <div class="mt-6">
-                            <a href="{{route('rules-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-indigo-600 hover:bg-indigo-700/80 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Regulamento")}}</a>
+                            <a href="{{route('rules-page')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-primary hover:bg-primary-hover text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Regulamento")}}</a>
                         </div>
                         <div class="mt-6">
-                            <a href="{{route('contact-us')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-indigo-600 hover:bg-indigo-700/80 text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Contact us")}}</a>
+                            <a href="{{route('contact-us')}}" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-50 text-center text-xl bg-primary hover:bg-primary-hover text-white rounded-md"><i class="uil uil-question-circle text-xl"></i> {{__("Contact us")}}</a>
                         </div>
                     </div>
                 </div><!--end grid-->

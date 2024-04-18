@@ -11,7 +11,7 @@
                     </li>
                 @else
                     <li>
-                        <a href="{{ $proposals->previousPageUrl() }}" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-lg hover:text-white border border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600">
+                        <a href="{{ $proposals->previousPageUrl() }}" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-lg hover:text-white border border-gray-100 dark:border-gray-700 hover:border-primary-hover hover:bg-primary">
                             <i class="uil uil-angle-left text-[20px] rtl:rotate-180 rtl:-mt-1"></i>
                         </a>
                     </li>
@@ -19,7 +19,7 @@
 
                 @foreach ($proposals->getUrlRange(1, $proposals->lastPage()) as $page => $url)
                     <li>
-                        <a href="{{ $url }}" class="{{ $page == $proposals->currentPage() ? 'z-10 ' : '' }}w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 {{ $page == $proposals->currentPage() ? 'text-white bg-indigo-600 border border-indigo-600' : 'hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600' }}">
+                        <a href="{{ $url }}" class="{{ $page == $proposals->currentPage() ? 'z-10 ' : '' }}w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 {{ $page == $proposals->currentPage() ? 'text-white bg-primary border border-primary' : 'hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-700 hover:border-primary-hover hover:bg-primary-hover' }}">
                             {{ $page }}
                         </a>
                     </li>
@@ -27,7 +27,7 @@
 
                 @if ($proposals->hasMorePages())
                     <li>
-                        <a href="{{ $proposals->nextPageUrl() }}" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-lg hover:text-white border border-gray-100 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-600 hover:bg-indigo-600 dark:hover:bg-indigo-600">
+                        <a href="{{ $proposals->nextPageUrl() }}" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-lg hover:text-white border border-gray-100 dark:border-gray-700 hover:border-primary-hover dark:hover:border-primary-hover hover:bg-primary-hover dark:hover:bg-primary-hover">
                             <i class="uil uil-angle-right text-[20px] rtl:rotate-180 rtl:-mt-1"></i>
                         </a>
                     </li>

@@ -25,7 +25,7 @@
             <!--Login button Start-->
             <ul class="buy-button list-none mb-0">
                 <li class="inline mb-0">
-                    <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
+                    <a href="{{ route('login') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-primary hover:bg-primary-hover border border-primary hover:border-indigo-700 text-white"><i data-feather="log-in" class="h-4 w-4"></i></a>
                 </li>
             </ul>
             <!--Register button End-->
@@ -33,11 +33,11 @@
             <!--Login button Start-->
             <ul class="buy-button list-none mb-0">
                 <li class="inline mb-0">
-                    <a href="{{ route('users_dashboard_show_dashboard') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="settings" class="h-4 w-4"></i></a>
+                    <a href="{{ route('users_dashboard_show_dashboard') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-primary hover:bg-indigo-700 border border-primary hover:border-indigo-700 text-white"><i data-feather="settings" class="h-4 w-4"></i></a>
                 </li>
                 @if(false)
                     <li class="inline ps-1 mb-0">
-                        <a href="https://1.envato.market/techwind" target="_blank" class="btn btn-icon rounded-full bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-white"><i data-feather="shopping-cart" class="h-4 w-4"></i></a>
+                        <a href="https://1.envato.market/techwind" target="_blank" class="btn btn-icon rounded-full bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white"><i data-feather="shopping-cart" class="h-4 w-4"></i></a>
                     </li>
                 @endif
             </ul>
@@ -86,11 +86,11 @@
                         let pt = document.getElementById('pt')
                         let en = document.getElementById('en')
                         function toggleButtonClass(clickedButton, otherButton){
-                            if (!clickedButton.classList.contains('text-indigo-600')){
+                            if (!clickedButton.classList.contains('text-primary')){
                                 // Add classes to the clicked button
-                                clickedButton.classList.add('text-indigo-600 font-bold');
+                                clickedButton.classList.add('text-primary font-bold');
                                 // Remove classes from the other button
-                                otherButton.classList.remove('text-indigo-600 font-bold');
+                                otherButton.classList.remove('text-primary font-bold');
                             }
                         }
                             // Add event listeners
@@ -107,11 +107,11 @@
                     <div class="flex space-x-2">
                         <form action="{{route('setting.change_language', 'pt')}}" class="" method="POST">
                             @csrf
-                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-indigo-600 font-bold' : '' }}">PT</button>
+                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-primary font-bold' : '' }}">PT</button>
                         </form>
                         <form action="{{route('setting.change_language', 'en')}}" class="" method="POST">
                             @csrf
-                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-indigo-600 font-bold' : '' }}">ENG</button>
+                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-primary font-bold' : '' }}">ENG</button>
                         </form>
                     </div>
                 </div>

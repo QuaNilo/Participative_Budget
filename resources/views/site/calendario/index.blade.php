@@ -4,7 +4,7 @@
         <section class="relative mx-32 px-32 md:py-24 py-16 dark:bg-slate-800">
             <div class="container relative">
                 <div class="grid grid-cols-1 pb-8 text-center">
-                    <h6 class="text-indigo-600 text-sm font-bold uppercase mb-2">{{__('Calendar')}}</h6>
+                    <h6 class="text-primary text-sm font-bold uppercase mb-2">{{__('Calendar')}}</h6>
                     <h3 class="md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{{__("Participative Budget's Calendar")}}</h3>
 
                 </div><!--end grid-->
@@ -14,7 +14,7 @@
                             <!--Start content-->
                             @foreach($calendars as $calendar)
                                 @if($loop->even)
-                                    <div class="mt-12 ms-8 md:ms-0 relative after:content-[''] after:absolute after:top-[9px] after:rounded-full after:z-10 after:w-2.5 after:h-2.5 after:bg-indigo-600 md:after:mx-auto md:after:end-0 md:after:start-0 after:-start-9 before:content-[''] before:absolute md:before:mx-auto md:before:end-0 md:before:start-0 before:-start-11 before:rounded-full before:z-10 before:border-2 before:border-dashed before:border-gray-200 dark:before:border-gray-700 before:top-0 before:w-7 before:h-7 before:bg-white dark:before:bg-slate-900">
+                                    <div class="mt-12 ms-8 md:ms-0 relative after:content-[''] after:absolute after:top-[9px] after:rounded-full after:z-10 after:w-2.5 after:h-2.5 after:bg-primary md:after:mx-auto md:after:end-0 md:after:start-0 after:-start-9 before:content-[''] before:absolute md:before:mx-auto md:before:end-0 md:before:start-0 before:-start-11 before:rounded-full before:z-10 before:border-2 before:border-dashed before:border-gray-200 dark:before:border-gray-700 before:top-0 before:w-7 before:h-7 before:bg-white dark:before:bg-slate-900">
                                         <div class="grid md:grid-cols-2">
                                             <div class="text-start ms-8 relative md:order-2">
                                                 <h5 class="my-2 font-semibold ">{{ $calendar->date }}.</h5>
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="ms-8 md:ms-0 relative after:content-[''] after:absolute after:top-[9px] after:rounded-full after:z-10 after:w-2.5 after:h-2.5 after:bg-indigo-600 md:after:mx-auto md:after:end-0 md:after:start-0 after:-start-9 before:content-[''] before:absolute md:before:mx-auto md:before:end-0 md:before:start-0 before:-start-11 before:rounded-full before:z-10 before:border-2 before:border-dashed before:border-gray-200 dark:before:border-gray-700 before:top-0 before:w-7 before:h-7 before:bg-white dark:before:bg-slate-900">
+                                    <div class="ms-8 md:ms-0 relative after:content-[''] after:absolute after:top-[9px] after:rounded-full after:z-10 after:w-2.5 after:h-2.5 after:bg-primary md:after:mx-auto md:after:end-0 md:after:start-0 after:-start-9 before:content-[''] before:absolute md:before:mx-auto md:before:end-0 md:before:start-0 before:-start-11 before:rounded-full before:z-10 before:border-2 before:border-dashed before:border-gray-200 dark:before:border-gray-700 before:top-0 before:w-7 before:h-7 before:bg-white dark:before:bg-slate-900">
                                         <div class="grid md:grid-cols-2">
                                             <div class="md:text-end md:me-8 relative">
                                                 <h1 class="my-2 font-semibold">{{ $calendar->date }}.</h1>

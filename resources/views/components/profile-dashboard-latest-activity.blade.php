@@ -2,8 +2,8 @@
     <div class="flex justify-around items-center border-b border-slate-200/60 bg-white sm:py-3 pl-0">
         <h2 class="text-lg font-semibold">Latest Activity</h2>
         <div class="flex flex-row space-x-4 p-3 rounded-3xl">
-            <a :class="{ 'text-indigo-600': activeTab === 'proposals' }" class="text-lg font-semibold cursor-pointer" @click="activeTab = 'proposals'" >Proposals</a>
-            <a :class="{ 'text-indigo-600': activeTab === 'votes' }" class="text-lg font-semibold cursor-pointer" @click="activeTab = 'votes'" >Votes</a>
+            <a :class="{ 'text-primary': activeTab === 'proposals' }" class="text-lg font-semibold cursor-pointer" @click="activeTab = 'proposals'" >Proposals</a>
+            <a :class="{ 'text-primary': activeTab === 'votes' }" class="text-lg font-semibold cursor-pointer" @click="activeTab = 'votes'" >Votes</a>
         </div>
     </div>
     <div class="">
@@ -16,7 +16,7 @@
                         </div>
                         <p class="font-medium text-slate-400 text-xs">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</p>
                     </div>
-                    <div class="font-medium text-indigo-600 dark:text-slate-500">
+                    <div class="font-medium text-primary dark:text-slate-500">
                         {{ isset($proposal->action) ? $proposal->action : 'Updated' }}
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         </div>
                         <p class="font-medium text-slate-400 text-xs">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</p>
                     </div>
-                    <div class="font-medium text-indigo-600 dark:text-slate-500">
+                    <div class="font-medium text-primary dark:text-slate-500">
                         {{__('Voted')}}
                     </div>
                 </div>

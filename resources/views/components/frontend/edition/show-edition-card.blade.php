@@ -12,6 +12,6 @@
         <div>{{$edition->description}}</div>
     </div>
     <div class="flex flex-row mt-2 bg-slate-200/80 justify-evenly lg:text-right border-t border-slate-200/60 dark:border-darkmode-400">
-        <p class="text-slate-400"><i class="uil uil-pen text-indigo-600"></i> <span>{{$edition->proposals_count}} Propostas</span></p>
+        <p class="text-slate-400"><i class="uil uil-pen text-primary"></i> <span>{{$edition->proposals_count}} Propostas</span></p>
     </div>
 </div>

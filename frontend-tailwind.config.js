@@ -55,8 +55,8 @@ module.exports = {
                 //'primary': '#241E4C',
                 // You can also define shades if needed
                 primary: {
-                    DEFAULT: '#241E4C',
-                    hover: '#514A7E',
+                    DEFAULT: '#5C0FFF',
+                    hover: '#3910A0',
                 },
                 secondary: {
                     DEFAULT: '#169EDA',
