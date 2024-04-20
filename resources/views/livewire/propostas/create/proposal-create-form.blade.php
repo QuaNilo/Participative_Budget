@@ -200,7 +200,7 @@
                                     maxFileSize="10240"
                                     :previousFiles="collect()"
                                     :label="__('Upload Files')"
-                                    acceptedFileTypes="*/*"
+                                    acceptedFileTypes="application/pdf"
                                     :uploadFieldMainLabel="__('Upload files')"
                                 />
                             </div>

@@ -191,7 +191,6 @@
                                />
                             </div>
 
-
                             <div class="mb-3">
                                 <livewire:files-upload-f-e
                                     inputName="file"
@@ -201,7 +200,7 @@
                                     maxFileSize="10240"
                                     :previousFiles="$proposal->getMedia('documents') ?? collect()"
                                     :label="__('Upload Files')"
-                                    acceptedFileTypes="*/*"
+                                    acceptedFileTypes="application/pdf"
                                     :uploadFieldMainLabel="__('Upload files')"
                                 />
                             </div>

@@ -163,7 +163,7 @@
             maxFileSize="10240"
             :previousFiles="$citizen->getMedia('cc') ?? collect()"
             :label="__('Upload Passport')"
-            acceptedFileTypes="files/*"
+            acceptedFileTypes="application/pdf"
             :uploadFieldMainLabel="__('Upload Front and Back of Citizen Card')"
             />
         @else
@@ -175,7 +175,7 @@
             maxFileSize="10240"
             :previousFiles="collect()"
             :label="__('Upload Passport')"
-            acceptedFileTypes="files/*"
+            acceptedFileTypes="application/pdf"
             :uploadFieldMainLabel="__('Upload Front and Back of Citizen Card')"
             />
         @endif
