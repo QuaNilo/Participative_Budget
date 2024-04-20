@@ -7,21 +7,10 @@
                     <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                         <div class="lg:col-span-4 md:col-span-12">
                             <a href="{{ route('home') }}" class="text-[22px] focus:outline-none">
-                                <img src="/assets-frontend/images/logo-light.png" alt="">
+                                <img src="{{asset('assets-frontend/images/OP_blue_sm.png')}}" alt="">
                             </a>
                             <p class="mt-6 text-gray-300">{{ __('Unlock the power of AI with Embedding AI - Your all-in-one solution to interact, summarize, translate, and converse with any document format. From PDFs, images, and audio files to code, URLs, and more. Elevate your data interaction experience') }}</p>
                             <ul class="list-none mt-6">
-                                @if(false)
-                                    <li class="inline"><a href="https://1.envato.market/techwind" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-shopping-cart align-middle" title="Buy Now"></i></a></li>
-                                    <li class="inline"><a href="https://dribbble.com/shreethemes" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-dribbble align-middle" title="dribbble"></i></a></li>
-                                    <li class="inline"><a href="https://www.behance.net/shreethemes" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-behance" title="Behance"></i></a></li>
-                                    <li class="inline"><a href="http://linkedin.com/company/shreethemes" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-linkedin" title="Linkedin"></i></a></li>
-                                    <li class="inline"><a href="https://www.facebook.com/shreethemes" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
-                                    <li class="inline"><a href="https://www.instagram.com/shreethemes/" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
-                                    <li class="inline"><a href="https://twitter.com/shreethemes" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-twitter align-middle" title="twitter"></i></a></li>
-                                    <li class="inline"><a href="mailto:support@shreethemes.in" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-envelope align-middle" title="email"></i></a></li>
-                                    <li class="inline"><a href="https://forms.gle/QkTueCikDGqJnbky9" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-file align-middle" title="customization"></i></a></li>
-                                @endif
 
                                 <li class="inline"><a href="https://www.instagram.com/noop.pt/" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-instagram align-middle" title="instagram"></i></a></li>
                                 <li class="inline"><a href="https://www.facebook.com/noop.pt" target="_blank" class="btn btn-icon btn-sm border border-gray-800 rounded-md hover:border-primary dark:hover:border-primary hover:bg-primary dark:hover:bg-primary"><i class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
@@ -38,9 +27,6 @@
                             <h5 class="tracking-[1px] text-gray-100 font-semibold">{{ __('Usefull Links') }}</h5>
                             <ul class="list-none footer-list mt-6">
                                 <li><a href="{{ route('login') }}" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Login') }}</a></li>
-                                @if(false)
-                                    <li class="mt-[10px]"><a href="#services" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Services') }}</a></li>
-                                @endif
 {{--                                <li class="mt-[10px]"><a href="{{ route('home') }}#price" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Pricing') }}</a></li>--}}
                             </ul>
                         </div><!--end col-->
@@ -56,32 +42,6 @@
                                 @endif
                             </ul>
                         </div><!--end col-->
-                        @if(false)
-                            <div class="lg:col-span-3 md:col-span-4">
-                                <h5 class="tracking-[1px] text-gray-100 font-semibold">{{ __('Company') }}</h5>
-                                <p class="mt-6">
-                                    Nooperation Lda<br>
-                                    Cais - Espaço Empresarial, Largo José da Cruz, Nº 3 2260-369 Vila Nova da Barquinha<br>
-                                    NIF: 515447650
-                                </p>
-                                @if(false)
-                                    <p class="mt-6">Sign up and receive the latest tips via email.</p>
-                                    <form>
-                                        <div class="grid grid-cols-1">
-                                            <div class="foot-subscribe my-3">
-                                                <label class="form-label">Write your email <span class="text-red-600">*</span></label>
-                                                <div class="form-icon relative mt-2">
-                                                    <i data-feather="mail" class="w-4 h-4 absolute top-3 start-4"></i>
-                                                    <input type="email" class="form-input bg-gray-800 border border-gray-800 text-gray-100 ps-12 focus:shadow-none" placeholder="Email" name="email" required="">
-                                                </div>
-                                            </div>
-
-                                            <button type="submit" id="submitsubscribe" name="send" class="btn bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white rounded-md">Subscribe</button>
-                                        </div>
-                                    </form>
-                                @endif
-                            </div><!--end col-->
-                        @endif
                     </div><!--end grid-->
                 </div><!--end col-->
             </div>

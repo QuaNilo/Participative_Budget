@@ -10,8 +10,7 @@
                     <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                         <div class="lg:col-span-4 md:col-span-12">
                             <a href="{{ route('home') }}" class="text-[22px] focus:outline-none">
-                                <img src="/assets-frontend/images/op.png" class="block dark:hidden w-10" alt="">
-                                <img src="/assets-frontend/images/op.png" class="hidden dark:block w-10" alt="">
+                                <img src="{{asset('assets-frontend/images/OP_blue_sm.png')}}" class="block dark:hidden w-10" alt="">
                             </a>
                             <p class="mt-6">{{ __('') }}</p>
                             <ul class="list mt-6">

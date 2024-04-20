@@ -3,7 +3,8 @@
     <div class="container mx-auto">
         <!-- Logo container-->
         <a class="logo" href="{{ route('home') }}">
-            <img src="/assets-frontend/images/op.png" class="inline-block dark:hidden w-10" alt="{{ config('app.name', 'Laravel') }}">
+{{--            <img src="/assets-frontend/images/op.png" class="inline-block dark:hidden w-10" alt="{{ config('app.name', 'Laravel') }}">--}}
+            <img src="{{asset('assets-frontend/images/OP_blue.png')}}" class="inline-block w-40" alt="{{ config('app.name', 'Laravel') }}">
         </a>
 
         <!-- End Logo container-->

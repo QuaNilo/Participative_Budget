@@ -20,7 +20,7 @@
                             sign in to your account.
                         </div>
                         <div class="-intro-x mt-5 text-lg text-white text-opacity-70">
-                            Developed with ❤️ by <a href="https://noop.pt" class="text-white underline">noop</a>
+                            Developed by <a href="https://noop.pt" class="text-white underline">noop</a>
                         </div>
                     </div>
                 </div>

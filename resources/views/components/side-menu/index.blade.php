@@ -6,7 +6,7 @@
     >
         <img
             class="w-80"
-            src="{{ asset('images/logo.png') }}"
+            src="{{ asset('assets-frontend/images/OP_white.png') }}"
             alt="{{ config('app.name') }}"
         />
         @if(false)
