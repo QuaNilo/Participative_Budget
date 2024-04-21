@@ -103,8 +103,8 @@ class ProfileDetails extends Component
             'address' => 'nullable|string|max:255',
             'localidade' => 'nullable|string|max:255',
             'freguesia' => 'nullable|string|max:255',
-            'cod_postal' => 'nullable|string|max:255',
-            'telemovel' => 'nullable|string|max:255',
+            'cod_postal' => 'nullable|regex:/^\d{4}-\d{3}$/',
+            'telemovel' => 'nullable|string|max:255|regex:/^\d{9}$/',
             'gender' => 'nullable',
         ]);
 

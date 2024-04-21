@@ -69,6 +69,7 @@ module.exports = {
                 green: {
                     DEFAULT: '#75B626',
                 },
+                'danger': '#FF0000',
                 'warning': "#facc15",
                 'white-soft': '#F7F7FC',
                 'gray-primary': '#575563',
