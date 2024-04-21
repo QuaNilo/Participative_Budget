@@ -51,7 +51,7 @@ Route::get('/perfil/propostas', [UserFEController::class, 'show_proposals'])->na
 Route::get('/perfil/votos', [UserFEController::class, 'show_votes'])->name('users_dashboard_show_votes');
 Route::get('/perfil/detalhes', [UserFEController::class, 'show_details'])->name('users_dashboard_show_details');
 Route::get('/perfil/password', [UserFEController::class, 'show_password'])->name('users_dashboard_show_password');
-Route::get('/mapa/{id?}', [MapController::class, 'index'])->name('mapa');
+Route::get('/mapa/{edition?}', [MapController::class, 'index'])->name('mapa');
 
 Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');
 
