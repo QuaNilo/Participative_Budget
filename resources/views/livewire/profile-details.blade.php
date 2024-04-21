@@ -41,6 +41,7 @@
             </div>
             <div>
                 <label class="form-label font-medium">{{__('Address')}} : </label>
+
                 <div class="form-icon relative mt-2">
                     <input name="address" wire:model="address" id="address" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="{{__('Address')}} :">
                     @error('address')
@@ -48,13 +49,24 @@
                     @enderror
                 </div>
             </div>
-            <div>
-                <label class="form-label font-medium">{{__('Locality')}} : </label>
-                <div class="form-icon relative mt-2">
-                    <input name="localidade" wire:model="localidade" id="localidade" type="text" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="{{__('Locality')}} :">
-                    @error('localidade')
-                        <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
-                    @enderror
+            <div class="flex space-x-2">
+                <div class="flex flex-col flex-grow">
+                    <label class="form-label font-medium">{{__('Locality')}} : </label>
+                    <div class="form-icon relative mt-2">
+                        <input name="localidade" wire:model="localidade" id="localidade" type="text" class="form-input mt-2 w-fit py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="{{__('Locality')}} :">
+                        @error('localidade')
+                            <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label class="font-semibold" for="cod_postal">{{__('Postal Code')}} :</label>
+                    <div class="form-icon relative mt-2">
+                        <input id="cod_postal" wire:model="cod_postal" type="text" name="cod_postal" value="{{ old('cod_postal') }}" class="mt-2 py-2 w-10/12 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="{{__('Postal Code')}}">
+                        @error('cod_postal')
+                            <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
@@ -92,13 +104,6 @@
                 </div>
             </div>
 
-            <div class="">
-                <label class="font-semibold" for="cod_postal">{{__('Postal Code')}} :</label>
-                <input id="cod_postal" wire:model="cod_postal" type="text" name="cod_postal" value="{{ old('cod_postal') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="{{__('Postal Code')}}">
-                @error('cod_postal')
-                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
-                @enderror
-            </div>
 
             <div class="">
                 <label class="font-semibold" for="telemovel">{{__('Cellphone')}} :</label>
