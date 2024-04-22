@@ -1,7 +1,7 @@
 @props(['proposals', 'edition'])
 <x-landing-layout>
     <div class="flex flex-col my-24">
-        @if($edition)
+        @if($edition->id)
             <div class="flex space-x-5 justify-around">
                 <div class="flex space-x-3 my-5 font-medium text-3xl align-middle ">
                     <span>{{__('Edition')}}</span>
