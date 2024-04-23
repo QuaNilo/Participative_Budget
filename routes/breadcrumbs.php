@@ -219,7 +219,7 @@ Breadcrumbs::for('calendar-dynamics.edit', function (BreadcrumbTrail $trail, $mo
 // Home > Citizens
 Breadcrumbs::for('citizens.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Citizens'), route('calendar-dynamics.index'));
+    $trail->push(__('Citizens'), route('citizens.index'));
 });
 Breadcrumbs::for('citizens.create', function (BreadcrumbTrail $trail) {
     $trail->parent('citizens.index');
@@ -317,7 +317,7 @@ Breadcrumbs::for('faq-themes.edit', function (BreadcrumbTrail $trail, $model) {
 // Home > FAQS
 Breadcrumbs::for('homes.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Home Page'), route('faqs.index'));
+    $trail->push(__('Home Page'), route('home.index'));
 });
 Breadcrumbs::for('homes.create', function (BreadcrumbTrail $trail) {
     $trail->parent('homes.index');
@@ -336,7 +336,7 @@ Breadcrumbs::for('homes.edit', function (BreadcrumbTrail $trail, $model) {
 // Home-info > FAQS
 Breadcrumbs::for('home-infos.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Home Page'), route('faqs.index'));
+    $trail->push(__('Home Page'), route('home-infos.index'));
 });
 Breadcrumbs::for('home-infos.create', function (BreadcrumbTrail $trail) {
     $trail->parent('home-infos.index');
@@ -355,7 +355,7 @@ Breadcrumbs::for('home-infos.edit', function (BreadcrumbTrail $trail, $model) {
 // Home-bullet-points > FAQS
 Breadcrumbs::for('home-bullet-points.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Home Page'), route('homes.index'));
+    $trail->push(__('Home Page'), route('home-bullet-points.index'));
 });
 Breadcrumbs::for('home-bullet-points.create', function (BreadcrumbTrail $trail) {
     $trail->parent('home-bullet-points.index');

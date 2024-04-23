@@ -117,20 +117,8 @@ class   MenuComposer
                 'Citizens' => [
                     'icon' => 'users',
                     'title' => __('Citizens'),
-                    'sub_menu' => [
-                        'citizens.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'citizens.index',
-                            'params' => [],
-                            'title' => __('List Citizens')
-                        ],
-                        'citizens-pending.index' => [
-                            'icon' => 'list',
-                            'route_name' => 'citizens.index',
-                            'params' => ["pending" => 1],
-                            'title' => __('Pending Citizens')
-                        ],
-                    ]
+                    'route_name' => 'citizens.index',
+                    'params' => [],
                 ],
                 'Editions' => [
                     'icon' => 'mail-check',

@@ -16,8 +16,10 @@ class CitizenController extends Controller
      */
     public function index(Request $request)
     {
+
         return view('citizens.index');
     }
+
 
     /**
      * Show the form for creating a new Citizen.
@@ -142,6 +144,11 @@ class CitizenController extends Controller
 
         flash(__('Failed Updating Citizen'))->overlay()->danger()->duration(4000);
         return Redirect::route('citizens.index');
+    }
+
+    public function indexPending(Request $request)
+    {
+        return view('citizens.index');
     }
 
     public function approveCc(Request $request, Citizen $citizen)

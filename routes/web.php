@@ -109,6 +109,7 @@ Route::middleware([
 
     Route::resource('chapters', App\Http\Controllers\ChapterController::class);
     Route::resource('citizens', App\Http\Controllers\CitizenController::class);
+    Route::post('/citizens/pending/', [CitizenController::class, 'indexPending'])->name('citizens.index-pending');
     Route::post('/citizens/{citizen}/approve-cc/', [CitizenController::class, 'approveCc'])->name('citizens.approve_cc');
     Route::post('/citizens/{citizen}/reject-cc/', [CitizenController::class, 'rejectCc'])->name('citizens.reject_cc');
     Route::post('/citizens/{citizen}/verify-wizard', [CitizenController::class, 'showVerifyWizard'])->name('citizens.verify-wizard');

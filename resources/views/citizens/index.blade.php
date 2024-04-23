@@ -18,6 +18,15 @@
         @else
             <h2 class="mr-auto text-lg font-medium">{{ __('Citizens') }}</h2>
         @endif
+        @if(\App\Models\Citizen::where('CC_verified', 2)->exists())
+            <div>
+                <form action="{{route('citizens.index-pending')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="pending" value="1">
+                    <x-base.button class="shadow-md sm:ml-0" variant="primary" type="submit">{{__('Pending Citizens')}}</x-base.button>
+                </form>
+            </div>
+        @endif
     </div>
     <!-- BEGIN: HTML Table Data cannot use intro-y because break modals -->
     <div class="mt-8">
