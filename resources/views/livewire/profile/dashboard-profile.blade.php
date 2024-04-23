@@ -49,22 +49,24 @@
         @if($user->proposals)
             <div class=" overflow-hidden shadow-md rounded-md dark:shadow-gray-700 bg-white dark:bg-slate-900">
                 <div class="p-5 flex items-center">
+                    <span class="flex justify-center items-center rounded-md h-14 w-14 bg-primary/5 dark:bg-primary/10 shadow shadow-primary/5 dark:shadow-primary/10 text-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                           <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
                           <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
                         </svg>
-                        <span class="ms-3">
-                            <span class="text-sm text-slate-400 font-semibold block">{{__('Total Impressions on my Proposals')}}</span>
-                            <span class="flex items-center justify-between mt-1">
-                                <span class="text-xl font-semibold"><span class="counter-value" data-target="{{$total_impressions}}">{{$total_impressions}}</span></span>
-                            </span>
+                    </span>
+                    <span class="ms-3">
+                        <span class="text-sm text-slate-400 font-semibold block">{{__('Total Impressions on my Proposals')}}</span>
+                        <span class="flex items-center justify-between mt-1">
+                            <span class="text-xl font-semibold"><span class="counter-value" data-target="{{$total_impressions}}">{{$total_impressions}}</span></span>
                         </span>
+                    </span>
                 </div>
             </div><!--end-->
         @endif
     </div>
 
-    <div class="h-fit grid lg:grid-cols-10 grid-cols-4 grid-rows-2 mt-6 gap-4 ">
+    <div class="h-fit grid lg:grid-cols-10 grid-cols-4 grid-rows-1 mt-6 gap-4 ">
         <div class="lg:col-span-6 p-5 shadow-lg rounded-md bg-white">
             <div class="p-6 flex items-center justify-between border-b border-gray-100 dark:border-gray-800">
                 <h6 class="text-lg font-semibold">{{__('Votes Per Edition')}}</h6>
