@@ -10,6 +10,8 @@ class ContactController extends Controller
     public function show()
     {
         $setting = Setting::first();
-        return view("site.contact.index", ['setting' => $setting]);
+        $wallpaper = $setting ? $setting->getFirstMediaUrl('contact_us_wallpaper') : null;
+        return view("site.contact.index", ['setting' => $setting, 'wallpaper' => $wallpaper]);
     }
+
 }

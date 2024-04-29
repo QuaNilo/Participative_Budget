@@ -1,7 +1,7 @@
-@props(['setting'])
+@props(['setting', 'wallpaper'])
 <x-landing-layout>
      <!-- Start Hero -->
-        <section class="md:h-screen flex py-36 w-full items-center bg-gray-100 bg-center bg-no-repeat bg-cover">
+        <section class="md:h-screen flex py-36 w-full items-center bg-gray-100 bg-center bg-no-repeat bg-cover" style="background-image: url('{{$wallpaper}}');">
             <div class="absolute inset-0 bg-black/70"></div>
             <div class="container relative">
                 <div class="lg:flex justify-center mt-12">

@@ -11,7 +11,7 @@ class MapController extends Controller
 {
     public function index(Edition $edition) : View
     {
-        if($edition)
+        if($edition->identifier)
         {
             $proposals = Proposal::with('category', 'user')->where('edition_id', $edition->id)
                 ->get();

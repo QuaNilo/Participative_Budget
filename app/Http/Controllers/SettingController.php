@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\HelperMethods;
 use App\Http\Requests\CreateSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
 //use App\Http\Controllers\AppBaseController;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -97,6 +99,7 @@ class SettingController extends Controller
 
         $setting->fill($request->all());
         if($setting->save()){
+            HelperMethods::fileUploadHandle($request, 'contact_us_wallpaper', 'contact_us_wallpaper', $setting);
             flash(__('Updated successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();

@@ -15,8 +15,6 @@ class FilesUpload extends Component
 {
     use WithFileUploads;
 
-
-
     //#[Rule('image|max:10240')] // 1MB Max
     public $photo;
     //#[Rule(['files.*' => 'image|max:10240'])]
@@ -105,13 +103,7 @@ class FilesUpload extends Component
             return;
         }
         //fire the event of file uploaded with an array with the basic information about the files
-        if($this->isWallPaper)
-        {
-            $this->dispatch('update-files-wallpaper', $this->convertToArrayFiles());
-        }
-        else{
-            $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
-        }
+        $this->dispatch('file-uploaded', files: $this->convertToArrayFiles());
 
     }
 

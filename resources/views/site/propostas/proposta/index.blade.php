@@ -76,7 +76,7 @@
             <div class="flex-col">
                 <!-- BEGIN: Blog Layout -->
                 <h2 class="font-medium text-xl sm:text-2xl">
-                    {{$proposal->edition->identifier}}
+                    {{$proposal->title}}
                 </h2>
                 <div class="text-slate-600 mt-3 text-xs sm:text-sm">
                     {{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}
@@ -84,6 +84,11 @@
                     <span class="text-primary" >{{$proposal->category->name}}</span>
                     <span class="mx-1">•</span>
                     <span class="" >{{$proposal->user->name}}</span>
+                    <span class="mx-1">•</span>
+                            {{__('Impressions')}}
+                            <span class="font-medium">
+                                {{$proposal->impressions}}
+                            </span>
                 </div>
                 <div class="w-full h-1/4 mt-4">
                 <div class="tiny-single-item border border-gray-100">
@@ -117,12 +122,6 @@
 
                 <div class=" flex  pt-16 sm:pt-6 items-center pb-6">
                     <div class="absolute sm:relative -mt-12 sm:mt-0 w-full flex text-slate-600 text-xs sm:text-sm">
-                        <div class="intro-x mr-1 sm:mr-3"> Impressions:
-                            <span class="font-medium">
-                                {{$proposal->impressions}}
-                            </span>
-                        </div>
-{{--                        <div class="intro-x sm:mr-3 ml-auto"> Votes: <span class="font-medium">{{$proposal->votes_count}}</span> </div>--}}
                     </div>
                     <div class="">
                         @if($proposal->edition->status === \App\Models\Edition::STATUS_VOTING)
@@ -149,9 +148,6 @@
                         </form>
                     @endif
                 </div>
-                <h2 class="font-medium text-xl sm:text-2xl mb-3">
-                    {{$proposal->title}}
-                </h2>
                 <div class=" text-justify leading-relaxed">
                     {{$proposal->content}}
                 </div>

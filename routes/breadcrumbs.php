@@ -294,7 +294,7 @@ Breadcrumbs::for('faqs.edit', function (BreadcrumbTrail $trail, $model) {
 
 
 
-// Home > FAQS
+// Home > FAQS-Themes
 Breadcrumbs::for('faq-themes.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push(__('FAQ Theme'), route('faqs.index'));
@@ -314,10 +314,10 @@ Breadcrumbs::for('faq-themes.edit', function (BreadcrumbTrail $trail, $model) {
 
 
 
-// Home > FAQS
+// Home > Home Settings
 Breadcrumbs::for('homes.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('Home Page'), route('home.index'));
+    $trail->push(__('Home Page'), route('homes.index'));
 });
 Breadcrumbs::for('homes.create', function (BreadcrumbTrail $trail) {
     $trail->parent('homes.index');

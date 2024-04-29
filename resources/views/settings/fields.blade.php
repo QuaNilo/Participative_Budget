@@ -22,6 +22,8 @@
     @enderror
 </div>
 
+
+
 <!-- Require Address Vote Create Field -->
 <div class="mb-3">
     <x-base.form-input
@@ -68,6 +70,21 @@
     @error('allow_change_lang')
         <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
+</div>
+
+
+<div class="mb-6">
+    <livewire:files-upload
+        inputName="contact_us_wallpaper"
+        :isMultiple="false"
+        :isWallPaper="false"
+        maxFiles="1"
+        maxFileSize="10240"
+        :previousFiles="\App\Models\Setting::first()->getMedia('contact_us_wallpaper') ?? collect()"
+        :label="__('Upload Contact-Us Wallpaper')"
+        acceptedFileTypes="*/*"
+        :uploadFieldMainLabel="__('Upload Contact-Us Wallpaper')"
+    />
 </div>
 
 <!-- Address Field -->

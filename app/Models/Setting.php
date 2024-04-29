@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\LoadDefaults;
 use OwenIt\Auditing\Contracts\Auditable;
  use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * App\Models\Setting
@@ -51,11 +54,12 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereYoutube($value)
  * @mixin \Eloquent
  */
-class Setting extends Model implements Auditable
+class Setting extends Model implements Auditable, HasMedia
 {
     use LoadDefaults;
     use \OwenIt\Auditing\Auditable;
     use HasFactory;
+    use InteractsWithMedia;
 
     public $table = 'settings';
 
@@ -158,6 +162,36 @@ class Setting extends Model implements Auditable
         return isset($attributeLabels[$attribute]) ? $attributeLabels[$attribute] : __($attribute);
     }
 
+
+    public function registerMediaCollections(Media $media = null): void
+    {
+        $this->addMediaCollection('images');
+        $this->addMediaCollection('contact_us_wallpaper')
+            ->singleFile()
+            ->useFallbackUrl(asset('images/placeholders/800x800.jpg'))
+            ->useFallbackPath(public_path('/images/placeholders/800x800.jpg'))
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('original')
+                    ->fit('max', 1024, 1024)
+                    ->keepOriginalImageFormat();
+                $this
+                    ->addMediaConversion('square')
+                    ->crop('crop-center', 800, 800);
+                $this
+                    ->addMediaConversion('retangular')
+                    ->crop('crop-center', 800, 400);
+            });
+
+            $this->addMediaConversion('original')
+                ->keepOriginalImageFormat();
+
+            $this->addMediaConversion('square')
+                ->crop('crop-center', 800, 800);
+
+            $this->addMediaConversion('retangular')
+                ->crop('crop-center', 800, 400);
+    }
 
 
 
