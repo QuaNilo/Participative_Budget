@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\HelperMethods;
 use App\Http\Requests\CreateProposalRequest;
 use App\Http\Requests\UpdateProposalRequest;
 use App\Models\Edition;
@@ -115,10 +116,10 @@ class ProposalFEController extends Controller
 //            dd($file_names, $input, request());
             if (count($file_names) > 1) {
                 // Multiple files
-                $this->fileUploadHandle($input, $file_names, 'cover', $proposal, true );
+                HelperMethods::fileUploadHandle($input, $file_names, 'cover', $proposal, true);
             } else {
                 // Single file
-                $this->fileUploadHandle($input, $file_names[0], 'cover', $proposal, false);
+                HelperMethods::fileUploadHandle($input, $file_names[0], 'cover', $proposal, false);
             }
 
             flash(__('Saved successfully.'))->overlay()->success();

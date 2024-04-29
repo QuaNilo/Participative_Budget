@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\HelperMethods;
 use App\Http\Requests\CreateDemoRequest;
 use App\Http\Requests\UpdateDemoRequest;
 //use App\Http\Controllers\AppBaseController;
@@ -39,10 +40,10 @@ class DemoController extends Controller
         $demo = Demo::create($input);
         if($demo) {
             //handle the file upload and delete
-            $this->fileUploadHandle($request, 'cover', 'cover', $demo, false);
+            HelperMethods::fileUploadHandle($request, 'cover', 'cover', $demo, false);
 
             //handle the file upload and delete
-            $this->fileUploadHandle($request, 'file', 'files', $demo, true);
+            HelperMethods::fileUploadHandle($request, 'file', 'files', $demo, true);
             flash(__('Saved successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
@@ -102,10 +103,10 @@ class DemoController extends Controller
         $demo->fill($request->all());
         if ($demo->save()){
             //handle the file upload and delete
-            $this->fileUploadHandle($request, 'cover', 'cover', $demo, false);
+            HelperMethods::fileUploadHandle($request, 'cover', 'cover', $demo, false);
 
             //handle the file upload and delete
-            $this->fileUploadHandle($request, 'file', 'files', $demo,true);
+            HelperMethods::fileUploadHandle($request, 'file', 'files', $demo,true);
             flash(__('Updated successfully.'))->overlay()->success();
         }else{
             flash(__('Ups something went wrong'))->overlay()->danger();
