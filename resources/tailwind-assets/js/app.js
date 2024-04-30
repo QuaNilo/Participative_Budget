@@ -410,7 +410,7 @@ window.statistics = function statistics() {
             width: 2,
             colors: ['transparent']
         },
-        colors: ['#4f46e5', '#10b981'],
+        colors: ['#7393B3', '#169EDA'],
         xaxis: {
                 categories: JSON.parse(editionNames),
         },
