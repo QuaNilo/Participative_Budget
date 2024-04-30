@@ -8,7 +8,7 @@
     <div
         @drop.prevent="handleFileDrop"
         @dragover.prevent
-        class="rounded-md border-2 border-dashed pt-4 dark:border-darkmode-400">
+        class="rounded-md border-2 border-dashed pt-4">
         <div class="flex flex-wrap px-4">
             <div class="flex flex-wrap">
                 <!-- Previous files -->
@@ -73,7 +73,7 @@
         </div>
         <div class="relative flex cursor-pointer items-center px-4 pb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="image" data-lucide="image" class="lucide lucide-image stroke-1.5 mr-2 h-4 w-4"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
-            <span class="mr-1 text-primary">{{ !empty($uploadFieldMainLabel) ? $uploadFieldMainLabel : ($isMultiple ? __('Upload files') : __('Upload a file')) }}</span>
+            <span class="mr-1 text-primary hover:text-primary-hover">{{ !empty($uploadFieldMainLabel) ? $uploadFieldMainLabel : ($isMultiple ? __('Upload files') : __('Upload a file')) }}</span>
             {{ !empty($uploadFieldSecondaryLabel) ? $uploadFieldSecondaryLabel : __('or drag and drop') }}
             <input
                 x-ref="fileInput"
@@ -81,7 +81,7 @@
                 wire:model="files"
                 accept="{{ $acceptedFileTypes }}"
                 {{ $isMultiple ? 'multiple' : '' }}
-                class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer">
+                class="disabled:bg-slate-100 disabled:cursor-not-allowed [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer">
         </div>
         <!-- Upload Progress -->
         <div x-show="isUploading" class="bg-slate-200 rounded dark:bg-black/20 h-4 mb-4 mx-4">

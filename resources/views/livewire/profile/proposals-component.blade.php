@@ -1,5 +1,5 @@
 @props(['proposals'])
-<div class="flex-grow relative overflow-x-auto shadow dark:shadow-gray-800 rounded-md">
+<div class="flex-grow relative overflow-x-auto shadow rounded-md">
     <table class="w-full text-start text-slate-500">
         <thead class="text-sm uppercase bg-slate-100">
         <tr class="text-start">
@@ -12,15 +12,15 @@
         </thead>
         @foreach($proposals as $proposal)
             <tbody>
-                <tr class="bg-white dark:bg-slate-900 text-center">
+                <tr class="bg-white text-center">
                     <th class="px-2 py-3 text-center" scope="row">{{ $proposal->id }}</th>
                     <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</td>
                     <td class="px-2 py-3 text-center text-green-600">{{$proposal->status_label}}</td>
                     <td class="px-2 py-3 text-center">{{$proposal->votes_count}}</td>
                     <td class="px-2 py-3 text-center">
-                        <a href="/edition/proposta/{{$proposal->id}}" class="font-bold text-primary">{{__('View')}} </a>
+                        <a href="/edition/proposta/{{$proposal->id}}" class="font-bold text-primary hover:text-primary-hover">{{__('View')}} </a>
                         @if($proposal->edition->status_label === 'Aberta')
-                            <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600">{{__('Edit')}}</a>
+                            <a href="{{route("FEproposals.edit", $proposal)}}" class="block font-bold text-yellow-600 hover:text-primary-hover">{{__('Edit')}}</a>
                             <form method="POST" action="{{ route('FEproposals.destroy', $proposal) }}">
                                 @csrf
                                 @method('DELETE')

@@ -112,15 +112,6 @@
                     <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
-{{--            <div class="">--}}
-{{--                <label class="font-semibold" for="birth_date">{{__('birth_date')}} :</label>--}}
-{{--                <input id="birth_date" wire:model="birth_date" type="text" name="birth_date" value="{{ old('birth_date') }}" class="form-input mt-2 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="{{__('CellPhone')}}">--}}
-{{--                @error('birth_date')--}}
-{{--                    <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>--}}
-{{--                @enderror--}}
-{{--            </div>--}}
-
             <div class="mb-3">
                 <x-base.form-label for="birth_date">Birth Date</x-base.form-label>
                 <x-base.input-group
@@ -184,20 +175,7 @@
             :uploadFieldMainLabel="__('Upload Front and Back of Citizen Card')"
             />
         @endif
-
-{{--        <div class="grid grid-cols-1">--}}
-{{--            <div class="mt-5">--}}
-{{--                <label class="form-label font-medium">Description : </label>--}}
-{{--                <div class="form-icon relative mt-2">--}}
-{{--                    <i data-feather="message-circle" class="w-4 h-4 absolute top-3 start-4"></i>--}}
-{{--                    <textarea name="description" wire:model="description" id="description" class="form-input ps-11 w-full py-2 px-3 h-28 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-primary dark:border-gray-800 dark:focus:border-primary focus:ring-0" placeholder="Message :"></textarea>--}}
-{{--                </div>--}}
-{{--                @error('description')--}}
-{{--                        <div class="mt-2 ps-4 mb-4 text-danger">{{ $message }}</div>--}}
-{{--                @enderror--}}
-{{--            </div>--}}
-{{--        </div><!--end row-->--}}
-        <input type="submit" id="submit" name="send" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white rounded-md mt-5" value="Save Changes">
+        <input type="submit" id="submit" name="send" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-hover border-primary hover:border-primary-hover text-white rounded-md mt-5" value="Save Changes">
     </form><!--end form-->
 
 </div>

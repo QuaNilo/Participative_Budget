@@ -5,7 +5,7 @@
 .background-effect {
     .circles {
         li {
-            @apply absolute block -bottom-[150px] bg-indigo-600/30;
+            @apply absolute block -bottom-[150px] bg-primary/30;
             animation: animate 25s linear infinite;
 
             &.brand-img {
@@ -38,51 +38,51 @@
                 @apply start-1/4;
                 animation-delay: 0s;
             }
-        
+
             &:nth-child(2) {
                 @apply start-[10%];
                 animation-delay: 2s;
                 animation-duration: 12s;
             }
-        
+
             &:nth-child(3) {
                 @apply start-[70%];
                 animation-delay: 4s;
             }
-        
+
             &:nth-child(4) {
                 @apply start-[40%];
                 animation-delay: 0s;
                 animation-duration: 18s;
             }
-        
+
             &:nth-child(5) {
                 @apply start-[65%];
                 animation-delay: 0s;
             }
-        
+
             &:nth-child(6) {
                 @apply start-3/4;
                 animation-delay: 3s;
             }
-        
+
             &:nth-child(7) {
                 @apply start-[35%];
                 animation-delay: 7s;
             }
-        
+
             &:nth-child(8) {
                 @apply start-1/2;
                 animation-delay: 15s;
                 animation-duration: 45s;
             }
-        
+
             &:nth-child(9) {
                 @apply start-[20%];
                 animation-delay: 2s;
                 animation-duration: 35s;
             }
-        
+
             &:nth-child(10) {
                 @apply start-[85%];
                 animation-delay: 0s;

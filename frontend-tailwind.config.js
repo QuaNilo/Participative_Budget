@@ -57,6 +57,7 @@ module.exports = {
                 primary: {
                     DEFAULT: '#7393B3',
                     hover: '#7393FF',
+                    active: '#7393FF'
                 },
                 secondary: {
                     DEFAULT: '#169EDA',

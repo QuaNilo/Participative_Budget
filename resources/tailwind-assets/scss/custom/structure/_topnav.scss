@@ -25,14 +25,14 @@
           li{
             &.active {
               > a {
-                @apply text-indigo-600 dark:text-indigo-600 #{!important};
+                @apply text-primary dark:text-primary #{!important};
               }
             }
           }
         }
         &.active {
           .menu-arrow {
-            @apply border-indigo-600 dark:border-indigo-600;
+            @apply border-primary dark:border-primary;
           }
         }
       }
@@ -44,20 +44,20 @@
         .has-submenu {
           &:hover {
             /* .submenu-arrow {
-              @apply border-indigo-600 dark:border-indigo-600;
+              @apply border-primary dark:border-primary;
             } */
             > .submenu-arrow {
-              @apply border-indigo-600 dark:border-indigo-600;
+              @apply border-primary dark:border-primary;
             }
           }
           .submenu {
             .has-submenu{
               &:hover {
                 .submenu-arrow {
-                  @apply border-indigo-600 dark:border-indigo-600;
+                  @apply border-primary dark:border-primary;
                 }
                 > .submenu-arrow {
-                  @apply border-indigo-600 dark:border-indigo-600;
+                  @apply border-primary dark:border-primary;
                 }
               }
             }
@@ -99,7 +99,7 @@
             @apply w-full top-[6px] -rotate-[45deg];
           }
           &:hover {
-            @apply bg-indigo-600;
+            @apply bg-primary;
           }
         }
       }
@@ -159,13 +159,13 @@
           @apply block text-black dark:text-white text-[13px] bg-transparent font-bold tracking-[1px] leading-6 uppercase px-[14px] #{!important};
           &:hover,
           &:active {
-            @apply text-indigo-600;
+            @apply text-primary;
           }
         }
         &:hover,
         &.active{
           > a {
-            @apply text-indigo-600 dark:text-indigo-600 #{!important};
+            @apply text-primary dark:text-primary #{!important};
           }
         }
         .submenu.megamenu {
@@ -204,10 +204,10 @@
           &:hover,
           &.active{
             > a {
-              @apply text-indigo-600;
+              @apply text-primary;
             }
             > .menu-arrow {
-              @apply border-indigo-600 dark:border-indigo-600;
+              @apply border-primary dark:border-primary;
             }
           }
         }
@@ -235,20 +235,20 @@
             }
             &.active {
               > a {
-                @apply text-indigo-600 dark:text-indigo-600 #{!important};
+                @apply text-primary dark:text-primary #{!important};
               }
             }
             &:hover,
             &.active{
               > .menu-arrow {
-                @apply border-indigo-600 #{!important};
+                @apply border-primary #{!important};
               }
             }
 
             &:hover,
             &.active {
               > a {
-                @apply text-indigo-600 dark:text-indigo-600 #{!important};
+                @apply text-primary dark:text-primary #{!important};
               }
             }
           }
@@ -361,7 +361,7 @@
               transition: all 0.3s;
               @apply block py-[10px] px-5 clear-both whitespace-nowrap text-[11px] uppercase tracking-[0.04em] font-bold text-black dark:text-white leading-[17px];
               &:hover {
-                @apply text-indigo-600 dark:text-indigo-600 #{!important};
+                @apply text-primary dark:text-primary #{!important};
               }
             }
             ul {
@@ -388,13 +388,13 @@
         }
         &:hover {
           > .menu-arrow {
-            @apply border-indigo-600 dark:border-indigo-600;
+            @apply border-primary dark:border-primary;
           }
         }
         &:hover,
         &.active{
           > a {
-            @apply text-indigo-600 dark:text-indigo-600 #{!important};
+            @apply text-primary dark:text-primary #{!important};
           }
         }
         &.last-elements{
@@ -534,7 +534,7 @@
         > a:hover,
         .submenu li a:hover,
         &.has-submenu.open > a {
-          @apply text-indigo-600;
+          @apply text-primary;
         }
       }
     }
@@ -565,7 +565,7 @@
       }
       &.active {
         a {
-          @apply text-indigo-600;
+          @apply text-primary;
         }
       }
     }
@@ -662,21 +662,21 @@
         &:hover,
         &.active {
           .navbar-link {
-            @apply text-indigo-600;
+            @apply text-primary;
           }
         }
     }
     li{
       &.active {
         a {
-          @apply text-indigo-600;
+          @apply text-primary;
         }
       }
       &.account-menu {
         &.active,
         &:hover{
           .navbar-link {
-            @apply text-indigo-600 dark:text-white #{!important};
+            @apply text-primary dark:text-white #{!important};
           }
         }
       }

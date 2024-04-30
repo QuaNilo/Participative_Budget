@@ -1,6 +1,6 @@
 @props(['proposal'])
 <div onclick="window.location='{{ route('proposta-detail', ['proposal_id' => $proposal->id]) }}'" class="bg-white/90 shadow-lg rounded-md hover:cursor-pointer transition-transform transform-gpu hover:scale-105">
-    <div class="flex items-center border-b border-slate-200/60 px-5 py-4">
+    <div class="flex items-center border-b border-slate-200/60 px-5 py-4 bg-primary/10">
         <div class="mr-auto">
             <a class="font-medium">{{$proposal->user->name}}</a>
             <div class="flex text-slate-500 truncate text-xs mt-0.5">
@@ -30,7 +30,7 @@
         <p class="block font-medium text-base mt-5">{{$proposal->title}}</p>
         <div class="text-slate-600 mt-2 overflow-hidden h-12 ">{{$proposal->summary}}</div>
     </div>
-    <div class="px-5 pt-3 pb-5 border-t border-slate-200/60">
+    <div class="px-5 pt-3 pb-5 border-t border-slate-200/60 bg-primary/10">
         <div class="flex justify-around w-full text-slate-500 text-xs sm:text-sm">
             <div class="text-sm italic">Status: <span class="font-medium"> {{$proposal->status_label}}</span></div>
             <div class="text-sm italic">Views: <span class="font-medium"> {{$proposal->impressions}}</span></div>

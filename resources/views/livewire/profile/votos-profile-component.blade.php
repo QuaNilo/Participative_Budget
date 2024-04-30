@@ -16,12 +16,12 @@
                 <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</td>
                 <td class="px-2 py-3 text-center">{{$vote->proposal->title}}</td>
                 <td class="px-2 py-3 text-center">
-                    <a href="{{route('proposta-detail', $vote->proposal->id)}}" class="font-bold text-primary">{{__('View')}}</a>
+                    <a href="{{route('proposta-detail', $vote->proposal->id)}}" class="font-bold text-primary hover:text-primary-hover">{{__('View')}}</a>
                     @if(in_array($vote->proposal->edition->status, $validEditionStatusToDeleteVote))
                         <form method="POST" action="{{ route('proposta-remove-vote', $vote->proposal->id) }}">
                             @csrf
                             @method('DELETE') <!-- Assuming you're using DELETE method for removing the vote -->
-                            <button type="submit" class="font-bold text-red-600">{{__('Delete')}}</button>
+                            <button type="submit" class="font-bold text-red-600 hover:text-red-500">{{__('Delete')}}</button>
                         </form>
                     @endif
                 </td>
