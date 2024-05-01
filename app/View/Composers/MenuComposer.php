@@ -91,13 +91,13 @@ class   MenuComposer
                             'icon' => 'list',
                             'route_name' => 'faqs.index',
                             'params' => [],
-                            'title' => __('FAQ Questions')
+                            'title' => __('Questions')
                         ],
                         'faq-themes.index' => [
                             'icon' => 'list',
                             'route_name' => 'faq-themes.index',
                             'params' => [],
-                            'title' => __('FAQ Themes')
+                            'title' => __('Categories')
                         ],
                     ],
                 ],

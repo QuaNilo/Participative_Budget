@@ -1,6 +1,6 @@
 <!-- Theme Field -->
 <div class="mb-3">
-    <x-base.form-label for="theme">{{ $faqTheme->getAttributeLabel('theme') }}</x-base.form-label>
+    <x-base.form-label for="theme">{{__('Category')}}</x-base.form-label>
     <x-base.form-input
         class="w-full {{ ($errors->has('theme') ? 'border-danger' : '') }}"
         id="theme"

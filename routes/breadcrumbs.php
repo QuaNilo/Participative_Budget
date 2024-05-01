@@ -297,7 +297,7 @@ Breadcrumbs::for('faqs.edit', function (BreadcrumbTrail $trail, $model) {
 // Home > FAQS-Themes
 Breadcrumbs::for('faq-themes.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push(__('FAQ Theme'), route('faqs.index'));
+    $trail->push(__('FAQ Category'), route('faqs.index'));
 });
 Breadcrumbs::for('faq-themes.create', function (BreadcrumbTrail $trail) {
     $trail->parent('faq-themes.index');
@@ -305,7 +305,7 @@ Breadcrumbs::for('faq-themes.create', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('faq-themes.show', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('faq-themes.index');
-    $trail->push('FAQ Theme' .$model->question, route('faq-themes.show', $model));
+    $trail->push('FAQ Category' .$model->question, route('faq-themes.show', $model));
 });
 Breadcrumbs::for('faq-themes.edit', function (BreadcrumbTrail $trail, $model) {
     $trail->parent('faq-themes.show', $model);

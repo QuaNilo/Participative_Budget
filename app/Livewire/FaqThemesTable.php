@@ -67,13 +67,13 @@ class FaqThemesTable extends Component implements HasForms, HasTable
                 ->multiple()
                 ->options(Demo::getStatusArray())*/
             ])
-            ->actions([
-                Action::make('edit')
-                ->label(__('Update'))
-                ->url(fn (FaqTheme $record): string => route('faq-themes.edit', ['faq_theme' => $record]))
-                ->icon('heroicon-o-pencil')
-                //->color('danger')
-            ])
+//            ->actions([
+//                Action::make('edit')
+//                ->label(__('Update'))
+//                ->url(fn (FaqTheme $record): string => route('faq-themes.edit', ['faq_theme' => $record]))
+//                ->icon('heroicon-o-pencil')
+//                //->color('danger')
+//            ])
             ->bulkActions([
                 //BulkActionGroup::make([
                 BulkAction::make('delete')
