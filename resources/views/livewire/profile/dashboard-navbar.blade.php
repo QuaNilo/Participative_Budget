@@ -23,23 +23,23 @@
                 </li>
                 <li>
                     <a href="{{route('users_dashboard_show_proposals')}}">
-                        <x-profile-dashboard-tab :class="$tab === 'proposals' ? 'bg-primary text-white hover:bg-primary-hover' : 'hover:text-primary-hover'" ><i class="uil uil-list-ul text-[20px] me-2 align-middle"></i>{{__('Proposals')}}</x-profile-dashboard-tab>
+                        <x-profile-dashboard-tab :class="$tab === 'proposals' ? 'bg-primary text-white hover:bg-primary-hover hover:text-white' : 'hover:text-primary-hover'" ><i class="uil uil-list-ul text-[20px] me-2 align-middle"></i>{{__('Proposals')}}</x-profile-dashboard-tab>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('users_dashboard_show_votes')}}">
-                        <x-profile-dashboard-tab :class="$tab === 'votes' ? 'bg-primary text-white hover:bg-primary-hover' : 'hover:text-primary-hover'" ><i class="uil uil-heart text-[20px] me-2 align-middle"></i>{{__('Votes')}}</x-profile-dashboard-tab>
+                        <x-profile-dashboard-tab :class="$tab === 'votes' ? 'bg-primary text-white hover:bg-primary-hover hover:text-white' : 'hover:text-primary-hover'" ><i class="uil uil-heart text-[20px] me-2 align-middle"></i>{{__('Votes')}}</x-profile-dashboard-tab>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('users_dashboard_show_details')}}">
-                        <x-profile-dashboard-tab :class="$tab === 'details' ? 'bg-primary text-white hover:bg-primary-hover' : 'hover:text-primary-hover'"><i class="uil uil-user text-[20px] me-2 align-middle"></i>{{__('Account Details')}}</x-profile-dashboard-tab>
+                        <x-profile-dashboard-tab :class="$tab === 'details' ? 'bg-primary text-white hover:bg-primary-hover hover:text-white' : 'hover:text-primary-hover'"><i class="uil uil-user text-[20px] me-2 align-middle"></i>{{__('Account Details')}}</x-profile-dashboard-tab>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('users_dashboard_show_password')}}">
-                        <x-profile-dashboard-tab :class="$tab === 'password' ? 'bg-primary text-white hover:bg-primary-hover' : 'hover:text-primary-hover'"><i class="uil uil-padlock text-[20px] me-2 align-middle"></i>{{__('Update Password')}}</x-profile-dashboard-tab>
+                        <x-profile-dashboard-tab :class="$tab === 'password' ? 'bg-primary text-white hover:bg-primary-hover hover:text-white' : 'hover:text-primary-hover'"><i class="uil uil-padlock text-[20px] me-2 align-middle"></i>{{__('Update Password')}}</x-profile-dashboard-tab>
                     </a>
                 </li>
             </ul>
