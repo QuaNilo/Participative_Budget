@@ -9,7 +9,7 @@
                 <!-- BEGIN: General Report -->
                 <div class="col-span-12 mt-8">
                     <div class="intro-y flex h-10 items-center">
-                        <h2 class="mr-5 truncate text-lg font-medium">Dados gerais</h2>
+                        <h2 class="mr-5 truncate text-lg font-medium">{{__("Dados gerais")}}</h2>
                         <a
                             class="ml-auto flex items-center text-primary"
                             href=""
@@ -17,7 +17,7 @@
                             <x-base.lucide
                                 class="mr-3 h-4 w-4"
                                 icon="RefreshCcw"
-                            /> Atualizar dados
+                            /> {{__('Atualizar dados')}}
                         </a>
                     </div>
                     <div class="mt-5 grid grid-cols-12 gap-6">
@@ -34,7 +34,7 @@
                                         />
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{$votes_count}}</div>
-                                    <div class="mt-1 text-base text-slate-500">Votos</div>
+                                    <div class="mt-1 text-base text-slate-500">{{__('Votos')}}</div>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{ $edition_count }}</div>
-                                    <div class="mt-1 text-base text-slate-500">Edições</div>
+                                    <div class="mt-1 text-base text-slate-500">{{__('Edições')}}</div>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{$proposal_count}}</div>
                                     <div class="mt-1 text-base text-slate-500">
-                                        Propostas
+                                        {{__('Propostas')}}
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{$user_count}}</div>
                                     <div class="mt-1 text-base text-slate-500">
-                                        Utilizadores
+                                        {{__('Utilizadores')}}
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                 <div class="col-span-12 mt-6">
                     <div class="intro-y block h-10 items-center sm:flex">
                         <h2 class="mr-5 truncate text-lg font-medium">
-                            Últimas propostas adicionadas
+                            {{__('Últimas propostas adicionadas')}}
                         </h2>
                         <div class="mt-3 flex items-center sm:ml-auto sm:mt-0">
                             @if(false)
@@ -152,14 +152,14 @@
                                     class="mr-2 hidden h-4 w-4 sm:block"
                                     icon="FileText"
                                 />
-                                Exportar Excel
+                                {{__('Export to Excel')}}
                             </x-base.button>
                             <x-base.button class="!box ml-3 flex items-center text-slate-600 dark:text-slate-300">
                                 <x-base.lucide
                                     class="mr-2 hidden h-4 w-4 sm:block"
                                     icon="FileText"
                                 />
-                                Export to PDF
+                                {{__('Export to PDF')}}
                             </x-base.button>
                             @endif
                         </div>
@@ -169,16 +169,16 @@
                             <x-base.table.thead>
                                 <x-base.table.tr>
                                     <x-base.table.th class="whitespace-nowrap border-b-0">
-                                        NOME
+                                        {{__('Name')}}
                                     </x-base.table.th>
                                     <x-base.table.th class="whitespace-nowrap border-b-0 text-center">
-                                        DATA
+                                        {{__('Date')}}
                                     </x-base.table.th>
                                     <x-base.table.th class="whitespace-nowrap border-b-0 text-center">
-                                        ESTADO
+                                        {{__('Status')}}
                                     </x-base.table.th>
                                     <x-base.table.th class="whitespace-nowrap border-b-0 text-center">
-                                        AÇõES
+                                        {{__('Actions')}}
                                     </x-base.table.th>
                                 </x-base.table.tr>
                             </x-base.table.thead>
@@ -195,7 +195,7 @@
                                                 {{$proposal->title}}
                                             </a>
                                             <div class="mt-0.5 whitespace-nowrap text-xs text-slate-500">
-                                                Edição {{$proposal->edition->identifier}}
+                                                {{__('Edition')}} {{$proposal->edition->identifier}}
                                             </div>
                                         </x-base.table.td>
                                         <x-base.table.td
@@ -230,7 +230,7 @@
                                                         class="mr-1 h-4 w-4"
                                                         icon="CheckSquare"
                                                     />
-                                                    Editar
+                                                    {{__('Edit')}}
                                                 </a>
                                                 <a
                                                     class="flex items-center text-danger"
@@ -240,7 +240,7 @@
                                                         class="mr-1 h-4 w-4"
                                                         icon="Trash"
                                                     />
-                                                    Apagar
+                                                    {{__('Delete')}}
                                                 </a>
                                             </div>
                                         </x-base.table.td>

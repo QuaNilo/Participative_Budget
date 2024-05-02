@@ -2,10 +2,10 @@
 <div class="">
     <style type="text/css">
         #map {
-          height: 800px;
+            height: 100vh;
         }
     </style>
-    <div class="h-screen w-screen bg-gray-100" id="map"></div>
+    <div class="bg-gray-100" id="map"></div>
     <script type="text/javascript">
         let map;
         let openInfoWindow;
