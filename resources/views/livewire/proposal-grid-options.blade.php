@@ -5,7 +5,7 @@
     </x-button>
     @if(!in_array($edition->status, [0, 1, 2, 3]))
         <div class="">
-            <button class="@if($showWinners) bg-gradient-to-r from-primary to-secondary @else bg-primary hover:bg-primary-hover active:bg-primary-active @endif font-semibold px-2 py-1 inline-flex items-center border border-transparent rounded-md text-white uppercase transition ease-in-out duration-150'" wire:click="winnersToParent"><i class="uil uil-star @if($showWinners) text-yellow-50 @else @endif  font-bold text-sm mr-1"></i>{{__('Winning Projects')}}</button>
+            <button class="@if($showWinners) bg-gradient-to-r from-primary to-secondary @else bg-primary hover:bg-primary-hover active:bg-primary-active @endif font-semibold px-2 py-1 inline-flex items-center rounded-md text-white uppercase transition ease-in-out duration-150'" wire:click="winnersToParent"><i class="uil uil-star @if($showWinners) text-yellow-50 @else @endif  font-bold text-sm"></i>{{__('Winning Projects')}}</button>
         </div>
     @endif
     @auth()
