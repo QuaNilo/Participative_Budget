@@ -1,8 +1,10 @@
 @props(['calendars'])
 <x-landing-layout>
     <!-- Start -->
-        <section class="relative mx-32 px-32 md:py-24 py-16 dark:bg-slate-800">
-            <div class="container relative">
+    <div class="container">
+
+        <section class="relative py-24">
+            <div class="relative">
                 <div class="grid grid-cols-1 pb-8 text-center">
                     <h6 class="text-primary text-sm font-bold uppercase mb-2">{{__('Calendar')}}</h6>
                     <h3 class="md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{{__("Participative Budget's Calendar")}}</h3>
@@ -51,4 +53,5 @@
             </div><!--end container-->
         </section><!--end section-->
         <!-- End -->
+    </div>
 </x-landing-layout>

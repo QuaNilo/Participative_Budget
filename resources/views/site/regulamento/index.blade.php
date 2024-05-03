@@ -3,6 +3,7 @@
     <!-- Start Section-->
         <section class="relative md:py-24 py-16 ">
             <div class="container relative">
+                <h6 class="text-primary text-center text-sm font-bold uppercase mb-2">{{__('Regulamento')}}</h6>
                 @if(isset($regulation))
                     <div class="grid grid-cols-1 items-center gap-[30px]">
                         <h4 class="text-3xl font-semibold mb-4">{{$regulation->title}}</h4>
