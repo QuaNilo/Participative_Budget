@@ -12,6 +12,9 @@ use Livewire\WithPagination;
 
 class ShowProposalGrid extends Component
 {
+
+    use WithPagination;
+
     public $category_selected;
     public $status_selected;
     public $categories;
@@ -26,10 +29,7 @@ class ShowProposalGrid extends Component
     public function mount()
     {
         $this->categories = Category::get();
-        $this->proposals = Proposal::with('user', 'category')
-            ->where('edition_id', $this->edition->id)
-            ->withCount('votes')
-            ->paginate(9);
+        $this->proposals = $this->getProposals();
         $this->showWinners = false;
 
     }
@@ -103,9 +103,22 @@ class ShowProposalGrid extends Component
         $this->filter($data);
     }
 
+    protected function getProposals()
+    {
+        $proposals = Proposal::with('user', 'category')
+            ->where('edition_id', $this->edition->id)
+            ->withCount('votes')
+            ->paginate(9);
+        return $proposals;
+    }
+
     public function render()
     {
         $proposals = $this->proposals;
+        if(!$proposals)
+        {
+            $proposals = $this->getProposals();
+        }
         if(auth()->user()){
             $user_id = auth()->user()->id;
             $user_proposals_count = Proposal::whereHas('user', function ($query) use ($user_id) {
