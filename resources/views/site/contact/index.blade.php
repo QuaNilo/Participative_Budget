@@ -22,7 +22,7 @@
                                         <i data-feather="mail" class="w-6 h-6 me-4"></i>
                                         <div class="">
                                             <h5 class="title font-bold mb-0">{{__('Email')}}</h5>
-                                            <a href="mailto:contact@example.com" class="relative inline-block font-semibold tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 text-primary hover:text-primary-hover after:bg-primary duration-500 ease-in-out">{{$setting->email_cm}}</a>
+                                            <a href="mailto:{{$setting->email_cm}}" class="relative inline-block font-semibold tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 text-primary hover:text-primary-hover after:bg-primary duration-500 ease-in-out">{{$setting->email_cm}}</a>
                                         </div>
                                     </div>
 
@@ -30,7 +30,7 @@
                                         <i data-feather="phone" class="w-6 h-6 me-4"></i>
                                         <div class="">
                                             <h5 class="title font-bold mb-0">{{__('Phone')}}</h5>
-                                            <a href="tel:+152534-468-854" class="relative inline-block font-semibold tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 text-primary hover:text-primary-hover after:bg-primary duration-500 ease-in-out">{{$setting->telephone_cm}}</a>
+                                            <a href="tel:{{$setting->telephone_cm}}" class="relative inline-block font-semibold tracking-wide align-middle text-base text-center border-none after:content-[''] after:absolute after:h-px after:w-0 hover:after:w-full after:end-0 hover:after:end-auto after:bottom-0 after:start-0 after:duration-500 text-primary hover:text-primary-hover after:bg-primary duration-500 ease-in-out">{{$setting->telephone_cm}}</a>
                                         </div>
                                     </div>
 
