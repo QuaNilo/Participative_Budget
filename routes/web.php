@@ -73,7 +73,6 @@ Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'FEShow'])->name
 Route::get('/contact-us', [ContactController::class,'show'])->name('contact-us');
 Route::get('/cookies-policy', [HomeController::class,'cookies'])->name('home.cookies');
 Route::get('/privacy-policy', [HomeController::class,'privacyPolicy'])->name('home.privacy_policy');
-Route::get('/privacy-policy-1', [HomeController::class,'privacyPolicy'])->name('policy.show');
 Route::get('/terms-of-service', [HomeController::class,'termsOfService'])->name('home.terms_of_service');
 
 Route::post('download-files/proposal/{proposal}', [DownloadMediaController::class, 'download_zip_proposal'])->name('download-files-proposal');

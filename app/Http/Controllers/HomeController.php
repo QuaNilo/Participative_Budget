@@ -131,6 +131,20 @@ class HomeController extends Controller
         return redirect(route('homes.index'));
     }
 
+    public function cookies()
+    {
+        return view('site.home.cookies');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('site.home.privacy_policy');
+    }
+
+    public function termsOfService()
+    {
+        return view('site.home.terms_of_service');
+    }
 
 
 }
