@@ -23,15 +23,8 @@ class TrackProposalViews
             return redirect()->route('display_warning', ['message' => __('Failed to get proposal')]);
         }
         // Increment impression count
-        ++$proposal->impressions;
-        $proposal->save();
-//
-//        // Track unique impression
-//        dd(!$proposal->votes()->where('user_id', Auth::id())->exists());
-//        if (!$proposal->votes()->where('user_id', Auth::id())->exists()) {
-//            ++$proposal->unique_impressions; // Increment unique_impressions by one
-//            $proposal->save(); // Save the updated count to the database
-//        }
+        $proposal->update(['impressions' => ++$proposal->impressions]);
+
         return $next($request);
     }
 }
