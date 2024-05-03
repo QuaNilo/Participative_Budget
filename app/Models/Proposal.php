@@ -132,7 +132,7 @@ class Proposal extends Model implements Auditable, HasMedia
         static::saving(function ($proposal) {
             // Truncate the content to 255 characters and assign it to the summary field
             $proposal->summary = substr($proposal->content, 0, 255);
-            $proposal->created_at = now();
+            $proposal->created_at = $proposal->created_at ?: now();
             $proposal->updated_at = now();
         });
 
