@@ -111,8 +111,8 @@
                                     <x-base.form-check.input type="checkbox" class="mr-2 border" id="terms" name="terms" required />
                                     <label class="cursor-pointer select-none" for="terms" >
                                         {!! __('I agree to the :terms_of_service and :privacy_policy', [
-//                                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="ml-1 text-primary dark:text-slate-200">'.__('Terms of Service').'</a>',
-//                                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="ml-1 text-primary dark:text-slate-200">'.__('Privacy Policy').'</a>',
+                                                        'terms_of_service' => '<a target="_blank" href="'.route('home.terms_of_service').'" class="ml-1 text-primary dark:text-slate-200">'.__('Terms of Service').'</a>',
+                                                        'privacy_policy' => '<a target="_blank" href="'.route('home.privacy_policy').'" class="ml-1 text-primary dark:text-slate-200">'.__('Privacy Policy').'</a>',
                                                 ]) !!}
                                     </label>
                                 </div>
@@ -182,8 +182,8 @@
 
                                 <div class="ml-2">
                                     {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-800">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-800">'.__('Privacy Policy').'</a>',
+                                            'terms_of_service' => '<a target="_blank" href="'.route('home.terms_of_service').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-800">'.__('Terms of Service').'</a>',
+                                            'privacy_policy' => '<a target="_blank" href="'.route('home.privacy_policy').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-gray-800">'.__('Privacy Policy').'</a>',
                                     ]) !!}
                                 </div>
                             </div>

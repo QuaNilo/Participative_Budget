@@ -13,7 +13,7 @@
             "preferences_center_close_button_hide": false,
             "page_refresh_confirmation_buttons": false,
             "website_name": "{{ config('app.name', 'Laravel') }}",
-            "website_privacy_policy_url": "{{ route('policy.show') }}"
+            "website_privacy_policy_url": "{{ route('home.privacy_policy') }}"
         });
     });
 </script>

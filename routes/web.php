@@ -55,7 +55,6 @@ Route::get('/mapa/{edition?}', [MapController::class, 'index'])->name('mapa');
 
 Route::get('/edicoes', [EditionsFE::class, 'index'])->name('editions-fe');
 
-
 Route::get('/edicao/{id?}', [ProposalFEController::class, 'show_frontend'])->name('propostas');
 Route::post('propostas-store', [ProposalCreateForm::class, 'store'])->name('propostasFE-store');
 Route::get('/propostas/create/{id}', [ProposalFEController::class, 'show_frontend_create'])->name('proposal-create');
