@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <div class="p-7">
+    <div class="p-3">
         <div class="relative h-40 2xl:h-56">
             @if($proposal->winner)
                 <span class="absolute top-0 z-50 right-0 bg-pending/80 text-white text-xs m-5 px-2 py-1 bg-amber-500 rounded ">{{__('Winner')}}</span>

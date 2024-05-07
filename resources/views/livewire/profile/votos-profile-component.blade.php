@@ -3,16 +3,18 @@
     <table class="w-full text-start text-slate-500 dark:text-slate-400">
         <thead class="text-sm uppercase bg-slate-100">
             <tr class="text-start">
-                <th scope="col" class="px-2 py-3 text-center">{{__('Vote no.')}}</th>
-                <th scope="col" class="px-2 py-3 text-center">{{__('Created')}}</th>
-                <th scope="col" class="px-2 py-3 text-center">{{__('Proposal')}}</th>
-                <th scope="col" class="px-2 py-3 text-center">{{__('Action')}}</th>
+                <th class="px-2 py-3 text-center">{{__('Proposal Title')}}</th>
+                <th class="px-2 py-3 text-center">{{__('Vote no.')}}</th>
+                <th class="px-2 py-3 text-center">{{__('Created')}}</th>
+                <th class="px-2 py-3 text-center">{{__('Proposal')}}</th>
+                <th class="px-2 py-3 text-center">{{__('Action')}}</th>
             </tr>
         </thead>
         @foreach($votes as $vote)
         <tbody>
             <tr class="bg-white dark:bg-slate-900 text-start">
-                <th class="px-2 py-3 text-center" scope="row">{{ $vote->id }}</th>
+                <th class="px-2 py-3 text-center">{{ substr($vote->proposal->title, 0, 32) }}</th>
+                <th class="px-2 py-3 text-center">{{ $vote->id }}</th>
                 <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</td>
                 <td class="px-2 py-3 text-center">{{$vote->proposal->title}}</td>
                 <td class="px-2 py-3 text-center">

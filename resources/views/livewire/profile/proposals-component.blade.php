@@ -3,17 +3,19 @@
     <table class="w-full text-start text-slate-500">
         <thead class="text-sm uppercase bg-slate-100">
         <tr class="text-start">
-            <th scope="col" class="px-2 py-3 text-center">{{__('Proposal no.')}}</th>
-            <th scope="col" class="px-2 py-3 text-center">{{__('Created')}}</th>
-            <th scope="col" class="px-2 py-3 text-center">{{__('Status')}}</th>
-            <th scope="col" class="px-2 py-3 text-center">{{__('Votes')}}</th>
-            <th scope="col" class="px-2 py-3 text-center">{{__('Actions')}}</th>
+            <th  class="px-1 py-3 text-center overflow-hidden">{{__('Proposal Title')}}</th>
+            <th  class="px-2 py-3 text-center">{{__('Proposal no.')}}</th>
+            <th  class="px-2 py-3 text-center">{{__('Created')}}</th>
+            <th  class="px-2 py-3 text-center">{{__('Status')}}</th>
+            <th  class="px-2 py-3 text-center">{{__('Votes')}}</th>
+            <th  class="px-2 py-3 text-center">{{__('Actions')}}</th>
         </tr>
         </thead>
         @foreach($proposals as $proposal)
             <tbody>
                 <tr class="bg-white text-center">
-                    <th class="px-2 py-3 text-center" scope="row">{{ $proposal->id }}</th>
+                    <th class="px-1 py-3 text-center overflow-hidden" >{{ substr($proposal->title, 0 ,32) }}</th>
+                    <th class="px-2 py-3 text-center" >{{ $proposal->id }}</th>
                     <td class="px-2 py-3 text-center">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</td>
                     <td class="px-2 py-3 text-center text-green-600">{{$proposal->status_label}}</td>
                     <td class="px-2 py-3 text-center">{{$proposal->votes_count}}</td>

@@ -12,7 +12,7 @@
                 <div class="relative mt-5 flex items-center border-b">
                     <div class="ml-4 mr-auto">
                         <div class="mr-5 text-slate-600 sm:mr-5">
-                            {{$proposal->title}}
+                            {{substr($proposal->title, 0, 30)}}
                         </div>
                         <p class="font-medium text-slate-400 text-xs">{{ \Carbon\Carbon::parse($proposal->created_at)->diffForHumans() }}</p>
                     </div>
@@ -27,7 +27,7 @@
                 <div class="relative mt-5 flex items-center border-b">
                     <div class="ml-4 mr-auto">
                         <div class="mr-5 text-slate-600 sm:mr-5">
-                            {{$vote->proposal->title}}
+                            {{substr($vote->proposal->title, 0, 30)}}
                         </div>
                         <p class="font-medium text-slate-400 text-xs">{{ \Carbon\Carbon::parse($vote->created_at)->diffForHumans() }}</p>
                     </div>
