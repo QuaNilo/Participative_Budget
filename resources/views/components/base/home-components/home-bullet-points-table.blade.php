@@ -1,7 +1,7 @@
 <div>
 
     <div class="intro-y mt-8 flex flex-col items-center sm:flex-row">
-        <h2 class="mr-auto text-lg font-medium">{{ __('Home Bullet Points') }}</h2>
+        <h2 class="mr-auto text-lg font-medium">{{ __('Bullet Points') }}</h2>
         <div class="mt-4 flex w-full sm:mt-0 sm:w-auto">
             <x-base.button
                 class="mr-2 shadow-md"
@@ -9,7 +9,7 @@
                 href="{{ route('home-bullet-points.create') }}"
                 as="a"
             >
-                {{ __('Create Home Bullet Points') }}
+                {{ __('Create a Bullet Point') }}
             </x-base.button>
         </div>
     </div>

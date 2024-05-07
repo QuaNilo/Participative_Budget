@@ -90,11 +90,16 @@ class CitizenController extends Controller
     {
         /** @var Citizen $citizen */
         $citizen = Citizen::find($id);
-
         if (empty($citizen)) {
             flash(__('Not found'))->overlay()->danger();
 
             return redirect(route('citizens.index'));
+        }
+
+            // Check for duplicate entry
+        $duplicate = Citizen::where('CC', $request->CC)->where('id', '!=', $id)->exists();
+        if ($duplicate) {
+            return redirect()->route('display_warning', ['message' => __('Citizen Card Already in Use')]);
         }
 
         $citizen->fill($request->all());

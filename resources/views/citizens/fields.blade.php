@@ -1,6 +1,8 @@
-<!-- User Id Field -->
-
-<!-- Cc Field -->
+@php
+use App\Models\Citizen;
+$genderArray = Citizen::getGenderArray();
+@endphp
+    <!-- Cc Field -->
 <div class="mb-3">
     <x-base.form-label for="CC">{{ $citizen->getAttributeLabel('CC') }}</x-base.form-label>
     <x-base.form-input
@@ -11,7 +13,7 @@
         type="text"
     />
     @error('CC')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -26,7 +28,7 @@
         type="text"
     />
     @error('occupation')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -34,17 +36,28 @@
 <!-- Gender Field -->
 <div class="mb-3">
     <x-base.form-label for="gender">{{ $citizen->getAttributeLabel('gender') }}</x-base.form-label>
-    <x-base.form-input
-        class="w-full {{ ($errors->has('gender') ? 'border-danger' : '') }}"
-        id="gender"
-        name="gender"
-        :value="old('gender', $citizen->gender ?? '')"
-        type="text"
-    />
+    <x-base.form-select id="gender" name="gender" value="{{ old('gender') }}"
+        class="">
+        @if(!empty($citizen->gender))
+            <option value="{{$citizen->gender}}">{{$genderArray[$gender]}}</option>
+            @foreach(\App\Models\Citizen::getGenderArray() as $key => $label)
+                @if($key != $gender)
+                    <option value="{{$key}}">{{$label}}</option>
+                @endif
+            @endforeach
+
+        @else
+            @foreach(\App\Models\Citizen::getGenderArray() as $key => $label)
+                <option value="{{$key}}">{{$label}}</option>
+            @endforeach
+        @endif
+    </x-base.form-select>
     @error('gender')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
+
+
 
 <!-- Description Field -->
 <div class="mb-3">
@@ -57,7 +70,7 @@
         type="text"
     />
     @error('description')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -94,7 +107,7 @@
         </x-base.input-group.text>
     </x-base.input-group>
     @error('CC_verified_at')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -116,10 +129,11 @@
             :checked="old('CC_verified', $citizen->CC_verified ?? '') == 1"
             type="checkbox"
         />
-        <x-base.form-check.label for="CC_verified">{{ $citizen->getAttributeLabel('CC_verified') }}</x-base.form-check.label>
+        <x-base.form-check.label
+            for="CC_verified">{{ $citizen->getAttributeLabel('CC_verified') }}</x-base.form-check.label>
     </x-base.form-check>
     @error('CC_verified')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -134,7 +148,7 @@
         type="text"
     />
     @error('address')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -149,7 +163,7 @@
         type="text"
     />
     @error('localidade')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -164,7 +178,7 @@
         type="text"
     />
     @error('freguesia')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -179,7 +193,7 @@
         type="text"
     />
     @error('cod_postal')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
@@ -194,38 +208,22 @@
         type="text"
     />
     @error('telemovel')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
-//TODO trocar isto para um SELECT
-
-<!-- Gender Field -->
-<div class="mb-3">
-    <x-base.form-label for="gender">{{ $citizen->getAttributeLabel('gender') }}</x-base.form-label>
-    <x-base.form-input
-        class="w-full {{ ($errors->has('gender') ? 'border-danger' : '') }}"
-        id="gender"
-        name="gender"
-        :value="old('gender', $citizen->gender ?? '')"
-        type="number"
-        step="1"
-    />
-    @error('gender')
-        <div class="mt-2 text-danger">{{ $message }}</div>
+    <div class="mt-2 text-danger">{{ $message }}</div>
     @enderror
 </div>
 
-<!-- Remember Token Field -->
-<div class="mb-3">
-    <x-base.form-label for="remember_token">{{ $citizen->getAttributeLabel('remember_token') }}</x-base.form-label>
-    <x-base.form-input
-        class="w-full {{ ($errors->has('remember_token') ? 'border-danger' : '') }}"
-        id="remember_token"
-        name="remember_token"
-        :value="old('remember_token', $citizen->remember_token ?? '')"
-        type="text"
-    />
-    @error('remember_token')
-        <div class="mt-2 text-danger">{{ $message }}</div>
-    @enderror
-</div>
+
+{{--<!-- Remember Token Field -->--}}
+{{--<div class="mb-3">--}}
+{{--    <x-base.form-label for="remember_token">{{ $citizen->getAttributeLabel('remember_token') }}</x-base.form-label>--}}
+{{--    <x-base.form-input--}}
+{{--        class="w-full {{ ($errors->has('remember_token') ? 'border-danger' : '') }}"--}}
+{{--        id="remember_token"--}}
+{{--        name="remember_token"--}}
+{{--        :value="old('remember_token', $citizen->remember_token ?? '')"--}}
+{{--        type="text"--}}
+{{--    />--}}
+{{--    @error('remember_token')--}}
+{{--    <div class="mt-2 text-danger">{{ $message }}</div>--}}
+{{--    @enderror--}}
+{{--</div>--}}

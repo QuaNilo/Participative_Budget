@@ -16,35 +16,35 @@
         <h2 class="mr-auto text-lg font-medium">{{ __('Home') }}</h2>
 
     </div>
-        <div>
-        <form action="{{ route('homes.update', \App\Models\Home::first()) }}" method="POST" accept-charset="UTF-8">
-            @csrf
-            @method("PATCH")
-            <div class="mb-6">
-                <livewire:files-upload
-                    inputName="wallpaper"
-                    :isMultiple="false"
-                    :isWallPaper="true"
-                    maxFiles="1"
-                    maxFileSize="10240"
-                    :previousFiles="\App\Models\Home::first()->getMedia('wallpaper') ?? collect()"
-                    :label="__('Upload Wallpaper')"
-                    acceptedFileTypes="*/*"
-                    :uploadFieldMainLabel="__('Upload Wallpaper')"
-                />
-            </div>
-            <div class="mt-5 text-right">
-                <x-base.button
-                    class="w-24"
-                    type="submit"
-                    variant="primary"
-                >{{ __('Save') }}
-                </x-base.button>
-            </div>
-        </form>
+{{--        <div>--}}
+{{--        <form action="{{ route('homes.update', \App\Models\Home::first()) }}" method="POST" accept-charset="UTF-8">--}}
+{{--            @csrf--}}
+{{--            @method("PATCH")--}}
+{{--            <div class="mb-6">--}}
+{{--                <livewire:files-upload--}}
+{{--                    inputName="wallpaper"--}}
+{{--                    :isMultiple="false"--}}
+{{--                    :isWallPaper="true"--}}
+{{--                    maxFiles="1"--}}
+{{--                    maxFileSize="10240"--}}
+{{--                    :previousFiles="\App\Models\Home::first()->getMedia('wallpaper') ?? collect()"--}}
+{{--                    :label="__('Upload Wallpaper')"--}}
+{{--                    acceptedFileTypes="*/*"--}}
+{{--                    :uploadFieldMainLabel="__('Upload Wallpaper')"--}}
+{{--                />--}}
+{{--            </div>--}}
+{{--            <div class="mt-5 text-right">--}}
+{{--                <x-base.button--}}
+{{--                    class="w-24"--}}
+{{--                    type="submit"--}}
+{{--                    variant="primary"--}}
+{{--                >{{ __('Save') }}--}}
+{{--                </x-base.button>--}}
+{{--            </div>--}}
+{{--        </form>--}}
 
 
-        </div>
+{{--        </div>--}}
     <!-- BEGIN: HTML Table Data cannot use intro-y because break modals -->
     <div class="mt-8">
         <x-base.home-components.home-bullet-points-table/>

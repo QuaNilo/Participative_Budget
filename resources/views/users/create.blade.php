@@ -6,16 +6,16 @@
         @csrf
         <div class="intro-y mt-8 flex flex-col items-center sm:flex-row">
             <h2 class="mr-auto text-lg font-medium">{{ __('Create User') }}</h2>
-            <div class="mt-4 flex w-full sm:mt-0 sm:w-auto">
-                <x-base.button
-                    class="shadow-md"
-                    variant="primary"
-                    type="submit"
-                >
+{{--            <div class="mt-4 flex w-full sm:mt-0 sm:w-auto">--}}
+{{--                <x-base.button--}}
+{{--                    class="shadow-md"--}}
+{{--                    variant="primary"--}}
+{{--                    type="submit"--}}
+{{--                >--}}
 
-                    {{ __('Save') }}
-                </x-base.button>
-            </div>
+{{--                    {{ __('Save') }}--}}
+{{--                </x-base.button>--}}
+{{--            </div>--}}
         </div>
         <div class="intro-y mt-5 grid grid-cols-12 gap-5">
             @include('users.fields')

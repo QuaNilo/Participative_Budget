@@ -61,7 +61,7 @@
                         >
                             <x-base.lucide
                                 class="mr-2 h-4 w-4"
-                                icon="password"
+                                icon="lock"
                             /> {{ __('Password') }}
                         </x-base.tippy>
                     </x-base.tab.button>
