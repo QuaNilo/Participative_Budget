@@ -16,6 +16,7 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use App\Models\Proposal;
 
@@ -47,6 +48,7 @@ class ProposalsTable extends Component implements HasForms, HasTable
                 ->searchable(),
             TextColumn::make("title")
                 ->label($newModel->getAttributeLabel("title"))
+                ->limit(32)
                 ->sortable()
                 ->toggleable()
                 ->searchable(),
