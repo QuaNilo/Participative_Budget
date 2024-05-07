@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Rules\Password;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -21,15 +22,25 @@ class ProfileDetails extends Component
     public $citizen;
     public $user;
     public $email;
+    #[Validate('nullable|string|max:255')]
     public $address;
+    #[Validate('nullable|regex:/^\d{4}-\d{3}$/')]
     public $cod_postal;
+    #[Validate('nullable|string|max:255|regex:/^\d{9}$/')]
     public $telemovel;
+    #[Validate('nullable|string|max:255')]
     public $freguesia;
+    #[Validate('nullable|string|max:255')]
     public $localidade;
+    #[Validate('nullable|string|max:255')]
     public $occupation;
+    #[Validate('nullable|string|max:255')]
     public $description;
+    #[Validate('nullable')]
     public $gender;
+    #[Validate('nullable|date')]
     public $birth_date;
+    #[Validate('nullable|string|max:9')]
     public $CC;
 
     public function render()
@@ -96,18 +107,20 @@ class ProfileDetails extends Component
         }
 
         // Validate and update citizen data
-        $this->validate([
-            'CC' => 'nullable|string|max:9',
-            'occupation' => 'nullable|string|max:255',
-            'description' => 'nullable|string|max:255',
-            'birth_date' => 'nullable|date',
-            'address' => 'nullable|string|max:255',
-            'localidade' => 'nullable|string|max:255',
-            'freguesia' => 'nullable|string|max:255',
-            'cod_postal' => 'nullable|regex:/^\d{4}-\d{3}$/',
-            'telemovel' => 'nullable|string|max:255|regex:/^\d{9}$/',
-            'gender' => 'nullable',
-        ]);
+        $this->validate();
+//        $this->validate(Citizen::rules());
+//        $this->validate([
+//            'CC' => 'nullable|string|max:9',
+//            'occupation' => 'nullable|string|max:255',
+//            'description' => 'nullable|string|max:255',
+//            'birth_date' => 'nullable|date',
+//            'address' => 'nullable|string|max:255',
+//            'localidade' => 'nullable|string|max:255',
+//            'freguesia' => 'nullable|string|max:255',
+//            'cod_postal' => 'nullable|regex:/^\d{4}-\d{3}$/',
+//            'telemovel' => 'nullable|string|max:255|regex:/^\d{9}$/',
+//            'gender' => 'nullable',
+//        ]);
 
         $this->citizen->update([
             'cod_postal' => $this->cod_postal,

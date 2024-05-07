@@ -211,7 +211,7 @@
 
                         <div class="grid grid-cols-1 gap-4 mt-4">
                             <div>
-                                <button type="submit" id="submit" name="send" value="1" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white">{{__("Edit Proposal")}}</button>
+                                <button type="submit" id="submit" name="send" value="1" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md bg-primary hover:bg-primary-hover border-primary hover:border-primary-hover text-white">{{__("Edit Proposal")}}</button>
                             </div>
                         </div>
                     </form><!--end form-->

@@ -52,11 +52,6 @@
 {{--                        <a href="{{ route('users.me_edit') }}" class="btn btn-icon rounded-full bg-primary/5 hover:bg-primary border-primary/10 hover:border-primary text-primary hover:text-white dark:bg-slate-900 dark:hover:bg-gray-700 dark:border-gray-700 dark:hover:border-gray-700 dark:text-white"><i data-feather="settings" class="h-4 w-4"></i></a>--}}
                     @endif
                 </li>
-                @if(false)
-                    <li class="inline ps-1 mb-0">
-                        <a href="https://1.envato.market/techwind" target="_blank" class="btn btn-icon rounded-full bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white"><i data-feather="shopping-cart" class="h-4 w-4"></i></a>
-                    </li>
-                @endif
             </ul>
             <!--Login button End-->
         @endguest

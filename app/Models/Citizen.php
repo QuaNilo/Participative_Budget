@@ -117,8 +117,8 @@ class Citizen extends Model implements Auditable, HasMedia
             'cod_postal' => 'nullable|regex:/^\d{4}-\d{3}$/',
             'telemovel' => 'nullable|string|max:255|regex:/^\d{9}$/',
             'gender' => 'nullable',
-            'CC_verified_at' => 'nullable',
-            'CC_verified' => 'nullable',
+            'CC_verified_at' => 'sometimes|nullable|filled',
+            'CC_verified' => 'sometimes|nullable|filled',
         ];
     }
 

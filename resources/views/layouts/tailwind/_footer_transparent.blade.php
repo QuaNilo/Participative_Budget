@@ -76,7 +76,7 @@
                                                 </div>
                                             </div>
 
-                                            <button type="submit" id="submitsubscribe" name="send" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white rounded-md">Subscribe</button>
+                                            <button type="submit" id="submitsubscribe" name="send" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-hover border-primary hover:border-primary-hover text-white rounded-md">Subscribe</button>
                                         </div>
                                     </form>
                                 @endif

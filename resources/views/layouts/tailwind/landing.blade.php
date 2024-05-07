@@ -62,7 +62,7 @@
 
     </head>
 
-    <body class="flex flex-col min-h-screen font-nunito text-base text-black bg-indigo-200/10">
+    <body class="flex flex-col min-h-screen font-nunito text-base text-black bg-primary/10">
         @livewireScripts
         @include('layouts.tailwind._navbar_center')
         <x-frontend.notification-handler />

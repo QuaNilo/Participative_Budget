@@ -151,11 +151,11 @@ class Proposal extends Model implements Auditable, HasMedia
         'lat' => 'nullable|numeric',
         'lng' => 'nullable|numeric',
         'street' => 'nullable|string|max:60',
-        'postal_code' => 'nullable|string|max:20',
+        'postal_code' => 'nullable|regex:/^\d{4}-\d{3}$/',
         'city' => 'nullable|string|max:60',
         'freguesia' => 'nullable|string|max:60',
-        'url' => 'nullable|string|max:255',
-        'budget_estimate' => 'nullable|numeric|max:9999999'
+        'url' => 'nullable|url',
+        'budget_estimate' => 'nullable|numeric|max:99999999'
         ];
     }
 

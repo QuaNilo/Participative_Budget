@@ -10,7 +10,7 @@
                                 <h5 class="text-xl font-bold">{{__('Hello')}}, {{auth()->user()->name}}</h5>
                                 <h6 class="text-slate-400 font-semibold">{{__('Welcome')}}!</h6>
                             </div>
-                        <button class="inline-flex items-center mt-2 px-3 py-2 bg-primary border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-gray-700 transition ease-in-out duration-150" wire:click="logout">
+                        <button class="inline-flex items-center mt-2 px-3 py-2 bg-primary border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-primary-hover focus:bg-gray-700 transition ease-in-out duration-150" wire:click="logout">
                             {{__('Logout')}}</button>
                     </div>
                 </div>

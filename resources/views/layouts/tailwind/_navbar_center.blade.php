@@ -36,11 +36,6 @@
                 <li class="inline mb-0">
                     <a href="{{ route('users_dashboard_show_dashboard') }}" class="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-primary hover:bg-primary-hover border border-primary hover:border-primary-hover text-white"><i data-feather="settings" class="h-4 w-4"></i></a>
                 </li>
-                @if(false)
-                    <li class="inline ps-1 mb-0">
-                        <a href="https://1.envato.market/techwind" target="_blank" class="btn btn-icon rounded-full bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white"><i data-feather="shopping-cart" class="h-4 w-4"></i></a>
-                    </li>
-                @endif
             </ul>
             <!--Login button End-->
         @endguest
@@ -108,11 +103,11 @@
                     <div class="flex space-x-2">
                         <form action="{{route('setting.change_language', 'pt')}}" class="" method="POST">
                             @csrf
-                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-primary font-bold' : '' }}">PT</button>
+                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-primary hover:text-primary-hover font-bold' : '' }}">PT</button>
                         </form>
                         <form action="{{route('setting.change_language', 'en')}}" class="" method="POST">
                             @csrf
-                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-primary font-bold' : '' }}">ENG</button>
+                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-primary hover:text-primary-hover font-bold' : '' }}">ENG</button>
                         </form>
                     </div>
                 </div>

@@ -19,12 +19,12 @@
                             <h5 class="text-xl font-semibold mb-4 mt-8">Restrictions :</h5>
                             <p class="text-slate-400">You are specifically restricted from all of the following :</p>
                             <ul class="list-none text-slate-400 mt-3">
-                                <li class="flex mt-2"><i class="uil uil-arrow-right text-indigo-600 text-lg align-middle me-2"></i>Digital Marketing Solutions for Tomorrow</li>
-                                <li class="flex mt-2"><i class="uil uil-arrow-right text-indigo-600 text-lg align-middle me-2"></i>Our Talented & Experienced Marketing Agency</li>
-                                <li class="flex mt-2"><i class="uil uil-arrow-right text-indigo-600 text-lg align-middle me-2"></i>Create your own skin to match your brand</li>
-                                <li class="flex mt-2"><i class="uil uil-arrow-right text-indigo-600 text-lg align-middle me-2"></i>Digital Marketing Solutions for Tomorrow</li>
-                                <li class="flex mt-2"><i class="uil uil-arrow-right text-indigo-600 text-lg align-middle me-2"></i>Our Talented & Experienced Marketing Agency</li>
-                                <li class="flex mt-2"><i class="uil uil-arrow-right text-indigo-600 text-lg align-middle me-2"></i>Create your own skin to match your brand</li>
+                                <li class="flex mt-2"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Digital Marketing Solutions for Tomorrow</li>
+                                <li class="flex mt-2"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Our Talented & Experienced Marketing Agency</li>
+                                <li class="flex mt-2"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Create your own skin to match your brand</li>
+                                <li class="flex mt-2"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Digital Marketing Solutions for Tomorrow</li>
+                                <li class="flex mt-2"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Our Talented & Experienced Marketing Agency</li>
+                                <li class="flex mt-2"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Create your own skin to match your brand</li>
                             </ul>
                         </div>
                     </div><!--end -->

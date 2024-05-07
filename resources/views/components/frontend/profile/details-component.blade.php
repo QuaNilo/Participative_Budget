@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div><!--end row-->
-        <input type="submit" id="submit" name="send" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-indigo-700 border-primary hover:border-indigo-700 text-white rounded-md mt-5" value="Save Changes">
+        <input type="submit" id="submit" name="send" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-hover border-primary hover:border-primary-hover text-white rounded-md mt-5" value="Save Changes">
     </form><!--end form-->
 
 </div>
