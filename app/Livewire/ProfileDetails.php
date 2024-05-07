@@ -7,6 +7,7 @@ use App\Models\Setting;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Rules\Password;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -96,7 +97,7 @@ class ProfileDetails extends Component
 
         // Validate and update citizen data
         $this->validate([
-            'CC' => 'nullable|string|max:255',
+            'CC' => 'nullable|string|max:9',
             'occupation' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:255',
             'birth_date' => 'nullable|date',

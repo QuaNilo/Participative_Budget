@@ -107,18 +107,18 @@ class Citizen extends Model implements Auditable, HasMedia
     public static function rules(): array
     {
         return [
-            'CC' => 'nullable|string|max:255',
+            'CC' => 'nullable|string|max:9',
             'occupation' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:255',
             'birth_date' => 'nullable|date',
-            'CC_verified_at' => 'nullable',
-            'CC_verified' => 'nullable',
             'address' => 'nullable|string|max:255',
             'localidade' => 'nullable|string|max:255',
             'freguesia' => 'nullable|string|max:255',
-            'cod_postal' => 'nullable|string|max:255',
-            'telemovel' => 'nullable|string|max:255',
+            'cod_postal' => 'nullable|regex:/^\d{4}-\d{3}$/',
+            'telemovel' => 'nullable|string|max:255|regex:/^\d{9}$/',
             'gender' => 'nullable',
+            'CC_verified_at' => 'nullable',
+            'CC_verified' => 'nullable',
         ];
     }
 
