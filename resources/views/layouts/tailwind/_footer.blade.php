@@ -38,7 +38,7 @@
                                 <li class="mt-[10px]"><a href="{{ route('home.privacy_policy') }}" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Privacy Policy') }}</a></li>
                                 <li class="mt-[10px]"><a href="{{ route('home.cookies') }}" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Cookies') }}</a></li>
                                 @if(true)
-                                    <li class="mt-[10px]"><a href="https://www.livroreclamacoes.pt/" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Complaining book') }}</a></li>
+                                    <li class="mt-[10px]"><a href="https://www.livroreclamacoes.pt/" class="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i class="uil uil-angle-right-b"></i> {{ __('Complaints book') }}</a></li>
                                 @endif
                             </ul>
                         </div><!--end col-->

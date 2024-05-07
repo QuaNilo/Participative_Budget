@@ -110,8 +110,8 @@
                                 <div class="intro-x mt-4 flex items-center text-xs text-slate-600 dark:text-slate-500 sm:text-sm">
                                     <x-base.form-check.input type="checkbox" class="mr-2 border" id="terms" name="terms" required />
                                     <label class="cursor-pointer select-none" for="terms" >
-                                        {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                                        'terms_of_service' => '<a target="_blank" href="'.route('home.terms_of_service').'" class="ml-1 text-primary dark:text-slate-200">'.__('Terms of Service').'</a>',
+                                        {!! __('I agree to the :cookies_policy and :privacy_policy', [
+                                                        'cookies_policy' => '<a target="_blank" href="'.route('home.cookies').'" class="ml-1 text-primary dark:text-slate-200">'.__('Terms of Service').'</a>',
                                                         'privacy_policy' => '<a target="_blank" href="'.route('home.privacy_policy').'" class="ml-1 text-primary dark:text-slate-200">'.__('Privacy Policy').'</a>',
                                                 ]) !!}
                                     </label>

@@ -7,6 +7,7 @@ use App\Http\Requests\CreateHomeRequest;
 use App\Http\Requests\UpdateHomeRequest;
 //use App\Http\Controllers\AppBaseController;
 use App\Models\Home;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -133,12 +134,14 @@ class HomeController extends Controller
 
     public function cookies()
     {
-        return view('site.home.cookies');
+        $nome_cm = Setting::first()->nome_cm;
+        return view('site.home.cookies', compact('nome_cm'));
     }
 
     public function privacyPolicy()
     {
-        return view('site.home.privacy_policy');
+        $nome_cm = Setting::first()->nome_cm;
+        return view('site.home.privacy_policy', compact('nome_cm'));
     }
 
     public function termsOfService()

@@ -9,21 +9,24 @@
                     <div class="md:w-3/4">
                         <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
                             <h5 class="text-xl font-semibold my-4">{{'Introdução'}} :</h5>
-                            <p class="text-slate-500">A Política de Privacidade foi desenvolvida para apoiar a Noop (NoOperation, Lda.) na adaptação da sua atividade ao Regulamento Geral de Proteção de Dados, aprovado pelo Regulamento (UE) 2016/679 do Parlamento Europeu e do Conselho de 27 de abril de 2016 (“RGPD”).</p>
-                            <p class="text-slate-500">Esta política é complementada por outras sobre segurança/security, as quais são relevantes para os negócios da empresa, descrevendo, em conjunto, a abordagem da Noop quanto à segurança da informação e privacidade.</p>
-                            <p class="text-slate-500">Esta política aplica-se a todos os Profissionais e Parceiros da Noop e, quando identificados, a terceiros que acedam aos ativos da empresa.</p>
+                            <p class="text-slate-500">A Política de Privacidade foi desenvolvida para apoiar a {{$nome_cm}} na adaptação da sua atividade ao Regulamento Geral de Proteção de Dados, aprovado pelo Regulamento (UE) 2016/679 do Parlamento Europeu e do Conselho de 27 de abril de 2016 (“RGPD”).</p>
+                            <p class="text-slate-500">Esta política é complementada por outras sobre segurança/security, as quais são relevantes para os negócios da empresa, descrevendo, em conjunto, a abordagem da
+                                {{$nome_cm}} quanto à segurança da informação e privacidade.</p>
+                            <p class="text-slate-500">Esta política aplica-se a todos os Profissionais e Parceiros da
+                                {{$nome_cm}} e, quando identificados, a terceiros que acedam aos ativos da empresa.</p>
                             <p class="text-slate-500">Os termos ‘Privacidade’, ‘Privacidade de Dados’ e ‘Proteção de Dados’ podem ser usados no mesmo sentido pois estão associados a um conjunto complexo de requisitos legais que se aplicam aos Dados Pessoais, o qual vai para além da segurança de dados e confidencialidade. Por exemplo, inclui requisitos sobre a transparência do uso de dados e sobre a sua conservação.</p>
                             <p class="text-slate-500">O cumprimento desta política é obrigatório e, portanto, todos os Profissionais e Parceiros têm a responsabilidade individual de garantir a sua conformidade com a mesma e, se necessário, devem solicitar esclarecimentos aos lideres das respetivas equipas.</p>
-                            <p class="text-slate-500">É da responsabilidade da Noop definir os mecanismos apropriados para alcançar a conformidade com esta política, sendo a responsabilidade pela implementação operacional das equipas, com o apoio do Privacy Officer.</p>
+                            <p class="text-slate-500">É da responsabilidade da {{$nome_cm}} definir os mecanismos apropriados para alcançar a conformidade com esta política, sendo a responsabilidade pela implementação operacional das equipas, com o apoio do Privacy Officer.</p>
                             <p class="text-slate-500">O cumprimento desta política pode ser monitorizado por meio de fiscalizações, auditorias e/ou solicitações de confirmações por escrito de conformidade, sendo todas as áreas responsáveis por avaliar regularmente a sua conformidade com a mesma dentro da sua área de responsabilidade.</p>
                             <p class="text-slate-500">Em conformidade qualquer colaborador que tenha violado esta política está sujeito a ação disciplinar.</p>
-                            <p class="text-slate-500">Esta política baseia-se nos princípios estabelecidos no RGPD. No entanto, existem diferenças nacionais na aplicabilidade da proteção de dados e privacidade da Noop, quando se efetua tratamento de dados pessoais fora da UE, quando se recebe dados pessoais de fora da UE ou quando se efetua tratamento de dados pessoais de cidadãos não comunitários.</p>
+                            <p class="text-slate-500">Esta política baseia-se nos princípios estabelecidos no RGPD. No entanto, existem diferenças nacionais na aplicabilidade da proteção de dados e privacidade da
+                                {{$nome_cm}}, quando se efetua tratamento de dados pessoais fora da UE, quando se recebe dados pessoais de fora da UE ou quando se efetua tratamento de dados pessoais de cidadãos não comunitários.</p>
                             <p class="text-slate-500">Em caso de dúvida contacte o Privacy Officer.</p>
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Princípios de Proteção de Dados'}} :</h5>
                             <p class="text-slate-500">No âmbito da nossa atividade, efetuamos tratamentos de Dados Pessoais: seja quando recebemos dados pessoais no decurso das nossas oportunidades de negócio, dos nossos compromissos com clientes, de atividades de marketing ou de uma série de outras atividades relacionadas e de suporte. Os dados podem ser recebidos diretamente de um Titular de Dados (por exemplo, pessoalmente, via correio, e-mail, telefone ou de outras fontes), nomeadamente dos nossos clientes, parceiros, subcontratados, responsáveis conjuntos pelo Tratamento, prestadores de serviços de suporte e agências de referência de crédito.</p>
                             <p class="text-slate-500">Todos os profissionais e parceiros devem apenas solicitar dados pessoais de um Titular de Dados que sejam relevantes e necessários para cumprir determinada finalidade e tarefa empresarial.</p>
-                            <p class="text-slate-500">A Noop compromete-se a cumprir com os princípios de proteção de dados pessoais definidos pelo RGPD, a saber:</p>
+                            <p class="text-slate-500">A {{$nome_cm}} compromete-se a cumprir com os princípios de proteção de dados pessoais definidos pelo RGPD, a saber:</p>
                             <ul class="list-none text-slate-400 mt-4">
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i><span class="font-semibold text-black">Licitude, lealdade e transparência: </span> significa que devemos ter uma razão legítima por força da qual tratamos Dados Pessoais, por exemplo, consentimento do Titular dos Dados, cumprimento de uma obrigação legal a que estamos sujeitos. Também significa que devemos informar, de forma clara, o Titular dos Dados sobre o tratamento;</li>
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i><span class="font-semibold text-black">Limitação das Finalidades: </span>devemos apenas solicitar Dados Pessoais para finalidades determinadas, explícitas e legítimas e não os tratar para além da finalidade para a qual foram solicitados;</li>
@@ -53,7 +56,7 @@
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Tratamento apenas para finalidades específicas'}} :</h5>
                             <p class="text-slate-500">Sempre que recolhemos e tratamos Dados Pessoais devemos garantir que apenas os utilizamos para as finalidades específicas que foram comunicadas ao respetivo titular.</p>
-                            <p class="text-slate-500">A Noop nunca deve tratar Dados Pessoais para fins adicionais que não tenham sido comunicados ao Titular dos Dados. Só assim estaremos esclarecidos quanto ao propósito do tratamento e devemos entender os propósitos para os quais os nossos clientes podem ter recolhido os Dados Pessoais.</p>
+                            <p class="text-slate-500">A {{$nome_cm}} nunca deve tratar Dados Pessoais para fins adicionais que não tenham sido comunicados ao Titular dos Dados. Só assim estaremos esclarecidos quanto ao propósito do tratamento e devemos entender os propósitos para os quais os nossos clientes podem ter recolhido os Dados Pessoais.</p>
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Tratamento adequado, pertinente e limitado'}} :</h5>
                             <p class="text-slate-500">Quando recolhemos e tratamos Dados Pessoais devemos seguir o princípio da minimização dos dados. Isso significa que devemos recolher apenas os Dados Pessoais mínimos necessários para realizar uma tarefa específica.</p>
@@ -81,10 +84,12 @@
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Devemos garantir que temos processos em vigor para identificar e responder às questões de acesso por parte do Titular dos Dados, sem demora injustificada, e no prazo máximo de um mês.</li>
                             </ul>
                             <p class="mt-2"><strong>b) Direito de retificação</strong></p>
-                            <ul><li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Os Titulares dos Dados têm o direito à retificação dos dados inexatos, cabendo à Noop todos os esforços para o fazer de imediato.</li>
+                            <ul><li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Os Titulares dos Dados têm o direito à retificação dos dados inexatos, cabendo à
+                                {{$nome_cm}} todos os esforços para o fazer de imediato.</li>
                             <p class="mt-2"><strong>c) Direito ao apagamento</strong></p>
                                 <ul>
-                                    <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>O Titular dos Dados tem o direito de obter do Responsável pelo tratamento o apagamento dos seus dados (‘direito de ser esquecido’). Cabe à Noop fazer o possível para apagar de imediato os dados mantidos, exceto quando houver uma exigência legal para a sua conservação. Se receber uma solicitação de um Titular de Dados contacte primeiro o Privacy Officer antes de apagar quaisquer dados.</li>
+                                    <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>O Titular dos Dados tem o direito de obter do Responsável pelo tratamento o apagamento dos seus dados (‘direito de ser esquecido’). Cabe à
+                                        {{$nome_cm}} fazer o possível para apagar de imediato os dados mantidos, exceto quando houver uma exigência legal para a sua conservação. Se receber uma solicitação de um Titular de Dados contacte primeiro o Privacy Officer antes de apagar quaisquer dados.</li>
                                 </ul>
                             </ul>
                             <p class="mt-2"><strong>d) Direitos das crianças</strong></p>
@@ -99,7 +104,7 @@
                             <p class="text-slate-500">Para todas as questões relativas aos direitos dos Titulares de Dados contacte o Privacy Officer.</p>
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Segurança dos Dados Retidos'}} :</h5>
-                            <p class="text-slate-500">A Noop manterá a segurança dos dados protegendo a Confidencialidade, Integridade e Disponibilidade dos Dados Pessoais, sendo que:</p>
+                            <p class="text-slate-500">A {{$nome_cm}} manterá a segurança dos dados protegendo a Confidencialidade, Integridade e Disponibilidade dos Dados Pessoais, sendo que:</p>
                             <ul>
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Confidencialidade significa que apenas pessoas autorizadas podem aceder aos dados;</li>
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>Integridade significa que os Dados Pessoais devem ser exatos e adequados para as finalidades inerentes ao tratamento;</li>
@@ -115,7 +120,8 @@
                             <p class="text-slate-500">c) Partilhar Dados Pessoais com um terceiro que esteja a tratar dados em nosso nome, o que pode incluir a transferência de dados para um terceiro país.</p>
                             <p class="text-slate-500">Geralmente os Dados Pessoais podem ser divulgados:</p>
                             <p class="text-slate-500">a) Aos Profissionais ou agentes para que possam desempenhar as suas funções enquanto tal.</p>
-                            <p class="text-slate-500">b) Nos casos em que a não divulgação poderá prejudicar a prevenção ou deteção de crimes, a dedução de acusação contra infratores, ou a avaliação ou cobrança de qualquer imposto ou taxa. A Noop deve ter motivos adequados para divulgar os dados sob esta categoria a fim de evitar processos criminais. Todas as divulgações devem ser justificadas e documentadas.</p>
+                            <p class="text-slate-500">b) Nos casos em que a não divulgação poderá prejudicar a prevenção ou deteção de crimes, a dedução de acusação contra infratores, ou a avaliação ou cobrança de qualquer imposto ou taxa. A
+                                {{$nome_cm}} deve ter motivos adequados para divulgar os dados sob esta categoria a fim de evitar processos criminais. Todas as divulgações devem ser justificadas e documentadas.</p>
                             <p class="text-slate-500">Para fins legais os dados podem ser divulgados se:</p>
                             <p class="text-slate-500">a) Exigido por lei, estatuto ou por ordem do tribunal.</p>
                             <p class="text-slate-500">b) Com a finalidade de obter assessoria jurídica;</p>
@@ -123,22 +129,26 @@
                             <p class="text-slate-500">d) Para salvaguarda da segurança nacional.</p>
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Transferência internacional de Dados Pessoais'}} :</h5>
-                            <p class="text-slate-500">A Noop pode transferir quaisquer Dados Pessoais para um terceiro país ou organização internacional. Os Dados Pessoais que possuímos também podem ser tratados por funcionários que operam num terceiro país ou para um de nossos fornecedores.</p>
+                            <p class="text-slate-500">A {{$nome_cm}} pode transferir quaisquer Dados Pessoais para um terceiro país ou organização internacional. Os Dados Pessoais que possuímos também podem ser tratados por funcionários que operam num terceiro país ou para um de nossos fornecedores.</p>
                             <p class="text-slate-500">Temos de garantimos que pelo menos uma das seguintes condições se aplique:</p>
                             <p class="text-slate-500">a) O país para o qual os Dados Pessoais são transferidos garante um nível adequado de proteção para os direitos e liberdades dos Titulares dos Dados, por decisão da Comissão da UE.</p>
                             <p class="text-slate-500">b) Sejam fornecidas salvaguardas apropriadas (por exemplo cláusulas tipo de proteção de dados).</p>
                             <p class="text-slate-500">c) O Titular dos Dados ter dado consentimento explícito para a transferência após ter sido informado dos possíveis riscos.</p>
-                            <p class="text-slate-500">d) A transferência ser necessária por uma das razões estabelecidas no RGPD, incluindo a execução de um contrato entre a Noop e o Titular dos Dados, ou proteção dos interesses vitais do Titular dos Dados.</p>
+                            <p class="text-slate-500">d) A transferência ser necessária por uma das razões estabelecidas no RGPD, incluindo a execução de um contrato entre a
+                                {{$nome_cm}} e o Titular dos Dados, ou proteção dos interesses vitais do Titular dos Dados.</p>
                             <p class="text-slate-500">e) A transferência ser legalmente exigida por motivos importantes de interesse público ou para a propositura de ações judiciais ou defesa no âmbito das mesmas   </p>
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Informações de log, cookies e web beacons'}} :</h5>
-                            <p class="text-slate-500">O website da Noop utiliza cookies para distinguir os seus utilizadores. A Noop recolhe informações padrão de registo na Internet, incluindo o endereço IP do utilizador, o tipo e o idioma do navegador, os horários de acesso e os endereços dos sites de referência.</p>
-                            <p class="text-slate-500">Para garantir que o nosso website seja bem gerido e para facilitar a navegação a Noop ou os seus prestadores de serviço também podem usar cookies (pequenos arquivos de texto armazenados no navegador do usuário) ou web beacons (imagens eletrónicas que permitem ao nosso site contar os visitantes que acedem a um site e a certos cookies) para recolher dados agregados.</p>
+                            <p class="text-slate-500">O website da {{$nome_cm}} utiliza cookies para distinguir os seus utilizadores. A
+                                {{$nome_cm}} recolhe informações padrão de registo na Internet, incluindo o endereço IP do utilizador, o tipo e o idioma do navegador, os horários de acesso e os endereços dos sites de referência.</p>
+                            <p class="text-slate-500">Para garantir que o nosso website seja bem gerido e para facilitar a navegação a
+                                {{$nome_cm}} ou os seus prestadores de serviço também podem usar cookies (pequenos arquivos de texto armazenados no navegador do usuário) ou web beacons (imagens eletrónicas que permitem ao nosso site contar os visitantes que acedem a um site e a certos cookies) para recolher dados agregados.</p>
                             <hr>
                             <h5 class="text-xl font-semibold my-4">{{'Informação de Profissionais'}} :</h5>
                             <p class="text-slate-500">Recolha e Conservação</p>
                             <ul>
-                                <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>A Noop, enquanto empregadora, recolhe, trata e conserva dados pessoais de trabalhadores, contratados, consultores e candidatos. O Departamento de Recursos Humanos e outros departamentos que tratam Dados Pessoais de profissionais devem verificar e documentar qual a base legal inerente ao tratamento que efetuarem. Os Dados Pessoais dos profissionais só devem ser tratados quando houver um objetivo válido e legítimo para o efeito.</li>
+                                <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>A
+                                    {{$nome_cm}}, enquanto empregadora, recolhe, trata e conserva dados pessoais de trabalhadores, contratados, consultores e candidatos. O Departamento de Recursos Humanos e outros departamentos que tratam Dados Pessoais de profissionais devem verificar e documentar qual a base legal inerente ao tratamento que efetuarem. Os Dados Pessoais dos profissionais só devem ser tratados quando houver um objetivo válido e legítimo para o efeito.</li>
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>A recolha de dados pessoais relacionados com os nossos funcionários ocorre por meio de diversos canais e formatos, tais como: formulários de inscrição; formulários web eletrónicos, (por exemplo, durante o processo de recrutamento); registos de dados; imagens de CCTV; Fotografias de equipa, incluindo cartões de identificação; dados de outras fontes (por exemplo empregadores anteriores); verificações de crédito e verificações de segurança; etc.</li>
                                 <li class="mt-2 text-slate-500"><i class="uil uil-arrow-right text-primary text-lg align-middle me-2"></i>A criação e o armazenamento de dados pessoais relacionados com os nossos profissionais ocorrem por meio de vários canais e formatos, tais como: recibos de pagamento; registos de avaliação; Contratos de trabalho; e-mails; registos de doença; etc.</li>
                             </ul>
