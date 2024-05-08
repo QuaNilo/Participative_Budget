@@ -1,4 +1,4 @@
-@props(['edition', 'winners'])
+@props(['edition'])
 <div onclick="window.location='{{ route('propostas', ['id' =>$edition->id]) }}'" class="bg-white/60 shadow-lg rounded-md hover:cursor-pointer transition-transform transform-gpu hover:scale-105">
     <div class="flex items-start px-5 pt-5">
         <div class="w-full items-center">

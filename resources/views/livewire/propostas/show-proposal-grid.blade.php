@@ -50,7 +50,11 @@
             <x-frontend.propostas.proposal-card :proposal="$proposal"/>
         @endforeach
     </div>
-{{--        <x-frontend.propostas.pagination :proposals="$proposals"/>--}}
+    <div class="mt-24">
+        @if(count($proposals) === 0)
+            <x-frontend.no-data-cow :message="__('No Proposals Found')"/>
+        @endif
+    </div>
     <div class="mt-12">
         {{$proposals->links()}}
     </div>
