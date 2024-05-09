@@ -103,11 +103,11 @@
                     <div class="flex space-x-2">
                         <form action="{{route('setting.change_language', 'pt')}}" class="" method="POST">
                             @csrf
-                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-primary hover:text-primary-hover font-bold' : '' }}">PT</button>
+                            <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-primary hover:text-primary-hover font-bold' : '' }}">{{__('PT')}}</button>
                         </form>
                         <form action="{{route('setting.change_language', 'en')}}" class="" method="POST">
                             @csrf
-                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-primary hover:text-primary-hover font-bold' : '' }}">ENG</button>
+                                <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-primary hover:text-primary-hover font-bold' : '' }}">{{__('ENG')}}</button>
                         </form>
                     </div>
                 </div>

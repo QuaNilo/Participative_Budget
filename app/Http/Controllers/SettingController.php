@@ -137,7 +137,7 @@ class SettingController extends Controller
     {
         app()->setLocale($language);
         session(['locale' => $language]);
-        flash(__('Language Changed to') . ' ' . app()->getLocale())->overlay()->success()->duration(2500);
+        flash(__('Language Changed to') . ' ' . (app()->getLocale() === 'pt' ? 'Português' : 'English'))->overlay()->success()->duration(2500);
         return redirect()->back();
     }
 }

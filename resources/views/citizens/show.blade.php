@@ -28,7 +28,7 @@
                         <x-base.lucide
                             class="mr-2 h-4 w-4"
                             icon="check"
-                        /> {{ __('Submit Citizen Approval Status') }}
+                        /> {{ __('Citizen Approval Status') }}
                     </x-base.button>
 
                 </form>

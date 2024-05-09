@@ -4,6 +4,18 @@
     @section('breadcrumbs')
         <x-base.breadcrumb class="-intro-x mr-auto hidden sm:flex"></x-base.breadcrumb>
     @show
+    <div class="flex items-center align-content-center mx-4">
+        <div class="flex space-x-2">
+            <form action="{{route('setting.change_language', 'pt')}}" class="" method="POST">
+                @csrf
+                <button id="pt" type="submit" class="text-center transition ease-in-out {{ app()->isLocale('pt') ? 'text-primary hover:text-primary-hover font-bold' : '' }}">{{__('PT')}}</button>
+            </form>
+            <form action="{{route('setting.change_language', 'en')}}" class="" method="POST">
+                @csrf
+                    <button id="en" type="submit" class="transition ease-in-out {{ app()->isLocale('en') ? ' text-primary hover:text-primary-hover font-bold' : '' }}">{{__('ENG')}}</button>
+            </form>
+        </div>
+    </div>
 
     @if(false)
         {{-- TODO meter o search a dar --}}

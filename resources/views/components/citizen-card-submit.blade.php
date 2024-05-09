@@ -49,14 +49,15 @@
             @click="wizard = 'review'"
             x-bind:disabled="downloaded == false"
         >
-            Previous
+           {{__('Previous')}}
         </x-base.button>
             <x-base.button
                 class="ml-2 w-26"
                 variant="primary"
-                href="{{route('dashboard')}}"
             >
-                Home Page
+                <a href="{{route('dashboard')}}">
+                    {{__('Home Page')}}
+                </a>
             </x-base.button>
     </div>
 </div>
