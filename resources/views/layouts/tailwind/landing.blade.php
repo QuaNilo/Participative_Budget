@@ -36,11 +36,11 @@
             <meta property="og:title" content="@yield('title', config('app.name', 'Laravel'))" />
         @endif
 
-        <meta name="description" content="@yield('page_description', $pageDescription ?? 'O Observatório da Autoridade da Mobilidade e dos Transportes (AMT) disponibiliza, através deste portal, informação estatística sobre diversos modos de transportes em Portugal.')"/>
-        <meta name="keywords" content="@yield('keywords', $pageKeywords ?? 'Observatório, AMT, Autoridade da Mobilidade e Transportes')"/>
+        <meta name="description" content="@yield('page_description', $pageDescription ?? 'Utilize este portal para participar nas propostas do seu concelho.')"/>
+        <meta name="keywords" content="@yield('keywords', $pageKeywords ?? 'Orçamento Pariticpativo, Portugal, Câmara Municipal')"/>
         <meta property="og:url" content="@yield('public_url', $publicUrl ?? url()->current())" />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content="@yield('page_description', $pageDescription ?? 'O Observatório da Autoridade da Mobilidade e dos Transportes (AMT) disponibiliza, através deste portal, informação estatística sobre diversos modos de transportes em Portugal.')" />
+        <meta property="og:description" content="@yield('page_description', $pageDescription ?? 'Utilize este portal para participar nas propostas do seu concelho.')" />
         <meta property="og:image" content="@yield('share_image', $shareImageUrl ?? asset('images/logo_dark.png'))" />
 
         <x-cookie-consent-and-tracking></x-cookie-consent-and-tracking>
