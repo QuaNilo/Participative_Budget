@@ -49,19 +49,6 @@
                                             class="h-[28px] w-[28px] text-pending"
                                             icon="CreditCard"
                                         />
-                                        <div class="ml-auto">
-                                            <x-base.tippy
-                                                class="flex cursor-pointer items-center rounded-full bg-danger py-[3px] pl-2 pr-1 text-xs font-medium text-white"
-                                                as="div"
-                                                content="2% mais do que no último mês"
-                                            >
-                                                2%
-                                                <x-base.lucide
-                                                    class="ml-0.5 h-4 w-4"
-                                                    icon="ChevronUp"
-                                                />
-                                            </x-base.tippy>
-                                        </div>
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{ $edition_count }}</div>
                                     <div class="mt-1 text-base text-slate-500">{{__('Edições')}}</div>
@@ -79,19 +66,6 @@
                                             class="h-[28px] w-[28px] text-warning"
                                             icon="mail-check"
                                         />
-                                        <div class="ml-auto">
-                                            <x-base.tippy
-                                                class="flex cursor-pointer items-center rounded-full bg-success py-[3px] pl-2 pr-1 text-xs font-medium text-white"
-                                                as="div"
-                                                content="12% mais do que no último mês"
-                                            >
-                                                12%
-                                                <x-base.lucide
-                                                    class="ml-0.5 h-4 w-4"
-                                                    icon="ChevronUp"
-                                                />
-                                            </x-base.tippy>
-                                        </div>
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{$proposal_count}}</div>
                                     <div class="mt-1 text-base text-slate-500">
@@ -111,19 +85,6 @@
                                             class="h-[28px] w-[28px] text-success"
                                             icon="User"
                                         />
-                                        <div class="ml-auto">
-                                            <x-base.tippy
-                                                class="flex cursor-pointer items-center rounded-full bg-success py-[3px] pl-2 pr-1 text-xs font-medium text-white"
-                                                as="div"
-                                                content="22% mais do que no último mês"
-                                            >
-                                                100%
-                                                <x-base.lucide
-                                                    class="ml-0.5 h-4 w-4"
-                                                    icon="ChevronUp"
-                                                />
-                                            </x-base.tippy>
-                                        </div>
                                     </div>
                                     <div class="mt-6 text-3xl font-medium leading-8">{{$user_count}}</div>
                                     <div class="mt-1 text-base text-slate-500">
@@ -134,12 +95,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- END: General Report -->
-
-
-
-
-                <!-- BEGIN: Weekly Top Products -->
                 <div class="col-span-12 mt-6">
                     <div class="intro-y block h-10 items-center sm:flex">
                         <h2 class="mr-5 truncate text-lg font-medium">
@@ -190,7 +145,7 @@
                                         >
                                             <a
                                                 class="whitespace-nowrap font-medium"
-                                                href=""
+                                                href="{{route('proposals.show', ['proposal' => $proposal])}}"
                                             >
                                                 {{$proposal->title}}
                                             </a>
