@@ -49,10 +49,7 @@ class DashboardProfile extends Component
 //        GET TOTAL IMPRESSIONS ON MY PROPOSALS
         $this->total_impressions = auth()->user()->proposals()->sum('impressions');
         if($this->user->proposals->isNotEmpty()){
-            if($this->user->proposals->votes->isNotEmpty())
-            {
-                $this->getVotesPerGender();
-            }
+            $this->getVotesPerGender();
         }
         else{
             $this->genderVotes = '0';
@@ -105,6 +102,10 @@ class DashboardProfile extends Component
 
         // Iterate through each edition
         foreach ($this->user->proposals as $proposal) {
+            if($proposal->votes->isEmpty()){
+                continue;
+            }
+
             foreach ($proposal->votes as $vote)
             {
                 ++$genderVotes[$vote->user->citizen->gender];
