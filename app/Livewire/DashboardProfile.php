@@ -102,13 +102,11 @@ class DashboardProfile extends Component
 
         // Iterate through each edition
         foreach ($this->user->proposals as $proposal) {
-            if($proposal->votes->isEmpty()){
-                continue;
-            }
-
-            foreach ($proposal->votes as $vote)
-            {
-                ++$genderVotes[$vote->user->citizen->gender];
+            if($proposal->votes->isNotEmpty()){
+                foreach ($proposal->votes as $vote)
+                {
+                    ++$genderVotes[$vote->user->citizen->gender];
+                }
             }
         }
         // Convert arrays to JSON format for use in JavaScript
