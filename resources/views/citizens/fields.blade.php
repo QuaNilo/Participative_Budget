@@ -38,10 +38,11 @@ $genderArray = Citizen::getGenderArray();
     <x-base.form-label for="gender">{{ $citizen->getAttributeLabel('gender') }}</x-base.form-label>
     <x-base.form-select id="gender" name="gender" value="{{ old('gender') }}"
         class="">
+{{--        @dd($citizen)--}}
         @if(!empty($citizen->gender))
-            <option value="{{$citizen->gender}}">{{$genderArray[$gender]}}</option>
+            <option value="{{$citizen->gender}}">{{$genderArray[$citizen->gender]}}</option>
             @foreach(\App\Models\Citizen::getGenderArray() as $key => $label)
-                @if($key != $gender)
+                @if($key != $citizen->gender)
                     <option value="{{$key}}">{{$label}}</option>
                 @endif
             @endforeach
