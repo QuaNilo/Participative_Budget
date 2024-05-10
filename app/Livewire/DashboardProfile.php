@@ -49,7 +49,10 @@ class DashboardProfile extends Component
 //        GET TOTAL IMPRESSIONS ON MY PROPOSALS
         $this->total_impressions = auth()->user()->proposals()->sum('impressions');
         if($this->user->proposals->isNotEmpty()){
-            $this->getVotesPerGender();
+            if($this->user->proposals->votes->isNotEmpty())
+            {
+                $this->getVotesPerGender();
+            }
         }
         else{
             $this->genderVotes = '0';
