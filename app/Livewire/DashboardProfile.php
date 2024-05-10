@@ -48,12 +48,16 @@ class DashboardProfile extends Component
 
 //        GET TOTAL IMPRESSIONS ON MY PROPOSALS
         $this->total_impressions = auth()->user()->proposals()->sum('impressions');
-
-        $this->getAverageVotesOnAllEditions();
+        if($this->user->proposals->isNotEmpty()){
+            $this->getVotesPerGender();
+        }
+        else{
+            $this->genderVotes = '0';
+        }
         $this->getVotesPerEdition();
+        $this->getAverageVotesOnAllEditions();
         $this->getVotesPerCategory();
         $this->getLatestActivity();
-        $this->getVotesPerGender();
 
         $this->setting = \App\Models\Setting::first();
     }
@@ -166,7 +170,7 @@ class DashboardProfile extends Component
     protected function getLatestActivity()
     {
         $this->latestVotes = $this->user->votes()->latest()->take(6)->get();
-        if($this->user->proposals())
+        if($this->user->proposals->isNotEmpty())
         {
             $latestProposals = $this->user->proposals()
             ->orderByDesc('updated_at')
