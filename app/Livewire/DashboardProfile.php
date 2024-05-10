@@ -105,7 +105,10 @@ class DashboardProfile extends Component
             if($proposal->votes->isNotEmpty()){
                 foreach ($proposal->votes as $vote)
                 {
-                    ++$genderVotes[$vote->user->citizen->gender];
+                    $gender = $vote->user->citizen->gender ?? null;
+                    if (!empty($gender)) {
+                        ++$genderVotes[$gender];
+                    }
                 }
             }
         }
